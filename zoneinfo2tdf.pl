@@ -1,19 +1,17 @@
 #! /usr/bin/perl -w
-
-# Courtesy Ken Pizzini.
-
 use strict;
 
 #This file released to the public domain.
 
-# Note: error checking is poor; trust the output only if the input
-# has been checked by zic.
+#Note: error checking is poor --- only trust the output if the input
+#has been checked by zic.
 
 my $contZone = '';
 while (<>) {
   my $origline = $_;
   my @fields = ();
-  while (s/^\s*((?:"[^"]*"|[^\s#])+)//) {
+  while (/^\s*[^#]/) {
+    s/^\s*((?:"[^"]*"|[^\s#])+)// or last;
     push @fields, $1;
   }
   next unless @fields;
@@ -40,7 +38,7 @@ while (<>) {
     # Rule  NAME  FROM  TO  TYPE  IN  ON  AT  SAVE  LETTER/S
     @fields == 10 or warn "bad rule line";
   } elsif ($type eq 'link') {
-    # Link  TARGET  LINK-NAME
+    # Link  LINK-FROM  LINK-TO
     @fields == 3 or warn "bad link line";
   } elsif ($type eq 'leap') {
     # Leap  YEAR  MONTH  DAY  HH:MM:SS  CORR  R/S
