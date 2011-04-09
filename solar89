@@ -1,9 +1,7 @@
-# <pre>
-# This file is in the public domain, so clarified as of
-# 2009-05-17 by Arthur David Olson.
+# @(#)solar89	8.1
 
 # Apparent noon times below are for Riyadh; they're a bit off for other places.
-# Times were computed using a formula provided by the U.S. Naval Observatory:
+# Times were computed using a formula provided by the U. S. Naval Observatory:
 #	eqt = -105.8 * sin(l) + 596.2 * sin(2 * l) + 4.4 * sin(3 * l)
 #		-12.7 * sin(4 * l) - 429.0 * cos(l) - 2.1 * cos (2 * l)
 #		+ 19.3 * cos(3 * l);
@@ -387,7 +385,9 @@ Rule	sol89	1989	only	-	Dec	31	12:03:00s -0:03:00 -
 # Riyadh is at about 46 degrees 46 minutes East:  3 hrs, 7 mins, 4 secs
 # Before and after 1989, we'll operate on local mean solar time.
 
-# Zone	NAME			GMTOFF	RULES/SAVE	FORMAT	[UNTIL]
-Zone	Mideast/Riyadh		3:07:04	-		??	1989
-				3:07:04	sol89		??	1990
-				3:07:04	-		??
+# Zone	NAME		GMTOFF	RULES/SAVE	FORMAT	[UNTIL]
+Zone	Asia/Riyadh89	3:07:04	-		zzz	1989
+			3:07:04	sol89		zzz	1990
+			3:07:04	-		zzz
+# For backward compatibility...
+Link	Asia/Riyadh89	Mideast/Riyadh89

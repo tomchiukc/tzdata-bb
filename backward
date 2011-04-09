@@ -1,11 +1,10 @@
-# This file is in the public domain, so clarified as of
-# 2009-05-17 by Arthur David Olson.
+# @(#)backward	8.6
 
 # This file provides links between late-1993-vintage names for time zones
 # and their previous names.
 
 Link	Africa/Asmara		Africa/Asmera
-Link	Africa/Abidjan		Africa/Timbuktu
+Link	Africa/Bamako		Africa/Timbuktu
 Link	America/Argentina/Catamarca	America/Argentina/ComodRivadavia
 Link	America/Adak		America/Atka
 Link	America/Argentina/Buenos_Aires	America/Buenos_Aires
@@ -21,20 +20,14 @@ Link	America/Kentucky/Louisville	America/Louisville
 Link	America/Argentina/Mendoza	America/Mendoza
 Link	America/Rio_Branco	America/Porto_Acre
 Link	America/Argentina/Cordoba	America/Rosario
-Link	America/Denver		America/Shiprock
-Link	America/Port_of_Spain	America/Virgin
-Link	Pacific/Auckland	Antarctica/South_Pole
+Link	America/St_Thomas	America/Virgin
 Link	Asia/Ashgabat		Asia/Ashkhabad
-Link	Asia/Kolkata		Asia/Calcutta
-Link	Asia/Shanghai		Asia/Chongqing
-Link	Asia/Shanghai		Asia/Chungking
+Link	Asia/Chongqing		Asia/Chungking
 Link	Asia/Dhaka		Asia/Dacca
-Link	Asia/Shanghai		Asia/Harbin
-Link	Asia/Urumqi		Asia/Kashgar
-Link	Asia/Kathmandu		Asia/Katmandu
+Link	Asia/Kolkata		Asia/Calcutta
 Link	Asia/Macau		Asia/Macao
-Link	Asia/Ho_Chi_Minh	Asia/Saigon
 Link	Asia/Jerusalem		Asia/Tel_Aviv
+Link	Asia/Ho_Chi_Minh	Asia/Saigon
 Link	Asia/Thimphu		Asia/Thimbu
 Link	Asia/Makassar		Asia/Ujung_Pandang
 Link	Asia/Ulaanbaatar	Asia/Ulan_Bator
@@ -100,6 +93,22 @@ Link	Europe/Dublins		Eire
 Link	Europe/London		GB
 Link	Pacific/Auckland	NZ
 Link	Pacific/Chatham		NZ-CHAT
-Link	Pacific/Easter		Chile/EasterIsland
+Link	America/Denver		Navajo
+Link	Asia/Shanghai		PRC
+Link	Pacific/Pago_Pago	Pacific/Samoa
+Link	Pacific/Truk		Pacific/Yap
+Link	Europe/Warsaw		Poland
+Link	Europe/Lisbon		Portugal
+Link	Asia/Taipei		ROC
+Link	Asia/Seoul		ROK
+Link	Asia/Singapore		Singapore
+Link	Europe/Istanbul		Turkey
+Link	Etc/UCT			UCT
+Link	America/Anchorage	US/Alaska
+Link	America/Adak		US/Aleutian
+Link	America/Phoenix		US/Arizona
+Link	America/Chicago		US/Central
+Link	America/Indiana/Indianapolis	US/East-Indiana
+Link	America/New_York	US/Eastern
 Link	Pacific/Honolulu	US/Hawaii
 Link	Pacific/Samoa		US/Samoa
