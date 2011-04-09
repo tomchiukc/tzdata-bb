@@ -72,13 +72,14 @@ Rule	AS	1986	only	-	Oct	19	2:00s	1:00	D
 Rule	AS	1987	2007	-	Oct	lastSun	2:00s	1:00	D
 Rule	AS	1972	only	-	Feb	27	2:00s	0	S
 Rule	AS	1973	1985	-	Mar	Sun>=1	2:00s	0	S
-Rule	AS	1986	1990	-	Mar	Sun>=15	2:00s	0	S
-Rule	AS	1991	only	-	Mar	3	2:00s	0	S
-Rule	AS	1992	only	-	Mar	22	2:00s	0	S
-Rule	AS	1993	only	-	Mar	7	2:00s	0	S
-Rule	AS	1994	only	-	Mar	20	2:00s	0	S
+Rule	AS	1986	1989	-	Mar	Sun>=15	2:00s	0	S
+Rule	AS	1990	only	-	Mar	Sun>=18	2:00s	0	S
+Rule	AS	1991	only	-	Mar	Sun>=1	2:00s	0	S
+Rule	AS	1992	only	-	Mar	Sun>=18	2:00s	0	S
+Rule	AS	1993	only	-	Mar	Sun>=1	2:00s	0	S
+Rule	AS	1994	only	-	Mar	Sun>=18	2:00s	0	S
 Rule	AS	1995	2005	-	Mar	lastSun	2:00s	0	S
-Rule	AS	2006	only	-	Apr	2	2:00s	0	S
+Rule	AS	2006	only	-	Apr	Sun>=1	2:00s	0	S
 Rule	AS	2007	only	-	Mar	lastSun	2:00s	0	S
 Rule	AS	2008	max	-	Apr	Sun>=1	2:00s	0	S
 Rule	AS	2008	max	-	Oct	Sun>=1	2:00s	1:00	D
@@ -116,12 +117,12 @@ Rule	AT	2007	only	-	Mar	lastSun	2:00s	0	S
 Rule	AT	2008	max	-	Apr	Sun>=1	2:00s	0	S
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone Australia/Hobart	9:49:16	-	LMT	1895 Sep
-			10:00	-	AEST	1916 Oct  1  2:00
+			10:00	-	AEST	1916 Oct 1 2:00
 			10:00	1:00	AEDT	1917 Feb
 			10:00	Aus	AE%sT	1967
 			10:00	AT	AE%sT
 Zone Australia/Currie	9:35:28	-	LMT	1895 Sep
-			10:00	-	AEST	1916 Oct  1  2:00
+			10:00	-	AEST	1916 Oct 1 2:00
 			10:00	1:00	AEDT	1917 Feb
 			10:00	Aus	AE%sT	1971 Jul
 			10:00	AT	AE%sT
@@ -193,8 +194,8 @@ Rule	LH	2007	only	-	Mar	lastSun	2:00	0	-
 Rule	LH	2008	max	-	Apr	Sun>=1	2:00	0	-
 Rule	LH	2008	max	-	Oct	Sun>=1	2:00	0:30	-
 Zone Australia/Lord_Howe 10:36:20 -	LMT	1895 Feb
-			10:00	-	EST	1981 Mar
-			10:30	LH	LHST
+			10:00	-	ACST	1981 Mar
+			10:30	LH	LH%sT
 
 # Australian miscellany
 #
@@ -415,7 +416,7 @@ Rule	NC	1996	only	-	Dec	 1	2:00s	1:00	S
 # Shanks & Pottenger say the following was at 2:00; go with IATA.
 Rule	NC	1997	only	-	Mar	 2	2:00s	0	-
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Pacific/Noumea	11:05:48 -	LMT	1912 Jan 13
+Zone	Pacific/Noumea	11:05:48 -	LMT	1912 Jan 13 # Noumea
 			11:00	NC	NC%sT
 
 
@@ -566,7 +567,7 @@ Zone Pacific/Pago_Pago	 12:37:12 -	LMT	1879 Jul  5
 # Margaret Fruean ACTING CHIEF EXECUTIVE OFFICER MINISTRY OF COMMERCE,
 # INDUSTRY AND LABOUR 28th February 2011
 
-# From David Zülke (2011-05-09):
+# From David Z?lke (2011-05-09):
 # Subject: Samoa to move timezone from east to west of international date line
 #
 # http://www.morningstar.co.uk/uk/markets/newsfeeditem.aspx?id=138501958347963
@@ -823,7 +824,7 @@ Zone	Pacific/Wallis	12:15:20 -	LMT	1901
 #	- 8:00	PST		Pitcairn*
 #
 # See the 'northamerica' file for Hawaii.
-# See the 'southamerica' file for Easter I and the Galápagos Is.
+# See the 'southamerica' file for Easter I and the Gal?pagos Is.
 
 ###############################################################################
 
@@ -1080,7 +1081,7 @@ Zone	Pacific/Wallis	12:15:20 -	LMT	1901
 # The chosen rules the union of the 1971/1972 change and the 1989-1992 changes.
 
 # From Christopher Hunt (2006-11-21), after an advance warning
-# from Jesper Nørgaard Welen (2006-11-01):
+# from Jesper N?rgaard Welen (2006-11-01):
 # WA are trialing DST for three years.
 # http://www.parliament.wa.gov.au/parliament/bills.nsf/9A1B183144403DA54825721200088DF1/$File/Bill175-1B.pdf
 
