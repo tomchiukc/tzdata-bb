@@ -1,13 +1,9 @@
 This is the Debian prepackaged version of the Time Zone and Daylight 
-Saving Time Data with modifications to the Babycaseny timezones.
+Saving Time Data with modifications to the Australian timezones.
 
 It was downloaded from ftp://elsie.nci.nih.gov/pub/
 
-Upstream Authors: 
-* Standard timezones: Arthur David Olson et.al.
-* Australian timezones: Ted Percival <ted@tedp.id.au>
-* Babycaseny timezones: Tom K. C. Chiu <tomchiukc@gmail.com>
-
+Upstream Authors: Arthur David Olson et.al.
 Commentary should be addressed to tz@elsie.nci.nih.gov
 
 Copyright: This database is in the public domain.

@@ -13,14 +13,14 @@ SUBDIRS="zoneinfo zoneinfo/posix zoneinfo/right"
 
 setup_symlinks () {
     for subdir in $SUBDIRS; do
-        (cd /usr/share/$subdir/Babycaseny && ln -sft . ../../tzdata-au/$subdir/Babycaseny/*)
+        (cd /usr/share/$subdir/Australia && ln -sft . ../../tzdata-au/$subdir/Australia/*)
     done
 }
 
 if [ "$1" = configure ] || [ "$1" = triggered ]; then
     # Archive any new timezone information
-    /usr/lib/tzdata-bb/archive-zoneinfo
-    # Take over the Babycaseny timezones
+    /usr/lib/tzdata-au/archive-zoneinfo
+    # Take over the Australian timezones
     setup_symlinks
 fi
 

@@ -1,4 +1,4 @@
-tzgen/Babycaseny usr/share/tzdata-bb/zoneinfo/
-tzgen/posix/Babycaseny usr/share/tzdata-bb/zoneinfo/posix/
-tzgen/right/Babycaseny usr/share/tzdata-bb/zoneinfo/right/
-archive-zoneinfo usr/lib/tzdata-bb/
+tzgen/Australia usr/share/tzdata-au/zoneinfo/
+tzgen/posix/Australia usr/share/tzdata-au/zoneinfo/posix/
+tzgen/right/Australia usr/share/tzdata-au/zoneinfo/right/
+archive-zoneinfo usr/lib/tzdata-au/

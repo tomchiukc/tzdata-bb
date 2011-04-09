@@ -5,7 +5,7 @@ set -e
 # generated from postrm.in
 # make sure you edit the right file to avoid losing your changes.
 
-ORIGINALSDIR=/usr/share/tzdata-bb/original
+ORIGINALSDIR=/usr/share/tzdata-au/original
 
 if [ "$1" != remove ]; then
     exit 0
@@ -16,7 +16,7 @@ case "$1" in
         echo "Restoring unpatched timezone files..."
         for dir in zoneinfo zoneinfo/posix zoneinfo/right; do
             find "$ORIGINALSDIR/$dir/Australia" -type f -print0 |
-                xargs -0 --no-run-if-empty mv -ft "/usr/share/$dir/Babycaseny"
+                xargs -0 --no-run-if-empty mv -ft "/usr/share/$dir/Australia"
         done
 
         rm -rf $ORIGINALSDIR

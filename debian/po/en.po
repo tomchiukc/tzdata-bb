@@ -199,12 +199,15 @@ msgstr "Asmara"
 #. Type: select
 #. Choices
 #: ../templates:2001
+<<<<<<< HEAD
 msgid "Babycaseny"
 msgstr "Babycasèny"
 
 #. Type: select
 #. Choices
 #: ../templates:2001
+=======
+>>>>>>> tzdata-au modifications
 msgid "Bamako"
 msgstr "Bamako"
 

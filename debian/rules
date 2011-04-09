@@ -9,7 +9,6 @@ TIMEZONES := africa \
              antarctica \
              asia \
              australasia \
-             babycaseny \
              europe \
              northamerica \
              southamerica \
@@ -22,10 +21,30 @@ TIMEZONES := africa \
              systemv 
 
 # The contents of the Australia/ zoneinfo directory
-BABYCASENY_ZONES := \
-	Frendov \
-	TuenMun \
-	IstFrendov_en_IstSteibol \
+AUSTRALIAN_ZONES := \
+	ACT \
+	Adelaide \
+	Brisbane \
+	Broken_Hill \
+	Canberra \
+	Currie \
+	Darwin \
+	Eucla \
+	Hobart \
+	LHI \
+	Lindeman \
+	Lord_Howe \
+	Melbourne \
+	North \
+	NSW \
+	Perth \
+	Queensland \
+	South \
+	Sydney \
+	Tasmania \
+	Victoria \
+	West \
+	Yancowinna \
 	#
 
 build: build-stamp
@@ -42,7 +61,7 @@ build-stamp:
 	# Generate a posixrules file
 	/usr/sbin/zic -d $(TZGEN) -p America/New_York
 
-	sed -e "s,@ZONELIST@,$(BABYCASENY_ZONES),g" < debian/preinst.in > debian/preinst
+	sed -e "s,@ZONELIST@,$(AUSTRALIAN_ZONES),g" < debian/preinst.in > debian/preinst
 
 	touch $@
 
@@ -58,7 +77,7 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
-	dh_prep
+	dh_clean -k 
 	# Do nothing
 
 # Build architecture-dependent files here.
