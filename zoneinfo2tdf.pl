@@ -1,4 +1,6 @@
-#! /usr/bin/perl -w
+! /usr/bin/perl -w
+
+# %W%
 
 # Courtesy Ken Pizzini.
 
@@ -6,15 +8,14 @@ use strict;
 
 #This file released to the public domain.
 
-# Note: error checking is poor; trust the output only if the input
-# has been checked by zic.
+#Note: error checking is poor --- only trust the output if the input
+#has been checked by zic.
 
 my $contZone = '';
 while (<>) {
   my $origline = $_;
   my @fields = ();
-  while (/^\s*[^#]/) {
-    s/^\s*((?:"[^"]*"|[^\s#])+)// or last;
+  while (s/^\s*((?:"[^"]*"|[^\s#])+)//) {
     push @fields, $1;
   }
   next unless @fields;
