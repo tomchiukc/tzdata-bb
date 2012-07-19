@@ -1,4 +1,7 @@
 #! /usr/bin/perl -w
+
+# Courtesy Ken Pizzini.
+
 use strict;
 
 #This file released to the public domain.

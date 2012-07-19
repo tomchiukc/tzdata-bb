@@ -1,13 +1,5 @@
-#ifndef lint
-#ifndef NOID
-static char	elsieid[] = "%W%";
-/*
-** Based on the UCB version whose ID appears below.
-** This is ANSIish only when time is treated identically in all locales and
-** when "multibyte character == plain character".
-*/
-#endif /* !defined NOID */
-#endif /* !defined lint */
+#include "private.h"
+
 /*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.

@@ -1,16 +1,52 @@
-/* %W% */
+#ifndef TZFILE_H
 
-#define TZDIR		"tzdir"		/* Time zone object file directory */
-#define TZ_MAX_RULES	120		/* Maximum number of rules */
-#define TZ_ABBR_TOT	40		/* Maximum total length of... */
-					/* ...time zone abbreviations... */
-					/* ...(including trailing ASCII nuls) */
+#define TZFILE_H
 
-struct rule {
-	long	r_start;	/* Starting at this time(2) value... */
-	short	r_stdoff;	/* ...add this many seconds to time... */
-	short	r_abbrind;	/* ...and use the time zone abbrevation... */
-				/* ...that starts at this index */
+/*
+** This file is in the public domain, so clarified as of
+** 1996-06-05 by Arthur David Olson.
+*/
+
+/*
+** This header is for use ONLY with the time conversion code.
+** There is no guarantee that it will remain unchanged,
+** or that it will remain at all.
+** Do NOT copy it to any system include directory.
+** Thank you!
+*/
+
+/*
+** Information about time zone files.
+*/
+
+#ifndef TZDIR
+#define TZDIR	"/usr/local/etc/zoneinfo" /* Time zone object file directory */
+#endif /* !defined TZDIR */
+
+#ifndef TZDEFAULT
+#define TZDEFAULT	"localtime"
+#endif /* !defined TZDEFAULT */
+
+#ifndef TZDEFRULES
+#define TZDEFRULES	"posixrules"
+#endif /* !defined TZDEFRULES */
+
+/*
+** Each file begins with. . .
+*/
+
+#define	TZ_MAGIC	"TZif"
+
+struct tzhead {
+	char	tzh_magic[4];		/* TZ_MAGIC */
+	char	tzh_version[1];		/* '\0' or '2' as of 2005 */
+	char	tzh_reserved[15];	/* reserved--must be zero */
+	char	tzh_ttisgmtcnt[4];	/* coded number of trans. time flags */
+	char	tzh_ttisstdcnt[4];	/* coded number of trans. time flags */
+	char	tzh_leapcnt[4];		/* coded number of leap seconds */
+	char	tzh_timecnt[4];		/* coded number of transition times */
+	char	tzh_typecnt[4];		/* coded number of local time types */
+	char	tzh_charcnt[4];		/* coded number of abbr. chars */
 };
 
 /*

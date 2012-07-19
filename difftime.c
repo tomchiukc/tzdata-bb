@@ -1,8 +1,7 @@
-#ifndef lint
-#ifndef NOID
-static char	elsieid[] = "%W%";
-#endif /* !defined NOID */
-#endif /* !defined lint */
+/*
+** This file is in the public domain, so clarified as of
+** 1996-06-05 by Arthur David Olson.
+*/
 
 /*LINTLIBRARY*/
 

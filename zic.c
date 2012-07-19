@@ -1,4 +1,12 @@
-#
+/*
+** This file is in the public domain, so clarified as of
+** 2006-07-17 by Arthur David Olson.
+*/
+
+#include "version.h"
+#include "private.h"
+#include "locale.h"
+#include "tzfile.h"
 
 #include "stdio.h"
 
@@ -336,10 +344,79 @@ char *	argv[];
 	register int	c;
 
 	progname = argv[0];
-	while ((c = getopt(argc, argv, "d:")) != EOF)
-		if (c != 'd')
-			usage();
-		else	directory = optarg;
+	if (TYPE_BIT(zic_t) < 64) {
+		(void) fprintf(stderr, "%s: %s\n", progname,
+			_("wild compilation-time specification of zic_t"));
+		exit(EXIT_FAILURE);
+	}
+	for (i = 1; i < argc; ++i)
+		if (strcmp(argv[i], "--version") == 0) {
+			(void) printf("%s\n", TZCODE_VERSION);
+			exit(EXIT_SUCCESS);
+		} else if (strcmp(argv[i], "--help") == 0) {
+			usage(stdout, EXIT_SUCCESS);
+		}
+	while ((c = getopt(argc, argv, "d:l:p:L:vsy:")) != EOF && c != -1)
+		switch (c) {
+			default:
+				usage(stderr, EXIT_FAILURE);
+			case 'd':
+				if (directory == NULL)
+					directory = optarg;
+				else {
+					(void) fprintf(stderr,
+_("%s: More than one -d option specified\n"),
+						progname);
+					exit(EXIT_FAILURE);
+				}
+				break;
+			case 'l':
+				if (lcltime == NULL)
+					lcltime = optarg;
+				else {
+					(void) fprintf(stderr,
+_("%s: More than one -l option specified\n"),
+						progname);
+					exit(EXIT_FAILURE);
+				}
+				break;
+			case 'p':
+				if (psxrules == NULL)
+					psxrules = optarg;
+				else {
+					(void) fprintf(stderr,
+_("%s: More than one -p option specified\n"),
+						progname);
+					exit(EXIT_FAILURE);
+				}
+				break;
+			case 'y':
+				if (yitcommand == NULL)
+					yitcommand = optarg;
+				else {
+					(void) fprintf(stderr,
+_("%s: More than one -y option specified\n"),
+						progname);
+					exit(EXIT_FAILURE);
+				}
+				break;
+			case 'L':
+				if (leapsec == NULL)
+					leapsec = optarg;
+				else {
+					(void) fprintf(stderr,
+_("%s: More than one -L option specified\n"),
+						progname);
+					exit(EXIT_FAILURE);
+				}
+				break;
+			case 'v':
+				noise = TRUE;
+				break;
+			case 's':
+				(void) printf("%s: -s ignored\n", progname);
+				break;
+		}
 	if (optind == argc - 1 && strcmp(argv[optind], "=") == 0)
 		usage();	/* usage message by request */
 	if (optind == argc)

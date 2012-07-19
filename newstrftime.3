@@ -164,39 +164,25 @@ is replaced by the locale's appropriate time representation.
 is replaced by the year with century as a decimal number.
 .It Cm \&%y
 is replaced by the year without century as a decimal number (00-99).
-.It Cm \&%Z
-is replaced by the time zone name.
-.It Cm %%
-is replaced by
-.Ql % .
-.El
-.Sh SEE ALSO
-.Xr date 1 ,
-.Xr ctime 3 ,
-.Xr printf 1 ,
-.Xr printf 3
-.Sh STANDARDS
-The
-.Fn strftime
-function
-conforms to
-.St -ansiC .
-The
-.Ql \&%C ,
-.Ql \&%D ,
-.Ql \&%e ,
-.Ql \&%h ,
-.Ql \&%k ,
-.Ql \&%l , 
-.Ql \&%n ,
-.Ql \&%r ,
-.Ql \&%R ,
-.Ql \&%s .
-.Ql \&%t , 
-.Ql \&%T , 
-.Ql \&%u ,
-and
-.Ql \&%V
-conversion specifications are extensions.
-.Sh BUGS
-There is no conversion specification for the phase of the moon.
+.TP
+%Z
+is replaced by the time zone name,
+or by the empty string if this is not determinable.
+.TP
+%z
+is replaced by the offset from UTC in the format +HHMM or -HHMM as appropriate,
+with positive values representing locations east of Greenwich,
+or by the empty string if this is not determinable.
+.TP
+%%
+is replaced by a single %.
+.TP
+%+
+is replaced by the date and time in date(1) format.
+.SH SEE ALSO
+date(1),
+getenv(3),
+newctime(3),
+newtzset(3),
+time(2),
+tzfile(5)

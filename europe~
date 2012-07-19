@@ -1,0 +1,1238 @@
+<<<<<<< HEAD
+# %W%
+=======
+# <pre>
+# This file is in the public domain, so clarified as of
+# 2009-05-17 by Arthur David Olson.
+
+# This data is by no means authoritative; if you think you know better,
+# go ahead and edit the file (and please send any changes to
+# tz@elsie.nci.nih.gov for general use in the future).
+
+# From Paul Eggert (2006-03-22):
+# A good source for time zone historical data outside the U.S. is
+# Thomas G. Shanks and Rique Pottenger, The International Atlas (6th edition),
+# San Diego: ACS Publications, Inc. (2003).
+#
+# Gwillim Law writes that a good source
+# for recent time zone data is the International Air Transport
+# Association's Standard Schedules Information Manual (IATA SSIM),
+# published semiannually.  Law sent in several helpful summaries
+# of the IATA's data after 1990.
+#
+# Except where otherwise noted, Shanks & Pottenger is the source for
+# entries through 1991, and IATA SSIM is the source for entries afterwards.
+#
+# Other sources occasionally used include:
+#
+#	Edward W. Whitman, World Time Differences,
+#	Whitman Publishing Co, 2 Niagara Av, Ealing, London (undated),
+#	which I found in the UCLA library.
+#
+#	<a href="http://www.pettswoodvillage.co.uk/Daylight_Savings_William_Willett.pdf">
+#	William Willett, The Waste of Daylight, 19th edition
+#	</a> (1914-03)
+#
+#	Brazil's Departamento Servico da Hora (DSH),
+#	<a href="http://pcdsh01.on.br/HISTHV.htm">
+#	History of Summer Time
+#	</a> (1998-09-21, in Portuguese)
+
+#
+# I invented the abbreviations marked `*' in the following table;
+# the rest are from earlier versions of this file, or from other sources.
+# Corrections are welcome!
+#                   std dst  2dst
+#                   LMT           Local Mean Time
+#       -4:00       AST ADT       Atlantic
+#       -3:00       WGT WGST      Western Greenland*
+#       -1:00       EGT EGST      Eastern Greenland*
+#        0:00       GMT BST  BDST Greenwich, British Summer
+#        0:00       GMT IST       Greenwich, Irish Summer
+#        0:00       WET WEST WEMT Western Europe
+#        0:19:32.13 AMT NST       Amsterdam, Netherlands Summer (1835-1937)*
+#        0:20       NET NEST      Netherlands (1937-1940)*
+#        1:00       CET CEST CEMT Central Europe
+#        1:00:14    SET           Swedish (1879-1899)*
+#        2:00       EET EEST      Eastern Europe
+#        3:00       MSK MSD       Moscow
+#
+# A reliable and entertaining source about time zones, especially in Britain,
+# Derek Howse, Greenwich time and longitude, Philip Wilson Publishers (1997).
+
+# From Peter Ilieve (1994-12-04),
+# The original six [EU members]: Belgium, France, (West) Germany, Italy,
+# Luxembourg, the Netherlands.
+# Plus, from 1 Jan 73: Denmark, Ireland, United Kingdom.
+# Plus, from 1 Jan 81: Greece.
+# Plus, from 1 Jan 86: Spain, Portugal.
+# Plus, from 1 Jan 95: Austria, Finland, Sweden. (Norway negotiated terms for
+# entry but in a referendum on 28 Nov 94 the people voted No by 52.2% to 47.8%
+# on a turnout of 88.6%. This was almost the same result as Norway's previous
+# referendum in 1972, they are the only country to have said No twice.
+# Referendums in the other three countries voted Yes.)
+# ...
+# Estonia ... uses EU dates but not at 01:00 GMT, they use midnight GMT.
+# I don't think they know yet what they will do from 1996 onwards.
+# ...
+# There shouldn't be any [current members who are not using EU rules].
+# A Directive has the force of law, member states are obliged to enact
+# national law to implement it. The only contentious issue was the
+# different end date for the UK and Ireland, and this was always allowed
+# in the Directive.
+
+
+###############################################################################
+
+# Britain (United Kingdom) and Ireland (Eire)
+
+# From Peter Ilieve (1994-07-06):
+#
+# On 17 Jan 1994 the Independent, a UK quality newspaper, had a piece about
+# historical vistas along the Thames in west London. There was a photo
+# and a sketch map showing some of the sightlines involved. One paragraph
+# of the text said:
+#
+# `An old stone obelisk marking a forgotten terrestrial meridian stands
+# beside the river at Kew. In the 18th century, before time and longitude
+# was standardised by the Royal Observatory in Greenwich, scholars observed
+# this stone and the movement of stars from Kew Observatory nearby. They
+# made their calculations and set the time for the Horse Guards and Parliament,
+# but now the stone is obscured by scrubwood and can only be seen by walking
+# along the towpath within a few yards of it.'
+#
+# I have a one inch to one mile map of London and my estimate of the stone's
+# position is 51 deg. 28' 30" N, 0 deg. 18' 45" W. The longitude should
+# be within about +-2". The Ordnance Survey grid reference is TQ172761.
+#
+# [This yields GMTOFF = -0:01:15 for London LMT in the 18th century.]
+
+# From Paul Eggert (1993-11-18):
+#
+# Howse writes that Britain was the first country to use standard time.
+# The railways cared most about the inconsistencies of local mean time,
+# and it was they who forced a uniform time on the country.
+# The original idea was credited to Dr. William Hyde Wollaston (1766-1828)
+# and was popularized by Abraham Follett Osler (1808-1903).
+# The first railway to adopt London time was the Great Western Railway
+# in November 1840; other railways followed suit, and by 1847 most
+# (though not all) railways used London time.  On 1847-09-22 the
+# Railway Clearing House, an industry standards body, recommended that GMT be
+# adopted at all stations as soon as the General Post Office permitted it.
+# The transition occurred on 12-01 for the L&NW, the Caledonian,
+# and presumably other railways; the January 1848 Bradshaw's lists many
+# railways as using GMT.  By 1855 the vast majority of public
+# clocks in Britain were set to GMT (though some, like the great clock
+# on Tom Tower at Christ Church, Oxford, were fitted with two minute hands,
+# one for local time and one for GMT).  The last major holdout was the legal
+# system, which stubbornly stuck to local time for many years, leading
+# to oddities like polls opening at 08:13 and closing at 16:13.
+# The legal system finally switched to GMT when the Statutes (Definition
+# of Time) Act took effect; it received the Royal Assent on 1880-08-02.
+#
+# In the tables below, we condense this complicated story into a single
+# transition date for London, namely 1847-12-01.  We don't know as much
+# about Dublin, so we use 1880-08-02, the legal transition time.
+
+# From Paul Eggert (2003-09-27):
+# Summer Time was first seriously proposed by William Willett (1857-1915),
+# a London builder and member of the Royal Astronomical Society
+# who circulated a pamphlet ``The Waste of Daylight'' (1907)
+# that proposed advancing clocks 20 minutes on each of four Sundays in April,
+# and retarding them by the same amount on four Sundays in September.
+# A bill was drafted in 1909 and introduced in Parliament several times,
+# but it met with ridicule and opposition, especially from farming interests.
+# Later editions of the pamphlet proposed one-hour summer time, and
+# it was eventually adopted as a wartime measure in 1916.
+# See: Summer Time Arrives Early, The Times (2000-05-18).
+# A monument to Willett was unveiled on 1927-05-21, in an open space in
+# a 45-acre wood near Chislehurst, Kent that was purchased by popular
+# subscription and open to the public.  On the south face of the monolith,
+# designed by G. W. Miller, is the...William Willett Memorial Sundial,
+# which is permanently set to Summer Time.
+
+# From Winston Churchill (1934-04-28):
+# It is one of the paradoxes of history that we should owe the boon of
+# summer time, which gives every year to the people of this country
+# between 160 and 170 hours more daylight leisure, to a war which
+# plunged Europe into darkness for four years, and shook the
+# foundations of civilization throughout the world.
+#	-- <a href="http://www.winstonchurchill.org/fh114willett.htm">
+#	"A Silent Toast to William Willett", Pictorial Weekly
+#	</a>
+
+# From Paul Eggert (1996-09-03):
+# The OED Supplement says that the English originally said ``Daylight Saving''
+# when they were debating the adoption of DST in 1908; but by 1916 this
+# term appears only in quotes taken from DST's opponents, whereas the
+# proponents (who eventually won the argument) are quoted as using ``Summer''.
+
+# From Arthur David Olson (1989-01-19):
+#
+# A source at the British Information Office in New York avers that it's
+# known as "British" Summer Time in all parts of the United Kingdom.
+
+# Date: 4 Jan 89 08:57:25 GMT (Wed)
+# From: Jonathan Leffler
+# [British Summer Time] is fixed annually by Act of Parliament.
+# If you can predict what Parliament will do, you should be in
+# politics making a fortune, not computing.
+
+# From Chris Carrier (1996-06-14):
+# I remember reading in various wartime issues of the London Times the
+# acronym BDST for British Double Summer Time.  Look for the published
+# time of sunrise and sunset in The Times, when BDST was in effect, and
+# if you find a zone reference it will say, "All times B.D.S.T."
+
+# From Joseph S. Myers (1999-09-02):
+# ... some military cables (WO 219/4100 - this is a copy from the
+# main SHAEF archives held in the US National Archives, SHAEF/5252/8/516)
+# agree that the usage is BDST (this appears in a message dated 17 Feb 1945).
+
+# From Joseph S. Myers (2000-10-03):
+# On 18th April 1941, Sir Stephen Tallents of the BBC wrote to Sir
+# Alexander Maxwell of the Home Office asking whether there was any
+# official designation; the reply of the 21st was that there wasn't
+# but he couldn't think of anything better than the "Double British
+# Summer Time" that the BBC had been using informally.
+# http://student.cusu.cam.ac.uk/~jsm28/british-time/bbc-19410418.png
+# http://student.cusu.cam.ac.uk/~jsm28/british-time/ho-19410421.png
+
+# From Sir Alexander Maxwell in the above-mentioned letter (1941-04-21):
+# [N]o official designation has as far as I know been adopted for the time
+# which is to be introduced in May....
+# I cannot think of anything better than "Double British Summer Time"
+# which could not be said to run counter to any official description.
+
+# From Paul Eggert (2000-10-02):
+# Howse writes (p 157) `DBST' too, but `BDST' seems to have been common
+# and follows the more usual convention of putting the location name first,
+# so we use `BDST'.
+
+# Peter Ilieve (1998-04-19) described at length
+# the history of summer time legislation in the United Kingdom.
+# Since 1998 Joseph S. Myers has been updating
+# and extending this list, which can be found in
+# http://student.cusu.cam.ac.uk/~jsm28/british-time/
+# <a href="http://www.polyomino.org.uk/british-time/">
+# History of legal time in Britain
+# </a>
+# Rob Crowther (2012-01-04) reports that that URL no longer
+# exists, and the article can now be found at:
+# <a href="http://www.polyomino.org.uk/british-time/">
+# http://www.polyomino.org.uk/british-time/
+# </a>
+
+# From Joseph S. Myers (1998-01-06):
+#
+# The legal time in the UK outside of summer time is definitely GMT, not UTC;
+# see Lord Tanlaw's speech
+# <a href="http://www.parliament.the-stationery-office.co.uk/pa/ld199697/ldhansrd/pdvn/lds97/text/70611-20.htm#70611-20_head0">
+# (Lords Hansard 11 June 1997 columns 964 to 976)
+# </a>.
+
+# From Paul Eggert (2006-03-22):
+#
+# For lack of other data, follow Shanks & Pottenger for Eire in 1940-1948.
+#
+# Given Ilieve and Myers's data, the following claims by Shanks & Pottenger
+# are incorrect:
+#     * Wales did not switch from GMT to daylight saving time until
+#	1921 Apr 3, when they began to conform with the rest of Great Britain.
+# Actually, Wales was identical after 1880.
+#     * Eire had two transitions on 1916 Oct 1.
+# It actually just had one transition.
+#     * Northern Ireland used single daylight saving time throughout WW II.
+# Actually, it conformed to Britain.
+#     * GB-Eire changed standard time to 1 hour ahead of GMT on 1968-02-18.
+# Actually, that date saw the usual switch to summer time.
+# Standard time was not changed until 1968-10-27 (the clocks didn't change).
+#
+# Here is another incorrect claim by Shanks & Pottenger:
+#     * Jersey, Guernsey, and the Isle of Man did not switch from GMT
+#	to daylight saving time until 1921 Apr 3, when they began to
+#	conform with Great Britain.
+# S.R.&O. 1916, No. 382 and HO 45/10811/312364 (quoted above) say otherwise.
+#
+# The following claim by Shanks & Pottenger is possible though doubtful;
+# we'll ignore it for now.
+#     * Dublin's 1971-10-31 switch was at 02:00, even though London's was 03:00.
+#
+#
+# Whitman says Dublin Mean Time was -0:25:21, which is more precise than
+# Shanks & Pottenger.
+# Perhaps this was Dunsink Observatory Time, as Dunsink Observatory
+# (8 km NW of Dublin's center) seemingly was to Dublin as Greenwich was
+# to London.  For example:
+#
+#   "Timeball on the ballast office is down.  Dunsink time."
+#   -- James Joyce, Ulysses
+
+# From Joseph S. Myers (2005-01-26):
+# Irish laws are available online at www.irishstatutebook.ie.  These include
+# various relating to legal time, for example:
+#
+# ZZA13Y1923.html ZZA12Y1924.html ZZA8Y1925.html ZZSIV20PG1267.html
+#
+# ZZSI71Y1947.html ZZSI128Y1948.html ZZSI23Y1949.html ZZSI41Y1950.html
+# ZZSI27Y1951.html ZZSI73Y1952.html
+#
+# ZZSI11Y1961.html ZZSI232Y1961.html ZZSI182Y1962.html
+# ZZSI167Y1963.html ZZSI257Y1964.html ZZSI198Y1967.html
+# ZZA23Y1968.html ZZA17Y1971.html
+#
+# ZZSI67Y1981.html ZZSI212Y1982.html ZZSI45Y1986.html
+# ZZSI264Y1988.html ZZSI52Y1990.html ZZSI371Y1992.html
+# ZZSI395Y1994.html ZZSI484Y1997.html ZZSI506Y2001.html
+#
+# [These are all relative to the root, e.g., the first is
+# <http://www.irishstatutebook.ie/ZZA13Y1923.html>.]
+#
+# (These are those I found, but there could be more.  In any case these
+# should allow various updates to the comments in the europe file to cover
+# the laws applicable in Ireland.)
+#
+# (Note that the time in the Republic of Ireland since 1968 has been defined
+# in terms of standard time being GMT+1 with a period of winter time when it
+# is GMT, rather than standard time being GMT with a period of summer time
+# being GMT+1.)
+
+# From Paul Eggert (1999-03-28):
+# Clive Feather (<news:859845706.26043.0@office.demon.net>, 1997-03-31)
+# reports that Folkestone (Cheriton) Shuttle Terminal uses Concession Time
+# (CT), equivalent to French civil time.
+# Julian Hill (<news:36118128.5A14@virgin.net>, 1998-09-30) reports that
+# trains between Dollands Moor (the freight facility next door)
+# and Frethun run in CT.
+# My admittedly uninformed guess is that the terminal has two authorities,
+# the French concession operators and the British civil authorities,
+# and that the time depends on who you're talking to.
+# If, say, the British police were called to the station for some reason,
+# I would expect the official police report to use GMT/BST and not CET/CEST.
+# This is a borderline case, but for now let's stick to GMT/BST.
+
+# From an anonymous contributor (1996-06-02):
+# The law governing time in Ireland is under Statutory Instrument SI 395/94,
+# which gives force to European Union 7th Council Directive # 94/21/EC.
+# Under this directive, the Minister for Justice in Ireland makes appropriate
+# regulations. I spoke this morning with the Secretary of the Department of
+# Justice (tel +353 1 678 9711) who confirmed to me that the correct name is
+# "Irish Summer Time", abbreviated to "IST".
+
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+# Summer Time Act, 1916
+Rule	GB-Eire	1916	only	-	May	21	2:00s	1:00	BST
+Rule	GB-Eire	1916	only	-	Oct	 1	2:00s	0	GMT
+# S.R.&O. 1917, No. 358
+Rule	GB-Eire	1917	only	-	Apr	 8	2:00s	1:00	BST
+Rule	GB-Eire	1917	only	-	Sep	17	2:00s	0	GMT
+# S.R.&O. 1918, No. 274
+Rule	GB-Eire	1918	only	-	Mar	24	2:00s	1:00	BST
+Rule	GB-Eire	1918	only	-	Sep	30	2:00s	0	GMT
+# S.R.&O. 1919, No. 297
+Rule	GB-Eire	1919	only	-	Mar	30	2:00s	1:00	BST
+Rule	GB-Eire	1919	only	-	Sep	29	2:00s	0	GMT
+# S.R.&O. 1920, No. 458
+Rule	GB-Eire	1920	only	-	Mar	28	2:00s	1:00	BST
+# S.R.&O. 1920, No. 1844
+Rule	GB-Eire	1920	only	-	Oct	25	2:00s	0	GMT
+# S.R.&O. 1921, No. 363
+Rule	GB-Eire	1921	only	-	Apr	 3	2:00s	1:00	BST
+Rule	GB-Eire	1921	only	-	Oct	 3	2:00s	0	GMT
+# S.R.&O. 1922, No. 264
+Rule	GB-Eire	1922	only	-	Mar	26	2:00s	1:00	BST
+Rule	GB-Eire	1922	only	-	Oct	 8	2:00s	0	GMT
+# The Summer Time Act, 1922
+Rule	GB-Eire	1923	only	-	Apr	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1923	1924	-	Sep	Sun>=16	2:00s	0	GMT
+Rule	GB-Eire	1924	only	-	Apr	Sun>=9	2:00s	1:00	BST
+Rule	GB-Eire	1925	1926	-	Apr	Sun>=16	2:00s	1:00	BST
+# The Summer Time Act, 1925
+Rule	GB-Eire	1925	1938	-	Oct	Sun>=2	2:00s	0	GMT
+Rule	GB-Eire	1927	only	-	Apr	Sun>=9	2:00s	1:00	BST
+Rule	GB-Eire	1928	1929	-	Apr	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1930	only	-	Apr	Sun>=9	2:00s	1:00	BST
+Rule	GB-Eire	1931	1932	-	Apr	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1933	only	-	Apr	Sun>=9	2:00s	1:00	BST
+Rule	GB-Eire	1934	only	-	Apr	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1935	only	-	Apr	Sun>=9	2:00s	1:00	BST
+Rule	GB-Eire	1936	1937	-	Apr	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1938	only	-	Apr	Sun>=9	2:00s	1:00	BST
+Rule	GB-Eire	1939	only	-	Apr	Sun>=16	2:00s	1:00	BST
+# S.R.&O. 1939, No. 1379
+Rule	GB-Eire	1939	only	-	Nov	Sun>=16	2:00s	0	GMT
+# S.R.&O. 1940, No. 172 and No. 1883
+Rule	GB-Eire	1940	only	-	Feb	Sun>=23	2:00s	1:00	BST
+# S.R.&O. 1941, No. 476
+Rule	GB-Eire	1941	only	-	May	Sun>=2	1:00s	2:00	BDST
+Rule	GB-Eire	1941	1943	-	Aug	Sun>=9	1:00s	1:00	BST
+# S.R.&O. 1942, No. 506
+Rule	GB-Eire	1942	1944	-	Apr	Sun>=2	1:00s	2:00	BDST
+# S.R.&O. 1944, No. 932
+Rule	GB-Eire	1944	only	-	Sep	Sun>=16	1:00s	1:00	BST
+# S.R.&O. 1945, No. 312
+Rule	GB-Eire	1945	only	-	Apr	Mon>=2	1:00s	2:00	BDST
+Rule	GB-Eire	1945	only	-	Jul	Sun>=9	1:00s	1:00	BST
+# S.R.&O. 1945, No. 1208
+Rule	GB-Eire	1945	1946	-	Oct	Sun>=2	2:00s	0	GMT
+Rule	GB-Eire	1946	only	-	Apr	Sun>=9	2:00s	1:00	BST
+# The Summer Time Act, 1947
+Rule	GB-Eire	1947	only	-	Mar	16	2:00s	1:00	BST
+Rule	GB-Eire	1947	only	-	Apr	13	1:00s	2:00	BDST
+Rule	GB-Eire	1947	only	-	Aug	10	1:00s	1:00	BST
+Rule	GB-Eire	1947	only	-	Nov	 2	2:00s	0	GMT
+# Summer Time Order, 1948 (S.I. 1948/495)
+Rule	GB-Eire	1948	only	-	Mar	14	2:00s	1:00	BST
+Rule	GB-Eire	1948	only	-	Oct	31	2:00s	0	GMT
+# Summer Time Order, 1949 (S.I. 1949/373)
+Rule	GB-Eire	1949	only	-	Apr	 3	2:00s	1:00	BST
+Rule	GB-Eire	1949	only	-	Oct	30	2:00s	0	GMT
+# Summer Time Order, 1950 (S.I. 1950/518)
+# Summer Time Order, 1951 (S.I. 1951/430)
+# Summer Time Order, 1952 (S.I. 1952/451)
+Rule	GB-Eire	1950	1952	-	Apr	Sun>=14	2:00s	1:00	BST
+Rule	GB-Eire	1950	1952	-	Oct	Sun>=21	2:00s	0	GMT
+# revert to the rules of the Summer Time Act, 1925
+Rule	GB-Eire	1953	only	-	Apr	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1953	1960	-	Oct	Sun>=2	2:00s	0	GMT
+Rule	GB-Eire	1954	only	-	Apr	Sun>=9	2:00s	1:00	BST
+Rule	GB-Eire	1955	1956	-	Apr	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1957	only	-	Apr	Sun>=9	2:00s	1:00	BST
+Rule	GB-Eire	1958	1959	-	Apr	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1960	only	-	Apr	Sun>=9	2:00s	1:00	BST
+# Summer Time Order, 1961 (S.I. 1961/71)
+# Summer Time (1962) Order, 1961 (S.I. 1961/2465)
+# Summer Time Order, 1963 (S.I. 1963/81)
+Rule	GB-Eire	1961	1963	-	Mar	lastSun	2:00s	1:00	BST
+Rule	GB-Eire	1961	1968	-	Oct	Sun>=23	2:00s	0	GMT
+# Summer Time (1964) Order, 1963 (S.I. 1963/2101)
+# Summer Time Order, 1964 (S.I. 1964/1201)
+# Summer Time Order, 1967 (S.I. 1967/1148)
+Rule	GB-Eire	1964	1967	-	Mar	Sun>=19	2:00s	1:00	BST
+# Summer Time Order, 1968 (S.I. 1968/117)
+Rule	GB-Eire	1968	only	-	Feb	18	2:00s	1:00	BST
+# The British Standard Time Act, 1968
+#	(no summer time)
+# The Summer Time Act, 1972
+Rule	GB-Eire	1972	1980	-	Mar	Sun>=16	2:00s	1:00	BST
+Rule	GB-Eire	1972	1980	-	Oct	Sun>=23	2:00s	0	GMT
+# Summer Time Order, 1980 (S.I. 1980/1089)
+# Summer Time Order, 1982 (S.I. 1982/1673)
+# Summer Time Order, 1986 (S.I. 1986/223)
+# Summer Time Order, 1988 (S.I. 1988/931)
+Rule	GB-Eire	1981	1995	-	Mar	lastSun	1:00u	1:00	BST
+Rule	GB-Eire 1981	1989	-	Oct	Sun>=23	1:00u	0	GMT
+# Summer Time Order, 1989 (S.I. 1989/985)
+# Summer Time Order, 1992 (S.I. 1992/1729)
+# Summer Time Order 1994 (S.I. 1994/2798)
+Rule	GB-Eire 1990	1995	-	Oct	Sun>=22	1:00u	0	GMT
+# Summer Time Order 1997 (S.I. 1997/2982)
+# See EU for rules starting in 1996.
+
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/London	-0:01:15 -	LMT	1847 Dec  1 0:00s
+			 0:00	GB-Eire	%s	1968 Oct 27
+			 1:00	-	BST	1971 Oct 31 2:00u
+			 0:00	GB-Eire	%s	1996
+			 0:00	EU	GMT/BST
+Link	Europe/London	Europe/Jersey
+Link	Europe/London	Europe/Guernsey
+Link	Europe/London	Europe/Isle_of_Man
+Zone	Europe/Dublin	-0:25:00 -	LMT	1880 Aug  2
+			-0:25:21 -	DMT	1916 May 21 2:00
+			-0:25:21 1:00	IST	1916 Oct  1 2:00s
+			 0:00	GB-Eire	%s	1921 Dec  6 # independence
+			 0:00	GB-Eire	GMT/IST	1940 Feb 25 2:00
+			 0:00	1:00	IST	1946 Oct  6 2:00
+			 0:00	-	GMT	1947 Mar 16 2:00
+			 0:00	1:00	IST	1947 Nov  2 2:00
+			 0:00	-	GMT	1948 Apr 18 2:00
+			 0:00	GB-Eire	GMT/IST	1968 Oct 27
+			 1:00	-	IST	1971 Oct 31 2:00u
+			 0:00	GB-Eire	GMT/IST	1996
+			 0:00	EU	GMT/IST
+
+###############################################################################
+
+# Europe
+
+# EU rules are for the European Union, previously known as the EC, EEC,
+# Common Market, etc.
+
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	EU	1977	1980	-	Apr	Sun>=1	 1:00u	1:00	S
+Rule	EU	1977	only	-	Sep	lastSun	 1:00u	0	-
+Rule	EU	1978	only	-	Oct	 1	 1:00u	0	-
+Rule	EU	1979	1995	-	Sep	lastSun	 1:00u	0	-
+Rule	EU	1981	max	-	Mar	lastSun	 1:00u	1:00	S
+Rule	EU	1996	max	-	Oct	lastSun	 1:00u	0	-
+# The most recent directive covers the years starting in 2002.  See:
+# <a="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32000L0084:EN:NOT">
+# Directive 2000/84/EC of the European Parliament and of the Council
+# of 19 January 2001 on summer-time arrangements.
+# </a>
+
+# W-Eur differs from EU only in that W-Eur uses standard time.
+Rule	W-Eur	1977	1980	-	Apr	Sun>=1	 1:00s	1:00	S
+Rule	W-Eur	1977	only	-	Sep	lastSun	 1:00s	0	-
+Rule	W-Eur	1978	only	-	Oct	 1	 1:00s	0	-
+Rule	W-Eur	1979	1995	-	Sep	lastSun	 1:00s	0	-
+Rule	W-Eur	1981	max	-	Mar	lastSun	 1:00s	1:00	S
+Rule	W-Eur	1996	max	-	Oct	lastSun	 1:00s	0	-
+
+# Older C-Eur rules are for convenience in the tables.
+# From 1977 on, C-Eur differs from EU only in that C-Eur uses standard time.
+Rule	C-Eur	1916	only	-	Apr	30	23:00	1:00	S
+Rule	C-Eur	1916	only	-	Oct	 1	 1:00	0	-
+Rule	C-Eur	1917	1918	-	Apr	Mon>=15	 2:00s	1:00	S
+Rule	C-Eur	1917	1918	-	Sep	Mon>=15	 2:00s	0	-
+Rule	C-Eur	1940	only	-	Apr	 1	 2:00s	1:00	S
+Rule	C-Eur	1942	only	-	Nov	 2	 2:00s	0	-
+Rule	C-Eur	1943	only	-	Mar	29	 2:00s	1:00	S
+Rule	C-Eur	1943	only	-	Oct	 4	 2:00s	0	-
+Rule	C-Eur	1944	1945	-	Apr	Mon>=1	 2:00s	1:00	S
+# Whitman gives 1944 Oct 7; go with Shanks & Pottenger.
+Rule	C-Eur	1944	only	-	Oct	 2	 2:00s	0	-
+# From Jesper Norgaard Welen (2008-07-13):
+#
+# I found what is probably a typo of 2:00 which should perhaps be 2:00s
+# in the C-Eur rule from tz database version 2008d (this part was
+# corrected in version 2008d). The circumstancial evidence is simply the
+# tz database itself, as seen below:
+#
+# Zone Europe/Paris 0:09:21 - LMT 1891 Mar 15  0:01
+#    0:00 France WE%sT 1945 Sep 16  3:00
+#
+# Zone Europe/Monaco 0:29:32 - LMT 1891 Mar 15
+#    0:00 France WE%sT 1945 Sep 16 3:00
+#
+# Zone Europe/Belgrade 1:22:00 - LMT 1884
+#    1:00 1:00 CEST 1945 Sep 16  2:00s
+#
+# Rule France 1945 only - Sep 16  3:00 0 -
+# Rule Belgium 1945 only - Sep 16  2:00s 0 -
+# Rule Neth 1945 only - Sep 16 2:00s 0 -
+#
+# The rule line to be changed is:
+#
+# Rule C-Eur 1945 only - Sep 16  2:00 0 -
+#
+# It seems that Paris, Monaco, Rule France, Rule Belgium all agree on
+# 2:00 standard time, e.g. 3:00 local time.  However there are no
+# countries that use C-Eur rules in September 1945, so the only items
+# affected are apparently these ficticious zones that translates acronyms
+# CET and MET:
+#
+# Zone CET  1:00 C-Eur CE%sT
+# Zone MET  1:00 C-Eur ME%sT
+#
+# It this is right then the corrected version would look like:
+#
+# Rule C-Eur 1945 only - Sep 16  2:00s 0 -
+#
+# A small step for mankind though 8-)
+Rule	C-Eur	1945	only	-	Sep	16	 2:00s	0	-
+Rule	C-Eur	1977	1980	-	Apr	Sun>=1	 2:00s	1:00	S
+Rule	C-Eur	1977	only	-	Sep	lastSun	 2:00s	0	-
+Rule	C-Eur	1978	only	-	Oct	 1	 2:00s	0	-
+Rule	C-Eur	1979	1995	-	Sep	lastSun	 2:00s	0	-
+Rule	C-Eur	1981	max	-	Mar	lastSun	 2:00s	1:00	S
+Rule	C-Eur	1996	max	-	Oct	lastSun	 2:00s	0	-
+
+# E-Eur differs from EU only in that E-Eur switches at midnight local time.
+Rule	E-Eur	1977	1980	-	Apr	Sun>=1	 0:00	1:00	S
+Rule	E-Eur	1977	only	-	Sep	lastSun	 0:00	0	-
+Rule	E-Eur	1978	only	-	Oct	 1	 0:00	0	-
+Rule	E-Eur	1979	1995	-	Sep	lastSun	 0:00	0	-
+Rule	E-Eur	1981	max	-	Mar	lastSun	 0:00	1:00	S
+Rule	E-Eur	1996	max	-	Oct	lastSun	 0:00	0	-
+
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Russia	1917	only	-	Jul	 1	23:00	1:00	MST	# Moscow Summer Time
+Rule	Russia	1917	only	-	Dec	28	 0:00	0	MMT	# Moscow Mean Time
+Rule	Russia	1918	only	-	May	31	22:00	2:00	MDST	# Moscow Double Summer Time
+Rule	Russia	1918	only	-	Sep	16	 1:00	1:00	MST
+Rule	Russia	1919	only	-	May	31	23:00	2:00	MDST
+Rule	Russia	1919	only	-	Jul	 1	 2:00	1:00	S
+Rule	Russia	1919	only	-	Aug	16	 0:00	0	-
+Rule	Russia	1921	only	-	Feb	14	23:00	1:00	S
+Rule	Russia	1921	only	-	Mar	20	23:00	2:00	M # Midsummer
+Rule	Russia	1921	only	-	Sep	 1	 0:00	1:00	S
+Rule	Russia	1921	only	-	Oct	 1	 0:00	0	-
+# Act No.925 of the Council of Ministers of the USSR (1980-10-24):
+Rule	Russia	1981	1984	-	Apr	 1	 0:00	1:00	S
+Rule	Russia	1981	1983	-	Oct	 1	 0:00	0	-
+# Act No.967 of the Council of Ministers of the USSR (1984-09-13), repeated in
+# Act No.227 of the Council of Ministers of the USSR (1989-03-14):
+Rule	Russia	1984	1991	-	Sep	lastSun	 2:00s	0	-
+Rule	Russia	1985	1991	-	Mar	lastSun	 2:00s	1:00	S
+#
+Rule	Russia	1992	only	-	Mar	lastSat	 23:00	1:00	S
+Rule	Russia	1992	only	-	Sep	lastSat	 23:00	0	-
+Rule	Russia	1993	2010	-	Mar	lastSun	 2:00s	1:00	S
+Rule	Russia	1993	1995	-	Sep	lastSun	 2:00s	0	-
+Rule	Russia	1996	2010	-	Oct	lastSun	 2:00s	0	-
+
+# From Alexander Krivenyshev (2011-06-14):
+# According to Kremlin press service, Russian President Dmitry Medvedev
+# signed a federal law "On calculation of time" on June 9, 2011.
+# According to the law Russia is abolishing daylight saving time.
+# 
+# Medvedev signed a law "On the Calculation of Time" (in russian): 
+# <a href="http://bmockbe.ru/events/?ID=7583">
+# http://bmockbe.ru/events/?ID=7583
+# </a>
+# 
+# Medvedev signed a law on the calculation of the time (in russian):
+# <a href="http://www.regnum.ru/news/polit/1413906.html">
+# http://www.regnum.ru/news/polit/1413906.html
+# </a>
+
+# From Arthur David Olson (2011-06-15):
+# Take "abolishing daylight saving time" to mean that time is now considered
+# to be standard.
+
+# These are for backward compatibility with older versions.
+
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	WET		0:00	EU	WE%sT
+Zone	CET		1:00	C-Eur	CE%sT
+Zone	MET		1:00	C-Eur	ME%sT
+Zone	EET		2:00	EU	EE%sT
+
+# Previous editions of this database used abbreviations like MET DST
+# for Central European Summer Time, but this didn't agree with common usage.
+
+# From Markus Kuhn (1996-07-12):
+# The official German names ... are
+#
+#	Mitteleuropaeische Zeit (MEZ)         = UTC+01:00
+#	Mitteleuropaeische Sommerzeit (MESZ)  = UTC+02:00
+#
+# as defined in the German Time Act (Gesetz ueber die Zeitbestimmung (ZeitG),
+# 1978-07-25, Bundesgesetzblatt, Jahrgang 1978, Teil I, S. 1110-1111)....
+# I wrote ... to the German Federal Physical-Technical Institution
+#
+#	Physikalisch-Technische Bundesanstalt (PTB)
+#	Laboratorium 4.41 "Zeiteinheit"
+#	Postfach 3345
+#	D-38023 Braunschweig
+#	phone: +49 531 592-0
+#
+# ... I received today an answer letter from Dr. Peter Hetzel, head of the PTB
+# department for time and frequency transmission.  He explained that the
+# PTB translates MEZ and MESZ into English as
+#
+#	Central European Time (CET)         = UTC+01:00
+#	Central European Summer Time (CEST) = UTC+02:00
+
+
+# Albania
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Albania	1940	only	-	Jun	16	0:00	1:00	S
+Rule	Albania	1942	only	-	Nov	 2	3:00	0	-
+Rule	Albania	1943	only	-	Mar	29	2:00	1:00	S
+Rule	Albania	1943	only	-	Apr	10	3:00	0	-
+Rule	Albania	1974	only	-	May	 4	0:00	1:00	S
+Rule	Albania	1974	only	-	Oct	 2	0:00	0	-
+Rule	Albania	1975	only	-	May	 1	0:00	1:00	S
+Rule	Albania	1975	only	-	Oct	 2	0:00	0	-
+Rule	Albania	1976	only	-	May	 2	0:00	1:00	S
+Rule	Albania	1976	only	-	Oct	 3	0:00	0	-
+Rule	Albania	1977	only	-	May	 8	0:00	1:00	S
+Rule	Albania	1977	only	-	Oct	 2	0:00	0	-
+Rule	Albania	1978	only	-	May	 6	0:00	1:00	S
+Rule	Albania	1978	only	-	Oct	 1	0:00	0	-
+Rule	Albania	1979	only	-	May	 5	0:00	1:00	S
+Rule	Albania	1979	only	-	Sep	30	0:00	0	-
+Rule	Albania	1980	only	-	May	 3	0:00	1:00	S
+Rule	Albania	1980	only	-	Oct	 4	0:00	0	-
+Rule	Albania	1981	only	-	Apr	26	0:00	1:00	S
+Rule	Albania	1981	only	-	Sep	27	0:00	0	-
+Rule	Albania	1982	only	-	May	 2	0:00	1:00	S
+Rule	Albania	1982	only	-	Oct	 3	0:00	0	-
+Rule	Albania	1983	only	-	Apr	18	0:00	1:00	S
+Rule	Albania	1983	only	-	Oct	 1	0:00	0	-
+Rule	Albania	1984	only	-	Apr	 1	0:00	1:00	S
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Tirane	1:19:20 -	LMT	1914
+			1:00	-	CET	1940 Jun 16
+			1:00	Albania	CE%sT	1984 Jul
+			1:00	EU	CE%sT
+
+# Andorra
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Andorra	0:06:04 -	LMT	1901
+			0:00	-	WET	1946 Sep 30
+			1:00	-	CET	1985 Mar 31 2:00
+			1:00	EU	CE%sT
+
+# Austria
+
+# From Paul Eggert (2006-03-22): Shanks & Pottenger give 1918-06-16 and
+# 1945-11-18, but the Austrian Federal Office of Metrology and
+# Surveying (BEV) gives 1918-09-16 and for Vienna gives the "alleged"
+# date of 1945-04-12 with no time.  For the 1980-04-06 transition
+# Shanks & Pottenger give 02:00, the BEV 00:00.  Go with the BEV,
+# and guess 02:00 for 1945-04-12.
+
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Austria	1920	only	-	Apr	 5	2:00s	1:00	S
+Rule	Austria	1920	only	-	Sep	13	2:00s	0	-
+Rule	Austria	1946	only	-	Apr	14	2:00s	1:00	S
+Rule	Austria	1946	1948	-	Oct	Sun>=1	2:00s	0	-
+Rule	Austria	1947	only	-	Apr	 6	2:00s	1:00	S
+Rule	Austria	1948	only	-	Apr	18	2:00s	1:00	S
+Rule	Austria	1980	only	-	Apr	 6	0:00	1:00	S
+Rule	Austria	1980	only	-	Sep	28	0:00	0	-
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Vienna	1:05:20 -	LMT	1893 Apr
+			1:00	C-Eur	CE%sT	1920
+			1:00	Austria	CE%sT	1940 Apr  1 2:00s
+			1:00	C-Eur	CE%sT	1945 Apr  2 2:00s
+			1:00	1:00	CEST	1945 Apr 12 2:00s
+			1:00	-	CET	1946
+			1:00	Austria	CE%sT	1981
+			1:00	EU	CE%sT
+
+# Belarus
+# From Yauhen Kharuzhy (2011-09-16):
+# By latest Belarus government act Europe/Minsk timezone was changed to
+# GMT+3 without DST (was GMT+2 with DST).
+#
+# Sources (Russian language):
+# 1.
+# <a href="http://www.belta.by/ru/all_news/society/V-Belarusi-otmenjaetsja-perexod-na-sezonnoe-vremja_i_572952.html">
+# http://www.belta.by/ru/all_news/society/V-Belarusi-otmenjaetsja-perexod-na-sezonnoe-vremja_i_572952.html
+# </a>
+# 2.
+# <a href="http://naviny.by/rubrics/society/2011/09/16/ic_articles_116_175144/">
+# http://naviny.by/rubrics/society/2011/09/16/ic_articles_116_175144/
+# </a>
+# 3.
+# <a href="http://news.tut.by/society/250578.html">
+# http://news.tut.by/society/250578.html
+# </a>
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Minsk	1:50:16 -	LMT	1880
+			1:50	-	MMT	1924 May 2 # Minsk Mean Time
+			2:00	-	EET	1930 Jun 21
+			3:00	-	MSK	1941 Jun 28
+			1:00	C-Eur	CE%sT	1944 Jul  3
+			3:00	Russia	MSK/MSD	1990
+			3:00	-	MSK	1991 Mar 31 2:00s
+			2:00	1:00	EEST	1991 Sep 29 2:00s
+			2:00	-	EET	1992 Mar 29 0:00s
+			2:00	1:00	EEST	1992 Sep 27 0:00s
+			2:00	Russia	EE%sT	2011 Mar 27 2:00s
+			3:00	-	FET # Further-eastern European Time
+
+# Belgium
+#
+# From Paul Eggert (1997-07-02):
+# Entries from 1918 through 1991 are taken from:
+#	Annuaire de L'Observatoire Royal de Belgique,
+#	Avenue Circulaire, 3, B-1180 BRUXELLES, CLVIIe annee, 1991
+#	(Imprimerie HAYEZ, s.p.r.l., Rue Fin, 4, 1080 BRUXELLES, MCMXC),
+#	pp 8-9.
+# LMT before 1892 was 0:17:30, according to the official journal of Belgium:
+#	Moniteur Belge, Samedi 30 Avril 1892, N.121.
+# Thanks to Pascal Delmoitie for these references.
+# The 1918 rules are listed for completeness; they apply to unoccupied Belgium.
+# Assume Brussels switched to WET in 1918 when the armistice took effect.
+#
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Belgium	1918	only	-	Mar	 9	 0:00s	1:00	S
+Rule	Belgium	1918	1919	-	Oct	Sat>=1	23:00s	0	-
+Rule	Belgium	1919	only	-	Mar	 1	23:00s	1:00	S
+Rule	Belgium	1920	only	-	Feb	14	23:00s	1:00	S
+Rule	Belgium	1920	only	-	Oct	23	23:00s	0	-
+Rule	Belgium	1921	only	-	Mar	14	23:00s	1:00	S
+Rule	Belgium	1921	only	-	Oct	25	23:00s	0	-
+Rule	Belgium	1922	only	-	Mar	25	23:00s	1:00	S
+Rule	Belgium	1922	1927	-	Oct	Sat>=1	23:00s	0	-
+Rule	Belgium	1923	only	-	Apr	21	23:00s	1:00	S
+Rule	Belgium	1924	only	-	Mar	29	23:00s	1:00	S
+Rule	Belgium	1925	only	-	Apr	 4	23:00s	1:00	S
+# DSH writes that a royal decree of 1926-02-22 specified the Sun following 3rd
+# Sat in Apr (except if it's Easter, in which case it's one Sunday earlier),
+# to Sun following 1st Sat in Oct, and that a royal decree of 1928-09-15
+# changed the transition times to 02:00 GMT.
+Rule	Belgium	1926	only	-	Apr	17	23:00s	1:00	S
+Rule	Belgium	1927	only	-	Apr	 9	23:00s	1:00	S
+Rule	Belgium	1928	only	-	Apr	14	23:00s	1:00	S
+Rule	Belgium	1928	1938	-	Oct	Sun>=2	 2:00s	0	-
+Rule	Belgium	1929	only	-	Apr	21	 2:00s	1:00	S
+Rule	Belgium	1930	only	-	Apr	13	 2:00s	1:00	S
+Rule	Belgium	1931	only	-	Apr	19	 2:00s	1:00	S
+Rule	Belgium	1932	only	-	Apr	 3	 2:00s	1:00	S
+Rule	Belgium	1933	only	-	Mar	26	 2:00s	1:00	S
+Rule	Belgium	1934	only	-	Apr	 8	 2:00s	1:00	S
+Rule	Belgium	1935	only	-	Mar	31	 2:00s	1:00	S
+Rule	Belgium	1936	only	-	Apr	19	 2:00s	1:00	S
+Rule	Belgium	1937	only	-	Apr	 4	 2:00s	1:00	S
+Rule	Belgium	1938	only	-	Mar	27	 2:00s	1:00	S
+Rule	Belgium	1939	only	-	Apr	16	 2:00s	1:00	S
+Rule	Belgium	1939	only	-	Nov	19	 2:00s	0	-
+Rule	Belgium	1940	only	-	Feb	25	 2:00s	1:00	S
+Rule	Belgium	1944	only	-	Sep	17	 2:00s	0	-
+Rule	Belgium	1945	only	-	Apr	 2	 2:00s	1:00	S
+Rule	Belgium	1945	only	-	Sep	16	 2:00s	0	-
+Rule	Belgium	1946	only	-	May	19	 2:00s	1:00	S
+Rule	Belgium	1946	only	-	Oct	 7	 2:00s	0	-
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Brussels	0:17:30 -	LMT	1880
+			0:17:30	-	BMT	1892 May  1 12:00 # Brussels MT
+			0:00	-	WET	1914 Nov  8
+			1:00	-	CET	1916 May  1  0:00
+			1:00	C-Eur	CE%sT	1918 Nov 11 11:00u
+			0:00	Belgium	WE%sT	1940 May 20  2:00s
+			1:00	C-Eur	CE%sT	1944 Sep  3
+			1:00	Belgium	CE%sT	1977
+			1:00	EU	CE%sT
+
+# Bosnia and Herzegovina
+# see Serbia
+
+# Bulgaria
+#
+# From Plamen Simenov via Steffen Thorsen (1999-09-09):
+# A document of Government of Bulgaria (No.94/1997) says:
+# EET --> EETDST is in 03:00 Local time in last Sunday of March ...
+# EETDST --> EET is in 04:00 Local time in last Sunday of October
+#
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Bulg	1979	only	-	Mar	31	23:00	1:00	S
+Rule	Bulg	1979	only	-	Oct	 1	 1:00	0	-
+Rule	Bulg	1980	1982	-	Apr	Sat>=1	23:00	1:00	S
+Rule	Bulg	1980	only	-	Sep	29	 1:00	0	-
+Rule	Bulg	1981	only	-	Sep	27	 2:00	0	-
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Sofia	1:33:16 -	LMT	1880
+			1:56:56	-	IMT	1894 Nov 30 # Istanbul MT?
+			2:00	-	EET	1942 Nov  2  3:00
+			1:00	C-Eur	CE%sT	1945
+			1:00	-	CET	1945 Apr 2 3:00
+			2:00	-	EET	1979 Mar 31 23:00
+			2:00	Bulg	EE%sT	1982 Sep 26  2:00
+			2:00	C-Eur	EE%sT	1991
+			2:00	E-Eur	EE%sT	1997
+			2:00	EU	EE%sT
+
+# Croatia
+# see Serbia
+
+# Cyprus
+# Please see the `asia' file for Asia/Nicosia.
+
+# Czech Republic
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Czech	1945	only	-	Apr	 8	2:00s	1:00	S
+Rule	Czech	1945	only	-	Nov	18	2:00s	0	-
+Rule	Czech	1946	only	-	May	 6	2:00s	1:00	S
+Rule	Czech	1946	1949	-	Oct	Sun>=1	2:00s	0	-
+Rule	Czech	1947	only	-	Apr	20	2:00s	1:00	S
+Rule	Czech	1948	only	-	Apr	18	2:00s	1:00	S
+Rule	Czech	1949	only	-	Apr	 9	2:00s	1:00	S
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Prague	0:57:44 -	LMT	1850
+			0:57:44	-	PMT	1891 Oct     # Prague Mean Time
+			1:00	C-Eur	CE%sT	1944 Sep 17 2:00s
+			1:00	Czech	CE%sT	1979
+			1:00	EU	CE%sT
+
+# Denmark, Faroe Islands, and Greenland
+
+# From Jesper Norgaard Welen (2005-04-26):
+# http://www.hum.aau.dk/~poe/tid/tine/DanskTid.htm says that the law
+# [introducing standard time] was in effect from 1894-01-01....
+# The page http://www.retsinfo.dk/_GETDOCI_/ACCN/A18930008330-REGL
+# confirms this, and states that the law was put forth 1893-03-29.
+#
+# The EU treaty with effect from 1973:
+# http://www.retsinfo.dk/_GETDOCI_/ACCN/A19722110030-REGL
+#
+# This provoked a new law from 1974 to make possible summer time changes
+# in subsequenet decrees with the law
+# http://www.retsinfo.dk/_GETDOCI_/ACCN/A19740022330-REGL
+#
+# It seems however that no decree was set forward until 1980.  I have
+# not found any decree, but in another related law, the effecting DST
+# changes are stated explicitly to be from 1980-04-06 at 02:00 to
+# 1980-09-28 at 02:00.  If this is true, this differs slightly from
+# the EU rule in that DST runs to 02:00, not 03:00.  We don't know
+# when Denmark began using the EU rule correctly, but we have only
+# confirmation of the 1980-time, so I presume it was correct in 1981:
+# The law is about the management of the extra hour, concerning
+# working hours reported and effect on obligatory-rest rules (which
+# was suspended on that night):
+# http://www.retsinfo.dk/_GETDOCI_/ACCN/C19801120554-REGL
+
+# From Jesper Norgaard Welen (2005-06-11):
+# The Herning Folkeblad (1980-09-26) reported that the night between
+# Saturday and Sunday the clock is set back from three to two.
+
+# From Paul Eggert (2005-06-11):
+# Hence the "02:00" of the 1980 law refers to standard time, not
+# wall-clock time, and so the EU rules were in effect in 1980.
+
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Denmark	1916	only	-	May	14	23:00	1:00	S
+Rule	Denmark	1916	only	-	Sep	30	23:00	0	-
+Rule	Denmark	1940	only	-	May	15	 0:00	1:00	S
+Rule	Denmark	1945	only	-	Apr	 2	 2:00s	1:00	S
+Rule	Denmark	1945	only	-	Aug	15	 2:00s	0	-
+Rule	Denmark	1946	only	-	May	 1	 2:00s	1:00	S
+Rule	Denmark	1946	only	-	Sep	 1	 2:00s	0	-
+Rule	Denmark	1947	only	-	May	 4	 2:00s	1:00	S
+Rule	Denmark	1947	only	-	Aug	10	 2:00s	0	-
+Rule	Denmark	1948	only	-	May	 9	 2:00s	1:00	S
+Rule	Denmark	1948	only	-	Aug	 8	 2:00s	0	-
+#
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone Europe/Copenhagen	 0:50:20 -	LMT	1890
+			 0:50:20 -	CMT	1894 Jan  1 # Copenhagen MT
+			 1:00	Denmark	CE%sT	1942 Nov  2 2:00s
+			 1:00	C-Eur	CE%sT	1945 Apr  2 2:00
+			 1:00	Denmark	CE%sT	1980
+			 1:00	EU	CE%sT
+Zone Atlantic/Faroe	-0:27:04 -	LMT	1908 Jan 11	# Torshavn
+			 0:00	-	WET	1981
+			 0:00	EU	WE%sT
+#
+# From Paul Eggert (2004-10-31):
+# During World War II, Germany maintained secret manned weather stations in
+# East Greenland and Franz Josef Land, but we don't know their time zones.
+# My source for this is Wilhelm Dege's book mentioned under Svalbard.
+#
+# From Paul Eggert (2006-03-22):
+# Greenland joined the EU as part of Denmark, obtained home rule on 1979-05-01,
+# and left the EU on 1985-02-01.  It therefore should have been using EU
+# rules at least through 1984.  Shanks & Pottenger say Scoresbysund and Godthab
+# used C-Eur rules after 1980, but IATA SSIM (1991/1996) says they use EU
+# rules since at least 1991.  Assume EU rules since 1980.
+
+# From Gwillin Law (2001-06-06), citing
+# <http://www.statkart.no/efs/efshefter/2001/efs5-2001.pdf> (2001-03-15),
+# and with translations corrected by Steffen Thorsen:
+#
+# Greenland has four local times, and the relation to UTC
+# is according to the following time line:
+#
+# The military zone near Thule	UTC-4
+# Standard Greenland time	UTC-3
+# Scoresbysund			UTC-1
+# Danmarkshavn			UTC
+#
+# In the military area near Thule and in Danmarkshavn DST will not be
+# introduced.
+
+# From Rives McDow (2001-11-01):
+#
+# I correspond regularly with the Dansk Polarcenter, and wrote them at
+# the time to clarify the situation in Thule.  Unfortunately, I have
+# not heard back from them regarding my recent letter.  [But I have
+# info from earlier correspondence.]
+#
+# According to the center, a very small local time zone around Thule
+# Air Base keeps the time according to UTC-4, implementing daylight
+# savings using North America rules, changing the time at 02:00 local time....
+#
+# The east coast of Greenland north of the community of Scoresbysund
+# uses UTC in the same way as in Iceland, year round, with no dst.
+# There are just a few stations on this coast, including the
+# Danmarkshavn ICAO weather station mentioned in your September 29th
+# email.  The other stations are two sledge patrol stations in
+# Mestersvig and Daneborg, the air force base at Station Nord, and the
+# DPC research station at Zackenberg.
+#
+# Scoresbysund and two small villages nearby keep time UTC-1 and use
+# the same daylight savings time period as in West Greenland (Godthab).
+#
+# The rest of Greenland, including Godthab (this area, although it
+# includes central Greenland, is known as west Greenland), keeps time
+# UTC-3, with daylight savings methods according to European rules.
+#
+# It is common procedure to use UTC 0 in the wilderness of East and
+# North Greenland, because it is mainly Icelandic aircraft operators
+# maintaining traffic in these areas.  However, the official status of
+# this area is that it sticks with Godthab time.  This area might be
+# considered a dual time zone in some respects because of this.
+
+# From Rives McDow (2001-11-19):
+# I heard back from someone stationed at Thule; the time change took place
+# there at 2:00 AM.
+
+# From Paul Eggert (2006-03-22):
+# From 1997 on the CIA map shows Danmarkshavn on GMT;
+# the 1995 map as like Godthab.
+# For lack of better info, assume they were like Godthab before 1996.
+# startkart.no says Thule does not observe DST, but this is clearly an error,
+# so go with Shanks & Pottenger for Thule transitions until this year.
+# For 2007 on assume Thule will stay in sync with US DST rules.
+#
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Thule	1991	1992	-	Mar	lastSun	2:00	1:00	D
+Rule	Thule	1991	1992	-	Sep	lastSun	2:00	0	S
+Rule	Thule	1993	2006	-	Apr	Sun>=1	2:00	1:00	D
+Rule	Thule	1993	2006	-	Oct	lastSun	2:00	0	S
+Rule	Thule	2007	max	-	Mar	Sun>=8	2:00	1:00	D
+Rule	Thule	2007	max	-	Nov	Sun>=1	2:00	0	S
+#
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone America/Danmarkshavn -1:14:40 -	LMT	1916 Jul 28
+			-3:00	-	WGT	1980 Apr  6 2:00
+			-3:00	EU	WG%sT	1996
+			0:00	-	GMT
+Zone America/Scoresbysund -1:27:52 -	LMT	1916 Jul 28 # Ittoqqortoormiit
+			-2:00	-	CGT	1980 Apr  6 2:00
+			-2:00	C-Eur	CG%sT	1981 Mar 29
+			-1:00	EU	EG%sT
+Zone America/Godthab	-3:26:56 -	LMT	1916 Jul 28 # Nuuk
+			-3:00	-	WGT	1980 Apr  6 2:00
+			-3:00	EU	WG%sT
+Zone America/Thule	-4:35:08 -	LMT	1916 Jul 28 # Pituffik air base
+			-4:00	Thule	A%sT
+
+# Estonia
+# From Peter Ilieve (1994-10-15):
+# A relative in Tallinn confirms the accuracy of the data for 1989 onwards
+# [through 1994] and gives the legal authority for it,
+# a regulation of the Government of Estonia, No. 111 of 1989....
+#
+# From Peter Ilieve (1996-10-28):
+# [IATA SSIM (1992/1996) claims that the Baltic republics switch at 01:00s,
+# but a relative confirms that Estonia still switches at 02:00s, writing:]
+# ``I do not [know] exactly but there are some little different
+# (confusing) rules for International Air and Railway Transport Schedules
+# conversion in Sunday connected with end of summer time in Estonia....
+# A discussion is running about the summer time efficiency and effect on
+# human physiology.  It seems that Estonia maybe will not change to
+# summer time next spring.''
+
+# From Peter Ilieve (1998-11-04), heavily edited:
+# <a href="http://trip.rk.ee/cgi-bin/thw?${BASE}=akt&${OOHTML}=rtd&TA=1998&TO=1&AN=1390">
+# The 1998-09-22 Estonian time law
+# </a>
+# refers to the Eighth Directive and cites the association agreement between
+# the EU and Estonia, ratified by the Estonian law (RT II 1995, 22--27, 120).
+#
+# I also asked [my relative] whether they use any standard abbreviation
+# for their standard and summer times. He says no, they use "suveaeg"
+# (summer time) and "talveaeg" (winter time).
+
+# From <a href="http://www.baltictimes.com/">The Baltic Times</a> (1999-09-09)
+# via Steffen Thorsen:
+# This year will mark the last time Estonia shifts to summer time,
+# a council of the ruling coalition announced Sept. 6....
+# But what this could mean for Estonia's chances of joining the European
+# Union are still unclear.  In 1994, the EU declared summer time compulsory
+# for all member states until 2001.  Brussels has yet to decide what to do
+# after that.
+
+# From Mart Oruaas (2000-01-29):
+# Regulation no. 301 (1999-10-12) obsoletes previous regulation
+# no. 206 (1998-09-22) and thus sticks Estonia to +02:00 GMT for all
+# the year round.  The regulation is effective 1999-11-01.
+
+# From Toomas Soome (2002-02-21):
+# The Estonian government has changed once again timezone politics.
+# Now we are using again EU rules.
+#
+# From Urmet Jaanes (2002-03-28):
+# The legislative reference is Government decree No. 84 on 2002-02-21.
+
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Tallinn	1:39:00	-	LMT	1880
+			1:39:00	-	TMT	1918 Feb # Tallinn Mean Time
+			1:00	C-Eur	CE%sT	1919 Jul
+			1:39:00	-	TMT	1921 May
+			2:00	-	EET	1940 Aug  6
+			3:00	-	MSK	1941 Sep 15
+			1:00	C-Eur	CE%sT	1944 Sep 22
+			3:00	Russia	MSK/MSD	1989 Mar 26 2:00s
+			2:00	1:00	EEST	1989 Sep 24 2:00s
+			2:00	C-Eur	EE%sT	1998 Sep 22
+			2:00	EU	EE%sT	1999 Nov  1
+			2:00	-	EET	2002 Feb 21
+			2:00	EU	EE%sT
+
+# Finland
+
+# From Hannu Strang (1994-09-25 06:03:37 UTC):
+# Well, here in Helsinki we're just changing from summer time to regular one,
+# and it's supposed to change at 4am...
+
+# From Janne Snabb (2010-0715):
+#
+# I noticed that the Finland data is not accurate for years 1981 and 1982.
+# During these two first trial years the DST adjustment was made one hour
+# earlier than in forthcoming years. Starting 1983 the adjustment was made
+# according to the central European standards.
+#
+# This is documented in Heikki Oja: Aikakirja 2007, published by The Almanac
+# Office of University of Helsinki, ISBN 952-10-3221-9, available online (in
+# Finnish) at
+#
+# <a href="http://almanakka.helsinki.fi/aikakirja/Aikakirja2007kokonaan.pdf">
+# http://almanakka.helsinki.fi/aikakirja/Aikakirja2007kokonaan.pdf
+# </a>
+#
+# Page 105 (56 in PDF version) has a handy table of all past daylight savings
+# transitions. It is easy enough to interpret without Finnish skills.
+#
+# This is also confirmed by Finnish Broadcasting Company's archive at:
+#
+# <a href="http://www.yle.fi/elavaarkisto/?s=s&g=1&ag=5&t=&a=3401">
+# http://www.yle.fi/elavaarkisto/?s=s&g=1&ag=5&t=&a=3401
+# </a>
+#
+# The news clip from 1981 says that "the time between 2 and 3 o'clock does not
+# exist tonight."
+
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Finland	1942	only	-	Apr	3	0:00	1:00	S
+Rule	Finland	1942	only	-	Oct	3	0:00	0	-
+Rule	Finland	1981	1982	-	Mar	lastSun	2:00	1:00	S
+Rule	Finland	1981	1982	-	Sep	lastSun	3:00	0	-
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Helsinki	1:39:52 -	LMT	1878 May 31
+			1:39:52	-	HMT	1921 May    # Helsinki Mean Time
+			2:00	Finland	EE%sT	1983
+			2:00	EU	EE%sT
+
+# Aaland Is
+Link	Europe/Helsinki	Europe/Mariehamn
+
+
+# France
+
+# From Ciro Discepolo (2000-12-20):
+#
+# Henri Le Corre, Regimes Horaires pour le monde entier, Editions
+# Traditionnelles - Paris 2 books, 1993
+#
+# Gabriel, Traite de l'heure dans le monde, Guy Tredaniel editeur,
+# Paris, 1991
+#
+# Francoise Gauquelin, Problemes de l'heure resolus en astrologie,
+# Guy tredaniel, Paris 1987
+
+
+#
+# Shank & Pottenger seem to use `24:00' ambiguously; resolve it with Whitman.
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	France	1916	only	-	Jun	14	23:00s	1:00	S
+Rule	France	1916	1919	-	Oct	Sun>=1	23:00s	0	-
+Rule	France	1917	only	-	Mar	24	23:00s	1:00	S
+Rule	France	1918	only	-	Mar	 9	23:00s	1:00	S
+Rule	France	1919	only	-	Mar	 1	23:00s	1:00	S
+Rule	France	1920	only	-	Feb	14	23:00s	1:00	S
+Rule	France	1920	only	-	Oct	23	23:00s	0	-
+Rule	France	1921	only	-	Mar	14	23:00s	1:00	S
+Rule	France	1921	only	-	Oct	25	23:00s	0	-
+Rule	France	1922	only	-	Mar	25	23:00s	1:00	S
+# DSH writes that a law of 1923-05-24 specified 3rd Sat in Apr at 23:00 to 1st
+# Sat in Oct at 24:00; and that in 1930, because of Easter, the transitions
+# were Apr 12 and Oct 5.  Go with Shanks & Pottenger.
+Rule	France	1922	1938	-	Oct	Sat>=1	23:00s	0	-
+Rule	France	1923	only	-	May	26	23:00s	1:00	S
+Rule	France	1924	only	-	Mar	29	23:00s	1:00	S
+Rule	France	1925	only	-	Apr	 4	23:00s	1:00	S
+Rule	France	1926	only	-	Apr	17	23:00s	1:00	S
+Rule	France	1927	only	-	Apr	 9	23:00s	1:00	S
+Rule	France	1928	only	-	Apr	14	23:00s	1:00	S
+Rule	France	1929	only	-	Apr	20	23:00s	1:00	S
+Rule	France	1930	only	-	Apr	12	23:00s	1:00	S
+Rule	France	1931	only	-	Apr	18	23:00s	1:00	S
+Rule	France	1932	only	-	Apr	 2	23:00s	1:00	S
+Rule	France	1933	only	-	Mar	25	23:00s	1:00	S
+Rule	France	1934	only	-	Apr	 7	23:00s	1:00	S
+Rule	France	1935	only	-	Mar	30	23:00s	1:00	S
+Rule	France	1936	only	-	Apr	18	23:00s	1:00	S
+Rule	France	1937	only	-	Apr	 3	23:00s	1:00	S
+Rule	France	1938	only	-	Mar	26	23:00s	1:00	S
+Rule	France	1939	only	-	Apr	15	23:00s	1:00	S
+Rule	France	1939	only	-	Nov	18	23:00s	0	-
+Rule	France	1940	only	-	Feb	25	 2:00	1:00	S
+# The French rules for 1941-1944 were not used in Paris, but Shanks & Pottenger
+# write that they were used in Monaco and in many French locations.
+# Le Corre writes that the upper limit of the free zone was Arneguy, Orthez,
+# Mont-de-Marsan, Bazas, Langon, Lamotte-Montravel, Marouil, La
+# Rochefoucault, Champagne-Mouton, La Roche-Posay, La Haye-Descartes,
+# Loches, Montrichard, Vierzon, Bourges, Moulins, Digoin,
+# Paray-le-Monial, Montceau-les-Mines, Chalons-sur-Saone, Arbois,
+# Dole, Morez, St-Claude, and Collonges (Haute-Savoie).
+Rule	France	1941	only	-	May	 5	 0:00	2:00	M # Midsummer
+# Shanks & Pottenger say this transition occurred at Oct 6 1:00,
+# but go with Denis Excoffier (1997-12-12),
+# who quotes the Ephemerides Astronomiques for 1998 from Bureau des Longitudes
+# as saying 5/10/41 22hUT.
+Rule	France	1941	only	-	Oct	 6	 0:00	1:00	S
+Rule	France	1942	only	-	Mar	 9	 0:00	2:00	M
+Rule	France	1942	only	-	Nov	 2	 3:00	1:00	S
+Rule	France	1943	only	-	Mar	29	 2:00	2:00	M
+Rule	France	1943	only	-	Oct	 4	 3:00	1:00	S
+Rule	France	1944	only	-	Apr	 3	 2:00	2:00	M
+Rule	France	1944	only	-	Oct	 8	 1:00	1:00	S
+Rule	France	1945	only	-	Apr	 2	 2:00	2:00	M
+Rule	France	1945	only	-	Sep	16	 3:00	0	-
+# Shanks & Pottenger give Mar 28 2:00 and Sep 26 3:00;
+# go with Excoffier's 28/3/76 0hUT and 25/9/76 23hUT.
+Rule	France	1976	only	-	Mar	28	 1:00	1:00	S
+Rule	France	1976	only	-	Sep	26	 1:00	0	-
+# Shanks & Pottenger give 0:09:20 for Paris Mean Time, and Whitman 0:09:05,
+# but Howse quotes the actual French legislation as saying 0:09:21.
+# Go with Howse.  Howse writes that the time in France was officially based
+# on PMT-0:09:21 until 1978-08-09, when the time base finally switched to UTC.
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	Europe/Paris	0:09:21 -	LMT	1891 Mar 15  0:01
+			0:09:21	-	PMT	1911 Mar 11  0:01  # Paris MT
+# Shanks & Pottenger give 1940 Jun 14 0:00; go with Excoffier and Le Corre.
+			0:00	France	WE%sT	1940 Jun 14 23:00
+# Le Corre says Paris stuck with occupied-France time after the liberation;
+# go with Shanks & Pottenger.
+			1:00	C-Eur	CE%sT	1944 Aug 25
+			0:00	France	WE%sT	1945 Sep 16  3:00
+			1:00	France	CE%sT	1977
+			1:00	EU	CE%sT
+
+# Germany
+
+# From Markus Kuhn (1998-09-29):
+# The German time zone web site by the Physikalisch-Technische
+# Bundesanstalt contains DST information back to 1916.
+# [See tz-link.htm for the URL.]
+
+# From Joerg Schilling (2002-10-23):
+# In 1945, Berlin was switched to Moscow Summer time (GMT+4) by
+# <a href="http://www.dhm.de/lemo/html/biografien/BersarinNikolai/">
+# General [Nikolai] Bersarin</a>.
+
+# From Paul Eggert (2003-03-08):
+# <a href="http://www.parlament-berlin.de/pds-fraktion.nsf/727459127c8b66ee8525662300459099/defc77cb784f180ac1256c2b0030274b/$FILE/bersarint.pdf">
+# http://www.parlament-berlin.de/pds-fraktion.nsf/727459127c8b66ee8525662300459099/defc77cb784f180ac1256c2b0030274b/$FILE/bersarint.pdf
+# </a>
+# says that Bersarin issued an order to use Moscow time on May 20.
+# However, Moscow did not observe daylight saving in 1945, so
+# this was equivalent to CEMT (GMT+3), not GMT+4.
+>>>>>>> Switch from SCCS to git.
+
+# European data is hearsay...
+
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	W-Eur	1969	2037	-	Mar	lastSun	2:00	1:00	" DST"
+Rule	W-Eur	1969	1982	-	Oct	lastSun	2:00	0	-
+Rule	W-Eur	1983	only	-	Oct	23	2:00	0	-
+Rule	W-Eur	1984	2037	-	Oct	lastSun	2:00	0	-
+
+Rule	M-Eur	1969	2037	-	Mar	lastSun	2:00	1:00	" DST"
+Rule	M-Eur	1969	1982	-	Sep	lastSun	2:00	0	-
+Rule	M-Eur	1983	only	-	Oct	23	2:00	0	-
+Rule	M-Eur	1984	2037	-	Sep	lastSun	2:00	0	-
+
+# does eastern Europe have DST ??
+# Zone	NAME		GMTOFF	RULES	FORMAT
+Zone	WET		0	W-Eur	WET%s
+Zone	MET		1 	M-Eur	MET%s
+Zone	EET		2	M-Eur	EET%s	# Middle?? What are the rules??

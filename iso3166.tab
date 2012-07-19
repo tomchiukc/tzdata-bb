@@ -1,4 +1,7 @@
-# ISO 3166 2-letter country codes
+# <pre>
+# This file is in the public domain, so clarified as of
+# 2009-05-17 by Arthur David Olson.
+# ISO 3166 alpha-2 country codes
 #
 # From Paul Eggert <eggert@twinsun.com> (1996-09-03):
 #

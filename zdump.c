@@ -1,6 +1,6 @@
 #
 
-#include "stdio.h"
+#include "version.h"
 
 #ifdef OBJECTID
 static char	sccsid[] = "%W%";
@@ -24,6 +24,23 @@ char *	argv[];
 	struct tzinfo 	t;
 	char		buf[BUFSIZ];
 
+	INITIALIZE(cutlotime);
+	INITIALIZE(cuthitime);
+#if HAVE_GETTEXT
+	(void) setlocale(LC_ALL, "");
+#ifdef TZ_DOMAINDIR
+	(void) bindtextdomain(TZ_DOMAIN, TZ_DOMAINDIR);
+#endif /* defined TEXTDOMAINDIR */
+	(void) textdomain(TZ_DOMAIN);
+#endif /* HAVE_GETTEXT */
+	progname = argv[0];
+	for (i = 1; i < argc; ++i)
+		if (strcmp(argv[i], "--version") == 0) {
+			(void) printf("%s\n", TZCODE_VERSION);
+			exit(EXIT_SUCCESS);
+		} else if (strcmp(argv[i], "--help") == 0) {
+			usage(stdout, EXIT_SUCCESS);
+		}
 	vflag = 0;
 	while ((c = getopt(argc, argv, "v")) == 'v')
 		vflag = 1;

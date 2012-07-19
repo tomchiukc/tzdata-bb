@@ -1,0 +1,135 @@
+.TH SETTZ 3 
+.SH NAME
+settz, newctime, newlocaltime \-  convert date and time to ASCII
+.SH SYNOPSIS
+.nf
+.B settz(zonename)
+.B char *zonename;
+.PP
+.B char *newctime(clock)
+.B long *clock;
+.PP
+.B
+#include "time.h"
+.PP
+.B struct tm *newlocaltime(clock)
+.B long *clock;
+.PP
+.B char *tz_abbr;
+.SH DESCRIPTION
+.I Settz
+sets time zone information used by
+.I newctime
+and
+.IR newlocaltime .
+If
+.I zonename
+begins with a slash,
+it is used as the absolute pathname of the
+.IR tzfile (5)-format
+file from which to read the time zone information;
+if
+.I zonename
+begins with some other character,
+it is used as a pathname relative to the standard time zone information
+directory.  A call of the form
+.ti +.5i
+.B
+settz("")
+.br
+causes built-in information about GMT to be used; a call of the form
+.ti +.5i
+.B
+settz((char *) 0)
+.br
+is treated as if it were a call of the form
+.ti +.5i
+.B
+settz("localtime")
+.PP
+.I Newlocaltime
+has the same argument and return value as
+.IR localtime .
+If
+.I newlocaltime
+is called before
+.I settz
+is called,
+.I newlocaltime
+calls
+.I settz
+with the value returned by
+.B
+getenv("TZ").
+.I Newlocaltime
+sets
+tz_abbr
+to a pointer to an 
+ASCII string that's the time zone abbreviation to be used with
+.IR newlocaltime 's
+return value.
+.PP
+.I Newctime
+returns a pointer to a string of the form
+.ti +.5i
+Sat Feb 15 15:45:51 1986 EST\\n\\0
+.br
+<<<<<<< HEAD
+where the last (variable-width) field is the time zone abbreviation.
+.SH DIAGNOSTICS
+.I Settz
+returns zero if all seems well; it returns negative one otherwise
+(and sets things up so that its built-in information about GMT is used).
+.SH FILES
+/etc/tzdir	standard time zone information directory
+.SH "SEE ALSO"
+ctime(3), getenv(3)
+.. %W%
+=======
+/usr/local/etc/zoneinfo/posixrules	used with POSIX-style TZ's
+.br
+/usr/local/etc/zoneinfo/GMT	for UTC leap seconds
+.sp
+If
+.B /usr/local/etc/zoneinfo/GMT
+is absent,
+UTC leap seconds are loaded from
+.BR /usr/local/etc/zoneinfo/posixrules .
+.SH SEE ALSO
+getenv(3),
+newstrftime(3),
+newtzset(3),
+time(2),
+tzfile(5)
+.SH NOTES
+The return values point to static data;
+the data is overwritten by each call.
+The
+.B tm_zone
+field of a returned
+.B "struct tm"
+points to a static array of characters, which
+will also be overwritten at the next call
+(and by calls to
+.IR tzset ).
+.PP
+.I Asctime\^
+and
+.I ctime\^
+behave strangely for years before 1000 or after 9999.
+The 1989 and 1999 editions of the C Standard say
+that years from \-99 through 999 are converted without
+extra spaces, but this conflicts with longstanding
+tradition and with this implementation.
+Traditional implementations of these two functions are
+restricted to years in the range 1900 through 2099.
+To avoid this portability mess, new programs should use
+.I strftime\^
+instead.
+.PP
+Avoid using out-of-range values with
+.I mktime
+when setting up lunch with promptness sticklers in Riyadh.
+.\" This file is in the public domain, so clarified as of
+.\" 2009-05-17 by Arthur David Olson.
+>>>>>>> Switch from SCCS to git.

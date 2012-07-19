@@ -1,0 +1,24 @@
+*.o
+*.tar.gz
+*.txt
+*~
+ChangeLog
+tzselect
+version.h
+yearistype
+zdump
+zic
+build-stamp
+debian/files
+debian/preinst
+<<<<<<< HEAD
+debian/tzdata-au/
+debian/tzdata-au.debhelper.log
+debian/tzdata-au.substvars
+=======
+>>>>>>> Updated to 2014h-1
+debian/tzdata-bb/
+debian/tzdata-bb.debhelper.log
+debian/tzdata-bb.substvars
+tzgen
+

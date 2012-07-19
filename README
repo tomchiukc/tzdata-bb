@@ -1,5 +1,5 @@
-The shell archive of which this file is a part contains man pages for functions
-and a file format designed to deal with Daylight Savings Time variations.
+This file is in the public domain, so clarified as of
+2009-05-17 by Arthur David Olson.
 
 The basic idea is to have a system-wide directory that contains binary files
 describing time zone rules; functions such as "localtime" could read such

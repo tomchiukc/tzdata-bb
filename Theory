@@ -1,15 +1,35 @@
-These time and date functions are much like the System V Release 2.0 (SVR2)
-time and date functions; there are a few additions and changes to extend
-the usefulness of the SVR2 functions:
+This file is in the public domain, so clarified as of
+2009-05-17 by Arthur David Olson.
 
-*	In SVR2, time display in a process is controlled by the environment
-	variable TZ, which "must be a three-letter time zone name, followed
-	by a munber representing the difference between local time and
-	Greenwich Mean Time in hours, followed by an optional three-letter
-	name for a daylight time zone;" when the optional daylight time zone is
-	present, "standard U.S.A. Daylight Savings Time conversion is applied."
-	This means that SVR2 can't deal with other (for example, Australian) 
-	daylight savings time rules, or situations where more than two
+----- Outline -----
+
+	Time and date functions
+	Scope of the tz database
+	Names of time zone rule files
+	Time zone abbreviations
+	Calendrical issues
+	Time and time zones on Mars
+
+----- Time and date functions -----
+
+These time and date functions are upwards compatible with POSIX,
+an international standard for UNIX-like systems.
+As of this writing, the current edition of POSIX is:
+
+  Standard for Information technology
+  -- Portable Operating System Interface (POSIX (R))
+  -- System Interfaces
+  IEEE Std 1003.1, 2004 Edition
+  <http://www.opengroup.org/online-pubs?DOC=7999959899>
+  <http://www.opengroup.org/pubs/catalog/t041.htm>
+
+POSIX has the following properties and limitations.
+
+*	In POSIX, time display in a process is controlled by the
+	environment variable TZ.  Unfortunately, the POSIX TZ string takes
+	a form that is hard to describe and is error-prone in practice.
+	Also, POSIX TZ strings can't deal with other (for example, Israeli)
+	daylight saving time rules, or situations where more than two
 	time zone abbreviations are used in an area.
 
 *	In SVR2, time conversion information is compiled into each program
