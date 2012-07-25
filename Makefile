@@ -4,8 +4,7 @@
 # 2009-05-17 by Arthur David Olson.
 
 # Version numbers of the code and data distributions.
-TZCODE_VERSION = tzcode2012c
-TZDATA_VERSION = tzdata2012d
+VERSION = 2012d
 
 # Change the line below for your time zone (after finding the zone you want in
 # the time zone files, or adding it to a time zone file).
@@ -326,6 +325,10 @@ INSTALL:	ALL install date.1
 		-rm -f $(MANDIR)/man1/date.1
 		cp date.1 $(MANDIR)/man1/.
 
+version.h:
+		echo >$@ \
+		  'static char const TZVERSION[]="tz$(VERSION)";'
+
 zdump:		$(TZDOBJS)
 		$(CC) $(CFLAGS) $(LFLAGS) $(TZDOBJS) $(LDLIBS) -o $@
 
@@ -376,6 +379,7 @@ tzselect:	tzselect.ksh
 		sed \
 			-e 's|AWK=[^}]*|AWK=$(AWK)|g' \
 			-e 's|TZDIR=[^}]*|TZDIR=$(TZDIR)|' \
+			-e 's|\(TZVERSION\)=.*|\1=tz$(VERSION)|' \
 			<$? >$@
 		chmod +x $@
 
@@ -432,10 +436,10 @@ public:		$(ENCHILADA) set-timestamps
 		$(AWK) -f checktab.awk $(PRIMARY_YDATA)
 		LC_ALL=C && export LC_ALL && \
 		tar $(TARFLAGS) -cf - $(DOCS) $(SOURCES) $(MISC) *.[1-8].txt | \
-		  gzip $(GZIPFLAGS) > $(TZCODE_VERSION).tar.gz
+		  gzip $(GZIPFLAGS) > tzcode$(VERSION).tar.gz
 		LC_ALL=C && export LC_ALL && \
 		tar $(TARFLAGS) -cf - $(DATA) | \
-		  gzip $(GZIPFLAGS) > $(TZDATA_VERSION).tar.gz
+		  gzip $(GZIPFLAGS) > tzdata$(VERSION).tar.gz
 
 typecheck:
 		make clean
