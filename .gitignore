@@ -1,7 +1,10 @@
-build-stamp
-debian/files
-debian/preinst
-debian/tzdata-au/
-debian/tzdata-au.debhelper.log
-debian/tzdata-au.substvars
-tzgen
+*.o
+*.tar.gz
+*.txt
+*~
+ChangeLog
+tzselect
+version.h
+yearistype
+zdump
+zic
