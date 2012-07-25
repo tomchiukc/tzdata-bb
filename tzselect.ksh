@@ -44,11 +44,9 @@ TZVERSION=see_Makefile
 	exit 1
 }
 
-coord=
-location_limit=10
-zonetabtype=zone1970
-
-usage="Usage: tzselect [--version] [--help] [-c COORD] [-n LIMIT]
+if [ "$1" = "--help" ]; then
+    cat <<EOF
+Usage: tzselect
 Select a time zone interactively.
 
 Report bugs to tz@elsie.nci.nih.gov.
@@ -60,32 +58,6 @@ tzselect $TZVERSION
 EOF
     exit 0
 fi
-
-while getopts c:n:-: opt
-do
-    case $opt$OPTARG in
-    c*)
-	coord=$OPTARG ;;
-    n*)
-	location_limit=$OPTARG ;;
-    t*) # Undocumented option, used for developer testing.
-	zonetabtype=$OPTARG ;;
-    -help)
-	exec echo "$usage" ;;
-    -version)
-	exec echo "tzselect $PKGVERSION$TZVERSION" ;;
-    -*)
-	echo >&2 "$0: -$opt$OPTARG: unknown option; try '$0 --help'"; exit 1 ;;
-    *)
-	echo >&2 "$0: try '$0 --help'"; exit 1 ;;
-    esac
-done
-
-shift `expr $OPTIND - 1`
-case $# in
-0) ;;
-*) echo >&2 "$0: $1: unknown argument"; exit 1 ;;
-esac
 
 # Make sure the tables are readable.
 TZ_COUNTRY_TABLE=$TZDIR/iso3166.tab
