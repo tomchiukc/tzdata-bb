@@ -16,8 +16,8 @@ static char	elsieid[] = "%W%";
 char *
 icatalloc(char *const old, const char *const new)
 {
-	register char *	result;
-	register int	oldsize, newsize;
+	char *	result;
+	int	oldsize, newsize;
 
 	newsize = (new == NULL) ? 0 : strlen(new);
 	if (old == NULL)
