@@ -225,6 +225,11 @@ GCC_DEBUG_FLAGS = -Dlint -g3 -O3 -fno-common -fstrict-aliasing \
 
 CFLAGS=
 
+# Linker flags.  Default to $(LFLAGS) for backwards compatibility
+# to tzcode2012h and earlier.
+
+LDFLAGS=	$(LFLAGS)
+
 # If you want zic's -s option used when installing, uncomment the next line
 # ZFLAGS=	-s
 
@@ -339,10 +344,10 @@ version.h:
 		  'static char const TZVERSION[]="tz$(VERSION)";'
 
 zdump:		$(TZDOBJS)
-		$(CC) $(CFLAGS) $(LFLAGS) $(TZDOBJS) $(LDLIBS) -o $@
+		$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(TZDOBJS) $(LDLIBS)
 
 zic:		$(TZCOBJS) yearistype
-		$(CC) $(CFLAGS) $(LFLAGS) $(TZCOBJS) $(LDLIBS) -o $@
+		$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(TZCOBJS) $(LDLIBS)
 
 yearistype:	yearistype.sh
 		cp yearistype.sh yearistype
@@ -377,12 +382,11 @@ zones:		$(REDO)
 $(TZLIB):	$(LIBOBJS)
 		-mkdir $(TOPDIR) $(LIBDIR)
 		ar ru $@ $(LIBOBJS)
-		if [ -x /usr/ucb/ranlib -o -x /usr/bin/ranlib ] ; \
+		if [ -x /usr/ucb/ranlib ] || [ -x /usr/bin/ranlib ]; \
 			then ranlib $@ ; fi
 
 date:		$(DATEOBJS)
-		$(CC) $(CFLAGS) date.o localtime.o asctime.o strftime.o \
-			$(LDLIBS) -lc -o $@
+		$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(DATEOBJS) $(LDLIBS)
 
 tzselect:	tzselect.ksh
 		sed \
