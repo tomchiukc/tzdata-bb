@@ -206,8 +206,10 @@ GCC_DEBUG_FLAGS = -Dlint -g -O3 -fno-common \
 
 CFLAGS=
 
-# If you want zic's -s option used when installing, uncomment the next line
-# ZFLAGS=	-s
+# Linker flags.  Default to $(LFLAGS) for backwards compatibility
+# to tzcode2012h and earlier.
+
+LDFLAGS=	$(LFLAGS)
 
 zic=		./zic
 ZIC=		$(zic) $(ZFLAGS)
@@ -381,6 +383,7 @@ check_web:	$(WEB_PAGES)
 clean:
 		rm -f core *.o *.out \
 		  date tzselect version.h zdump zic yearistype
+		rm -f -r tzpublic
 
 maintainer-clean: clean
 		@echo 'This command is intended for maintainers to use; it'
@@ -412,11 +415,16 @@ set-timestamps:
 public:		$(ENCHILADA) set-timestamps
 		make maintainer-clean
 		make "CFLAGS=$(GCC_DEBUG_FLAGS)"
-		mkdir -m go-rwx /tmp/,tzpublic
-		-for i in $(TDATA) ; do zic -v -d /tmp/,tzpublic $$i 2>&1 | grep -v "starting year" ; done
-		for i in $(TDATA) ; do zic -d /tmp/,tzpublic $$i || exit; done
-		zic -v -d /tmp/,tzpublic $(TDATA) || exit
-		rm -f -r /tmp/,tzpublic
+		mkdir tzpublic
+		for i in $(TDATA) ; do \
+		  $(zic) -v -d tzpublic $$i 2>&1 || exit; \
+		done
+		$(zic) -v -d tzpublic $(TDATA)
+		rm -f -r tzpublic
+
+tarballs:	tzcode$(VERSION).tar.gz tzdata$(VERSION).tar.gz
+
+tzcode$(VERSION).tar.gz: $(COMMON) $(DOCS) $(SOURCES) $(MISC)
 		for i in *.[1-8] ; do \
 		  LC_ALL=C sh workman.sh $$i > $$i.txt && \
 		  touch -r $$i $$i.txt || exit; \
