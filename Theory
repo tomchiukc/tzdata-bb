@@ -196,7 +196,7 @@ Points of interest to folks with other systems:
 
 The functions that are conditionally compiled if STD_INSPIRED is defined
 should, at this point, be looked on primarily as food for thought.  They are
-not in any sense "standard compatible" - some are not, in fact, specified in
+not in any sense "standard compatible"--some are not, in fact, specified in
 *any* standard.  They do, however, represent responses of various authors to
 standardization proposals.
 
@@ -222,139 +222,17 @@ with a notable location.
 
 Clock transitions before 1970 are recorded for each such location,
 because most POSIX-compatible systems support negative time stamps and
-could misbehave if data entries were omitted for pre-1970 transitions.
+could misbehave if data were omitted for pre-1970 transitions.
 However, the database is not designed for and does not suffice for
 applications requiring accurate handling of all past times everywhere,
 as it would take far too much effort and guesswork to record all
 details of pre-1970 civil timekeeping.
 
-
------ Accuracy of the tz database -----
-
-The tz database is not authoritative, and it surely has errors.
-Corrections are welcome and encouraged; see the file CONTRIBUTING.
-Users requiring authoritative data should consult national standards
-bodies and the references cited in the database's comments.
-
-Errors in the tz database arise from many sources:
-
- * The tz database predicts future time stamps, and current predictions
-   will be incorrect after future governments change the rules.
-   For example, if today someone schedules a meeting for 13:00 next
-   October 1, Casablanca time, and tomorrow Morocco changes its
-   daylight saving rules, software can mess up after the rule change
-   if it blithely relies on conversions made before the change.
-
- * The pre-1970 entries in this database cover only a tiny sliver of how
-   clocks actually behaved; the vast majority of the necessary
-   information was lost or never recorded.  Thousands more zones would
-   be needed if the tz database's scope were extended to cover even
-   just the known or guessed history of standard time; for example,
-   the current single entry for France would need to split into dozens
-   of entries, perhaps hundreds.
-
- * Most of the pre-1970 data entries come from unreliable sources, often
-   astrology books that lack citations and whose compilers evidently
-   invented entries when the true facts were unknown, without
-   reporting which entries were known and which were invented.
-   These books often contradict each other or give implausible entries,
-   and on the rare occasions when they are checked they are
-   typically found to be incorrect.
-
- * For the UK the tz database relies on years of first-class work done by
-   Joseph Myers and others; see <http://www.polyomino.org.uk/british-time/>.
-   Other countries are not done nearly as well.
-
- * Sometimes, different people in the same city would maintain clocks
-   that differed significantly.  Railway time was used by railroad
-   companies (which did not always agree with each other),
-   church-clock time was used for birth certificates, etc.
-   Often this was merely common practice, but sometimes it was set by law.
-   For example, from 1891 to 1911 the UT offset in France was legally
-   0:09:21 outside train stations and 0:04:21 inside.
-
- * Although a named location in the tz database stands for the
-   containing region, its pre-1970 data entries are often accurate for
-   only a small subset of that region.  For example, Europe/London
-   stands for the United Kingdom, but its pre-1847 times are valid
-   only for locations that have London's exact meridian, and its 1847
-   transition to GMT is known to be valid only for the L&NW and the
-   Caledonian railways.
-
- * The tz database does not record the earliest time for which a zone's
-   data entries are thereafter valid for every location in the region.
-   For example, Europe/London is valid for all locations in its
-   region after GMT was made the standard time, but the date of
-   standardization (1880-08-02) is not in the tz database, other than
-   in commentary.  For many zones the earliest time of validity is
-   unknown.
-
- * The tz database does not record a region's boundaries, and in many
-   cases the boundaries are not known.  For example, the zone
-   America/Kentucky/Louisville represents a region around the city of
-   Louisville, the boundaries of which are unclear.
-
- * Changes that are modeled as instantaneous transitions in the tz
-   database were often spread out over hours, days, or even decades.
-
- * Even if the time is specified by law, locations sometimes
-   deliberately flout the law.
-
- * Early timekeeping practices, even assuming perfect clocks, were
-   often not specified to the accuracy that the tz database requires.
-
- * Sometimes historical timekeeping was specified more precisely
-   than what the tz database can handle.  For example, from 1909 to
-   1937 Netherlands clocks were legally UT+00:19:32.13, but the tz
-   database cannot represent the fractional second.
-
- * Even when all the timestamp transitions recorded by the tz database
-   are correct, the tz rules that generate them may not faithfully
-   reflect the historical rules.  For example, from 1922 until World
-   War II the UK moved clocks forward the day following the third
-   Saturday in April unless that was Easter, in which case it moved
-   clocks forward the previous Sunday.  Because the tz database has no
-   way to specify Easter, these exceptional years are entered as
-   separate tz Rule lines, even though the legal rules did not change.
-
- * The tz database models pre-standard time using the proleptic Gregorian
-   calendar and local mean time (LMT), but many people used other
-   calendars and other timescales.  For example, the Roman Empire used
-   the Julian calendar, and had 12 varying-length daytime hours with a
-   non-hour-based system at night.
-
- * Early clocks were less reliable, and data entries do not represent
-   this unreliability.
-
- * As for leap seconds, civil time was not based on atomic time before
-   1972, and we don't know the history of earth's rotation accurately
-   enough to map SI seconds to historical solar time to more than
-   about one-hour accuracy.  See: Morrison LV, Stephenson FR.
-   Historical values of the Earth's clock error Delta T and the
-   calculation of eclipses. J Hist Astron. 2004;35:327-36
-   <http://adsabs.harvard.edu/full/2004JHA....35..327M>;
-   Historical values of the Earth's clock error. J Hist Astron. 2005;36:339
-   <http://adsabs.harvard.edu/full/2005JHA....36..339M>.
-
- * The relationship between POSIX time (that is, UTC but ignoring leap
-   seconds) and UTC is not agreed upon after 1972.  Although the POSIX
-   clock officially stops during an inserted leap second, at least one
-   proposed standard has it jumping back a second instead; and in
-   practice POSIX clocks more typically either progress glacially during
-   a leap second, or are slightly slowed while near a leap second.
-
- * The tz database does not represent how uncertain its information is.
-   Ideally it would contain information about when data entries are
-   incomplete or dicey.  Partial temporal knowledge is a field of
-   active research, though, and it's not clear how to apply it here.
-
-In short, many, perhaps most, of the tz database's pre-1970 and future
-time stamps are either wrong or misleading.  Any attempt to pass the
-tz database off as the definition of time should be unacceptable to
-anybody who cares about the facts.  In particular, the tz database's
-LMT offsets should not be considered meaningful, and should not prompt
-creation of zones merely because two locations differ in LMT or
-transitioned to standard time at different dates.
+As noted in the README file, the tz database is not authoritative
+(particularly not for pre-1970 time stamps), and it surely has errors.
+Corrections are welcome and encouraged.  Users requiring authoritative
+data should consult national standards bodies and the references cited
+in the database's comments.
 
 
 ----- Names of time zone rule files -----
@@ -418,10 +296,10 @@ in decreasing order of importance:
 		prefer `Costa_Rica' to `San_Jose' and `Guyana' to `Georgetown'.
 	Keep locations compact.  Use cities or small islands, not countries
 		or regions, so that any future time zone changes do not split
-		locations into different time zones.  E.g. prefer 'Paris'
-		to 'France', since France has had multiple time zones.
-	Use mainstream English spelling, e.g. prefer 'Rome' to 'Roma', and
-		prefer 'Athens' to the Greek 'Αθήνα' or the Romanized 'Athína'.
+		locations into different time zones.  E.g. prefer `Paris'
+		to `France', since France has had multiple time zones.
+	Use mainstream English spelling, e.g. prefer `Rome' to `Roma', and
+		prefer `Athens' to the true name (which uses Greek letters).
 		The POSIX file name restrictions encourage this rule.
 	Use the most populous among locations in a zone,
 		e.g. prefer `Shanghai' to `Beijing'.  Among locations with
@@ -444,12 +322,9 @@ in decreasing order of importance:
 	If a name is changed, put its old spelling in the `backward' file.
 		This means old spellings will continue to work.
 
-The file 'zone1970.tab' lists geographical locations used to name time
-zone rule files.  It is intended to be an exhaustive list of names
-for geographic regions as described above; this is a subset of the
-names in the data.  Although a 'zone1970.tab' location's longitude
-corresponds to its LMT offset with one hour for every 15 degrees east
-longitude, this relationship is not exact.
+The file `zone.tab' lists the geographical locations used to name
+time zone rule files.  It is intended to be an exhaustive list
+of names for geographic regions as described above.
 
 Older versions of this package used a different naming scheme,
 and these older names are still supported.
@@ -516,10 +391,10 @@ in decreasing order of importance:
 		in some sense, asleep.
 
 Application writers should note that these abbreviations are ambiguous
-in practice: e.g. 'CST' has a different meaning in China than
+in practice: e.g. `EST' has a different meaning in Australia than
 it does in the United States.  In new applications, it's often better
-to use numeric UT offsets like '-0600' instead of time zone
-abbreviations like 'CST'; this avoids the ambiguity.
+to use numeric UTC offsets like `-0500' instead of time zone
+abbreviations like `EST'; this avoids the ambiguity.
 
 
 ----- Calendrical issues -----
@@ -528,9 +403,10 @@ Calendrical issues are a bit out of scope for a time zone database,
 but they indicate the sort of problems that we would run into if we
 extended the time zone database further into the past.  An excellent
 resource in this area is Nachum Dershowitz and Edward M. Reingold,
-Calendrical Calculations: Third Edition, Cambridge University Press (2008)
-<http://emr.cs.iit.edu/home/reingold/calendar-book/third-edition/>.
-Other information and sources are given below.  They sometimes disagree.
+<a href="http://emr.cs.iit.edu/home/reingold/calendar-book/third-edition/">
+Calendrical Calculations: Third Edition
+</a>, Cambridge University Press (2008).  Other information and
+sources are given below.  They sometimes disagree.
 
 
 France
@@ -559,7 +435,7 @@ From: Petteri Sulonen (via Usenet)
 Date: 14 Jan 1999 00:00:00 GMT
 ...
 
-If your source is correct, how come documents between 1929 and 1940 were
+If your source is correct, how come documents between 1929 -- 1940 were
 still dated using the conventional, Gregorian calendar?
 
 I can post a scan of a document dated December 1, 1934, signed by
@@ -571,14 +447,15 @@ Executive Committee of the Supreme Soviet, if you like.
 Sweden (and Finland)
 
 From: Mark Brader
-Subject: Re: Gregorian reform - a part of locale?
-<news:1996Jul6.012937.29190@sq.com>
+<a href="news:1996Jul6.012937.29190@sq.com">
+Subject: Re: Gregorian reform -- a part of locale?
+</a>
 Date: 1996-07-06
 
 In 1700, Denmark made the transition from Julian to Gregorian.  Sweden
 decided to *start* a transition in 1700 as well, but rather than have one of
 those unsightly calendar gaps :-), they simply decreed that the next leap
-year after 1696 would be in 1744 - putting the whole country on a calendar
+year after 1696 would be in 1744 -- putting the whole country on a calendar
 different from both Julian and Gregorian for a period of 40 years.
 
 However, in 1704 something went wrong and the plan was not carried through;
@@ -590,9 +467,9 @@ Then in 1753, Sweden made the transition to Gregorian in the usual manner,
 getting there only 13 years behind the original schedule.
 
 (A previous posting of this story was challenged, and Swedish readers
-produced the following references to support it: "Tideräkning och historia"
-by Natanael Beckman (1924) and "Tid, en bok om tideräkning och
-kalenderävsen" by Lars-Olof Lodén (1968).
+produced the following references to support it: "Tiderakning och historia"
+by Natanael Beckman (1924) and "Tid, en bok om tiderakning och
+kalendervasen" by Lars-Olof Lode'n (no date was given).)
 
 
 Grotefend's data
@@ -613,23 +490,23 @@ Gregorian calendar:
 
 21 Dec 1582/
    01 Jan 1583 - Holland, Brabant, Flanders, Hennegau
-10/21 Feb 1583 - bishopric of Liege (Lüttich)
+10/21 Feb 1583 - bishopric of Liege (L"uttich)
 13/24 Feb 1583 - bishopric of Augsburg
 04/15 Oct 1583 - electorate of Trier
 05/16 Oct 1583 - Bavaria, bishoprics of Freising, Eichstedt, Regensburg,
                  Salzburg, Brixen
-13/24 Oct 1583 - Austrian Oberelsaß and Breisgau
+13/24 Oct 1583 - Austrian Oberelsass and Breisgau
 20/31 Oct 1583 - bishopric of Basel
-02/13 Nov 1583 - duchy of Jülich-Berg
-02/13 Nov 1583 - electorate and city of Köln
-04/15 Nov 1583 - bishopric of Würzburg
+02/13 Nov 1583 - duchy of J"ulich-Berg
+02/13 Nov 1583 - electorate and city of K"oln
+04/15 Nov 1583 - bishopric of W"urzburg
 11/22 Nov 1583 - electorate of Mainz
 16/27 Nov 1583 - bishopric of Strassburg and the margraviate of Baden
-17/28 Nov 1583 - bishopric of Münster and duchy of Cleve
+17/28 Nov 1583 - bishopric of M"unster and duchy of Cleve
 14/25 Dec 1583 - Steiermark
 
 06/17 Jan 1584 - Austria and Bohemia
-11/22 Jan 1584 - Lucerne, Uri, Schwyz, Zug, Freiburg, Solothurn
+11/22 Jan 1584 - Luzern, Uri, Schwyz, Zug, Freiburg, Solothurn
 12/23 Jan 1584 - Silesia and the Lausitz
 22 Jan/
    02 Feb 1584 - Hungary (legally on 21 Oct 1587)
@@ -648,7 +525,7 @@ Gregorian calendar:
           1617 - duchy of Kurland (reverted to the Julian calendar in
                  1796)
 
-          1624 - bishopric of Osnabrück
+          1624 - bishopric of Osnabr"uck
 
           1630 - bishopric of Minden
 
@@ -667,7 +544,7 @@ Gregorian calendar:
    12 Dec 1700 - Utrecht, Overijssel
 
 31 Dec 1700/
-   12 Jan 1701 - Friesland, Groningen, Zürich, Bern, Basel, Geneva,
+   12 Jan 1701 - Friesland, Groningen, Z"urich, Bern, Basel, Geneva,
                  Turgau, and Schaffhausen
 
           1724 - Glarus, Appenzell, and the city of St. Gallen
@@ -679,14 +556,14 @@ Gregorian calendar:
 17 Feb/
    01 Mar 1753 - Sweden
 
-1760-1812      - Graubünden
+1760-1812      - Graub"unden
 
 The Russian empire (including Finland and the Baltic states) did not
 convert to the Gregorian calendar until the Soviet revolution of 1917.
 
-Source: H. Grotefend, _Taschenbuch der Zeitrechnung des deutschen
+Source:  H. Grotefend, _Taschenbuch der Zeitrechnung des deutschen
 Mittelalters und der Neuzeit_, herausgegeben von Dr. O. Grotefend
-(Hannover: Hahnsche Buchhandlung, 1941), pp. 26-28.
+(Hannover:  Hahnsche Buchhandlung, 1941), pp. 26-28.
 
 
 ----- Time and time zones on Mars -----
@@ -733,9 +610,3 @@ Michael Allison and Robert Schmunk,
 Jia-Rui Chong, "Workdays Fit for a Martian", Los Angeles Times
 <http://articles.latimes.com/2004/jan/14/science/sci-marstime14>
 (2004-01-14), pp A1, A20-A21.
-
-
------
-Local Variables:
-coding: utf-8
-End:
