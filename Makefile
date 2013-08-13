@@ -1,6 +1,3 @@
-# This file is in the public domain, so clarified as of
-# 2009-05-17 by Arthur David Olson.
-
 # Version numbers of the code and data distributions.
 VERSION = 2012d
 
@@ -208,7 +205,6 @@ CFLAGS=
 # to tzcode2012h and earlier.
 
 LDFLAGS=	$(LFLAGS)
->>>>>>> Check 'public' more carefully.
 
 zic=		./zic
 ZIC=		$(zic) $(ZFLAGS)
@@ -273,10 +269,11 @@ NDATA=		systemv factory
 SDATA=		solar87 solar88 solar89
 TDATA=		$(YDATA) $(NDATA) $(SDATA)
 TABDATA=	iso3166.tab zone.tab
-DATA=		$(YDATA) $(NDATA) $(SDATA) $(TABDATA) leapseconds yearistype.sh
+DATA=		$(YDATA) $(NDATA) $(SDATA) $(TABDATA) \
+			leap-seconds.list yearistype.sh
 WEB_PAGES=	tz-art.htm tz-link.htm
 MISC=		usno1988 usno1989 usno1989a usno1995 usno1997 usno1998 \
-			$(WEB_PAGES) checktab.awk workman.sh \
+			$(WEB_PAGES) checktab.awk leapseconds.awk workman.sh \
 			zoneinfo2tdf.pl
 ENCHILADA=	$(DOCS) $(SOURCES) $(DATA) $(MISC)
 
@@ -329,6 +326,9 @@ yearistype:	yearistype.sh
 		cp yearistype.sh yearistype
 		chmod +x yearistype
 
+leapseconds:	leapseconds.awk leap-seconds.list
+		$(AWK) -f leapseconds.awk leap-seconds.list >$@
+
 posix_only:	zic $(TDATA)
 		$(ZIC) -y $(YEARISTYPE) -d $(TZDIR) -L /dev/null $(TDATA)
 
@@ -344,8 +344,18 @@ right_only:	zic leapseconds $(TDATA)
 # Therefore, the other two directories are now siblings of $(TZDIR).
 # You must replace all of $(TZDIR) to switch from not using leap seconds
 # to using them, or vice versa.
-other_two:	zic leapseconds $(TDATA)
+right_posix:	right_only leapseconds
+		rm -fr $(TZDIR)-leaps
+		ln -s $(TZDIR_BASENAME) $(TZDIR)-leaps || \
+		  $(ZIC) -y $(YEARISTYPE) \
+			-d $(TZDIR)-leaps -L leapseconds $(TDATA)
 		$(ZIC) -y $(YEARISTYPE) -d $(TZDIR)-posix -L /dev/null $(TDATA)
+
+posix_right:	posix_only leapseconds
+		rm -fr $(TZDIR)-posix
+		ln -s $(TZDIR_BASENAME) $(TZDIR)-posix || \
+		  $(ZIC) -y $(YEARISTYPE) \
+			-d $(TZDIR)-posix -L /dev/null $(TDATA)
 		$(ZIC) -y $(YEARISTYPE) \
 			-d $(TZDIR)-leaps -L leapseconds $(TDATA)
 
@@ -383,7 +393,8 @@ check_web:	$(WEB_PAGES)
 
 clean:
 		rm -f core *.o *.out \
-		  date tzselect version.h zdump zic yearistype
+		  date leapseconds tzselect version.h zdump zic yearistype
+clean:		clean_misc
 		rm -f -r tzpublic
 
 maintainer-clean: clean
