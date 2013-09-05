@@ -159,7 +159,7 @@ is replaced by the locale's representation of 12-hour clock time
 using AM/PM notation.
 .TP
 %S
-is replaced by the second as a decimal number (00\*(en60).
+is replaced by the second as a decimal number (00-60).
 .TP
 %s
 is replaced by the number of seconds since the Epoch (see newctime(3)).
@@ -204,9 +204,8 @@ is replaced by the locale's appropriate date representation.
 is replaced by the locale's appropriate time representation.
 .It Cm \&%Y
 is replaced by the year with century as a decimal number.
-.TP
-%y
-is replaced by the year without century as a decimal number (00\*(en99).
+.It Cm \&%y
+is replaced by the year without century as a decimal number (00-99).
 .TP
 %Z
 is replaced by the time zone name,
@@ -230,3 +229,4 @@ newctime(3),
 newtzset(3),
 time(2),
 tzfile(5)
+.\" %W%
