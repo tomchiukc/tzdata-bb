@@ -1006,7 +1006,7 @@ inzsub(register char **const fields, const int nfields, const int iscont)
 	}
 	z.z_filename = filename;
 	z.z_linenum = linenum;
-	z.z_gmtoff = gethms(fields[i_gmtoff], _("invalid UTC offset"), TRUE);
+	z.z_gmtoff = gethms(fields[i_gmtoff], _("invalid UT offset"), TRUE);
 	if ((cp = strchr(fields[i_format], '%')) != 0) {
 		if (*++cp != 's' || strchr(cp, '%') != 0) {
 			error(_("invalid abbreviation format"));
@@ -2080,7 +2080,7 @@ wp = ecpyalloc(_("no POSIX environment variable for zone"));
 				INITIALIZE(ktime);
 				if (useuntil) {
 					/*
-					** Turn untiltime into UTC
+					** Turn untiltime into UT
 					** assuming the current gmtoff and
 					** stdoff values.
 					*/
@@ -2254,7 +2254,7 @@ addtype(const zic_t gmtoff, const char *const abbr, const int isdst,
 		exit(EXIT_FAILURE);
 	}
 	if (! (-1L - 2147483647L <= gmtoff && gmtoff <= 2147483647L)) {
-		error(_("UTC offset out of range"));
+		error(_("UT offset out of range"));
 		exit(EXIT_FAILURE);
 	}
 	gmtoffs[i] = gmtoff;
