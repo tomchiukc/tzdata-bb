@@ -891,7 +891,383 @@ register struct zone *	zp;
 	** See what the different Saving Time types are.
 	** Plug the indices into the rules.
 	*/
-	ndstypes = 0;
+	if (!itsdir(fullname) && remove(fullname) != 0 && errno != ENOENT) {
+		const char *e = strerror(errno);
+
+		(void) fprintf(stderr, _("%s: Can't remove %s: %s\n"),
+			progname, fullname, e);
+		exit(EXIT_FAILURE);
+	}
+	if ((fp = fopen(fullname, "wb")) == NULL) {
+		if (mkdirs(fullname) != 0)
+			exit(EXIT_FAILURE);
+		if ((fp = fopen(fullname, "wb")) == NULL) {
+			const char *e = strerror(errno);
+
+			(void) fprintf(stderr, _("%s: Can't create %s: %s\n"),
+				progname, fullname, e);
+			exit(EXIT_FAILURE);
+		}
+	}
+	for (pass = 1; pass <= 2; ++pass) {
+		register int	thistimei, thistimecnt;
+		register int	thisleapi, thisleapcnt;
+		register int	thistimelim, thisleaplim;
+		int		writetype[TZ_MAX_TIMES];
+		int		typemap[TZ_MAX_TYPES];
+		register int	thistypecnt;
+		char		thischars[TZ_MAX_CHARS];
+		char		thischarcnt;
+		int 		indmap[TZ_MAX_CHARS];
+
+		if (pass == 1) {
+			thistimei = timei32;
+			thistimecnt = timecnt32;
+			thisleapi = leapi32;
+			thisleapcnt = leapcnt32;
+		} else {
+			thistimei = 0;
+			thistimecnt = timecnt;
+			thisleapi = 0;
+			thisleapcnt = leapcnt;
+		}
+		thistimelim = thistimei + thistimecnt;
+		thisleaplim = thisleapi + thisleapcnt;
+		/*
+		** Remember that type 0 is reserved.
+		*/
+		writetype[0] = FALSE;
+		for (i = 1; i < typecnt; ++i)
+			writetype[i] = thistimecnt == timecnt;
+		if (thistimecnt == 0) {
+			/*
+			** No transition times fall in the current
+			** (32- or 64-bit) window.
+			*/
+			if (typecnt != 0)
+				writetype[typecnt - 1] = TRUE;
+		} else {
+			for (i = thistimei - 1; i < thistimelim; ++i)
+				if (i >= 0)
+					writetype[types[i]] = TRUE;
+			/*
+			** For America/Godthab and Antarctica/Palmer
+			*/
+			/*
+			** Remember that type 0 is reserved.
+			*/
+			if (thistimei == 0)
+				writetype[1] = TRUE;
+		}
+#ifndef LEAVE_SOME_PRE_2011_SYSTEMS_IN_THE_LURCH
+		/*
+		** For some pre-2011 systems: if the last-to-be-written
+		** standard (or daylight) type has an offset different from the
+		** most recently used offset,
+		** append an (unused) copy of the most recently used type
+		** (to help get global "altzone" and "timezone" variables
+		** set correctly).
+		*/
+		{
+			register int	mrudst, mrustd, hidst, histd, type;
+
+			hidst = histd = mrudst = mrustd = -1;
+			for (i = thistimei; i < thistimelim; ++i)
+				if (isdsts[types[i]])
+					mrudst = types[i];
+				else	mrustd = types[i];
+			for (i = 0; i < typecnt; ++i)
+				if (writetype[i]) {
+					if (isdsts[i])
+						hidst = i;
+					else	histd = i;
+				}
+			if (hidst >= 0 && mrudst >= 0 && hidst != mrudst &&
+				gmtoffs[hidst] != gmtoffs[mrudst]) {
+					isdsts[mrudst] = -1;
+					type = addtype(gmtoffs[mrudst],
+						&chars[abbrinds[mrudst]],
+						TRUE,
+						ttisstds[mrudst],
+						ttisgmts[mrudst]);
+					isdsts[mrudst] = TRUE;
+					writetype[type] = TRUE;
+			}
+			if (histd >= 0 && mrustd >= 0 && histd != mrustd &&
+				gmtoffs[histd] != gmtoffs[mrustd]) {
+					isdsts[mrustd] = -1;
+					type = addtype(gmtoffs[mrustd],
+						&chars[abbrinds[mrustd]],
+						FALSE,
+						ttisstds[mrustd],
+						ttisgmts[mrustd]);
+					isdsts[mrustd] = FALSE;
+					writetype[type] = TRUE;
+			}
+		}
+#endif /* !defined LEAVE_SOME_PRE_2011_SYSTEMS_IN_THE_LURCH */
+		thistypecnt = 0;
+		/*
+		** Potentially, set type 0 to that of lowest-valued time.
+		*/
+		if (thistimei > 0) {
+			for (i = 1; i < typecnt; ++i)
+				if (writetype[i] && !isdsts[i])
+					break;
+			if (i != types[thistimei - 1]) {
+				i = types[thistimei - 1];
+				gmtoffs[0] = gmtoffs[i];
+				isdsts[0] = isdsts[i];
+				ttisstds[0] = ttisstds[i];
+				ttisgmts[0] = ttisgmts[i];
+				abbrinds[0] = abbrinds[i];
+				writetype[0] = TRUE;
+				writetype[i] = FALSE;
+			}
+		}
+		for (i = 0; i < typecnt; ++i)
+			typemap[i] = writetype[i] ?  thistypecnt++ : 0;
+		for (i = 0; i < sizeof indmap / sizeof indmap[0]; ++i)
+			indmap[i] = -1;
+		thischarcnt = 0;
+		for (i = 0; i < typecnt; ++i) {
+			register char *	thisabbr;
+
+			if (!writetype[i])
+				continue;
+			if (indmap[abbrinds[i]] >= 0)
+				continue;
+			thisabbr = &chars[abbrinds[i]];
+			for (j = 0; j < thischarcnt; ++j)
+				if (strcmp(&thischars[j], thisabbr) == 0)
+					break;
+			if (j == thischarcnt) {
+				(void) strcpy(&thischars[(int) thischarcnt],
+					thisabbr);
+				thischarcnt += strlen(thisabbr) + 1;
+			}
+			indmap[abbrinds[i]] = j;
+		}
+#define DO(field)	((void) fwrite(tzh.field, sizeof tzh.field, 1, fp))
+		tzh = tzh0;
+		(void) strncpy(tzh.tzh_magic, TZ_MAGIC, sizeof tzh.tzh_magic);
+		tzh.tzh_version[0] = ZIC_VERSION;
+		convert(thistypecnt, tzh.tzh_ttisgmtcnt);
+		convert(thistypecnt, tzh.tzh_ttisstdcnt);
+		convert(thisleapcnt, tzh.tzh_leapcnt);
+		convert(thistimecnt, tzh.tzh_timecnt);
+		convert(thistypecnt, tzh.tzh_typecnt);
+		convert(thischarcnt, tzh.tzh_charcnt);
+		DO(tzh_magic);
+		DO(tzh_version);
+		DO(tzh_reserved);
+		DO(tzh_ttisgmtcnt);
+		DO(tzh_ttisstdcnt);
+		DO(tzh_leapcnt);
+		DO(tzh_timecnt);
+		DO(tzh_typecnt);
+		DO(tzh_charcnt);
+#undef DO
+		for (i = thistimei; i < thistimelim; ++i)
+			if (pass == 1)
+				puttzcode(ats[i], fp);
+			else	puttzcode64(ats[i], fp);
+		for (i = thistimei; i < thistimelim; ++i) {
+			unsigned char	uc;
+
+			uc = typemap[types[i]];
+			(void) fwrite(&uc, sizeof uc, 1, fp);
+		}
+		for (i = 0; i < typecnt; ++i)
+			if (writetype[i]) {
+				puttzcode(gmtoffs[i], fp);
+				(void) putc(isdsts[i], fp);
+				(void) putc((unsigned char) indmap[abbrinds[i]], fp);
+			}
+		if (thischarcnt != 0)
+			(void) fwrite(thischars, sizeof thischars[0],
+				      thischarcnt, fp);
+		for (i = thisleapi; i < thisleaplim; ++i) {
+			register zic_t	todo;
+
+			if (roll[i]) {
+				if (timecnt == 0 || trans[i] < ats[0]) {
+					j = 0;
+					while (isdsts[j])
+						if (++j >= typecnt) {
+							j = 0;
+							break;
+						}
+				} else {
+					j = 1;
+					while (j < timecnt &&
+						trans[i] >= ats[j])
+							++j;
+					j = types[j - 1];
+				}
+				todo = tadd(trans[i], -gmtoffs[j]);
+			} else	todo = trans[i];
+			if (pass == 1)
+				puttzcode(todo, fp);
+			else	puttzcode64(todo, fp);
+			puttzcode(corr[i], fp);
+		}
+		for (i = 0; i < typecnt; ++i)
+			if (writetype[i])
+				(void) putc(ttisstds[i], fp);
+		for (i = 0; i < typecnt; ++i)
+			if (writetype[i])
+				(void) putc(ttisgmts[i], fp);
+	}
+	(void) fprintf(fp, "\n%s\n", string);
+	if (ferror(fp) || fclose(fp)) {
+		(void) fprintf(stderr, _("%s: Error writing %s\n"),
+			progname, fullname);
+		exit(EXIT_FAILURE);
+	}
+}
+
+static void
+doabbr(char *const abbr, const char *const format, const char *const letters,
+       const int isdst, const int doquotes)
+{
+	register char *	cp;
+	register char *	slashp;
+	register int	len;
+
+	slashp = strchr(format, '/');
+	if (slashp == NULL) {
+		if (letters == NULL)
+			(void) strcpy(abbr, format);
+		else	(void) sprintf(abbr, format, letters);
+	} else if (isdst) {
+		(void) strcpy(abbr, slashp + 1);
+	} else {
+		if (slashp > format)
+			(void) strncpy(abbr, format, slashp - format);
+		abbr[slashp - format] = '\0';
+	}
+	if (!doquotes)
+		return;
+	for (cp = abbr; *cp != '\0'; ++cp)
+		if (strchr("ABCDEFGHIJKLMNOPQRSTUVWXYZ", *cp) == NULL &&
+			strchr("abcdefghijklmnopqrstuvwxyz", *cp) == NULL)
+				break;
+	len = strlen(abbr);
+	if (len > 0 && *cp == '\0')
+		return;
+	abbr[len + 2] = '\0';
+	abbr[len + 1] = '>';
+	for ( ; len > 0; --len)
+		abbr[len] = abbr[len - 1];
+	abbr[0] = '<';
+}
+
+static void
+updateminmax(const zic_t x)
+{
+	if (min_year > x)
+		min_year = x;
+	if (max_year < x)
+		max_year = x;
+}
+
+static int
+stringoffset(char *result, zic_t offset)
+{
+	register int	hours;
+	register int	minutes;
+	register int	seconds;
+
+	result[0] = '\0';
+	if (offset < 0) {
+		(void) strcpy(result, "-");
+		offset = -offset;
+	}
+	seconds = offset % SECSPERMIN;
+	offset /= SECSPERMIN;
+	minutes = offset % MINSPERHOUR;
+	offset /= MINSPERHOUR;
+	hours = offset;
+	if (hours >= HOURSPERDAY * DAYSPERWEEK) {
+		result[0] = '\0';
+		return -1;
+	}
+	(void) sprintf(end(result), "%d", hours);
+	if (minutes != 0 || seconds != 0) {
+		(void) sprintf(end(result), ":%02d", minutes);
+		if (seconds != 0)
+			(void) sprintf(end(result), ":%02d", seconds);
+	}
+	return 0;
+}
+
+static int
+stringrule(char *result, const struct rule *const rp, const zic_t dstoff,
+	   const zic_t gmtoff)
+{
+	register zic_t	tod = rp->r_tod;
+
+	result = end(result);
+	if (rp->r_dycode == DC_DOM) {
+		register int	month, total;
+
+		if (rp->r_dayofmonth == 29 && rp->r_month == TM_FEBRUARY)
+			return -1;
+		total = 0;
+		for (month = 0; month < rp->r_month; ++month)
+			total += len_months[0][month];
+		(void) sprintf(result, "J%d", total + rp->r_dayofmonth);
+	} else {
+		register int	week;
+		register int	wday = rp->r_wday;
+		register int	wdayoff;
+
+		if (rp->r_dycode == DC_DOWGEQ) {
+			wdayoff = (rp->r_dayofmonth - 1) % DAYSPERWEEK;
+			wday -= wdayoff;
+			tod += wdayoff * SECSPERDAY;
+			week = 1 + (rp->r_dayofmonth - 1) / DAYSPERWEEK;
+		} else if (rp->r_dycode == DC_DOWLEQ) {
+			if (rp->r_dayofmonth == len_months[1][rp->r_month])
+				week = 5;
+			else {
+				wdayoff = rp->r_dayofmonth % DAYSPERWEEK;
+				wday -= wdayoff;
+				tod += wdayoff * SECSPERDAY;
+				week = rp->r_dayofmonth / DAYSPERWEEK;
+			}
+		} else	return -1;	/* "cannot happen" */
+		if (wday < 0)
+			wday += DAYSPERWEEK;
+		(void) sprintf(result, "M%d.%d.%d",
+			rp->r_month + 1, week, wday);
+	}
+	if (rp->r_todisgmt)
+		tod += gmtoff;
+	if (rp->r_todisstd && rp->r_stdoff == 0)
+		tod += dstoff;
+	if (tod != 2 * SECSPERMIN * MINSPERHOUR) {
+		(void) strcat(result, "/");
+		if (stringoffset(end(result), tod) != 0)
+			return -1;
+	}
+	return 0;
+}
+
+static void
+stringzone(char *result, const struct zone *const zpfirst, const int zonecount)
+{
+	register const struct zone *	zp;
+	register struct rule *		rp;
+	register struct rule *		stdrp;
+	register struct rule *		dstrp;
+	register int			i;
+	register const char *		abbrvar;
+
+	result[0] = '\0';
+	zp = zpfirst + zonecount - 1;
+	stdrp = dstrp = NULL;
 	for (i = 0; i < zp->z_nrules; ++i) {
 		rp = &zp->z_rules[i];
 		(void) sprintf(buf, zp->z_format, rp->r_abbrvar);
