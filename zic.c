@@ -1144,12 +1144,7 @@ register struct zone *	zp;
 #undef DO
 		for (i = thistimei; i < thistimelim; ++i)
 			if (pass == 1)
-				/*
-				** Output an INT32_MIN "transition"
-				** if appropriate; see above.
-				*/
-				puttzcode(((ats[i] < INT32_MIN) ?
-					INT32_MIN : ats[i]), fp);
+				puttzcode(ats[i], fp);
 			else	puttzcode64(ats[i], fp);
 		for (i = thistimei; i < thistimelim; ++i) {
 			unsigned char	uc;
