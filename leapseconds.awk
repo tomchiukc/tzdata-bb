@@ -4,7 +4,11 @@
 
 BEGIN {
 <<<<<<< HEAD
+<<<<<<< HEAD
   print "# Allowance for leap seconds added to each time zone file."
+=======
+  print "# Allowance for leapseconds added to each timezone file."
+>>>>>>> * leapseconds.awk: Avoid long string literals.
   print ""
   print "# This file is in the public domain."
   print ""
@@ -14,7 +18,11 @@ BEGIN {
   print "# you should be able to pick up leap-seconds.list from a secondary NIST server."
   print "# For more about leap-seconds.list, please see"
   print "# The NTP Timescale and Leap Seconds"
+<<<<<<< HEAD
   print "# http://www.eecis.udel.edu/~mills/leap.html"
+=======
+  print "# <http://www.eecis.udel.edu/~mills/leap.html>."
+>>>>>>> * leapseconds.awk: Avoid long string literals.
   print ""
   print "# The International Earth Rotation Service periodically uses leap seconds"
   print "# to keep UTC to within 0.9 s of UT1"
@@ -35,6 +43,7 @@ BEGIN {
   print "# If the leapsecond is Stationary (S) the given time is UTC."
   print ""
   print "# Leap	YEAR	MONTH	DAY	HH:MM:SS	CORR	R/S"
+<<<<<<< HEAD
 =======
     printf "%s", "\
 # Allowance for leapseconds added to each timezone file.\n\
@@ -70,6 +79,8 @@ BEGIN {
 # Leap	YEAR	MONTH	DAY	HH:MM:SS	CORR	R/S\n\
 "
 >>>>>>> Generate the 'leapseconds' file automatically from leap-seconds.list.
+=======
+>>>>>>> * leapseconds.awk: Avoid long string literals.
 }
 
 /^ *$/ { next }
