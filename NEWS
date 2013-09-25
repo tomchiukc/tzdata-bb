@@ -1,5 +1,16 @@
 News for the tz database
 
+
+Unreleased, experimental changes
+
+  Changes affecting documentation and commentary
+
+    The README file is now part of the data tarball as well as the code.
+    It now states that files are public domain unless otherwise specified.
+    Its details about the 1989 release moved to a place of honor near
+    the end of NEWS.
+
+
 Release 2013f - 2013-09-24 23:37:36 -0700
 
   Changes affecting near-future time stamps
