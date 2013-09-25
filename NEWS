@@ -1,6 +1,16 @@
 News for the tz database
 
 
+Unreleased, experimental changes
+
+  Changes affecting documentation and commentary
+
+    The README file is now part of the data tarball as well as the code.
+    It now states that files are public domain unless otherwise specified.
+    Its details about the 1989 release moved to a place of honor near
+    the end of NEWS.
+
+
 Release 2013f - 2013-09-24 23:37:36 -0700
 
   Changes affecting near-future time stamps
@@ -2330,6 +2340,9 @@ Release 92 - 1992-04-25 18:17:03 -0000
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> doc: document public-domain status of files, and streamline README
 The 1989 update of the time zone package featured:
 
   *	POSIXization (including interpretation of POSIX-style TZ environment
@@ -2361,8 +2374,11 @@ The 1989 update of the time zone package featured:
   leap second information from its output files.
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> * NEWS: New file.
+=======
+>>>>>>> doc: document public-domain status of files, and streamline README
 -----
 Notes
 
@@ -2409,4 +2425,9 @@ the release (if all else fails; these are marked with a timezone of
 
 Earlier versions of the code and data were not announced on the tz
 list and are not summarized here.
+<<<<<<< HEAD
 >>>>>>> * NEWS: New file.
+=======
+
+This file is in the public domain.
+>>>>>>> doc: document public-domain status of files, and streamline README
