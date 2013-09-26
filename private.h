@@ -46,7 +46,7 @@ static char	privatehid[] = "%W%";
 
 #ifndef HAVE_LINK
 #define HAVE_LINK		1
-#endif /* !defined HAVE_SYMLINK */
+#endif /* !defined HAVE_LINK */
 
 #ifndef HAVE_SETTIMEOFDAY
 #define HAVE_SETTIMEOFDAY	3
