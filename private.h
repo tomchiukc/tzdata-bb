@@ -44,6 +44,10 @@ static char	privatehid[] = "%W%";
 #define HAVE_INCOMPATIBLE_CTIME_R	0
 #endif /* !defined INCOMPATIBLE_CTIME_R */
 
+#ifndef HAVE_LINK
+#define HAVE_LINK		1
+#endif /* !defined HAVE_SYMLINK */
+
 #ifndef HAVE_SETTIMEOFDAY
 #define HAVE_SETTIMEOFDAY	3
 #endif /* !defined HAVE_SETTIMEOFDAY */
