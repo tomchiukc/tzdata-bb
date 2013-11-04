@@ -186,17 +186,6 @@ The field's name is derived from Greenwich Mean Time, a precursor of UT.
 .br
 /usr/local/etc/zoneinfo/localtime	local time zone file
 .br
-where the last (variable-width) field is the time zone abbreviation.
-.SH DIAGNOSTICS
-.I Settz
-returns zero if all seems well; it returns negative one otherwise
-(and sets things up so that its built-in information about GMT is used).
-.SH FILES
-.ta \w'/usr/local/etc/zoneinfo/posixrules\0\0'u
-/usr/local/etc/zoneinfo	time zone information directory
-.br
-/usr/local/etc/zoneinfo/localtime	local time zone file
-.br
 /usr/local/etc/zoneinfo/posixrules	used with POSIX-style TZ's
 .br
 /usr/local/etc/zoneinfo/GMT	for UTC leap seconds
@@ -213,8 +202,8 @@ newtzset(3),
 time(2),
 tzfile(5)
 .SH NOTES
-The return values point to static data
-overwritten by each call.
+The return values point to static data;
+the data is overwritten by each call.
 The
 .B tm_zone
 field of a returned
@@ -229,7 +218,7 @@ and
 .I ctime\^
 behave strangely for years before 1000 or after 9999.
 The 1989 and 1999 editions of the C Standard say
-that years from \(mi99 through 999 are converted without
+that years from \-99 through 999 are converted without
 extra spaces, but this conflicts with longstanding
 tradition and with this implementation.
 Traditional implementations of these two functions are
