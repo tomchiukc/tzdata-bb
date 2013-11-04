@@ -273,11 +273,11 @@ PRIMARY_YDATA=	africa antarctica asia australasia \
 		europe northamerica southamerica
 YDATA=		$(PRIMARY_YDATA) pacificnew etcetera backward
 NDATA=		systemv factory
-SDATA=		solar87 solar88 solar89
-TDATA=		$(YDATA) $(NDATA) $(SDATA)
-TABDATA=	iso3166.tab zone.tab
-DATA=		$(YDATA) $(NDATA) $(SDATA) $(TABDATA) \
-			leap-seconds.list yearistype.sh
+TDATA=		$(YDATA) $(NDATA)
+TABDATA=	iso3166.tab zone.tab leapseconds
+LEAP_DEPS=	leapseconds.awk leap-seconds.list
+DATA=		$(YDATA) $(NDATA) $(TABDATA) \
+			$(LEAP_DEPS) yearistype.sh
 WEB_PAGES=	tz-art.htm tz-link.htm
 MISC=		usno1988 usno1989 usno1989a usno1995 usno1997 usno1998 \
 			$(WEB_PAGES) checktab.awk leapseconds.awk workman.sh \
