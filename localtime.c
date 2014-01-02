@@ -345,17 +345,19 @@ tzload(register const char *name, register struct state *const sp,
 					4 * TZ_MAX_TIMES];
 	} u_t;
 #ifdef ALL_STATE
-	register u_t *			up;
-
-	up = (u_t *) calloc(1, sizeof *up);
-	if (up == NULL)
-		return -1;
+	register u_t * const		up = malloc(sizeof *up);
 #else /* !defined ALL_STATE */
 	u_t				u;
 	register u_t * const		up = &u;
 #endif /* !defined ALL_STATE */
 
 	sp->goback = sp->goahead = FALSE;
+
+#ifdef ALL_STATE
+	if (up == NULL)
+		return -1;
+#endif
+
 	if (name == NULL && (name = TZDEFAULT) == NULL)
 		goto oops;
 	{
@@ -1196,7 +1198,7 @@ tzsetwall(void)
 
 #ifdef ALL_STATE
 	if (lclptr == NULL) {
-		lclptr = calloc(1, sizeof *lclptr);
+		lclptr = malloc(sizeof *lclptr);
 		if (lclptr == NULL) {
 			settzname();	/* all we can do */
 			return;
@@ -1227,7 +1229,7 @@ tzset(void)
 
 #ifdef ALL_STATE
 	if (lclptr == NULL) {
-		lclptr = calloc(1, sizeof *lclptr);
+		lclptr = malloc(sizeof *lclptr);
 		if (lclptr == NULL) {
 			settzname();	/* all we can do */
 			return;
@@ -1369,7 +1371,7 @@ gmtsub(const time_t *const timep, const int_fast32_t offset,
 	if (!gmt_is_set) {
 		gmt_is_set = TRUE;
 #ifdef ALL_STATE
-		gmtptr = calloc(1, sizeof *gmtptr);
+		gmtptr = malloc(sizeof *gmtptr);
 		if (gmtptr != NULL)
 #endif /* defined ALL_STATE */
 			gmtload(gmtptr);
