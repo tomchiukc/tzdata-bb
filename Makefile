@@ -465,11 +465,14 @@ typecheck:
 zonenames:	$(TDATA)
 		@$(AWK) '/^Zone/ { print $$2 } /^Link/ { print $$3 }' $(TDATA)
 
+CLEAN:		clean
+			sccs clean
+
 .KEEP_STATE:
 
 .PHONY: ALL INSTALL all
-.PHONY: check check_character_set check_public check_sorted check_tables
-.PHONY: check_time_t_alternatives check_web check_white_space clean clean_misc
-.PHONY: install maintainer-clean names posix_packrat posix_only posix_right
+.PHONY: check check_character_set check_public check_tables
+.PHONY: check_time_t_alternatives check_web clean clean_misc
+.PHONY: install maintainer-clean names posix_only posix_right
 .PHONY: public right_only right_posix signatures tarballs typecheck
 .PHONY: zonenames zones
