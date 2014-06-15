@@ -227,9 +227,147 @@ reset(const time_t newt, const int nflag)
 #define TSPTYPES
 #include "protocols/timed.h"
 
-	if (gettimeofday(&tv, &tz)) {
-		perror("gettimeofday");
-		exit(1);
+#ifdef OLD_TIME
+
+/*
+** We assume we're on a System-V-based system,
+** should use stime,
+** should write System-V-format utmp entries,
+** and don't have network notification to worry about.
+*/
+
+#include "fcntl.h"	/* for O_WRONLY, O_APPEND */
+
+/*ARGSUSED*/
+static void
+reset(const time_t newt, const int nflag)
+{
+	register int		fid;
+	time_t			oldt;
+	static struct {
+		struct utmp	before;
+		struct utmp	after;
+	} s;
+#if HAVE_UTMPX_H
+	static struct {
+		struct utmpx	before;
+		struct utmpx	after;
+	} sx;
+#endif
+
+	/*
+	** Wouldn't it be great if stime returned the old time?
+	*/
+	(void) time(&oldt);
+	if (stime(&newt) != 0)
+		oops("stime");
+	s.before.ut_type = OLD_TIME;
+	s.before.ut_time = oldt;
+	(void) strcpy(s.before.ut_line, OTIME_MSG);
+	s.after.ut_type = NEW_TIME;
+	s.after.ut_time = newt;
+	(void) strcpy(s.after.ut_line, NTIME_MSG);
+	fid = open(WTMP_FILE, O_WRONLY | O_APPEND);
+	if (fid < 0)
+		oops(_("log file open"));
+	if (write(fid, (char *) &s, sizeof s) != sizeof s)
+		oops(_("log file write"));
+	if (close(fid) != 0)
+		oops(_("log file close"));
+#if !HAVE_UTMPX_H
+	pututline(&s.before);
+	pututline(&s.after);
+#endif /* !HAVE_UTMPX_H */
+#if HAVE_UTMPX_H
+	sx.before.ut_type = OLD_TIME;
+	sx.before.ut_tv.tv_sec = oldt;
+	(void) strcpy(sx.before.ut_line, OTIME_MSG);
+	sx.after.ut_type = NEW_TIME;
+	sx.after.ut_tv.tv_sec = newt;
+	(void) strcpy(sx.after.ut_line, NTIME_MSG);
+#if !SUPPRESS_WTMPX_FILE_UPDATE
+	/* In Solaris 2.5 (and presumably other systems),
+	   'date' does not update /var/adm/wtmpx.
+	   This must be a bug.  If you'd like to reproduce the bug,
+	   define SUPPRESS_WTMPX_FILE_UPDATE to be nonzero.  */
+	fid = open(WTMPX_FILE, O_WRONLY | O_APPEND);
+	if (fid < 0)
+		oops(_("log file open"));
+	if (write(fid, (char *) &sx, sizeof sx) != sizeof sx)
+		oops(_("log file write"));
+	if (close(fid) != 0)
+		oops(_("log file close"));
+#endif /* !SUPPRESS_WTMPX_FILE_UPDATE */
+	pututxline(&sx.before);
+	pututxline(&sx.after);
+#endif /* HAVE_UTMPX_H */
+}
+
+#endif /* defined OLD_TIME */
+#ifndef OLD_TIME
+
+/*
+** We assume we're on a BSD-based system,
+** should use settimeofday,
+** should write BSD-format utmp entries (using logwtmp),
+** and may get to worry about network notification.
+** The "time name" changes between 4.3-tahoe and 4.4;
+** we include sys/param.h to determine which we should use.
+*/
+
+#ifndef TIME_NAME
+#include "sys/param.h"
+#ifdef BSD4_4
+#define TIME_NAME	"date"
+#endif /* defined BSD4_4 */
+#ifndef BSD4_4
+#define TIME_NAME	""
+#endif /* !defined BSD4_4 */
+#endif /* !defined TIME_NAME */
+
+#include "syslog.h"
+#include "sys/socket.h"
+#include "netinet/in.h"
+#include "netdb.h"
+#define TSPTYPES
+#include "protocols/timed.h"
+
+extern int		logwtmp();
+
+#if HAVE_SETTIMEOFDAY == 1
+#define settimeofday(t, tz) (settimeofday)(t)
+#endif /* HAVE_SETTIMEOFDAY == 1 */
+
+#ifdef TSP_SETDATE
+static int netsettime(struct timeval);
+#endif
+
+#ifndef TSP_SETDATE
+/*ARGSUSED*/
+#endif /* !defined TSP_SETDATE */
+static void
+reset(const time_t newt, const int nflag)
+{
+	register const char *	username;
+	static struct timeval	tv;	/* static so tv_usec is 0 */
+
+	username = getlogin();
+	if (username == NULL || *username == '\0') /* single-user or no tty */
+		username = "root";
+	tv.tv_sec = newt;
+#ifdef TSP_SETDATE
+	if (nflag || !netsettime(tv))
+#endif /* defined TSP_SETDATE */
+	{
+		/*
+		** "old" entry is always written, for compatibility.
+		*/
+		logwtmp("|", TIME_NAME, "");
+		if (settimeofday(&tv, NULL) == 0) {
+			logwtmp("{", TIME_NAME, "");	/* } */
+			syslog(LOG_AUTH | LOG_NOTICE, _("date set by %s"),
+				username);
+		} else	oops("settimeofday");
 	}
 
 	if (!argc)

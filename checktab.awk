@@ -123,8 +123,20 @@ BEGIN {
 	for (cctz in cctztab) {
 		cc = substr (cctz, 1, 2)
 		tz = substr (cctz, 3)
-		if (1 < cc_used[cc]) {
-			comments_needed[tz] = cc
+		if (cc_used[cc] == 1) {
+			if (tz2comments[cctz]) {
+				printf "%s:%d: unnecessary comment '%s'\n", \
+					zone_table, tz2NR[tz], \
+					tz2comments[cctz] \
+					>>"/dev/stderr"
+				status = 1
+			}
+		} else {
+			if (!tz2comments[tz]) {
+				printf "%s:%d: missing comment\n", \
+					zone_table, tz2NR[tz] >>"/dev/stderr"
+				status = 1
+			}
 		}
 	}
 	for (cctz in cctztab) {

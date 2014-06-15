@@ -224,8 +224,6 @@ _add(str)
 		if (!(*pt = *str++))
 			return;
 	}
-<<<<<<< HEAD
-=======
 	if (oldsun) {
 		/*
 		** SunOS 4 used an obsolescent format; see localdtconv(3).
@@ -252,5 +250,4 @@ no_locale:
 	localebuf = C_time_locale;
 	locale_buf = NULL;
 	return &localebuf;
->>>>>>> Don't abuse "`" to mean open quote.
 }

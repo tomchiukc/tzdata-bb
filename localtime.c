@@ -414,47 +414,134 @@ getsecs(register const char *strp, int_fast32_t *const secsp)
 }
 
 /*
- * This routine converts time as follows.
- * The epoch is 0000 Jan 1 1970 GMT.
- * The argument time is in seconds since then.
- * The localtime(t) entry returns a pointer to an array
- * containing
- *  seconds (0-59)
- *  minutes (0-59)
- *  hours (0-23)
- *  day of month (1-31)
- *  month (0-11)
- *  year-1970
- *  weekday (0-6, Sun is 0)
- *  day of the year
- *  daylight savings flag
- *
- * asctime(tvec))
- * where tvec is produced by localtime
- * returns a ptr to a character string
- * that has the ascii time in the form
- *	Thu Jan 01 00:00:00 1970n0\\
- *	01234567890123456789012345
- *	0	  1	    2
- *
- */
+** Given a pointer into a time zone string, scan until a character that is not
+** a valid character in a zone name is found. Return a pointer to that
+** character.
+*/
 
-static	char	cbuf[26 + TZ_ABBR_TOT + 1];
-static	int	dmsize[12] =
+static const char *
+getzname(register const char *strp)
 {
-	31,
-	28,
-	31,
-	30,
-	31,
-	30,
-	31,
-	31,
-	30,
-	31,
-	30,
-	31
-};
+	register char	c;
+
+	while ((c = *strp) != '\0' && !is_digit(c) && c != ',' && c != '-' &&
+		c != '+')
+			++strp;
+	return strp;
+}
+
+/*
+** Given a pointer into an extended time zone string, scan until the ending
+** delimiter of the zone name is located. Return a pointer to the delimiter.
+**
+** As with getzname above, the legal character set is actually quite
+** restricted, with other characters producing undefined results.
+** We don't do any checking here; checking is done later in common-case code.
+*/
+
+static const char *
+getqzname(register const char *strp, const int delim)
+{
+	register int	c;
+
+	while ((c = *strp) != '\0' && c != delim)
+		++strp;
+	return strp;
+}
+
+/*
+** Given a pointer into a time zone string, extract a number from that string.
+** Check that the number is within a specified range; if it is not, return
+** NULL.
+** Otherwise, return a pointer to the first character not part of the number.
+*/
+
+static const char *
+getnum(register const char *strp, int *const nump, const int min, const int max)
+{
+	register char	c;
+	register int	num;
+
+	if (strp == NULL || !is_digit(c = *strp))
+		return NULL;
+	num = 0;
+	do {
+		num = num * 10 + (c - '0');
+		if (num > max)
+			return NULL;	/* illegal value */
+		c = *++strp;
+	} while (is_digit(c));
+	if (num < min)
+		return NULL;		/* illegal value */
+	*nump = num;
+	return strp;
+}
+
+/*
+** Given a pointer into a time zone string, extract a number of seconds,
+** in hh[:mm[:ss]] form, from the string.
+** If any error occurs, return NULL.
+** Otherwise, return a pointer to the first character not part of the number
+** of seconds.
+*/
+
+static const char *
+getsecs(register const char *strp, int_fast32_t *const secsp)
+{
+	int	num;
+
+	/*
+	** 'HOURSPERDAY * DAYSPERWEEK - 1' allows quasi-Posix rules like
+	** "M10.4.6/26", which does not conform to Posix,
+	** but which specifies the equivalent of
+	** "02:00 on the first Sunday on or after 23 Oct".
+	*/
+	strp = getnum(strp, &num, 0, HOURSPERDAY * DAYSPERWEEK - 1);
+	if (strp == NULL)
+		return NULL;
+	*secsp = num * (int_fast32_t) SECSPERHOUR;
+	if (*strp == ':') {
+		++strp;
+		strp = getnum(strp, &num, 0, MINSPERHOUR - 1);
+		if (strp == NULL)
+			return NULL;
+		*secsp += num * SECSPERMIN;
+		if (*strp == ':') {
+			++strp;
+			/* 'SECSPERMIN' allows for leap seconds.  */
+			strp = getnum(strp, &num, 0, SECSPERMIN);
+			if (strp == NULL)
+				return NULL;
+			*secsp += num;
+		}
+	}
+	return strp;
+}
+
+/*
+** Given a pointer into a time zone string, extract an offset, in
+** [+-]hh[:mm[:ss]] form, from the string.
+** If any error occurs, return NULL.
+** Otherwise, return a pointer to the first character not part of the time.
+*/
+
+static const char *
+getoffset(register const char *strp, int_fast32_t *const offsetp)
+{
+	register int	neg = 0;
+
+	if (*strp == '-') {
+		neg = 1;
+		++strp;
+	} else if (*strp == '+')
+		++strp;
+	strp = getsecs(strp, offsetp);
+	if (strp == NULL)
+		return NULL;		/* illegal time */
+	if (neg)
+		*offsetp = -*offsetp;
+	return strp;
+}
 
 struct tm	*gmtime();
 char		*ct_numb();
