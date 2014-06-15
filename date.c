@@ -10,7 +10,7 @@
  * by the University of California, Berkeley.  The name of the
  * University may not be used to endorse or promote products derived
  * from this software without specific prior written permission.
- * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
  * WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
@@ -98,6 +98,112 @@ main(argc, argv)
 		retval = 1;
 		goto display;
 	}
+}
+
+#ifdef OLD_TIME
+
+/*
+** We assume we're on a System-V-based system,
+** should use stime,
+** should write System-V-format utmp entries,
+** and don't have network notification to worry about.
+*/
+
+#include "fcntl.h"	/* for O_WRONLY, O_APPEND */
+
+/*ARGSUSED*/
+static void
+reset(const time_t newt, const int nflag)
+{
+	register int		fid;
+	time_t			oldt;
+	static struct {
+		struct utmp	before;
+		struct utmp	after;
+	} s;
+#if HAVE_UTMPX_H
+	static struct {
+		struct utmpx	before;
+		struct utmpx	after;
+	} sx;
+#endif
+
+	/*
+	** Wouldn't it be great if stime returned the old time?
+	*/
+	(void) time(&oldt);
+	if (stime(&newt) != 0)
+		oops("stime");
+	s.before.ut_type = OLD_TIME;
+	s.before.ut_time = oldt;
+	(void) strcpy(s.before.ut_line, OTIME_MSG);
+	s.after.ut_type = NEW_TIME;
+	s.after.ut_time = newt;
+	(void) strcpy(s.after.ut_line, NTIME_MSG);
+	fid = open(WTMP_FILE, O_WRONLY | O_APPEND);
+	if (fid < 0)
+		oops(_("log file open"));
+	if (write(fid, (char *) &s, sizeof s) != sizeof s)
+		oops(_("log file write"));
+	if (close(fid) != 0)
+		oops(_("log file close"));
+#if !HAVE_UTMPX_H
+	pututline(&s.before);
+	pututline(&s.after);
+#endif /* !HAVE_UTMPX_H */
+#if HAVE_UTMPX_H
+	sx.before.ut_type = OLD_TIME;
+	sx.before.ut_tv.tv_sec = oldt;
+	(void) strcpy(sx.before.ut_line, OTIME_MSG);
+	sx.after.ut_type = NEW_TIME;
+	sx.after.ut_tv.tv_sec = newt;
+	(void) strcpy(sx.after.ut_line, NTIME_MSG);
+#if !SUPPRESS_WTMPX_FILE_UPDATE
+	/* In Solaris 2.5 (and presumably other systems),
+	   'date' does not update /var/adm/wtmpx.
+	   This must be a bug.  If you'd like to reproduce the bug,
+	   define SUPPRESS_WTMPX_FILE_UPDATE to be nonzero.  */
+	fid = open(WTMPX_FILE, O_WRONLY | O_APPEND);
+	if (fid < 0)
+		oops(_("log file open"));
+	if (write(fid, (char *) &sx, sizeof sx) != sizeof sx)
+		oops(_("log file write"));
+	if (close(fid) != 0)
+		oops(_("log file close"));
+#endif /* !SUPPRESS_WTMPX_FILE_UPDATE */
+	pututxline(&sx.before);
+	pututxline(&sx.after);
+#endif /* HAVE_UTMPX_H */
+}
+
+#endif /* defined OLD_TIME */
+#ifndef OLD_TIME
+
+/*
+** We assume we're on a BSD-based system,
+** should use settimeofday,
+** should write BSD-format utmp entries (using logwtmp),
+** and may get to worry about network notification.
+** The "time name" changes between 4.3-tahoe and 4.4;
+** we include sys/param.h to determine which we should use.
+*/
+
+#ifndef TIME_NAME
+#include "sys/param.h"
+#ifdef BSD4_4
+#define TIME_NAME	"date"
+#endif /* defined BSD4_4 */
+#ifndef BSD4_4
+#define TIME_NAME	""
+#endif /* !defined BSD4_4 */
+#endif /* !defined TIME_NAME */
+
+#include "syslog.h"
+#include "sys/socket.h"
+#include "netinet/in.h"
+#include "netdb.h"
+#define TSPTYPES
+#include "protocols/timed.h"
 
 	if (gettimeofday(&tv, &tz)) {
 		perror("gettimeofday");

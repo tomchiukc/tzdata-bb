@@ -74,11 +74,146 @@ char *	tzname;
 	}
 	return 0;
 oops:
-	(void) close(fid);
-	tzp->tz_gmtoff = 0;
-	(void) strcpy(tzp->tz_abbrs, "GMT");
-	tzp->tz_rulecnt = 0;
-	return (tzname[0] == 0) ? 0 : -1;
+#ifdef ALL_STATE
+	free(up);
+#endif /* defined ALL_STATE */
+	return -1;
+}
+
+static int
+typesequiv(const struct state *const sp, const int a, const int b)
+{
+	register int	result;
+
+	if (sp == NULL ||
+		a < 0 || a >= sp->typecnt ||
+		b < 0 || b >= sp->typecnt)
+			result = FALSE;
+	else {
+		register const struct ttinfo *	ap = &sp->ttis[a];
+		register const struct ttinfo *	bp = &sp->ttis[b];
+		result = ap->tt_gmtoff == bp->tt_gmtoff &&
+			ap->tt_isdst == bp->tt_isdst &&
+			ap->tt_ttisstd == bp->tt_ttisstd &&
+			ap->tt_ttisgmt == bp->tt_ttisgmt &&
+			strcmp(&sp->chars[ap->tt_abbrind],
+			&sp->chars[bp->tt_abbrind]) == 0;
+	}
+	return result;
+}
+
+static const int	mon_lengths[2][MONSPERYEAR] = {
+	{ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 },
+	{ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+};
+
+static const int	year_lengths[2] = {
+	DAYSPERNYEAR, DAYSPERLYEAR
+};
+
+/*
+** Given a pointer into a time zone string, scan until a character that is not
+** a valid character in a zone name is found. Return a pointer to that
+** character.
+*/
+
+static const char *
+getzname(register const char *strp)
+{
+	register char	c;
+
+	while ((c = *strp) != '\0' && !is_digit(c) && c != ',' && c != '-' &&
+		c != '+')
+			++strp;
+	return strp;
+}
+
+/*
+** Given a pointer into an extended time zone string, scan until the ending
+** delimiter of the zone name is located. Return a pointer to the delimiter.
+**
+** As with getzname above, the legal character set is actually quite
+** restricted, with other characters producing undefined results.
+** We don't do any checking here; checking is done later in common-case code.
+*/
+
+static const char *
+getqzname(register const char *strp, const int delim)
+{
+	register int	c;
+
+	while ((c = *strp) != '\0' && c != delim)
+		++strp;
+	return strp;
+}
+
+/*
+** Given a pointer into a time zone string, extract a number from that string.
+** Check that the number is within a specified range; if it is not, return
+** NULL.
+** Otherwise, return a pointer to the first character not part of the number.
+*/
+
+static const char *
+getnum(register const char *strp, int *const nump, const int min, const int max)
+{
+	register char	c;
+	register int	num;
+
+	if (strp == NULL || !is_digit(c = *strp))
+		return NULL;
+	num = 0;
+	do {
+		num = num * 10 + (c - '0');
+		if (num > max)
+			return NULL;	/* illegal value */
+		c = *++strp;
+	} while (is_digit(c));
+	if (num < min)
+		return NULL;		/* illegal value */
+	*nump = num;
+	return strp;
+}
+
+/*
+** Given a pointer into a time zone string, extract a number of seconds,
+** in hh[:mm[:ss]] form, from the string.
+** If any error occurs, return NULL.
+** Otherwise, return a pointer to the first character not part of the number
+** of seconds.
+*/
+
+static const char *
+getsecs(register const char *strp, int_fast32_t *const secsp)
+{
+	int	num;
+
+	/*
+	** 'HOURSPERDAY * DAYSPERWEEK - 1' allows quasi-Posix rules like
+	** "M10.4.6/26", which does not conform to Posix,
+	** but which specifies the equivalent of
+	** "02:00 on the first Sunday on or after 23 Oct".
+	*/
+	strp = getnum(strp, &num, 0, HOURSPERDAY * DAYSPERWEEK - 1);
+	if (strp == NULL)
+		return NULL;
+	*secsp = num * (int_fast32_t) SECSPERHOUR;
+	if (*strp == ':') {
+		++strp;
+		strp = getnum(strp, &num, 0, MINSPERHOUR - 1);
+		if (strp == NULL)
+			return NULL;
+		*secsp += num * SECSPERMIN;
+		if (*strp == ':') {
+			++strp;
+			/* 'SECSPERMIN' allows for leap seconds.  */
+			strp = getnum(strp, &num, 0, SECSPERMIN);
+			if (strp == NULL)
+				return NULL;
+			*secsp += num;
+		}
+	}
+	return strp;
 }
 
 /*

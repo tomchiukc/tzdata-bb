@@ -5,7 +5,14 @@ tzcomp \- time zone compiler
 .B tzcomp
 filename ...
 .SH DESCRIPTION
-.I Tzcomp
+.ie '\(lq'' .ds lq \&"\"
+.el .ds lq \(lq\"
+.ie '\(rq'' .ds rq \&"\"
+.el .ds rq \(rq\"
+.de q
+\\$3\*(lq\\$1\*(rq\\$2
+..
+.I Zic
 reads text from the file(s) named on the command line
 and creates the time zone information files specified in this input.
 If a
@@ -122,6 +129,25 @@ Recognized forms include:
 .fi
 .in -.5i
 .sp
+where hour 0 is midnight at the start of the day,
+and hour 24 is midnight at the end of the day.
+Any of these forms may be followed by the letter
+.B w
+if the given time is local
+.q "wall clock"
+time,
+.B s
+if the given time is local
+.q "standard"
+time, or
+.B u
+(or
+.B g
+or
+.BR z )
+if the given time is universal time;
+in the absence of an indicator,
+wall clock time is assumed.
 .TP
 .B SAVE
 Gives the amount of time to be added to local standard time when the rule is in
@@ -130,7 +156,16 @@ effect.  This field has the same format as the
 field.
 .TP
 .B LETTER/S
-Gives the "variable part" (for example, the 'S' or 'D' in "EST" or "EDT")
+Gives the
+.q "variable part"
+(for example, the
+.q "S"
+or
+.q "D"
+in
+.q "EST"
+or
+.q "EDT" )
 of time zone abbreviations to be used when this rule is in effect.
 If this field is
 .B
@@ -174,10 +209,38 @@ then standard time always applies in the time zone.
 .TP
 .B FORMAT
 The format for time zone abbreviations in this time zone.
-The pairs of characters
-.B
-"%s"
-is used to show where the "variable part" of the time zone abbreviation goes.
+The pair of characters
+.B %s
+is used to show where the
+.q "variable part"
+of the time zone abbreviation goes.
+Alternately,
+a slash (/)
+separates standard and daylight abbreviations.
+.TP
+.B UNTILYEAR [MONTH [DAY [TIME]]]
+The time at which the UT offset or the rule(s) change for a location.
+It is specified as a year, a month, a day, and a time of day.
+If this is specified,
+the time zone information is generated from the given UT offset
+and rule change until the time specified.
+The month, day, and time of day have the same format as the IN, ON, and AT
+fields of a rule; trailing fields can be omitted, and default to the
+earliest possible value for the missing fields.
+.IP
+The next line must be a
+.q "continuation"
+line; this has the same form as a zone line except that the
+string
+.q "Zone"
+and the name are omitted, as the continuation line will
+place information starting at the time specified as the
+.q "until"
+information in the previous line in the file used by the previous line.
+Continuation lines may contain
+.q "until"
+information, just as zone lines do, indicating that the next line is a further
+continuation.
 .PP
 A link line has the form
 .sp
@@ -201,12 +264,145 @@ the
 .B TO
 field is used as an alternate name for that zone.
 .PP
-Lines may appear in any order in the input.
-.SH EXAMPLE
-[Since a sample time zone file appears in the shell archive,
-this section has been omitted.]
-.SH FILES
-/etc/tzdir	default directory used for generated files
+Except for continuation lines,
+lines may appear in any order in the input.
+However, the behavior is unspecified if multiple zone or link lines
+define the same name, or if the source of one link line is the target
+of another.
+.PP
+Lines in the file that describes leap seconds have the following form:
+.nf
+.ti +.5i
+.ta \w'Leap\0\0'u +\w'YEAR\0\0'u +\w'MONTH\0\0'u +\w'DAY\0\0'u +\w'HH:MM:SS\0\0'u +\w'CORR\0\0'u
+.sp
+Leap	YEAR	MONTH	DAY	HH:MM:SS	CORR	R/S
+.sp
+For example:
+.ti +.5i
+.sp
+Leap	1974	Dec	31	23:59:60	+	S
+.sp
+.fi
+The
+.BR YEAR ,
+.BR MONTH ,
+.BR DAY ,
+and
+.B HH:MM:SS
+fields tell when the leap second happened.
+The
+.B CORR
+field
+should be
+.q "+"
+if a second was added
+or
+.q "-"
+if a second was skipped.
+.\" There's no need to document the following, since it's impossible for more
+.\" than one leap second to be inserted or deleted at a time.
+.\" The C Standard is in error in suggesting the possibility.
+.\" See Terry J Quinn, The BIPM and the accurate measure of time,
+.\" Proc IEEE 79, 7 (July 1991), 894-905.
+.\"	or
+.\"	.q ++
+.\"	if two seconds were added
+.\"	or
+.\"	.q --
+.\"	if two seconds were skipped.
+The
+.B R/S
+field
+should be (an abbreviation of)
+.q "Stationary"
+if the leap second time given by the other fields should be interpreted as UTC
+or
+(an abbreviation of)
+.q "Rolling"
+if the leap second time given by the other fields should be interpreted as
+local wall clock time.
+.SH "EXTENDED EXAMPLE"
+Here is an extended example of
+.I zic
+input, intended to illustrate many of its features.
+.br
+.ne 22
+.nf
+.in +2m
+.ta \w'# Rule\0\0'u +\w'NAME\0\0'u +\w'FROM\0\0'u +\w'1973\0\0'u +\w'TYPE\0\0'u +\w'Apr\0\0'u +\w'lastSun\0\0'u +\w'2:00\0\0'u +\w'SAVE\0\0'u
+.sp
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	Swiss	1941	1942	-	May	Mon>=1	1:00	1:00	S
+Rule	Swiss	1941	1942	-	Oct	Mon>=1	2:00	0	-
+.sp .5
+Rule	EU	1977	1980	-	Apr	Sun>=1	1:00u	1:00	S
+Rule	EU	1977	only	-	Sep	lastSun	1:00u	0	-
+Rule	EU	1978	only	-	Oct	 1	1:00u	0	-
+Rule	EU	1979	1995	-	Sep	lastSun	1:00u	0	-
+Rule	EU	1981	max	-	Mar	lastSun	1:00u	1:00	S
+Rule	EU	1996	max	-	Oct	lastSun	1:00u	0	-
+.sp
+.ta \w'# Zone\0\0'u +\w'Europe/Zurich\0\0'u +\w'GMTOFF\0\0'u +\w'RULES/SAVE\0\0'u +\w'FORMAT\0\0'u
+# Zone	NAME	GMTOFF	RULES/SAVE	FORMAT	UNTIL
+Zone	Europe/Zurich	0:34:08	-	LMT	1853 Jul 16
+		0:29:46	-	BMT	1894 Jun
+		1:00	Swiss	CE%sT	1981
+		1:00	EU	CE%sT
+.sp
+Link	Europe/Zurich	Switzerland
+.sp
+.in
+.fi
+In this example, the zone is named Europe/Zurich but it has an alias
+
+as Switzerland.  This example says that Zurich was 34 minutes and 8
+seconds west of UT until 1853-07-16 at 00:00, when the legal offset
+was changed to 7\(de\|26\(fm\|22.50\(sd; although this works out to
+0:29:45.50, the input format cannot represent fractional seconds so it
+is rounded here.  After 1894-06-01 at 00:00 Swiss daylight saving rules
+(defined with lines beginning with "Rule Swiss") apply, and the UT offset
+became one hour.  From 1981 to the present, EU daylight saving rules have
+applied, and the UTC offset has remained at one hour.
+.PP
+In 1941 and 1942, daylight saving time applied from the first Monday
+in May at 01:00 to the first Monday in October at 02:00.
+The pre-1981 EU daylight-saving rules have no effect
+here, but are included for completeness.  Since 1981, daylight
+saving has begun on the last Sunday in March at 01:00 UTC.
+Until 1995 it ended the last Sunday in September at 01:00 UTC,
+but this changed to the last Sunday in October starting in 1996.
+.PP
+For purposes of
+display, "LMT" and "BMT" were initially used, respectively.  Since
+Swiss rules and later EU rules were applied, the display name for the
+timezone has been CET for standard time and CEST for daylight saving
+time.
+.SH NOTES
+For areas with more than two types of local time,
+you may need to use local standard time in the
+.B AT
+field of the earliest transition time's rule to ensure that
+the earliest transition time recorded in the compiled file is correct.
+.PP
+If,
+for a particular zone,
+a clock advance caused by the start of daylight saving
+coincides with and is equal to
+a clock retreat caused by a change in UT offset,
+.IR zic
+produces a single transition to daylight saving at the new UT offset
+(without any change in wall clock time).
+To get separate transitions
+use multiple zone continuation lines
+specifying transition instants using universal time.
+.PP
+Time stamps well before the Big Bang are silently omitted from the output.
+This works around bugs in software that mishandles large negative time
+stamps.  Call it sour grapes, but pre-Big-Bang time stamps are
+physically suspect anyway.  The pre-Big-Bang cutoff time is
+approximate and may change in future versions.
+.SH FILE
+/usr/local/etc/zoneinfo	standard directory used for created files
 .SH "SEE ALSO"
 newctime(3), tzfile(5), zdump(8)
 .\" This file is in the public domain, so clarified as of

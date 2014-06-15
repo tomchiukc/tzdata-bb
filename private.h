@@ -13,7 +13,8 @@
 #define GRANDPARENTED	"Local time zone must be set--see zic manual page"
 
 /*
-** const
+** Defaults for preprocessor symbols.
+** You can override these in your C compiler options, e.g. '-DHAVE_ADJTIME=0'.
 */
 
 #ifndef const
@@ -185,7 +186,9 @@ extern char *	sprintf P((char * string, const char * format, ...));
 #endif /* !defined STDIO_H */
 
 /*
-** <string.h>
+** For the benefit of GNU folk...
+** '_(MSGID)' uses the current locale's message library string for MSGID.
+** The default is to use gettext if available, and use MSGID otherwise.
 */
 
 #ifdef STRING_H

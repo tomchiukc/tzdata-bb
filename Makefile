@@ -80,12 +80,14 @@ REDO=		posix_right
 YEARISTYPE=	./yearistype
 
 # Non-default libraries needed to link.
-# Add -lintl if you want to use `gettext' on Solaris.
+# Add -lintl if you want to use 'gettext' on Solaris.
 LDLIBS=
 
 # Add the following to the end of the "CFLAGS=" line as needed.
-#  -DHAVE_ADJTIME=0 if `adjtime' does not exist (SVR0?)
-#  -DHAVE_GETTEXT=1 if `gettext' works (GNU, Linux, Solaris); also see LDLIBS
+#  -DBIG_BANG=-9999999LL if the Big Bang occurred at time -9999999 (see zic.c)
+#  -DHAVE_ADJTIME=0 if 'adjtime' does not exist (SVR0?)
+#  -DHAVE_DOS_FILE_NAMES if file names have drive specifiers etc. (MS-DOS)
+#  -DHAVE_GETTEXT=1 if 'gettext' works (GNU, Linux, Solaris); also see LDLIBS
 #  -DHAVE_INCOMPATIBLE_CTIME_R=1 if your system's time.h declares
 #	ctime_r and asctime_r incompatibly with the POSIX standard (Solaris 8).
 #  -DHAVE_SETTIMEOFDAY=0 if settimeofday does not exist (SVR0?)
@@ -217,14 +219,26 @@ LDFLAGS=	$(LFLAGS)
 zic=		./zic
 ZIC=		$(zic) $(ZFLAGS)
 
-# The name of a Posix-compliant `awk' on your system.
-AWK=		nawk
+ZFLAGS=
 
-# The path where SGML DTDs are kept.
-SGML_SEARCH_PATH= $(TOPDIR)/share/doc/sgml-lib/REC-html401-19991224/
+# The name of a Posix-compliant 'awk' on your system.
+AWK=		awk
 
-# The catalog file(s) to use when validating.
-SGML_CATALOG_FILES= HTML4.cat
+# The full path name of a Posix-compliant shell, preferably one that supports
+# the Korn shell's 'select' statement as an extension.
+# These days, Bash is the most popular.
+# It should be OK to set this to /bin/sh, on platforms where /bin/sh
+# lacks 'select' or doesn't completely conform to Posix, but /bin/bash
+# is typically nicer if it works.
+KSHELL=		/bin/bash
+
+# The path where SGML DTDs are kept and the catalog file(s) to use when
+# validating.  The default is appropriate for Ubuntu 13.10.
+SGML_TOPDIR= /usr
+SGML_DTDDIR= $(SGML_TOPDIR)/share/xml/w3c-sgml-lib/schema/dtd
+SGML_SEARCH_PATH= $(SGML_DTDDIR)/REC-html401-19991224
+SGML_CATALOG_FILES= \
+  $(SGML_TOPDIR)/share/doc/w3-recs/html/www.w3.org/TR/1999/REC-html401-19991224/HTML4.cat
 
 # The name, arguments and environment of a program to validate your web pages.
 # See <http://www.jclark.com/sp/> for a validator, and
@@ -411,6 +425,22 @@ maintainer-clean: clean
 
 names:
 		@echo $(ENCHILADA)
+
+public:		check check_public check_time_t_alternatives \
+		tarballs signatures
+
+date.1.txt:	date.1
+newctime.3.txt:	newctime.3
+newstrftime.3.txt: newstrftime.3
+newtzset.3.txt:	newtzset.3
+time2posix.3.txt: time2posix.3
+tzfile.5.txt:	tzfile.5
+tzselect.8.txt:	tzselect.8
+zdump.8.txt:	zdump.8
+zic.8.txt:	zic.8
+
+$(MANTXTS):	workman.sh
+		LC_ALL=en_US.utf8 sh workman.sh `expr $@ : '\(.*\)\.txt$$'` >$@
 
 # Set the time stamps to those of the git repository, if available,
 # and if the files have not changed since then.

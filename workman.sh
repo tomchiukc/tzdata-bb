@@ -7,22 +7,14 @@
 tty -s
 ttyval=$?
 
-case $# in
-	0)	nroff -man ;;
-	1)	if [ -f $1 ]
-		then
-			( echo .hy 0; echo .na ) | nroff -man - "$1"
-		else
-			man "$1"
-		fi ;;
-	*)	man ${1+"$@"} ;;
-esac | perl -ne '
-	if (($. % 66) <= 7) {
-		next;
-	}
-	if (($. % 66) > (66 - 7)) {
-		next;
-	}
+echo ".am TH
+.hy 0
+.na
+..
+.rm }H
+.rm }F" | nroff -man - ${1+"$@"} | perl -ne '
+	binmode STDIN, '\'':encoding(utf8)'\'';
+	binmode STDOUT, '\'':encoding(utf8)'\'';
 	chomp;
 	s/.//g;
 	s/[ 	]*$//;

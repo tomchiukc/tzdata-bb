@@ -20,20 +20,25 @@ BEGIN {
 		cc = $1
 		name = $2
 		if (cc !~ /^[A-Z][A-Z]$/) {
-			printf "%s:%d: invalid country code `%s'\n", \
+			printf "%s:%d: invalid country code '%s'\n", \
 				iso_table, iso_NR, cc >>"/dev/stderr"
 			status = 1
 		}
 		if (cc <= cc0) {
-			printf "%s:%d: country code `%s' is %s\n", \
-				iso_table, iso_NR, cc, \
-				cc==cc0 ? "duplicate"  : "out of order" \
+			if (cc == cc0) {
+				s = "duplicate";
+			} else {
+				s = "out of order";
+			}
+
+			printf "%s:%d: country code '%s' is %s\n", \
+				iso_table, iso_NR, cc, s \
 				>>"/dev/stderr"
 			status = 1
 		}
 		cc0 = cc
 		if (name2cc[name]) {
-			printf "%s:%d: `%s' and `%s' have the sname name\n", \
+			printf "%s:%d: '%s' and '%s' have the sname name\n", \
 				iso_table, iso_NR, name2cc[name], cc \
 				>>"/dev/stderr"
 			status = 1
@@ -59,7 +64,7 @@ BEGIN {
 		tz = $3
 		comments = $4
 		if (cc < cc0) {
-			printf "%s:%d: country code `%s' is out of order\n", \
+			printf "%s:%d: country code '%s' is out of order\n", \
 				zone_table, zone_NR, cc >>"/dev/stderr"
 			status = 1
 		}
@@ -87,11 +92,14 @@ BEGIN {
 		}
 	}
 
-	for (tz in tz2cc) {
-		if (cc_used[tz2cc[tz]] == 1) {
-			if (tz2comments[tz]) {
-				printf "%s:%d: unnecessary comment `%s'\n", \
-					zone_table, tz2NR[tz], tz2comments[tz] \
+	for (cctz in cctztab) {
+		cc = substr (cctz, 1, 2)
+		tz = substr (cctz, 3)
+		if (cc_used[cc] == 1) {
+			if (tz2comments[cctz]) {
+				printf "%s:%d: unnecessary comment '%s'\n", \
+					zone_table, tz2NR[tz], \
+					tz2comments[cctz] \
 					>>"/dev/stderr"
 				status = 1
 			}
@@ -120,8 +128,8 @@ BEGIN {
 		if (src != dst) tz = $3
 	}
 	if (tz && tz ~ /\//) {
-		if (!tz2cc[tz]) {
-			printf "%s: no data for `%s'\n", zone_table, tz \
+		if (!tztab[tz]) {
+			printf "%s: no data for '%s'\n", zone_table, tz \
 				>>"/dev/stderr"
 			status = 1
 		}
@@ -132,7 +140,7 @@ BEGIN {
 END {
 	for (tz in tz2cc) {
 		if (!zoneSeen[tz]) {
-			printf "%s:%d: no Zone table for `%s'\n", \
+			printf "%s:%d: no Zone table for '%s'\n", \
 				zone_table, tz2NR[tz], tz >>"/dev/stderr"
 			status = 1
 		}

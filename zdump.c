@@ -8,7 +8,28 @@ static char	sccsid[] = "%W%";
 
 #include "timezone.h"
 
-extern char *	newctime();
+/*
+** For the benefit of GNU folk...
+** '_(MSGID)' uses the current locale's message library string for MSGID.
+** The default is to use gettext if available, and use MSGID otherwise.
+*/
+
+#ifndef _
+#if HAVE_GETTEXT
+#define _(msgid) gettext(msgid)
+#else /* !HAVE_GETTEXT */
+#define _(msgid) msgid
+#endif /* !HAVE_GETTEXT */
+#endif /* !defined _ */
+
+#ifndef TZ_DOMAIN
+#define TZ_DOMAIN "tz"
+#endif /* !defined TZ_DOMAIN */
+
+extern char **	environ;
+extern int	getopt(int argc, char * const argv[],
+			const char * options);
+extern char *	optarg;
 extern int	optind;
 extern char *	sprintf();
 extern long	time();

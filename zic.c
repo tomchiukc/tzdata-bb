@@ -14,7 +14,14 @@
 static char	sccsid[] = "%W%";
 #endif
 
-#include "timezone.h"
+/*
+** On some ancient hosts, predicates like 'isspace(C)' are defined
+** only if isascii(C) || C == EOF. Modern hosts obey the C Standard,
+** which says they are defined only if C == ((unsigned char) C) || C == EOF.
+** Neither the C Standard nor Posix require that 'isascii' exist.
+** For portability, we check both ancient and modern requirements.
+** If isascii is not defined, the isascii check succeeds trivially.
+*/
 #include "ctype.h"
 
 #ifndef alloc_t

@@ -6,32 +6,43 @@
 #include "private.h"
 
 /*
- * Copyright (c) 1989 The Regents of the University of California.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms are permitted
- * provided that the above copyright notice and this paragraph are
- * duplicated in all such forms and that any documentation,
- * advertising materials, and other materials related to such
- * distribution and use acknowledge that the software was developed
- * by the University of California, Berkeley.  The name of the
- * University may not be used to endorse or promote products derived
- * from this software without specific prior written permission.
- * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
- * IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
- */
+** Copyright (c) 1989 The Regents of the University of California.
+** All rights reserved.
+**
+** Redistribution and use in source and binary forms are permitted
+** provided that the above copyright notice and this paragraph are
+** duplicated in all such forms and that any documentation,
+** advertising materials, and other materials related to such
+** distribution and use acknowledge that the software was developed
+** by the University of California, Berkeley. The name of the
+** University may not be used to endorse or promote products derived
+** from this software without specific prior written permission.
+** THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+** IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+*/
 
-#if defined(LIBC_SCCS) && !defined(lint)
-static char sccsid[] = "@(#)strftime.c	5.4 (Berkeley) 3/14/89";
-#endif /* LIBC_SCCS and not lint */
+#ifndef LIBC_SCCS
+#ifndef lint
+static const char	sccsid[] = "@(#)strftime.c	5.4 (Berkeley) 3/14/89";
+#endif /* !defined lint */
+#endif /* !defined LIBC_SCCS */
 
-#include <sys/types.h>
-#include <sys/time.h>
-#include <tzfile.h>
+#include "tzfile.h"
+#include "fcntl.h"
+#include "locale.h"
 
-static char *afmt[] = {
-	"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
+struct lc_time_T {
+	const char *	mon[MONSPERYEAR];
+	const char *	month[MONSPERYEAR];
+	const char *	wday[DAYSPERWEEK];
+	const char *	weekday[DAYSPERWEEK];
+	const char *	X_fmt;
+	const char *	x_fmt;
+	const char *	c_fmt;
+	const char *	am;
+	const char *	pm;
+	const char *	date_fmt;
 };
 static char *Afmt[] = {
 	"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
@@ -213,4 +224,33 @@ _add(str)
 		if (!(*pt = *str++))
 			return;
 	}
+<<<<<<< HEAD
+=======
+	if (oldsun) {
+		/*
+		** SunOS 4 used an obsolescent format; see localdtconv(3).
+		** c_fmt had the "short format for dates and times together"
+		** (SunOS 4 date, "%a %b %e %T %Z %Y" in the C locale);
+		** date_fmt had the "long format for dates"
+		** (SunOS 4 strftime %C, "%A, %B %e, %Y" in the C locale).
+		** Discard the latter in favor of the former.
+		*/
+		localebuf.date_fmt = localebuf.c_fmt;
+	}
+	/*
+	** Record the successful parse in the cache.
+	*/
+	locale_buf = lbuf;
+
+	return &localebuf;
+
+bad_lbuf:
+	free(lbuf);
+bad_locale:
+	(void) close(fd);
+no_locale:
+	localebuf = C_time_locale;
+	locale_buf = NULL;
+	return &localebuf;
+>>>>>>> Don't abuse "`" to mean open quote.
 }
