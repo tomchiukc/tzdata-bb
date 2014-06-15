@@ -1874,7 +1874,7 @@ time1(struct tm *const tmp,
 	register int			i;
 	register int			nseen;
 	int				seen[TZ_MAX_TYPES];
-	int				types[TZ_MAX_TYPES];
+	int				types[TZ_MAX_TIMES];
 	int				okay;
 
 	if (tmp == NULL) {
