@@ -1,10 +1,6 @@
-# This file is in the public domain, so clarified as of
-# 2009-05-17 by Arthur David Olson.
-
-# This file is by no means authoritative; if you think you know better,
+# This data is by no means authoritative; if you think you know better,
 # go ahead and edit the file (and please send any changes to
-# tz@iana.org for general use in the future).  For more, please see
-# the file CONTRIBUTING in the tz distribution.
+# tz@iana.org for general use in the future).
 
 # From Paul Eggert (2006-03-22):
 # A good source for time zone historical data outside the U.S. is
@@ -12,8 +8,8 @@
 # San Diego: ACS Publications, Inc. (2003).
 #
 # For data circa 1899, a common source is:
-# Milne J. Civil time. Geogr J. 1899 Feb;13(2):173-94.
-# http://www.jstor.org/stable/1774359
+# Milne J. Civil time. Geogr J. 1899 Feb;13(2):173-94
+# <http://www.jstor.org/stable/1774359>.
 #
 # Gwillim Law writes that a good source
 # for recent time zone data is the International Air Transport
@@ -30,24 +26,24 @@
 #	I suggest the use of _Summer time_ instead of the more cumbersome
 #	_daylight-saving time_.  _Summer time_ seems to be in general use
 #	in Europe and South America.
-#	-- E O Cutler, _New York Times_ (1937-02-14), quoted in
+#	-- E O Cutler, _New York Times_ (1937-02-14), quoted in
 #	H L Mencken, _The American Language: Supplement I_ (1960), p 466
 #
 # Earlier editions of these tables also used the North American style
 # for time zones in Brazil, but this was incorrect, as Brazilians say
-# "summer time".  Reinaldo Goulart, a São Paulo businessman active in
+# "summer time".  Reinaldo Goulart, a Sao Paulo businessman active in
 # the railroad sector, writes (1999-07-06):
 #	The subject of time zones is currently a matter of discussion/debate in
-#	Brazil.  Let's say that "the Brasília time" is considered the
-#	"official time" because Brasília is the capital city.
-#	The other three time zones are called "Brasília time "minus one" or
+#	Brazil.  Let's say that "the Brasilia time" is considered the
+#	"official time" because Brasilia is the capital city.
+#	The other three time zones are called "Brasilia time "minus one" or
 #	"plus one" or "plus two".  As far as I know there is no such
 #	name/designation as "Eastern Time" or "Central Time".
 # So I invented the following (English-language) abbreviations for now.
 # Corrections are welcome!
 #		std	dst
 #	-2:00	FNT	FNST	Fernando de Noronha
-#	-3:00	BRT	BRST	Brasília
+#	-3:00	BRT	BRST	Brasilia
 #	-4:00	AMT	AMST	Amazon
 #	-5:00	ACT	ACST	Acre
 
@@ -61,7 +57,7 @@
 # Argentina: first Sunday in October to first Sunday in April since 1976.
 # Double Summer time from 1969 to 1974.  Switches at midnight.
 
-# From U. S. Naval Observatory (1988-01-19):
+# From U. S. Naval Observatory (1988-01-199):
 # ARGENTINA           3 H BEHIND   UTC
 
 # From Hernan G. Otero (1995-06-26):
@@ -95,7 +91,7 @@ Rule	Arg	1988	only	-	Dec	 1	0:00	1:00	S
 # From Hernan G. Otero (1995-06-26):
 # These corrections were contributed by InterSoft Argentina S.A.,
 # obtaining the data from the:
-# Talleres de Hidrografía Naval Argentina
+# Talleres de Hidrografia Naval Argentina
 # (Argentine Naval Hydrography Institute)
 Rule	Arg	1989	1993	-	Mar	Sun>=1	0:00	0	-
 Rule	Arg	1989	1992	-	Oct	Sun>=15	0:00	1:00	S
@@ -117,13 +113,13 @@ Rule	Arg	1999	only	-	Oct	Sun>=1	0:00	1:00	S
 Rule	Arg	2000	only	-	Mar	3	0:00	0	-
 #
 # From Peter Gradelski via Steffen Thorsen (2000-03-01):
-# We just checked with our São Paulo office and they say the government of
+# We just checked with our Sao Paulo office and they say the government of
 # Argentina decided not to become one of the countries that go on or off DST.
 # So Buenos Aires should be -3 hours from GMT at all times.
 #
-# From Fabián L. Arce Jofré (2000-04-04):
+# From Fabian L. Arce Jofre (2000-04-04):
 # The law that claimed DST for Argentina was derogated by President Fernando
-# de la Rúa on March 2, 2000, because it would make people spend more energy
+# de la Rua on March 2, 2000, because it would make people spend more energy
 # in the winter time, rather than less.  The change took effect on March 3.
 #
 # From Mariano Absatz (2001-06-06):
@@ -156,13 +152,15 @@ Rule	Arg	2000	only	-	Mar	3	0:00	0	-
 # that Argentina will use DST next year as well, from October to
 # March, although exact rules are not given.
 #
-# From Jesper Nørgaard Welen (2007-12-26)
+# From Jesper Norgaard Welen (2007-12-26)
 # The last hurdle of Argentina DST is over, the proposal was approved in
-# the lower chamber too (Diputados) with a vote 192 for and 2 against.
+# the lower chamber too (Deputados) with a vote 192 for and 2 against.
 # By the way thanks to Mariano Absatz and Daniel Mario Vega for the link to
 # the original scanned proposal, where the dates and the zero hours are
 # clear and unambiguous...This is the article about final approval:
+# <a href="http://www.lanacion.com.ar/politica/nota.asp?nota_id=973996">
 # http://www.lanacion.com.ar/politica/nota.asp?nota_id=973996
+# </a>
 #
 # From Paul Eggert (2007-12-22):
 # For dates after mid-2008, the following rules are my guesses and
@@ -172,8 +170,13 @@ Rule	Arg	2000	only	-	Mar	3	0:00	0	-
 # As per message from Carlos Alberto Fonseca Arauz (Nicaragua),
 # Argentina will start DST on Sunday October 19, 2008.
 #
+# <a href="http://www.worldtimezone.com/dst_news/dst_news_argentina03.html">
 # http://www.worldtimezone.com/dst_news/dst_news_argentina03.html
+# </a>
+# OR
+# <a href="http://www.impulsobaires.com.ar/nota.php?id=57832 (in spanish)">
 # http://www.impulsobaires.com.ar/nota.php?id=57832 (in spanish)
+# </a>
 
 # From Rodrigo Severo (2008-10-06):
 # Here is some info available at a Gentoo bug related to TZ on Argentina's DST:
@@ -182,39 +185,48 @@ Rule	Arg	2000	only	-	Mar	3	0:00	0	-
 # Hi, there is a problem with timezone-data-2008e and maybe with
 # timezone-data-2008f
 # Argentinian law [Number] 25.155 is no longer valid.
+# <a href="http://www.infoleg.gov.ar/infolegInternet/anexos/60000-64999/60036/norma.htm">
 # http://www.infoleg.gov.ar/infolegInternet/anexos/60000-64999/60036/norma.htm
+# </a>
 # The new one is law [Number] 26.350
+# <a href="http://www.infoleg.gov.ar/infolegInternet/anexos/135000-139999/136191/norma.htm">
 # http://www.infoleg.gov.ar/infolegInternet/anexos/135000-139999/136191/norma.htm
+# </a>
 # So there is no summer time in Argentina for now.
 
 # From Mariano Absatz (2008-10-20):
-# Decree 1693/2008 applies Law 26.350 for the summer 2008/2009 establishing DST
-# in Argentina from 2008-10-19 until 2009-03-15.
+# Decree 1693/2008 applies Law 26.350 for the summer 2008/2009 establishing DST in Argentina
+# From 2008-10-19 until 2009-03-15
+# <a href="http://www.boletinoficial.gov.ar/Bora.Portal/CustomControls/PdfContent.aspx?fp=16102008&pi=3&pf=4&s=0&sec=01">
 # http://www.boletinoficial.gov.ar/Bora.Portal/CustomControls/PdfContent.aspx?fp=16102008&pi=3&pf=4&s=0&sec=01
+# </a>
 #
-
-# Decree 1705/2008 excepting 12 Provinces from applying DST in the summer
-# 2008/2009: Catamarca, La Rioja, Mendoza, Salta, San Juan, San Luis, La
-# Pampa, Neuquén, Rio Negro, Chubut, Santa Cruz and Tierra del Fuego
+# Decree 1705/2008 excepting 12 Provinces from applying DST in the summer 2008/2009:
+# Catamarca, La Rioja, Mendoza, Salta, San Juan, San Luis, La Pampa, Neuquen, Rio Negro, Chubut, Santa Cruz
+# and Tierra del Fuego
+# <a href="http://www.boletinoficial.gov.ar/Bora.Portal/CustomControls/PdfContent.aspx?fp=17102008&pi=1&pf=1&s=0&sec=01">
 # http://www.boletinoficial.gov.ar/Bora.Portal/CustomControls/PdfContent.aspx?fp=17102008&pi=1&pf=1&s=0&sec=01
+# </a>
 #
-# Press release 235 dated Saturday October 18th, from the Government of the
-# Province of Jujuy saying it will not apply DST either (even when it was not
-# included in Decree 1705/2008).
+# Press release 235 dated Saturday October 18th, from the Government of the Province of Jujuy saying
+# it will not apply DST either (even when it was not included in Decree 1705/2008)
+# <a href="http://www.jujuy.gov.ar/index2/partes_prensa/18_10_08/235-181008.doc">
 # http://www.jujuy.gov.ar/index2/partes_prensa/18_10_08/235-181008.doc
+# </a>
 
 # From fullinet (2009-10-18):
 # As announced in
+# <a hef="http://www.argentina.gob.ar/argentina/portal/paginas.dhtml?pagina=356">
 # http://www.argentina.gob.ar/argentina/portal/paginas.dhtml?pagina=356
-# (an official .gob.ar) under title: "Sin Cambio de Hora"
-# (English: "No hour change").
+# </a>
+# (an official .gob.ar) under title: "Sin Cambio de Hora" (english: "No hour change")
 #
-# "Por el momento, el Gobierno Nacional resolvió no modificar la hora
-# oficial, decisión que estaba en estudio para su implementación el
-# domingo 18 de octubre. Desde el Ministerio de Planificación se anunció
-# que la Argentina hoy, en estas condiciones meteorológicas, no necesita
-# la modificación del huso horario, ya que 2009 nos encuentra con
-# crecimiento en la producción y distribución energética."
+# "Por el momento, el Gobierno Nacional resolvio no modificar la hora
+# oficial, decision que estaba en estudio para su implementacion el
+# domingo 18 de octubre. Desde el Ministerio de Planificacion se anuncio
+# que la Argentina hoy, en estas condiciones meteorologicas, no necesita
+# la modificacion del huso horario, ya que 2009 nos encuentra con
+# crecimiento en la produccion y distribucion energetica."
 
 Rule	Arg	2007	only	-	Dec	30	0:00	1:00	S
 Rule	Arg	2008	2009	-	Mar	Sun>=15	0:00	0	-
@@ -228,10 +240,10 @@ Rule	Arg	2008	only	-	Oct	Sun>=15	0:00	1:00	S
 # It's Law No. 7,210.  This change is due to a public power emergency, so for
 # now we'll assume it's for this year only.
 #
-# From Paul Eggert (2014-08-09):
-# Hora de verano para la República Argentina
-# http://buenasiembra.com.ar/esoterismo/astrologia/hora-de-verano-de-la-republica-argentina-27.html
-# says that standard time in Argentina from 1894-10-31
+# From Paul Eggert (2006-03-22):
+# <a href="http://www.spicasc.net/horvera.html">
+# Hora de verano para la Republica Argentina (2003-06-08)
+# </a> says that standard time in Argentina from 1894-10-31
 # to 1920-05-01 was -4:16:48.25.  Go with this more-precise value
 # over Shanks & Pottenger.
 #
@@ -246,10 +258,10 @@ Rule	Arg	2008	only	-	Oct	Sun>=15	0:00	1:00	S
 # time in October 17th.
 #
 # Catamarca, Chubut, La Rioja, San Juan, San Luis, Santa Cruz,
-# Tierra del Fuego, Tucumán.
+# Tierra del Fuego, Tucuman.
 #
 # From Mariano Absatz (2004-06-14):
-# ... this weekend, the Province of Tucumán decided it'd go back to UTC-03:00
+# ... this weekend, the Province of Tucuman decided it'd go back to UTC-03:00
 # yesterday midnight (that is, at 24:00 Saturday 12th), since the people's
 # annoyance with the change is much higher than the power savings obtained....
 #
@@ -284,38 +296,49 @@ Rule	Arg	2008	only	-	Oct	Sun>=15	0:00	1:00	S
 # Here are articles that Argentina Province San Luis is planning to end DST
 # as earlier as upcoming Monday January 21, 2008 or February 2008:
 #
-# Provincia argentina retrasa reloj y marca diferencia con resto del país
+# Provincia argentina retrasa reloj y marca diferencia con resto del pais
 # (Argentine Province delayed clock and mark difference with the rest of the
 # country)
+# <a href="http://cl.invertia.com/noticias/noticia.aspx?idNoticia=200801171849_EFE_ET4373&idtel">
 # http://cl.invertia.com/noticias/noticia.aspx?idNoticia=200801171849_EFE_ET4373&idtel
+# </a>
 #
 # Es inminente que en San Luis atrasen una hora los relojes
 # (It is imminent in San Luis clocks one hour delay)
-# http://www.lagaceta.com.ar/nota/253414/Economia/Es-inminente-que-en-San-Luis-atrasen-una-hora-los-relojes.html
+# <a href="http://www.lagaceta.com.ar/vernotae.asp?id_nota=253414">
+# http://www.lagaceta.com.ar/vernotae.asp?id_nota=253414
+# </a>
+#
+# <a href="http://www.worldtimezone.net/dst_news/dst_news_argentina02.html">
 # http://www.worldtimezone.net/dst_news/dst_news_argentina02.html
+# </a>
 
-# From Jesper Nørgaard Welen (2008-01-18):
+# From Jesper Norgaard Welen (2008-01-18):
 # The page of the San Luis provincial government
+# <a href="http://www.sanluis.gov.ar/notas.asp?idCanal=0&id=22812">
 # http://www.sanluis.gov.ar/notas.asp?idCanal=0&id=22812
+# </a>
 # confirms what Alex Krivenyshev has earlier sent to the tz
 # emailing list about that San Luis plans to return to standard
 # time much earlier than the rest of the country. It also
 # confirms that upon request the provinces San Juan and Mendoza
 # refused to follow San Luis in this change.
 #
-# The change is supposed to take place Monday the 21st at 0:00
+# The change is supposed to take place Monday the 21.st at 0:00
 # hours. As far as I understand it if this goes ahead, we need
 # a new timezone for San Luis (although there are also documented
 # independent changes in the southamerica file of San Luis in
 # 1990 and 1991 which has not been confirmed).
 
-# From Jesper Nørgaard Welen (2008-01-25):
+# From Jesper Norgaard Welen (2008-01-25):
 # Unfortunately the below page has become defunct, about the San Luis
 # time change. Perhaps because it now is part of a group of pages "Most
 # important pages of 2008."
 #
 # You can use
+# <a href="http://www.sanluis.gov.ar/notas.asp?idCanal=8141&id=22834">
 # http://www.sanluis.gov.ar/notas.asp?idCanal=8141&id=22834
+# </a>
 # instead it seems. Or use "Buscador" from the main page of the San Luis
 # government, and fill in "huso" and click OK, and you will get 3 pages
 # from which the first one is identical to the above.
@@ -335,9 +358,9 @@ Rule	Arg	2008	only	-	Oct	Sun>=15	0:00	1:00	S
 # back in 2004, when these provinces changed to UTC-4 for a few days, I
 # mailed them personally and never got an answer).
 
-# From Paul Eggert (2014-08-12):
-# Unless otherwise specified, data entries are from Shanks & Pottenger through
-# 1992, from the IATA otherwise.  As noted below, Shanks & Pottenger say that
+# From Paul Eggert (2008-06-30):
+# Unless otherwise specified, data are from Shanks & Pottenger through 1992,
+# from the IATA otherwise.  As noted below, Shanks & Pottenger say that
 # America/Cordoba split into 6 subregions during 1991/1992, one of which
 # was America/San_Luis, but we haven't verified this yet so for now we'll
 # keep America/Cordoba a single region rather than splitting it into the
@@ -349,9 +372,14 @@ Rule	Arg	2008	only	-	Oct	Sun>=15	0:00	1:00	S
 # to utc-04:00 until the second Saturday in October...
 #
 # The press release is at
+# <a href="http://www.sanluis.gov.ar/SL/Paginas/NoticiaDetalle.asp?TemaId=1&InfoPrensaId=3102">
 # http://www.sanluis.gov.ar/SL/Paginas/NoticiaDetalle.asp?TemaId=1&InfoPrensaId=3102
-# (I couldn't find the decree, but www.sanluis.gov.ar
-# is the official page for the Province Government.)
+# </a>
+# (I couldn't find the decree, but
+# <a href="http://www.sanluis.gov.ar">
+# www.sanluis.gov.ar
+# <a/>
+# is the official page for the Province Government).
 #
 # There's also a note in only one of the major national papers ...
 # http://www.lanacion.com.ar/nota.asp?nota_id=1107912
@@ -368,7 +396,9 @@ Rule	Arg	2008	only	-	Oct	Sun>=15	0:00	1:00	S
 # ...the Province of San Luis is a case in itself.
 #
 # The Law at
+# <a href="http://www.diputadossanluis.gov.ar/diputadosasp/paginas/verNorma.asp?NormaID=276>"
 # http://www.diputadossanluis.gov.ar/diputadosasp/paginas/verNorma.asp?NormaID=276
+# </a>
 # is ambiguous because establishes a calendar from the 2nd Sunday in
 # October at 0:00 thru the 2nd Saturday in March at 24:00 and the
 # complement of that starting on the 2nd Sunday of March at 0:00 and
@@ -397,15 +427,19 @@ Rule	Arg	2008	only	-	Oct	Sun>=15	0:00	1:00	S
 # ...
 
 # From Alexander Krivenyshev (2010-04-09):
-# According to news reports from El Diario de la República Province San
+# According to news reports from El Diario de la Republica Province San
 # Luis, Argentina (standard time UTC-04) will keep Daylight Saving Time
-# after April 11, 2010 - will continue to have same time as rest of
+# after April 11, 2010--will continue to have same time as rest of
 # Argentina (UTC-3) (no DST).
 #
 # Confirmaron la prórroga del huso horario de verano (Spanish)
+# <a href="http://www.eldiariodelarepublica.com/index.php?option=com_content&task=view&id=29383&Itemid=9">
 # http://www.eldiariodelarepublica.com/index.php?option=com_content&task=view&id=29383&Itemid=9
+# </a>
 # or (some English translation):
+# <a href="http://www.worldtimezone.com/dst_news/dst_news_argentina08.html">
 # http://www.worldtimezone.com/dst_news/dst_news_argentina08.html
+# </a>
 
 # From Mariano Absatz (2010-04-12):
 # yes...I can confirm this...and given that San Luis keeps calling
@@ -417,28 +451,27 @@ Rule	Arg	2008	only	-	Oct	Sun>=15	0:00	1:00	S
 # Perhaps San Luis operates on the legal fiction that it is at UTC-4
 # with perpetual summer time, but ordinary usage typically seems to
 # just say it's at UTC-3; see, for example,
-# http://es.wikipedia.org/wiki/Hora_oficial_argentina
+# <http://es.wikipedia.org/wiki/Hora_oficial_argentina>.
 # We've documented similar situations as being plain changes to
 # standard time, so let's do that here too.  This does not change UTC
 # offsets, only tm_isdst and the time zone abbreviations.  One minor
 # plus is that this silences a zic complaint that there's no POSIX TZ
 # setting for time stamps past 2038.
 
-# From Paul Eggert (2013-02-21):
-# Milne says Córdoba time was -4:16:48.2.  Round to the nearest second.
+# Milne says Cordoba time was -4:16:48.2.  Round to the nearest second.
 
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 #
 # Buenos Aires (BA), Capital Federal (CF),
-Zone America/Argentina/Buenos_Aires -3:53:48 - LMT	1894 Oct 31
-			-4:16:48 -	CMT	1920 May    # Córdoba Mean Time
+Zone America/Argentina/Buenos_Aires -3:53:48 - LMT 1894 Oct 31
+			-4:16:48 -	CMT	1920 May # Cordoba Mean Time
 			-4:00	-	ART	1930 Dec
 			-4:00	Arg	AR%sT	1969 Oct  5
 			-3:00	Arg	AR%sT	1999 Oct  3
 			-4:00	Arg	AR%sT	2000 Mar  3
 			-3:00	Arg	AR%sT
 #
-# Córdoba (CB), Santa Fe (SF), Entre Ríos (ER), Corrientes (CN), Misiones (MN),
+# Cordoba (CB), Santa Fe (SF), Entre Rios (ER), Corrientes (CN), Misiones (MN),
 # Chaco (CC), Formosa (FM), Santiago del Estero (SE)
 #
 # Shanks & Pottenger also make the following claims, which we haven't verified:
@@ -458,7 +491,7 @@ Zone America/Argentina/Cordoba -4:16:48 - LMT	1894 Oct 31
 			-4:00	Arg	AR%sT	2000 Mar  3
 			-3:00	Arg	AR%sT
 #
-# Salta (SA), La Pampa (LP), Neuquén (NQ), Rio Negro (RN)
+# Salta (SA), La Pampa (LP), Neuquen (NQ), Rio Negro (RN)
 Zone America/Argentina/Salta -4:21:40 - LMT	1894 Oct 31
 			-4:16:48 -	CMT	1920 May
 			-4:00	-	ART	1930 Dec
