@@ -52,11 +52,11 @@ Rule	ChileAQ	2012	max	-	Sep	Sun>=2	4:00u	1:00	S
 
 # Argentina - year-round bases
 # Belgrano II, Confin Coast, -770227-0343737, since 1972-02-05
-# Carlini, Potter Cove, King George Island, -6414-0602320, since 1982-01
-# Esperanza, Hope Bay, -6323-05659, since 1952-12-17
-# Marambio, -6414-05637, since 1969-10-29
+# Esperanza, San Martin Land, -6323-05659, since 1952-12-17
+# Jubany, Potter Peninsula, King George Island, -6414-0602320, since 1982-01
+# Marambio, Seymour I, -6414-05637, since 1969-10-29
 # Orcadas, Laurie I, -6016-04444, since 1904-02-22
-# San Martín, Barry I, -6808-06706, since 1951-03-21
+# San Martin, Debenham I, -6807-06708, since 1951-03-21
 #	(except 1960-03 / 1976-03-21)
 
 # Australia - territories
@@ -103,45 +103,41 @@ Rule	ChileAQ	2012	max	-	Sep	Sun>=2	4:00u	1:00	S
 
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone Antarctica/Casey	0	-	zzz	1969
-			8:00	-	AWST	2009 Oct 18  2:00
-						# Australian Western Std Time
-			11:00	-	CAST	2010 Mar  5  2:00  # Casey Time
-			8:00	-	AWST	2011 Oct 28  2:00
+			8:00	-	WST	2009 Oct 18 2:00
+						# Western (Aus) Standard Time
+			11:00	-	CAST	2010 Mar 5 2:00
+						# Casey Time
+			8:00	-	WST	2011 Oct 28 2:00
 			11:00	-	CAST	2012 Feb 21 17:00u
-			8:00	-	AWST
+			8:00	-	WST
 Zone Antarctica/Davis	0	-	zzz	1957 Jan 13
-			7:00	-	DAVT	1964 Nov    # Davis Time
+			7:00	-	DAVT	1964 Nov # Davis Time
 			0	-	zzz	1969 Feb
-			7:00	-	DAVT	2009 Oct 18  2:00
+			7:00	-	DAVT	2009 Oct 18 2:00
 			5:00	-	DAVT	2010 Mar 10 20:00u
-			7:00	-	DAVT	2011 Oct 28  2:00
+			7:00	-	DAVT	2011 Oct 28 2:00
 			5:00	-	DAVT	2012 Feb 21 20:00u
 			7:00	-	DAVT
 Zone Antarctica/Mawson	0	-	zzz	1954 Feb 13
-			6:00	-	MAWT	2009 Oct 18  2:00 # Mawson Time
+			6:00	-	MAWT	2009 Oct 18 2:00
+						# Mawson Time
 			5:00	-	MAWT
 # References:
 # Casey Weather (1998-02-26)
-# http://www.antdiv.gov.au/aad/exop/sfo/casey/casey_aws.html
+# <http://www.antdiv.gov.au/aad/exop/sfo/casey/casey_aws.html>
 # Davis Station, Antarctica (1998-02-26)
-# http://www.antdiv.gov.au/aad/exop/sfo/davis/video.html
+# <http://www.antdiv.gov.au/aad/exop/sfo/davis/video.html>
 # Mawson Station, Antarctica (1998-02-25)
-# http://www.antdiv.gov.au/aad/exop/sfo/mawson/video.html
-
-# Belgium - year-round base
-# Princess Elisabeth, Queen Maud Land, -713412+0231200, since 2007
+# <http://www.antdiv.gov.au/aad/exop/sfo/mawson/video.html>
 
 # Brazil - year-round base
-# Ferraz, King George Island, -6205+05824, since 1983/4
-
-# Bulgaria - year-round base
-# St. Kliment Ohridski, Livingston Island, -623829-0602153, since 1988
+# Comandante Ferraz, King George Island, -6205+05824, since 1983/4
 
 # Chile - year-round bases and towns
 # Escudero, South Shetland Is, -621157-0585735, since 1994
-# Frei Montalva, King George Island, -6214-05848, since 1969-03-07
-# O'Higgins, Antarctic Peninsula, -6319-05704, since 1948-02
-# Prat, -6230-05941
+# Presidente Eduadro Frei, King George Island, -6214-05848, since 1969-03-07
+# General Bernardo O'Higgins, Antarctic Peninsula, -6319-05704, since 1948-02
+# Capitan Arturo Prat, -6230-05941
 # Villa Las Estrellas (a town), around the Frei base, since 1984-04-09
 # These locations have always used Santiago time; use TZ='America/Santiago'.
 
@@ -172,12 +168,11 @@ Zone Antarctica/Mawson	0	-	zzz	1954 Feb 13
 #	fishing stations operated variously 1819/1931
 #
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Indian/Kerguelen	0	-	zzz	1950 # Port-aux-Français
+Zone Indian/Kerguelen	0	-	zzz	1950	# Port-aux-Francais
 			5:00	-	TFT	# ISO code TF Time
 #
 # year-round base in the main continent
-# Dumont d'Urville, Île des Pétrels, -6640+14001, since 1956-11
-# <http://en.wikipedia.org/wiki/Dumont_d'Urville_Station> (2005-12-05)
+# Dumont-d'Urville, Ile des Petrels, -6640+14001, since 1956-11
 #
 # Another base at Port-Martin, 50km east, began operation in 1947.
 # It was destroyed by fire on 1952-01-14.
@@ -262,13 +257,10 @@ Rule	Troll	2005	max	-	Mar	lastSun	1:00u	2:00	CEST
 Rule	Troll	2004	max	-	Oct	lastSun	1:00u	0:00	UTC
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone Antarctica/Troll	0	-	zzz	2005 Feb 12
-			0:00	Troll	%s
+     			0:00	Troll	%s
 
 # Poland - year-round base
 # Arctowski, King George Island, -620945-0582745, since 1977
-
-# Romania - year-bound base
-# Law-Racoviță, Larsemann Hills, -692319+0762251, since 1986
 
 # Russia - year-round bases
 # Bellingshausen, King George Island, -621159-0585337, since 1968-02-22
@@ -307,12 +299,9 @@ Zone Antarctica/Vostok	0	-	zzz	1957 Dec 16
 
 # S Africa - year-round bases
 # Marion Island, -4653+03752
-# SANAE IV, Vesleskarvet, Queen Maud Land, -714022-0025026, since 1997
+# Sanae, -7141-00250
 
-# Ukraine - year-round base
-# Vernadsky (formerly Faraday), Galindez Island, -651445-0641526, since 1954
-
-# United Kingdom
+# UK
 #
 # British Antarctic Territories (BAT) claims
 # South Orkney Islands

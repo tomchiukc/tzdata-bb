@@ -452,6 +452,19 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # the province not having dual times but four times in use at the same
 # time. Some areas remained on standard Xinjiang time or Beijing time and
 # others moving their clocks ahead.)
+#
+# ...an example of an official website using of Urumqi time.
+#
+# The first few lines of the Google translation of
+# http://www.fjysgl.gov.cn/show.aspx?id=2379&cid=39
+# (retrieved 2009-10-13)
+# > Urumqi fire seven people are missing the alleged losses of at least
+# > 500 million yuan
+# >
+# > (Reporter Dong Liu) the day before 20:20 or so (Urumqi Time 18:20),
+# > Urumqi City Department of International Plaza Luther Qiantang River
+# > burst fire. As of yesterday, 18:30, Urumqi City Fire officers and men
+# > have worked continuously for 22 hours...
 
 # From Luther Ma (2009-11-19):
 # With the risk of being redundant to previous answers these are the most common

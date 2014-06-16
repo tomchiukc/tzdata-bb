@@ -1,3 +1,9 @@
+# This file is in the public domain, so clarified as of
+# 2009-05-17 by Arthur David Olson.
+
+# Package name for the code distribution.
+PACKAGE=	tzcode
+
 # Version numbers of the code and data distributions.
 VERSION=	2013f
 
