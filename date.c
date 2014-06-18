@@ -268,18 +268,64 @@ static
 gtime(ap)
 	register char *ap;
 {
-	register int year, month;
-	register char *C;
-	struct tm *L;
-	int day, hour, mins, secs;
+	time_t		othert;
+	struct tm	tm, *tmp;
+	struct tm	othertm;
+	register int	pass, offset;
 
-	for (secs = 0, C = ap; *C; ++C) {
-		if (*C == '.') {		/* seconds provided */
-			if (strlen(C) != 3)
-				return(1);
-			*C = NULL;
-			secs = (C[1] - '0') * 10 + (C[2] - '0');
-			break;
+	/*
+	** See if there's both a USG and a BSD interpretation.
+	*/
+	othert = convert(value, !didusg, oldnow);
+	if (othert != -1 && othert != t)
+		iffy(t, othert, value, _("year could be at start or end"));
+	/*
+	** See if there's both a DST and a STD version.
+	*/
+	tmp = localtime(&t);
+	if (!tmp)
+		iffy(t, othert, value, _("time out of range"));
+	othertm = tm = *tmp;
+	othertm.tm_isdst = !tm.tm_isdst;
+	othert = mktime(&othertm);
+	if (othert != -1 && othertm.tm_isdst != tm.tm_isdst &&
+		sametm(&tm, &othertm))
+			iffy(t, othert, value,
+			    _("both standard and summer time versions exist"));
+/*
+** Final check.
+**
+** If a jurisdiction shifts time *without* shifting whether time is
+** summer or standard (as Hawaii, the United Kingdom, and Saudi Arabia
+** have done), routine checks for iffy times may not work.
+** So we perform this final check, deferring it until after the time has
+** been set; it may take a while, and we don't want to introduce an unnecessary
+** lag between the time the user enters their command and the time that
+** stime/settimeofday is called.
+**
+** We just check nearby times to see if any have the same representation
+** as the time that convert returned.  We work our way out from the center
+** for quick response in solar time situations.  We only handle common cases:
+** offsets of at most a minute, and offsets of exact numbers of minutes
+** and at most an hour.
+*/
+	for (offset = 1; offset <= 60; ++offset)
+		for (pass = 1; pass <= 4; ++pass) {
+			if (pass == 1)
+				othert = t + offset;
+			else if (pass == 2)
+				othert = t - offset;
+			else if (pass == 3)
+				othert = t + 60 * offset;
+			else	othert = t - 60 * offset;
+			tmp = localtime(&othert);
+			if (!tmp)
+				iffy(t, othert, value,
+					_("time out of range"));
+			othertm = *tmp;
+			if (sametm(&tm, &othertm))
+				iffy(t, othert, value,
+					_("multiple matching times exist"));
 		}
 		if (!isdigit(*C))
 			return(-1);

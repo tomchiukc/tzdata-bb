@@ -882,16 +882,83 @@ register struct zone *	zp;
 	struct dsinfo			d;
 	char				buf[BUFSIZ];
 
-	filename = zp->z_filename;
-	linenum = zp->z_linenum;
-	t = zero;			/* clear the structure */
-	if (zp->z_nrules == 0) {	/* Piece of cake! */
-		t.tz_rulecnt = 0;
-		t.tz_dsinfo[0].ds_gmtoff = zp->z_gmtoff;
-		t.tz_dsinfo[0].ds_isdst = 0;
-		(void) strcpy(t.tz_dsinfo[0].ds_abbr, zp->z_format);
-		writezone(zp->z_name, &t);
-		return;
+	/*
+	** Sort.
+	*/
+	if (timecnt > 1)
+		(void) qsort(attypes, timecnt, sizeof *attypes, atcomp);
+	/*
+	** Optimize.
+	*/
+	{
+		int	fromi;
+		int	toi;
+
+		toi = 0;
+		fromi = 0;
+		while (fromi < timecnt && attypes[fromi].at < big_bang_time)
+			++fromi;
+		for ( ; fromi < timecnt; ++fromi) {
+			if (toi > 1 && ((attypes[fromi].at +
+				gmtoffs[attypes[toi - 1].type]) <=
+				(attypes[toi - 1].at +
+				gmtoffs[attypes[toi - 2].type]))) {
+					attypes[toi - 1].type =
+						attypes[fromi].type;
+					continue;
+			}
+			if (toi == 0 ||
+				attypes[toi - 1].type != attypes[fromi].type)
+					attypes[toi++] = attypes[fromi];
+		}
+		timecnt = toi;
+	}
+	if (noise && timecnt > 1200)
+		warning(_("pre-2014 clients may mishandle"
+			  " more than 1200 transition times"));
+	/*
+	** Transfer.
+	*/
+	for (i = 0; i < timecnt; ++i) {
+		ats[i] = attypes[i].at;
+		types[i] = attypes[i].type;
+	}
+	/*
+	** Correct for leap seconds.
+	*/
+	for (i = 0; i < timecnt; ++i) {
+		j = leapcnt;
+		while (--j >= 0)
+			if (ats[i] > trans[j] - corr[j]) {
+				ats[i] = tadd(ats[i], corr[j]);
+				break;
+			}
+	}
+	/*
+	** Figure out 32-bit-limited starts and counts.
+	*/
+	timecnt32 = timecnt;
+	timei32 = 0;
+	leapcnt32 = leapcnt;
+	leapi32 = 0;
+	while (timecnt32 > 0 && !is32(ats[timecnt32 - 1]))
+		--timecnt32;
+	while (timecnt32 > 0 && !is32(ats[timei32])) {
+		--timecnt32;
+		++timei32;
+	}
+	/*
+	** Output an INT32_MIN "transition" if appropriate; see below.
+	*/
+	if (timei32 > 0 && ats[timei32] > INT32_MIN) {
+		--timei32;
+		++timecnt32;
+	}
+	while (leapcnt32 > 0 && !is32(trans[leapcnt32 - 1]))
+		--leapcnt32;
+	while (leapcnt32 > 0 && !is32(trans[leapi32])) {
+		--leapcnt32;
+		++leapi32;
 	}
 	t.tz_rulecnt = 0;
 	/*
@@ -1077,7 +1144,12 @@ register struct zone *	zp;
 #undef DO
 		for (i = thistimei; i < thistimelim; ++i)
 			if (pass == 1)
-				puttzcode(ats[i], fp);
+				/*
+				** Output an INT32_MIN "transition"
+				** if appropriate; see above.
+				*/
+				puttzcode(((ats[i] < INT32_MIN) ?
+					INT32_MIN : ats[i]), fp);
 			else	puttzcode64(ats[i], fp);
 		for (i = thistimei; i < thistimelim; ++i) {
 			unsigned char	uc;
@@ -1301,6 +1373,127 @@ stringzone(char *result, const struct zone *const zpfirst, const int zonecount)
 		}
 		rp->r_type = j;
 	}
+	writezone(zpfirst->z_name, envvar, version);
+	free(startbuf);
+	free(ab);
+	free(envvar);
+}
+
+static void
+addtt(const zic_t starttime, int type)
+{
+	if (starttime <= big_bang_time ||
+		(timecnt == 1 && attypes[0].at < big_bang_time)) {
+		gmtoffs[0] = gmtoffs[type];
+		isdsts[0] = isdsts[type];
+		ttisstds[0] = ttisstds[type];
+		ttisgmts[0] = ttisgmts[type];
+		if (abbrinds[type] != 0)
+			(void) strcpy(chars, &chars[abbrinds[type]]);
+		abbrinds[0] = 0;
+		charcnt = strlen(chars) + 1;
+		typecnt = 1;
+		timecnt = 0;
+		type = 0;
+	}
+	attypes = growalloc(attypes, sizeof *attypes, timecnt, &timecnt_alloc);
+	attypes[timecnt].at = starttime;
+	attypes[timecnt].type = type;
+	++timecnt;
+}
+
+static int
+addtype(const zic_t gmtoff, const char *const abbr, const int isdst,
+	const int ttisstd, const int ttisgmt)
+{
+	register int	i, j;
+
+	if (isdst != TRUE && isdst != FALSE) {
+		error(_("internal error: addtype called with bad isdst"));
+		exit(EXIT_FAILURE);
+	}
+	if (ttisstd != TRUE && ttisstd != FALSE) {
+		error(_("internal error: addtype called with bad ttisstd"));
+		exit(EXIT_FAILURE);
+	}
+	if (ttisgmt != TRUE && ttisgmt != FALSE) {
+		error(_("internal error: addtype called with bad ttisgmt"));
+		exit(EXIT_FAILURE);
+	}
+	/*
+	** See if there's already an entry for this zone type.
+	** If so, just return its index.
+	*/
+	for (i = 0; i < typecnt; ++i) {
+		if (gmtoff == gmtoffs[i] && isdst == isdsts[i] &&
+			strcmp(abbr, &chars[abbrinds[i]]) == 0 &&
+			ttisstd == ttisstds[i] &&
+			ttisgmt == ttisgmts[i])
+				return i;
+	}
+	/*
+	** There isn't one; add a new one, unless there are already too
+	** many.
+	*/
+	if (typecnt >= TZ_MAX_TYPES) {
+		error(_("too many local time types"));
+		exit(EXIT_FAILURE);
+	}
+	if (! (-1L - 2147483647L <= gmtoff && gmtoff <= 2147483647L)) {
+		error(_("UT offset out of range"));
+		exit(EXIT_FAILURE);
+	}
+	gmtoffs[i] = gmtoff;
+	isdsts[i] = isdst;
+	ttisstds[i] = ttisstd;
+	ttisgmts[i] = ttisgmt;
+
+	for (j = 0; j < charcnt; ++j)
+		if (strcmp(&chars[j], abbr) == 0)
+			break;
+	if (j == charcnt)
+		newabbr(abbr);
+	abbrinds[i] = j;
+	++typecnt;
+	return i;
+}
+
+static void
+leapadd(const zic_t t, const int positive, const int rolling, int count)
+{
+	register int	i, j;
+
+	if (leapcnt + (positive ? count : 1) > TZ_MAX_LEAPS) {
+		error(_("too many leap seconds"));
+		exit(EXIT_FAILURE);
+	}
+	for (i = 0; i < leapcnt; ++i)
+		if (t <= trans[i]) {
+			if (t == trans[i]) {
+				error(_("repeated leap second moment"));
+				exit(EXIT_FAILURE);
+			}
+			break;
+		}
+	do {
+		for (j = leapcnt; j > i; --j) {
+			trans[j] = trans[j - 1];
+			corr[j] = corr[j - 1];
+			roll[j] = roll[j - 1];
+		}
+		trans[i] = t;
+		corr[i] = positive ? 1 : -count;
+		roll[i] = rolling;
+		++leapcnt;
+	} while (positive && --count != 0);
+}
+
+static void
+adjleap(void)
+{
+	register int	i;
+	register zic_t	last = 0;
+
 	/*
 	** Now. . .finally. . .generate some useable data!
 	*/
@@ -1458,10 +1651,13 @@ isleap(y)
 	return (y % 4) == 0 && ((y % 100) != 0 || (y % 400) == 0);
 }
 
-static long
-rpytime(rp, wantedy)
-register struct rule *	rp;
-register int		wantedy;
+/*
+** Given a rule, and a year, compute the date (in seconds since January 1,
+** 1970, 00:00 LOCAL time) in that year that the rule refers to.
+*/
+
+static zic_t
+rpytime(register const struct rule *const rp, register const zic_t wantedy)
 {
 	register int	i;
 	register int	y;
@@ -1508,13 +1704,22 @@ register int		wantedy;
 			if (wday < 0)
 				wday += 7;
 		}
-		while (wday != rp->r_wday) {
-			if (rp->r_dycode == DC_DOWGEQ)
-				i = 1;
-			else	i = -1;
-			dayoff += i;
-			t = tadd(t, (long) i * SECS_PER_DAY);
-			wday = (wday + i + 7) % 7;
+		while (wday != rp->r_wday)
+			if (rp->r_dycode == DC_DOWGEQ) {
+				dayoff = oadd(dayoff, 1);
+				if (++wday >= LDAYSPERWEEK)
+					wday = 0;
+				++i;
+			} else {
+				dayoff = oadd(dayoff, -1);
+				if (--wday < 0)
+					wday = LDAYSPERWEEK - 1;
+				--i;
+			}
+		if (i < 0 || i >= len_months[isleap(y)][m]) {
+			if (noise)
+				warning(_("rule goes past start/end of month; \
+will not work with pre-2004 versions of zic"));
 		}
 	}
 	return tadd(t, rp->r_tod);
