@@ -19,11 +19,17 @@
 static char	sccsid[] = "%W%";
 #endif
 
-extern char *	strcpy();
-extern char *	strcat();
-extern char *	getenv();
+struct rule {
+	int		r_type;		/* type of rule; see below */
+	int		r_day;		/* day number of rule */
+	int		r_week;		/* week number of rule */
+	int		r_mon;		/* month number of rule */
+	int_fast32_t	r_time;		/* transition time of rule */
+};
 
-static struct tzinfo	tzinfo;
+#define JULIAN_DAY		0	/* Jn = Julian day */
+#define DAY_OF_YEAR		1	/* n = day of year */
+#define MONTH_NTH_DAY_OF_WEEK	2	/* Mm.n.d = month, week, day of week */
 
 /*
 ** SunOS 4.1.1 headers lack O_BINARY.
@@ -1019,6 +1025,103 @@ localsub(const time_t *const timep, const int_fast32_t offset,
 #endif /* defined TM_ZONE */
 	return result;
 }
+
+/*
+** The easy way to behave "as if no library function calls" localtime
+** is to not call it, so we drop its guts into "localsub", which can be
+** freely called. (And no, the PANS doesn't require the above behavior,
+** but it *is* desirable.)
+**
+** The unused offset argument is for the benefit of mktime variants.
+*/
+
+/*ARGSUSED*/
+static struct tm *
+localsub(const time_t *const timep, const int_fast32_t offset,
+	 struct tm *const tmp)
+{
+	register struct state *		sp;
+	register const struct ttinfo *	ttisp;
+	register int			i;
+	register struct tm *		result;
+	const time_t			t = *timep;
+
+	sp = lclptr;
+	if (sp == NULL)
+		return gmtsub(timep, offset, tmp);
+	if ((sp->goback && t < sp->ats[0]) ||
+		(sp->goahead && t > sp->ats[sp->timecnt - 1])) {
+			time_t			newt = t;
+			register time_t		seconds;
+			register time_t		years;
+
+			if (t < sp->ats[0])
+				seconds = sp->ats[0] - t;
+			else	seconds = t - sp->ats[sp->timecnt - 1];
+			--seconds;
+			years = (seconds / SECSPERREPEAT + 1) * YEARSPERREPEAT;
+			seconds = years * AVGSECSPERYEAR;
+			if (t < sp->ats[0])
+				newt += seconds;
+			else	newt -= seconds;
+			if (newt < sp->ats[0] ||
+				newt > sp->ats[sp->timecnt - 1])
+					return NULL;	/* "cannot happen" */
+			result = localsub(&newt, offset, tmp);
+			if (result == tmp) {
+				register time_t	newy;
+
+				newy = tmp->tm_year;
+				if (t < sp->ats[0])
+					newy -= years;
+				else	newy += years;
+				tmp->tm_year = newy;
+				if (tmp->tm_year != newy)
+					return NULL;
+			}
+			return result;
+	}
+	if (sp->timecnt == 0 || t < sp->ats[0]) {
+		i = sp->defaulttype;
+	} else {
+		register int	lo = 1;
+		register int	hi = sp->timecnt;
+
+		while (lo < hi) {
+			register int	mid = (lo + hi) >> 1;
+
+			if (t < sp->ats[mid])
+				hi = mid;
+			else	lo = mid + 1;
+		}
+		i = (int) sp->types[lo - 1];
+	}
+	ttisp = &sp->ttis[i];
+	/*
+	** To get (wrong) behavior that's compatible with System V Release 2.0
+	** you'd replace the statement below with
+	**	t += ttisp->tt_gmtoff;
+	**	timesub(&t, 0L, sp, tmp);
+	*/
+	result = timesub(&t, ttisp->tt_gmtoff, sp, tmp);
+	tmp->tm_isdst = ttisp->tt_isdst;
+	tzname[tmp->tm_isdst] = &sp->chars[ttisp->tt_abbrind];
+#ifdef TM_ZONE
+	tmp->TM_ZONE = &sp->chars[ttisp->tt_abbrind];
+#endif /* defined TM_ZONE */
+	return result;
+}
+
+struct tm *
+localtime(const time_t *const timep)
+{
+	tzset();
+	return localsub(timep, 0L, &tm);
+}
+
+/*
+** Re-entrant version of localtime.
+*/
 
 struct tm *
 localtime(tim)
