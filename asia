@@ -26,13 +26,8 @@
 # I found in the UCLA library.
 #
 # For data circa 1899, a common source is:
-<<<<<<< HEAD
 # Milne J. Civil time. Geogr J. 1899 Feb;13(2):173-94.
 # http://www.jstor.org/stable/1774359
-=======
-# Milne J. Civil time. Geogr J. 1899 Feb;13(2):173-94
-# <http://www.jstor.org/stable/1774359>.
->>>>>>> Switch back to ASCII for symbols.
 #
 # A reliable and entertaining source about time zones is
 # Derek Howse, Greenwich time and longitude, Philip Wilson Publishers (1997).
@@ -1871,17 +1866,10 @@ Zone	Indian/Maldives	4:54:00 -	LMT	1880 # Male
 # http://www.eznis.com/Container.jsp?id=112
 # (click the English flag for English)
 #
-<<<<<<< HEAD
 # There it appears that flights between Choibalsan and Ulaanbaatar arrive
 # about 1:35 - 1:50 hours later in local clock time, no matter the
 # direction, while Ulaanbaatar-Khovd takes 2 hours in the Eastern
 # direction and 3:35 back, which indicates that Ulaanbaatar and Khovd are
-=======
-# There it appears that flights between Choibalsan and Ulaanbatar arrive
-# about 1:35 - 1:50 hours later in local clock time, no matter the
-# direction, while Ulaanbaatar-Khvod takes 2 hours in the Eastern
-# direction and 3:35 back, which indicates that Ulaanbatar and Khvod are
->>>>>>> Switch back to ASCII for symbols.
 # in different time zones (like we know about), while Choibalsan and
 # Ulaanbaatar are in the same time zone (correction needed).
 
@@ -2409,6 +2397,16 @@ Zone	Asia/Hebron	2:20:23	-	LMT	1900 Oct
 # http://www.staff.science.uu.nl/~gent0113/idl/idl_philippines.htm
 # The rest of the data entries are from Shanks & Pottenger.
 
+<<<<<<< HEAD
+=======
+# From Paul Eggert (2006-04-25):
+# Tomorrow's Manila Standard reports that the Philippines Department of
+# Trade and Industry is considering adopting DST this June when the
+# rainy season begins.  See
+# <http://www.manilastandardtoday.com/?page=politics02_april26_2006>.
+# For now, we'll ignore this, since it's not definite and we lack details.
+#
+>>>>>>> Further updates to commentary, mostly un-ASCII-fying contributors' names.
 # From Jesper Nørgaard Welen (2006-04-26):
 # ... claims that Philippines had DST last time in 1990:
 # http://story.philippinetimes.com/p.x/ct/9/id/145be20cc6b121c0/cid/3e5bbccc730d258c/

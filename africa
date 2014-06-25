@@ -209,8 +209,8 @@ Rule	Egypt	2006	only	-	Sep	21	24:00	0	-
 # From Dirk Losch (2007-08-14):
 # I received a mail from an airline which says that the daylight
 # saving time in Egypt will end in the night of 2007-09-06 to 2007-09-07.
-# From Jesper Norgaard Welen (2007-08-15): [The following agree:]
-# http://www.nentjes.info/Bill/bill5.htm 
+# From Jesper N?rgaard Welen (2007-08-15): [The following agree:]
+# http://www.nentjes.info/Bill/bill5.htm
 # http://www.timeanddate.com/worldclock/city.html?n=53
 # From Steffen Thorsen (2007-09-04): The official information...:
 # http://www.sis.gov.eg/En/EgyptOnline/Miscellaneous/000002/0207000000000000001580.htm
@@ -883,9 +883,9 @@ Zone	Indian/Mayotte	3:00:56 -	LMT	1911 Jul	# Mamoutzou
 # also been like that in the past.
 
 # From Alexander Krivenyshev (2012-03-09):
-# According to Infomédiaire web site from Morocco (infomediaire.ma),
-# on March 9, 2012, (in French) Heure légale:
-# Le Maroc adopte officiellement l'heure d'été
+# According to Infom?diaire web site from Morocco (infomediaire.ma),
+# on March 9, 2012, (in French) Heure l?gale:
+# Le Maroc adopte officiellement l'heure d'?t?
 # http://www.infomediaire.ma/news/maroc/heure-l%C3%A9gale-le-maroc-adopte-officiellement-lheure-d%C3%A9t%C3%A9
 # Governing Council adopted draft decree, that Morocco DST starts on
 # the last Sunday of March (March 25, 2012) and ends on
@@ -904,8 +904,8 @@ Zone	Indian/Mayotte	3:00:56 -	LMT	1911 Jul	# Mamoutzou
 # From Christophe Tropamer (2012-03-16):
 # Seen Morocco change again:
 # http://www.le2uminutes.com/actualite.php
-# "...à partir du dernier dimance d'avril et non fins mars,
-# comme annoncé précédemment."
+# "...? partir du dernier dimance d'avril et non fins mars,
+# comme annonc? pr?c?demment."
 
 # From Milamber Space Network (2012-07-17):
 # The official return to GMT is announced by the Moroccan government:
@@ -1054,7 +1054,7 @@ Zone Africa/Casablanca	-0:30:20 -	LMT	1913 Oct 26
 # Assume that this has been true since Western Sahara switched to GMT,
 # since most of it was then controlled by Morocco.
 
-Zone Africa/El_Aaiun	-0:52:48 -	LMT	1934 Jan
+Zone Africa/El_Aaiun	-0:52:48 -	LMT	1934 Jan # El Aaiun
 			-1:00	-	WAT	1976 Apr 14
 			 0:00	Morocco	WE%sT
 
@@ -1111,7 +1111,7 @@ Zone	Indian/Reunion	3:41:52 -	LMT	1911 Jun	# Saint-Denis
 #
 # Scattered Islands (Iles Eparses) administered from Reunion are as follows.
 # The following information about them is taken from
-# Iles Eparses (www.outre-mer.gouv.fr/domtom/ile.htm, 1997-07-22, in French;
+# Iles Eparses (http://www.outre-mer.gouv.fr/domtom/ile.htm, 1997-07-22, in French;
 # no longer available as of 1999-08-17).
 # We have no info about their time zone histories.
 #
@@ -1138,7 +1138,7 @@ Zone Atlantic/St_Helena	-0:22:48 -	LMT	1890		# Jamestown
 #		on GMT, says the CIA
 #	Inaccessible, Nightingale: uninhabited
 
-# São Tomé and Príncipe
+# S?o Tom? and Pr?ncipe
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Africa/Sao_Tome	 0:26:56 -	LMT	1884
 			-0:36:32 -	LMT	1912	# Lisbon Mean Time
@@ -1197,7 +1197,7 @@ Zone Africa/Johannesburg 1:52:00 -	LMT	1892 Feb 8
 #
 # From <http://www.sunanews.net/sn13jane.html>
 # Sudan News Agency (2000-01-13),
-# also reported by Michael De Beukelaer-Dossche via Steffen Thorsen:
+# also reported by Micha?l De Beukelaer-Dossche via Steffen Thorsen:
 # Clocks will be moved ahead for 60 minutes all over the Sudan as of noon
 # Saturday....  This was announced Thursday by Caretaker State Minister for
 # Manpower Abdul-Rahman Nur-Eddin.
@@ -1314,7 +1314,7 @@ Zone	Africa/Lome	0:04:52 -	LMT	1893
 # Tunisia
 
 # From Gwillim Law (2005-04-30):
-# My correspondent, Risto Nykanen, has alerted me to another adoption of DST,
+# My correspondent, Risto Nyk?nen, has alerted me to another adoption of DST,
 # this time in Tunisia.  According to Yahoo France News
 # <http://fr.news.yahoo.com/050426/5/4dumk.html>, in a story attributed to AP
 # and dated 2005-04-26, "Tunisia has decided to advance its official time by
