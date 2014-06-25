@@ -293,11 +293,9 @@ TABDATA=	iso3166.tab zone.tab leapseconds
 LEAP_DEPS=	leapseconds.awk leap-seconds.list
 DATA=		$(YDATA) $(NDATA) $(TABDATA) \
 			$(LEAP_DEPS) yearistype.sh
-WEB_PAGES=	tz-art.htm tz-link.htm
-MISC=		usno1988 usno1989 usno1989a usno1995 usno1997 usno1998 \
-			$(WEB_PAGES) checktab.awk leapseconds.awk workman.sh \
-			zoneinfo2tdf.pl
-ENCHILADA=	$(DOCS) $(SOURCES) $(DATA) $(MISC)
+AWK_SCRIPTS=	checktab.awk leapseconds.awk
+MISC=		$(AWK_SCRIPTS) workman.sh zoneinfo2tdf.pl
+ENCHILADA=	$(COMMON) $(DOCS) $(SOURCES) $(DATA) $(MISC)
 
 # And for the benefit of csh users on systems that assume the user
 # shell should be used to handle commands in Makefiles. . .
