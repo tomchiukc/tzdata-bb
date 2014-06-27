@@ -282,8 +282,8 @@ Zone	Asia/Phnom_Penh	6:59:40 -	LMT	1906 Jun  9
 # From Bob Devine (1988-01-28):
 # No they don't.  See TIME mag, 1986-02-17 p.52.  Even though
 # China is across 4 physical time zones, before Feb 1, 1986 only the
-# Peking (Bejing) time zone was recognized.  Since that date, China
-# has two of 'em - Peking's and Urumqi (named after the capital of
+# Peking (Beijing) time zone was recognized.  Since that date, China
+# has two of 'em - Peking's and Ürümqi (named after the capital of
 # the Xinjiang Uyghur Autonomous Region).  I don't know about DST for it.
 #
 # . . .I just deleted the DST table and this editor makes it too
@@ -345,7 +345,7 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # separately: daylight savings (which, you're correct, wasn't
 # implemented until the 1980s) and the unified time zone centered near
 # Beijing (which was implemented in 1949). Briefly, there was also a
-# "Lhasa Time" in Tibet and "Urumqi Time" in Xinjiang. The first was
+# "Lhasa Time" in Tibet and "Ürümqi Time" in Xinjiang. The first was
 # ceased, and the second eventually recognized (again, in the 1980s).
 #
 # From Paul Eggert (2008-06-30):
@@ -385,9 +385,10 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # Wusu, Qiemo, Xinyan, Wulanwusu, Jinghe, Yumin, Tacheng, Tuoli, Emin,
 # Shihezi, Changji, Yanqi, Heshuo, Tuokexun, Tulufan, Shanshan, Hami,
 # Fukang, Kuitun, Kumukuli, Miquan, Qitai, and Turfan.
-#
-# Kunlun Time UT+5.5
-# Asia/Kashgar (currently a link to Asia/Urumqi)
+Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # Ürümqi or Ürümchi
+			6:00	-	URUT	1980 May # Ürümqi Time
+			8:00	PRC	C%sT
+# Kunlun Time
 # West Tibet, including Pulan, Aheqi, Shufu, Shule;
 # West Xinjiang, including Aksu, Atushi, Yining, Hetian, Cele, Luopu, Nileke,
 # Zhaosu, Tekesi, Gongliu, Chabuchaer, Huocheng, Bole, Pishan, Suiding,
@@ -419,17 +420,17 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # time. Some areas remained on standard Xinjiang time or Beijing time and
 # others moving their clocks ahead.)
 #
-# ...an example of an official website using of Urumqi time.
+# ...an example of an official website using of Ürümqi time.
 #
 # The first few lines of the Google translation of
 # http://www.fjysgl.gov.cn/show.aspx?id=2379&cid=39
 # (retrieved 2009-10-13)
-# > Urumqi fire seven people are missing the alleged losses of at least
+# > Ürümqi fire seven people are missing the alleged losses of at least
 # > 500 million yuan
 # >
-# > (Reporter Dong Liu) the day before 20:20 or so (Urumqi Time 18:20),
-# > Urumqi City Department of International Plaza Luther Qiantang River
-# > burst fire. As of yesterday, 18:30, Urumqi City Fire officers and men
+# > (Reporter Dong Liu) the day before 20:20 or so (Ürümqi Time 18:20),
+# > Ürümqi City Department of International Plaza Luther Qiantang River
+# > burst fire. As of yesterday, 18:30, Ürümqi City Fire officers and men
 # > have worked continuously for 22 hours...
 
 # From Luther Ma (2009-11-19):
@@ -2397,8 +2398,6 @@ Zone	Asia/Hebron	2:20:23	-	LMT	1900 Oct
 # http://www.staff.science.uu.nl/~gent0113/idl/idl_philippines.htm
 # The rest of the data entries are from Shanks & Pottenger.
 
-<<<<<<< HEAD
-=======
 # From Paul Eggert (2006-04-25):
 # Tomorrow's Manila Standard reports that the Philippines Department of
 # Trade and Industry is considering adopting DST this June when the
@@ -2406,7 +2405,6 @@ Zone	Asia/Hebron	2:20:23	-	LMT	1900 Oct
 # <http://www.manilastandardtoday.com/?page=politics02_april26_2006>.
 # For now, we'll ignore this, since it's not definite and we lack details.
 #
->>>>>>> Further updates to commentary, mostly un-ASCII-fying contributors' names.
 # From Jesper Nørgaard Welen (2006-04-26):
 # ... claims that Philippines had DST last time in 1990:
 # http://story.philippinetimes.com/p.x/ct/9/id/145be20cc6b121c0/cid/3e5bbccc730d258c/
