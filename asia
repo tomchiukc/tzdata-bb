@@ -50,7 +50,7 @@
 #	9:00 EIT	east Indonesia
 #	9:00 JST  JDT	Japan
 #	9:00 KST  KDT	Korea
-#	9:30 CST	(Australian) Central Standard Time
+#	9:30 ACST	Australian Central Standard Time
 #
 # See the 'europe' file for Russia and Turkey in Asia.
 
@@ -785,9 +785,9 @@ Zone Asia/Makassar	7:57:36 -	LMT	1920
 			9:00	-	JST	1945 Sep 23
 			8:00	-	CIT
 Zone Asia/Jayapura	9:22:48 -	LMT	1932 Nov
-			9:00	-	EIT	1944 Sep  1
-			9:30	-	CST	1964
-			9:00	-	EIT
+			9:00	-	WIT	1944 Sep  1
+			9:30	-	ACST	1964
+			9:00	-	WIT
 
 # Iran
 
