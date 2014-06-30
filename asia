@@ -283,7 +283,7 @@ Zone	Asia/Phnom_Penh	6:59:40 -	LMT	1906 Jun  9
 # No they don't.  See TIME mag, 1986-02-17 p.52.  Even though
 # China is across 4 physical time zones, before Feb 1, 1986 only the
 # Peking (Beijing) time zone was recognized.  Since that date, China
-# has two of 'em - Peking's and Ürümqi (named after the capital of
+# has two of 'em - Peking's and ?r?mqi (named after the capital of
 # the Xinjiang Uyghur Autonomous Region).  I don't know about DST for it.
 #
 # . . .I just deleted the DST table and this editor makes it too
@@ -320,7 +320,7 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # historic timezones from some Taiwan websites.  And yes, there are official
 # Chinese names for these locales (before 1949).
 #
-# From Jesper Nørgaard Welen (2006-07-14):
+# From Jesper N?rgaard Welen (2006-07-14):
 # I have investigated the timezones around 1970 on the
 # http://www.astro.com/atlas site [with provinces and county
 # boundaries summarized below]....  A few other exceptions were two
@@ -345,7 +345,7 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # separately: daylight savings (which, you're correct, wasn't
 # implemented until the 1980s) and the unified time zone centered near
 # Beijing (which was implemented in 1949). Briefly, there was also a
-# "Lhasa Time" in Tibet and "Ürümqi Time" in Xinjiang. The first was
+# "Lhasa Time" in Tibet and "?r?mqi Time" in Xinjiang. The first was
 # ceased, and the second eventually recognized (again, in the 1980s).
 #
 # From Paul Eggert (2008-06-30):
@@ -385,8 +385,8 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # Wusu, Qiemo, Xinyan, Wulanwusu, Jinghe, Yumin, Tacheng, Tuoli, Emin,
 # Shihezi, Changji, Yanqi, Heshuo, Tuokexun, Tulufan, Shanshan, Hami,
 # Fukang, Kuitun, Kumukuli, Miquan, Qitai, and Turfan.
-Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # Ürümqi or Ürümchi
-			6:00	-	URUT	1980 May # Ürümqi Time
+Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # ?r?mqi or ?r?mchi
+			6:00	-	URUT	1980 May # ?r?mqi Time
 			8:00	PRC	C%sT
 # Kunlun Time
 # West Tibet, including Pulan, Aheqi, Shufu, Shule;
@@ -405,9 +405,9 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # Ürümqi or Ürümchi
 # population of Xinjiang, typically use "Xinjiang time" which is two
 # hours behind Beijing time, or UTC +0600. The government of the Xinjiang
 # Uyghur Autonomous Region, (XAUR, or just Xinjiang for short) as well as
-# local governments such as the Ürümqi city government use both times in
+# local governments such as the ?r?mqi city government use both times in
 # publications, referring to what is popularly called Xinjiang time as
-# "Ürümqi time." When Uyghurs make an appointment in the Uyghur language
+# "?r?mqi time." When Uyghurs make an appointment in the Uyghur language
 # they almost invariably use Xinjiang time.
 #
 # (Their ethnic Han compatriots would typically have no clue of its
@@ -420,17 +420,17 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # Ürümqi or Ürümchi
 # time. Some areas remained on standard Xinjiang time or Beijing time and
 # others moving their clocks ahead.)
 #
-# ...an example of an official website using of Ürümqi time.
+# ...an example of an official website using of ?r?mqi time.
 #
 # The first few lines of the Google translation of
 # http://www.fjysgl.gov.cn/show.aspx?id=2379&cid=39
 # (retrieved 2009-10-13)
-# > Ürümqi fire seven people are missing the alleged losses of at least
+# > ?r?mqi fire seven people are missing the alleged losses of at least
 # > 500 million yuan
 # >
-# > (Reporter Dong Liu) the day before 20:20 or so (Ürümqi Time 18:20),
-# > Ürümqi City Department of International Plaza Luther Qiantang River
-# > burst fire. As of yesterday, 18:30, Ürümqi City Fire officers and men
+# > (Reporter Dong Liu) the day before 20:20 or so (?r?mqi Time 18:20),
+# > ?r?mqi City Department of International Plaza Luther Qiantang River
+# > burst fire. As of yesterday, 18:30, ?r?mqi City Fire officers and men
 # > have worked continuously for 22 hours...
 
 # From Luther Ma (2009-11-19):
@@ -442,7 +442,7 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # Ürümqi or Ürümchi
 # 3. Urumqi...
 # 4. Kashgar...
 # ...
-# 5. It seems that Uyghurs in Ürümqi has been using Xinjiang since at least the
+# 5. It seems that Uyghurs in ?r?mqi has been using Xinjiang since at least the
 # 1960's. I know of one Han, now over 50, who grew up in the surrounding
 # countryside and used Xinjiang time as a child.
 #
@@ -1017,7 +1017,7 @@ Zone Asia/Jayapura	9:22:48 -	LMT	1932 Nov
 # Several of my users have reported that Iran will not observe DST anymore:
 # http://www.irna.ir/en/news/view/line-17/0603193812164948.htm
 #
-# From Reuters (2007-09-16), with a heads-up from Jesper Nørgaard Welen:
+# From Reuters (2007-09-16), with a heads-up from Jesper N?rgaard Welen:
 # ... the Guardian Council ... approved a law on Sunday to re-introduce
 # daylight saving time ...
 # http://uk.reuters.com/article/oilRpt/idUKBLA65048420070916
@@ -1888,7 +1888,7 @@ Rule	Mongol	1983	only	-	Oct	1	0:00	0	-
 # (1996-09) says 1996-10-25.  Go with Shanks & Pottenger through 1998.
 #
 # Shanks & Pottenger say that the Sept. 1984 through Sept. 1990 switches
-# in Choibalsan (more precisely, in Dornod and Sükhbaatar) took place
+# in Choibalsan (more precisely, in Dornod and Sukhbaatar) took place
 # at 02:00 standard time, not at 00:00 local time as in the rest of
 # the country.  That would be odd, and possibly is a result of their
 # correction of 02:00 (in the previous edition) not being done correctly
@@ -1942,7 +1942,7 @@ Zone	Asia/Muscat	3:54:24 -	LMT	1920
 # 00:01 was to make it clear which day it was on.
 
 # From Paul Eggert (2002-03-15):
-# Jesper Nørgaard found this URL:
+# Jesper N?rgaard found this URL:
 # http://www.pak.gov.pk/public/news/app/app06_dec.htm
 # (dated 2001-12-06) which says that the Cabinet adopted a scheme "to
 # advance the clocks by one hour on the night between the first
@@ -2052,7 +2052,7 @@ Zone	Asia/Muscat	3:54:24 -	LMT	1920
 # Water and Power and the Pakistan Electric Power Company:
 # http://www.timeanddate.com/news/time/pakistan-ends-dst09.html
 
-# From Christoph Göhre (2009-10-01):
+# From Christoph G?hre (2009-10-01):
 # [T]he German Consulate General in Karachi reported me today that Pakistan
 # will go back to standard time on 1st of November.
 
@@ -2187,7 +2187,7 @@ Zone	Asia/Karachi	4:28:12 -	LMT	1907
 # I guess it is likely that next year's date will be moved as well,
 # because of the Ramadan.
 
-# From Jesper Nørgaard Welen (2007-09-18):
+# From Jesper N?rgaard Welen (2007-09-18):
 # According to Steffen Thorsen's web site the Gaza Strip and the rest of the
 # Palestinian territories left DST early on 13.th. of September at 2:00.
 
@@ -2405,7 +2405,7 @@ Zone	Asia/Hebron	2:20:23	-	LMT	1900 Oct
 # <http://www.manilastandardtoday.com/?page=politics02_april26_2006>.
 # For now, we'll ignore this, since it's not definite and we lack details.
 #
-# From Jesper Nørgaard Welen (2006-04-26):
+# From Jesper N?rgaard Welen (2006-04-26):
 # ... claims that Philippines had DST last time in 1990:
 # http://story.philippinetimes.com/p.x/ct/9/id/145be20cc6b121c0/cid/3e5bbccc730d258c/
 # [a story dated 2006-04-25 by Cris Larano of Dow Jones Newswires,
@@ -2504,7 +2504,7 @@ Zone	Asia/Singapore	6:55:25 -	LMT	1901 Jan  1
 # With effect from 12.30 a.m. on 26th October 1996
 # Sri Lanka will be six (06) hours ahead of GMT.
 
-# From Jesper Nørgaard Welen (2006-04-14), quoting Sri Lanka News Online
+# From Jesper N?rgaard Welen (2006-04-14), quoting Sri Lanka News Online
 # <http://news.sinhalaya.com/wmview.php?ArtID=11002> (2006-04-13):
 # 0030 hrs on April 15, 2006 (midnight of April 14, 2006 +30 minutes)
 # at present, become 2400 hours of April 14, 2006 (midnight of April 14, 2006).
@@ -2606,7 +2606,7 @@ Rule	Syria	2006	only	-	Sep	22	0:00	0	-
 # Today the AP reported "Syria will switch to summertime at midnight Thursday."
 # http://www.iht.com/articles/ap/2007/03/29/africa/ME-GEN-Syria-Time-Change.php
 Rule	Syria	2007	only	-	Mar	lastFri	0:00	1:00	S
-# From Jesper Nørgaard (2007-10-27):
+# From Jesper N?rgaard (2007-10-27):
 # The sister center ICARDA of my work CIMMYT is confirming that Syria DST will
 # not take place 1st November at 0:00 o'clock but 1st November at 24:00 or
 # rather Midnight between Thursday and Friday. This does make more sense than
@@ -2615,7 +2615,7 @@ Rule	Syria	2007	only	-	Mar	lastFri	0:00	1:00	S
 # it is implemented at midnight of the last workday before weekend...
 #
 # From Steffen Thorsen (2007-10-27):
-# Jesper Nørgaard Welen wrote:
+# Jesper N?rgaard Welen wrote:
 #
 # > "Winter local time in Syria will be observed at midnight of Thursday 1
 # > November 2007, and the clock will be put back 1 hour."
