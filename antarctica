@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# <pre>
-# %W%
-=======
->>>>>>> Simplify use of URLs in text files.
 # This file is in the public domain, so clarified as of
 # 2009-05-17 by Arthur David Olson.
 
@@ -61,7 +56,7 @@ Rule	ChileAQ	2012	max	-	Sep	Sun>=2	4:00u	1:00	S
 # Esperanza, Hope Bay, -6323-05659, since 1952-12-17
 # Marambio, -6414-05637, since 1969-10-29
 # Orcadas, Laurie I, -6016-04444, since 1904-02-22
-# San Martín, Barry I, -6808-06706, since 1951-03-21
+# San Mart?n, Barry I, -6808-06706, since 1951-03-21
 #	(except 1960-03 / 1976-03-21)
 
 # Australia - territories
@@ -108,8 +103,8 @@ Rule	ChileAQ	2012	max	-	Sep	Sun>=2	4:00u	1:00	S
 
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone Antarctica/Casey	0	-	zzz	1969
-			8:00	-	WST	2009 Oct 18 2:00
-						# Western (Aus) Standard Time
+			8:00	-	AWST	2009 Oct 18 2:00
+						# Australian Western Standard Time
 			11:00	-	CAST	2010 Mar 5 2:00
 						# Casey Time
 			8:00	-	WST	2011 Oct 28 2:00
@@ -161,26 +156,26 @@ Zone Antarctica/Mawson	0	-	zzz	1954 Feb 13
 # From Antoine Leca (1997-01-20):
 # Time data are from Nicole Pailleau at the IFRTP
 # (French Institute for Polar Research and Technology).
-# She confirms that French Southern Territories and Terre Adélie bases
-# don't observe daylight saving time, even if Terre Adélie supplies came
+# She confirms that French Southern Territories and Terre Ad?lie bases
+# don't observe daylight saving time, even if Terre Ad?lie supplies came
 # from Tasmania.
 #
 # French Southern Territories with year-round inhabitants
 #
-# Martin-de-Viviès, Amsterdam Island, -374105+0773155, since 1950
+# Martin-de-Vivi?s, Amsterdam Island, -374105+0773155, since 1950
 # Alfred-Faure, Crozet Islands, -462551+0515152, since 1964
-# Port-aux-Français, Kerguelen Islands, -492110+0701303, since 1951;
+# Port-aux-Fran?ais, Kerguelen Islands, -492110+0701303, since 1951;
 #	whaling & sealing station operated 1908/1914, 1920/1929, and 1951/1956
 #
 # St Paul Island - near Amsterdam, uninhabited
 #	fishing stations operated variously 1819/1931
 #
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Indian/Kerguelen	0	-	zzz	1950	# Port-aux-Français
+Zone Indian/Kerguelen	0	-	zzz	1950	# Port-aux-Fran?ais
 			5:00	-	TFT	# ISO code TF Time
 #
 # year-round base in the main continent
-# Dumont d'Urville, Île des Pétrels, -6640+14001, since 1956-11
+# Dumont d'Urville, ?le des P?trels, -6640+14001, since 1956-11
 # <http://en.wikipedia.org/wiki/Dumont_d'Urville_Station> (2005-12-05)
 #
 # Another base at Port-Martin, 50km east, began operation in 1947.
@@ -272,7 +267,7 @@ Zone Antarctica/Troll	0	-	zzz	2005 Feb 12
 # Arctowski, King George Island, -620945-0582745, since 1977
 
 # Romania - year-bound base
-# Law-Racoviță, Larsemann Hills, -692319+0762251, since 1986
+# Law-Racovi??, Larsemann Hills, -692319+0762251, since 1986
 
 # Russia - year-round bases
 # Bellingshausen, King George Island, -621159-0585337, since 1968-02-22
