@@ -4,9 +4,8 @@
 # This file provides links between late-1993-vintage names for time zones
 # and their previous names.
 
-# Link	TARGET			LINK-NAME
 Link	Africa/Asmara		Africa/Asmera
-Link	Africa/Abidjan		Africa/Timbuktu
+Link	Africa/Bamako		Africa/Timbuktu
 Link	America/Argentina/Catamarca	America/Argentina/ComodRivadavia
 Link	America/Adak		America/Atka
 Link	America/Argentina/Buenos_Aires	America/Buenos_Aires
