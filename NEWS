@@ -29,6 +29,15 @@ Unreleased, experimental changes
     The time zone abbreviation for Xinjiang Time (observed in ?r?mqi)
     has been changed from URUT to XJT.  (Thanks to Luther Ma.)
 
+    Prefer MSK/MSD for Moscow time in Russia, even in other cities.
+    Similarly, prefer EET/EEST for eastern European time in Russia.
+
+    Time zone abbreviations have been updated for Japan's two time
+    zones used 1896-1937.  JWST now stands for Western Standard
+    Time, and JCST for Central Standard Time (formerly this was CJT).
+    These abbreviations are now used for time in Korea and Taiwan
+    while controlled by Japan.
+
   Changes affecting past time stamps
 
     China's five zones have been simplified to two, since the post-1970
@@ -60,10 +69,7 @@ Unreleased, experimental changes
     Documentation and commentary now prefer UTF-8 to US-ASCII,
     allowing the use of proper accents in foreign words and names.
     Code and data have not changed because of this.
-<<<<<<< HEAD
-=======
     (Thanks to Garrett Wollman and Ian Abbott for helping to debug this.)
->>>>>>> More spelling and accent fixes.
 
     Non-HTML documentation and commentary now use plain-text URLs instead of
     HTML insertions, and are more consistent about bracketing URLs when they
