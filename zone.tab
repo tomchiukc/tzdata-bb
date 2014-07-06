@@ -271,17 +271,23 @@ QA	+2517+05132	Asia/Qatar
 RE	-2052+05528	Indian/Reunion
 RO	+4426+02606	Europe/Bucharest
 RU	+5545+03735	Europe/Moscow	Moscow+00 - west Russia
-RU	+5312+05009	Europe/Kuybyshev	Moscow+01 - Caspian Sea
+RU	+4844+04425	Europe/Volgograd	Moscow+00 - Caspian Sea
+RU	+4457+03406	Europe/Simferopol	Moscow+00 - Crimea
+RU	+5312+05009	Europe/Samara	Moscow+01 - Samara, Udmurtia
 RU	+5651+06036	Asia/Yekaterinburg	Moscow+02 - Urals
 RU	+5500+07324	Asia/Omsk	Moscow+03 - west Siberia
 RU	+5502+08255	Asia/Novosibirsk	Moscow+03 - Novosibirsk
+RU	+5345+08707	Asia/Novokuznetsk	Moscow+04 - Novokuznetsk
 RU	+5601+09250	Asia/Krasnoyarsk	Moscow+04 - Yenisei River
 RU	+5216+10420	Asia/Irkutsk	Moscow+05 - Irkutsk
 RU	+6200+12940	Asia/Yakutsk	Moscow+06 - Lena River
-RU	+4310+13156	Asia/Vladivostok	Moscow+07 - Vladivostok
-RU	+5934+15048	Asia/Magadan	Moscow+08 - Magadan & Sakhalin
+RU	+623923+1353314	Asia/Khandyga	Moscow+06 - Tomponsky, Ust-Maysky
+RU	+4310+13156	Asia/Vladivostok	Moscow+07 - Amur River
+RU	+4658+14242	Asia/Sakhalin	Moscow+07 - Sakhalin Island
+RU	+643337+1431336	Asia/Ust-Nera	Moscow+07 - Oymyakonsky
+RU	+5934+15048	Asia/Magadan	Moscow+07 - Magadan
 RU	+5301+15839	Asia/Kamchatka	Moscow+09 - Kamchatka
-RU	+6445+17729	Asia/Anadyr	Moscow+10 - Bering Sea
+RU	+6445+17729	Asia/Anadyr	Moscow+09 - Bering Sea
 RW	-0157+03004	Africa/Kigali
 SA	+2438+04643	Asia/Riyadh
 SB	-0932+16012	Pacific/Guadalcanal
