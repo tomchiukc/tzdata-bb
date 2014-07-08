@@ -948,7 +948,8 @@ Zone	Africa/Lagos	0:13:36 -	LMT	1919 Sep
 # Reunion
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Indian/Reunion	3:41:52 -	LMT	1911 Jun	# Saint-Denis
-			4:00	-	RET	# Reunion Time
+			4:00	-	RET	# Réunion Time
+Link Indian/Reunion Indian/Alfred_Faure
 #
 # Scattered Islands (Iles Eparses) administered from Reunion are as follows.
 # The following information about them is taken from
