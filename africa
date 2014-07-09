@@ -64,7 +64,6 @@
 #	 3:00	CAST	Central Africa Summer Time (no longer used)
 #	 3:00	SAST	South Africa Summer Time (no longer used)
 #	 3:00	EAT	East Africa Time
-#	 4:00	EAST	East Africa Summer Time (no longer used)
 
 # Algeria
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
@@ -105,45 +104,21 @@ Zone	Africa/Algiers	0:12:12 -	LMT	1891 Mar 15 0:01
 			1:00	-	CET
 
 # Angola
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Luanda	0:52:56	-	LMT	1892
-			0:52:04	-	AOT	1911 May 26 # Angola Time
-			1:00	-	WAT
-
 # Benin
-# Whitman says they switched to 1:00 in 1946, not 1934;
-# go with Shanks & Pottenger.
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Porto-Novo	0:10:28	-	LMT	1912
-			0:00	-	GMT	1934 Feb 26
-			1:00	-	WAT
+# See Africa/Lagos.
 
 # Botswana
-# From Paul Eggert (2013-02-21):
-# Milne says they were regulated by the Cape Town Signal in 1899;
-# assume they switched to 2:00 when Cape Town did.
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Gaborone	1:43:40 -	LMT	1885
-			1:30	-	SAST	1903 Mar
-			2:00	-	CAT	1943 Sep 19 2:00
-			2:00	1:00	CAST	1944 Mar 19 2:00
-			2:00	-	CAT
+# Milne says they were regulated by the Cape Town Signal in 1899.
+# See Africa/Johannesburg.
 
 # Burkina Faso
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Ouagadougou	-0:06:04 -	LMT	1912
-			 0:00	-	GMT
+# See Africa/Abidjan.
 
 # Burundi
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Bujumbura	1:57:28	-	LMT	1890
-			2:00	-	CAT
+# See Africa/Johannesburg.
 
 # Cameroon
-# Whitman says they switched to 1:00 in 1920; go with Shanks & Pottenger.
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Douala	0:38:48	-	LMT	1912
-			1:00	-	WAT
+# See Africa/Lagos.
 
 # Cape Verde
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
@@ -154,9 +129,7 @@ Zone Atlantic/Cape_Verde -1:34:04 -	LMT	1907			# Praia
 			-1:00	-	CVT
 
 # Central African Republic
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Bangui	1:14:20	-	LMT	1912
-			1:00	-	WAT
+# See Africa/Lagos.
 
 # Chad
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
@@ -166,31 +139,33 @@ Zone	Africa/Ndjamena	1:00:12 -	LMT	1912
 			1:00	-	WAT
 
 # Comoros
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Indian/Comoro	2:53:04 -	LMT	1911 Jul   # Moroni, Gran Comoro
-			3:00	-	EAT
+# See Africa/Nairobi.
 
 # Democratic Republic of Congo
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Kinshasa	1:01:12 -	LMT	1897 Nov 9
-			1:00	-	WAT
-Zone Africa/Lubumbashi	1:49:52 -	LMT	1897 Nov 9
-			2:00	-	CAT
+# See Africa/Lagos for the western part of the country.
+# See Africa/Johannesburg for the eastern part of the country.
 
 # Republic of the Congo
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Brazzaville	1:01:08 -	LMT	1912
-			1:00	-	WAT
+# See Africa/Lagos.
 
 # Cote D'Ivoire
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Africa/Abidjan	-0:16:08 -	LMT	1912
 			 0:00	-	GMT
+Link Africa/Abidjan Africa/Accra	# Ghana
+Link Africa/Abidjan Africa/Bamako	# Mali
+Link Africa/Abidjan Africa/Banjul	# Gambia
+Link Africa/Abidjan Africa/Conakry	# Guinea
+Link Africa/Abidjan Africa/Dakar	# Senegal
+Link Africa/Abidjan Africa/Freetown	# Sierra Leone
+Link Africa/Abidjan Africa/Lome		# Togo
+Link Africa/Abidjan Africa/Nouakchott	# Mauritania
+Link Africa/Abidjan Africa/Ouagadougou	# Burkina Faso
+Link Africa/Abidjan Africa/Sao_Tome	# S?o Tom? and Pr?ncipe
+Link Africa/Abidjan Atlantic/St_Helena	# St Helena
 
 # Djibouti
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Djibouti	2:52:36 -	LMT	1911 Jul
-			3:00	-	EAT
+# See Africa/Nairobi.
 
 ###############################################################################
 #
@@ -365,56 +340,32 @@ Zone	Africa/Cairo	2:05:09 -	LMT	1900 Oct
 			2:00	Egypt	EE%sT
 
 # Equatorial Guinea
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Malabo	0:35:08 -	LMT	1912
-			0:00	-	GMT	1963 Dec 15
-			1:00	-	WAT
+# See Africa/Lagos.
 
 # Eritrea
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Asmara	2:35:32 -	LMT	1870
-			2:35:32	-	AMT	1890	      # Asmara Mean Time
-			2:35:20	-	ADMT	1936 May 5    # Adis Dera MT
-			3:00	-	EAT
+# See Africa/Nairobi.
 
 # Ethiopia
-# From Paul Eggert (2006-03-22):
-# Shanks & Pottenger write that Ethiopia had six narrowly-spaced time zones
-# between 1870 and 1890, and that they merged to 38E50 (2:35:20) in 1890.
-# We'll guess that 38E50 is for Adis Dera.
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Addis_Ababa	2:34:48 -	LMT	1870
-			2:35:20	-	ADMT	1936 May 5    # Adis Dera MT
-			3:00	-	EAT
+# From Paul Eggert (2014-07-09):
+# Like the Swahili of Kenya and Tanzania, many Ethiopians keep a
+# 12-hour clock starting at our 06:00, so their "8 o'clock" is our
+# 02:00 or 14:00.  Keep this in mind when you ask the time in Amharic.
+#
+# Shanks & Pottenger write that Ethiopia had six narrowly-spaced time
+# zones between 1870 and 1890, that they merged to 38E50 (2:35:20) in
+# 1890, and that they switched to 3:00 on 1936-05-05.  Perhaps 38E50
+# was for Adis Dera.  Ignore this for now as it predates our 1970
+# cutoff, and it's quite likely wrong anyway.
+#
+# See Africa/Nairobi.
 
 # Gabon
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Libreville	0:37:48 -	LMT	1912
-			1:00	-	WAT
+# See Africa/Lagos.
 
 # Gambia
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Banjul	-1:06:36 -	LMT	1912
-			-1:06:36 -	BMT	1935	# Banjul Mean Time
-			-1:00	-	WAT	1964
-			 0:00	-	GMT
-
 # Ghana
-# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
-# Whitman says DST was observed from 1931 to "the present";
-# go with Shanks & Pottenger.
-Rule	Ghana	1936	1942	-	Sep	 1	0:00	0:20	GHST
-Rule	Ghana	1936	1942	-	Dec	31	0:00	0	GMT
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Accra	-0:00:52 -	LMT	1918
-			 0:00	Ghana	%s
-
 # Guinea
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Conakry	-0:54:52 -	LMT	1912
-			 0:00	-	GMT	1934 Feb 26
-			-1:00	-	WAT	1960
-			 0:00	-	GMT
+# See Africa/Abidjan.
 
 # Guinea-Bissau
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
@@ -429,13 +380,19 @@ Zone	Africa/Nairobi	2:27:16	-	LMT	1928 Jul
 			2:30	-	BEAT	1940
 			2:45	-	BEAUT	1960
 			3:00	-	EAT
+Link Africa/Nairobi Africa/Addis_Ababa	 # Ethiopia
+Link Africa/Nairobi Africa/Asmara	 # Eritrea
+Link Africa/Nairobi Africa/Dar_es_Salaam # Tanzania
+Link Africa/Nairobi Africa/Djibouti
+Link Africa/Nairobi Africa/Kampala	 # Uganda
+Link Africa/Nairobi Africa/Mogadishu	 # Somalia
+Link Africa/Nairobi Antarctica/Syowa
+Link Africa/Nairobi Indian/Antananarivo	 # Madagascar
+Link Africa/Nairobi Indian/Comoro
+Link Africa/Nairobi Indian/Mayotte
 
 # Lesotho
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Maseru	1:50:00 -	LMT	1903 Mar
-			2:00	-	SAST	1943 Sep 19 2:00
-			2:00	1:00	SAST	1944 Mar 19 2:00
-			2:00	-	SAST
+# See Africa/Johannesburg.
 
 # Liberia
 # From Paul Eggert (2006-03-22):
@@ -637,30 +594,14 @@ Zone	Africa/Tripoli	0:52:44 -	LMT	1920
 			2:00	-	EET
 
 # Madagascar
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Indian/Antananarivo 3:10:04 -	LMT	1911 Jul
-			3:00	-	EAT	1954 Feb 27 23:00s
-			3:00	1:00	EAST	1954 May 29 23:00s
-			3:00	-	EAT
+# See Africa/Nairobi.
 
 # Malawi
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Blantyre	2:20:00 -	LMT	1903 Mar
-			2:00	-	CAT
+# See Africa/Johannesburg.
 
 # Mali
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Bamako	-0:32:00 -	LMT	1912
-			 0:00	-	GMT	1934 Feb 26
-			-1:00	-	WAT	1960 Jun 20
-			 0:00	-	GMT
-
 # Mauritania
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Nouakchott	-1:03:48 -	LMT	1912
-			 0:00	-	GMT	1934 Feb 26
-			-1:00	-	WAT	1960 Nov 28
-			 0:00	-	GMT
+# See Africa/Abidjan.
 
 # Mauritius
 
@@ -757,8 +698,7 @@ Zone Indian/Mauritius	3:50:00 -	LMT	1907		# Port Louis
 
 # Mayotte
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Indian/Mayotte	3:00:56 -	LMT	1911 Jul	# Mamoutzou
-			3:00	-	EAT
+# See Africa/Nairobi.
 
 # Morocco
 # See the 'europe' file for Spanish Morocco (Africa/Ceuta).
@@ -1057,9 +997,7 @@ Zone Africa/El_Aaiun	-0:52:48 -	LMT	1934 Jan # El Aaiun
 			 0:00	Morocco	WE%sT
 
 # Mozambique
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Maputo	2:10:20 -	LMT	1903 Mar
-			2:00	-	CAT
+# See Africa/Johannesburg.
 
 # Namibia
 # The 1994-04-03 transition is from Shanks & Pottenger.
@@ -1091,16 +1029,21 @@ Zone	Africa/Windhoek	1:08:24 -	LMT	1892 Feb 8
 			1:00	Namibia	WA%sT
 
 # Niger
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Niamey	 0:08:28 -	LMT	1912
-			-1:00	-	WAT	1934 Feb 26
-			 0:00	-	GMT	1960
-			 1:00	-	WAT
+# See Africa/Lagos.
 
 # Nigeria
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Africa/Lagos	0:13:36 -	LMT	1919 Sep
 			1:00	-	WAT
+Link Africa/Lagos Africa/Bangui	     # Central African Republic
+Link Africa/Lagos Africa/Brazzaville # Rep. of the Congo
+Link Africa/Lagos Africa/Douala	     # Cameroon
+Link Africa/Lagos Africa/Kinshasa    # W Dem. Rep. of the Congo
+Link Africa/Lagos Africa/Libreville  # Gabon
+Link Africa/Lagos Africa/Luanda	     # Angola
+Link Africa/Lagos Africa/Malabo	     # Equatorial Guinea
+Link Africa/Lagos Africa/Niamey	     # Niger
+Link Africa/Lagos Africa/Porto-Novo  # Benin
 
 # Reunion
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
@@ -1121,16 +1064,11 @@ Link Indian/Reunion Indian/Alfred_Faure
 # Tromelin - inhabited until at least 1958
 
 # Rwanda
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Kigali	2:00:16 -	LMT	1935 Jun
-			2:00	-	CAT
+# See Africa/Johannesburg.
 
 # St Helena
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Atlantic/St_Helena	-0:22:48 -	LMT	1890		# Jamestown
-			-0:22:48 -	JMT	1951	# Jamestown Mean Time
-			 0:00	-	GMT
-# The other parts of the St Helena territory are similar:
+# See Africa/Abidjan.
+# The parts of the St Helena territory are similar:
 #	Tristan da Cunha: on GMT, say Whitman and the CIA
 #	Ascension: on GMT, say the USNO and the CIA
 #	Gough (scientific station since 1955; sealers wintered previously):
@@ -1138,16 +1076,8 @@ Zone Atlantic/St_Helena	-0:22:48 -	LMT	1890		# Jamestown
 #	Inaccessible, Nightingale: uninhabited
 
 # S?o Tom? and Pr?ncipe
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Sao_Tome	 0:26:56 -	LMT	1884
-			-0:36:32 -	LMT	1912	# Lisbon Mean Time
-			 0:00	-	GMT
-
 # Senegal
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Dakar	-1:09:44 -	LMT	1912
-			-1:00	-	WAT	1941 Jun
-			 0:00	-	GMT
+# See Africa/Abidjan.
 
 # Seychelles
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
@@ -1161,24 +1091,10 @@ Zone	Indian/Mahe	3:41:48 -	LMT	1906 Jun	# Victoria
 # Possibly the islands were uninhabited.
 
 # Sierra Leone
-# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
-# Whitman gives Mar 31 - Aug 31 for 1931 on; go with Shanks & Pottenger.
-Rule	SL	1935	1942	-	Jun	 1	0:00	0:40	SLST
-Rule	SL	1935	1942	-	Oct	 1	0:00	0	WAT
-Rule	SL	1957	1962	-	Jun	 1	0:00	1:00	SLST
-Rule	SL	1957	1962	-	Sep	 1	0:00	0	GMT
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Freetown	-0:53:00 -	LMT	1882
-			-0:53:00 -	FMT	1913 Jun # Freetown Mean Time
-			-1:00	SL	%s	1957
-			 0:00	SL	%s
+# See Africa/Abidjan.
 
 # Somalia
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Mogadishu	3:01:28 -	LMT	1893 Nov
-			3:00	-	EAT	1931
-			2:30	-	BEAT	1957
-			3:00	-	EAT
+# See Africa/Nairobi.
 
 # South Africa
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
@@ -1188,6 +1104,17 @@ Rule	SA	1943	1944	-	Mar	Sun>=15	2:00	0	-
 Zone Africa/Johannesburg 1:52:00 -	LMT	1892 Feb 8
 			1:30	-	SAST	1903 Mar
 			2:00	SA	SAST
+Link Africa/Johannesburg Africa/Blantyre   # Malawi
+Link Africa/Johannesburg Africa/Bujumbura  # Burundi
+Link Africa/Johannesburg Africa/Gaborone   # Botswana
+Link Africa/Johannesburg Africa/Harare	   # Zimbabwe
+Link Africa/Johannesburg Africa/Kigali	   # Rwanda
+Link Africa/Johannesburg Africa/Lubumbashi # E Dem. Rep. of Congo
+Link Africa/Johannesburg Africa/Lusaka	   # Zambia
+Link Africa/Johannesburg Africa/Maputo	   # Mozambique
+Link Africa/Johannesburg Africa/Maseru	   # Lesotho
+Link Africa/Johannesburg Africa/Mbabane    # Swaziland
+#
 # Marion and Prince Edward Is
 # scientific station since 1947
 # no information
@@ -1217,98 +1144,14 @@ Zone Indian/Mauritius	3:50:00 -	LMT	1907 # Port Louis
 Zone	Indian/Mayotte	3:00:56 -	LMT	1911 Jul # Mamoutzou
 			3:00	-	EAT
 
-# Morocco
-# See the 'europe' file for Spanish Morocco (Africa/Ceuta).
-
-# From Alex Krivenyshev (2008-05-09):
-# Here is an article that Morocco plan to introduce Daylight Saving Time between
-# 1 June, 2008 and 27 September, 2008.
-#
-# "... Morocco is to save energy by adjusting its clock during summer so it will
-# be one hour ahead of GMT between 1 June and 27 September, according to
-# Communication Minister and Government Spokesman, Khalid Naciri...."
-#
-# http://www.worldtimezone.net/dst_news/dst_news_morocco01.html
-# http://en.afrik.com/news11892.html
-
-# From Alex Krivenyshev (2008-05-09):
-# The Morocco time change can be confirmed on Morocco web site Maghreb Arabe
-# Presse:
-# http://www.map.ma/eng/sections/box3/morocco_shifts_to_da/view
-#
-# Morocco shifts to daylight time on June 1st through September 27, Govt.
-# spokesman.
-
-# From Patrice Scattolin (2008-05-09):
-# According to this article:
-# http://www.avmaroc.com/actualite/heure-dete-comment-a127896.html
-# (and republished here: <http://www.actu.ma/heure-dete-comment_i127896_0.html>)
-# the changes occur at midnight:
-#
-# Saturday night May 31st at midnight (which in French is to be
-# interpreted as the night between Saturday and Sunday)
-# Sunday night the 28th at midnight
-#
-# Seeing that the 28th is Monday, I am guessing that she intends to say
-# the midnight of the 28th which is the midnight between Sunday and
-# Monday, which jives with other sources that say that it's inclusive
-# June 1st to Sept 27th.
-#
-# The decision was taken by decree *2-08-224 *but I can't find the decree
-# published on the web.
-#
-# It's also confirmed here:
-# http://www.maroc.ma/NR/exeres/FACF141F-D910-44B0-B7FA-6E03733425D1.htm
-# on a government portal as being between June 1st and Sept 27th (not yet
-# posted in English).
-#
-# The following Google query will generate many relevant hits:
-# http://www.google.com/search?hl=en&q=Conseil+de+gouvernement+maroc+heure+avance&btnG=Search
-
-# From Steffen Thorsen (2008-08-27):
-# Morocco will change the clocks back on the midnight between August 31
-# and September 1. They originally planned to observe DST to near the end
-# of September:
-#
-# One article about it (in French):
-# http://www.menara.ma/fr/Actualites/Maroc/Societe/ci.retour_a_l_heure_gmt_a_partir_du_dimanche_31_aout_a_minuit_officiel_.default
-#
-# We have some further details posted here:
-# http://www.timeanddate.com/news/time/morocco-ends-dst-early-2008.html
-
-# From Steffen Thorsen (2009-03-17):
-# Morocco will observe DST from 2009-06-01 00:00 to 2009-08-21 00:00 according
-# to many sources, such as
-# http://news.marweb.com/morocco/entertainment/morocco-daylight-saving.html
-# http://www.medi1sat.ma/fr/depeche.aspx?idp=2312
-# (French)
-#
-# Our summary:
-# http://www.timeanddate.com/news/time/morocco-starts-dst-2009.html
-
-# From Alexander Krivenyshev (2009-03-17):
-# Here is a link to official document from Royaume du Maroc Premier Ministre,
-# Ministère de la Modernisation des Secteurs Publics
-#
-# Under Article 1 of Royal Decree No. 455-67 of Act 23 safar 1387 (2 june 1967)
-# concerning the amendment of the legal time, the Ministry of Modernization of
-# Public Sectors announced that the official time in the Kingdom will be
-# advanced 60 minutes from Sunday 31 May 2009 at midnight.
-#
-# http://www.mmsp.gov.ma/francais/Actualites_fr/PDF_Actualites_Fr/HeureEte_FR.pdf
-# http://www.worldtimezone.com/dst_news/dst_news_morocco03.html
+# Swaziland
+# See Africa/Johannesburg.
 
 # Tanzania
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone Africa/Dar_es_Salaam 2:37:08 -	LMT	1931
-			3:00	-	EAT	1948
-			2:45	-	BEAUT	1961
-			3:00	-	EAT
+# See Africa/Nairobi.
 
 # Togo
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Lome	0:04:52 -	LMT	1893
-			0:00	-	GMT
+# See Africa/Abidjan.
 
 # Tunisia
 
@@ -1410,19 +1253,8 @@ Zone	Africa/Tunis	0:40:44 -	LMT	1881 May 12
 			1:00	Tunisia	CE%sT
 
 # Uganda
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Kampala	2:09:40 -	LMT	1928 Jul
-			3:00	-	EAT	1930
-			2:30	-	BEAT	1948
-			2:45	-	BEAUT	1957
-			3:00	-	EAT
+# See Africa/Nairobi.
 
 # Zambia
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Lusaka	1:53:08 -	LMT	1903 Mar
-			2:00	-	CAT
-
 # Zimbabwe
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Africa/Harare	2:04:12 -	LMT	1903 Mar
-			2:00	-	CAT
+# See Africa/Johannesburg.
