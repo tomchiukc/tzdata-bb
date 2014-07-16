@@ -1,3 +1,4 @@
+
 # This file is in the public domain, so clarified as of
 # 2009-05-17 by Arthur David Olson.
 
@@ -599,7 +600,6 @@ Zone Pacific/Honolulu	-10:31:26 -	LMT	1896 Jan 13 12:00
 			-10:00	-	HST
 
 Link Pacific/Honolulu Pacific/Johnston
-Link Pacific/Honolulu Pacific/Tahiti # in French Polynesia
 
 # Now we turn to US areas that have diverged from the consensus since 1970.
 
@@ -893,11 +893,7 @@ Zone America/Kentucky/Louisville -5:43:02 -	LMT	1883 Nov 18 12:16:58
 # From Paul Eggert (2001-07-16):
 # The final rule was published in the
 # Federal Register 65, 160 (2000-08-17), pp 50154-50158.
-<<<<<<< HEAD
 # http://frwebgate.access.gpo.gov/cgi-bin/getdoc.cgi?dbname=2000_register&docid=fr17au00-22
-=======
-# <http://frwebgate.access.gpo.gov/cgi-bin/getdoc.cgi?dbname=2000_register&docid=fr17au00-22>
->>>>>>> Switch back to ASCII for symbols.
 #
 Zone America/Kentucky/Monticello -5:39:24 - LMT	1883 Nov 18 12:20:36
 			-6:00	US	C%sT	1946
@@ -923,11 +919,7 @@ Zone America/Kentucky/Monticello -5:39:24 - LMT	1883 Nov 18 12:20:36
 # West Wendover, NV officially switched from Pacific to mountain time on
 # 1999-10-31.  See the
 # Federal Register 64, 203 (1999-10-21), pp 56705-56707.
-<<<<<<< HEAD
 # http://frwebgate.access.gpo.gov/cgi-bin/getdoc.cgi?dbname=1999_register&docid=fr21oc99-15
-=======
-# <http://frwebgate.access.gpo.gov/cgi-bin/getdoc.cgi?dbname=1999_register&docid=fr21oc99-15>
->>>>>>> Switch back to ASCII for symbols.
 # However, the Federal Register says that West Wendover already operated
 # on mountain time, and the rule merely made this official;
 # hence a separate tz entry is not needed.
@@ -1841,11 +1833,7 @@ Zone America/Edmonton	-7:33:52 -	LMT	1906 Sep
 # 1. 1884 or 1885: adoption of Mountain Standard Time (GMT-7)
 # Exact date unknown
 # 2. Oct 1916: switch to Pacific Standard Time (GMT-8)
-<<<<<<< HEAD
 # Exact date in October unknown; Sunday October 1 is a reasonable guess.
-=======
-# Exact date in October unknown;  Sunday October 1 is a reasonable guess.
->>>>>>> Switch back to ASCII for symbols.
 # 3. June 1918: switch to Pacific Daylight Time (GMT-7)
 # Exact date in June unknown; Sunday June 2 is a reasonable guess.
 # note#1:
@@ -2513,13 +2501,8 @@ Zone America/Santa_Isabel	-7:39:28 -	LMT	1922 Jan  1  0:20:32
 ###############################################################################
 
 # Anguilla
-# See America/Port_of_Spain.
-
 # Antigua and Barbuda
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	America/Antigua	-4:07:12 -	LMT	1912 Mar 2
-			-5:00	-	EST	1951
-			-4:00	-	AST
+# See America/Port_of_Spain.
 
 # Bahamas
 #
@@ -2586,10 +2569,7 @@ Zone Atlantic/Bermuda	-4:19:18 -	LMT	1930 Jan  1  2:00 # Hamilton
 			-4:00	US	A%sT
 
 # Cayman Is
-# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	America/Cayman	-5:25:32 -	LMT	1890     # Georgetown
-			-5:07:11 -	KMT	1912 Feb # Kingston Mean Time
-			-5:00	-	EST
+Link America/Panama America/Cayman
 
 # Costa Rica
 
