@@ -289,7 +289,8 @@ PRIMARY_YDATA=	africa antarctica asia australasia \
 YDATA=		$(PRIMARY_YDATA) pacificnew etcetera backward
 NDATA=		systemv factory
 TDATA=		$(YDATA) $(NDATA)
-TABDATA=	iso3166.tab zone.tab leapseconds
+TIMETABLES=	time.tab zone.tab
+TABDATA=	iso3166.tab $(TIMETABLES) leapseconds
 LEAP_DEPS=	leapseconds.awk leap-seconds.list
 DATA=		$(YDATA) $(NDATA) $(TABDATA) \
 			$(LEAP_DEPS) yearistype.sh
@@ -308,22 +309,14 @@ ALL:		all date
 
 install:	all $(DATA) $(REDO) $(TZLIB) $(MANS) $(TABDATA)
 		$(ZIC) -y $(YEARISTYPE) \
-			-d $(TZDIR) -l $(LOCALTIME) -p $(POSIXRULES)
-		-rm -f $(TZDIR)/iso3166.tab $(TZDIR)/zone.tab
-		cp iso3166.tab zone.tab $(TZDIR)/.
-		-mkdir $(TOPDIR) $(ETCDIR)
-		cp tzselect zic zdump $(ETCDIR)/.
-		-mkdir $(TOPDIR) $(MANDIR) \
-			$(MANDIR)/man3 $(MANDIR)/man5 $(MANDIR)/man8
-		-rm -f $(MANDIR)/man3/newctime.3 \
-			$(MANDIR)/man3/newtzset.3 \
-			$(MANDIR)/man5/tzfile.5 \
-			$(MANDIR)/man8/tzselect.8 \
-			$(MANDIR)/man8/zdump.8 \
-			$(MANDIR)/man8/zic.8
-		cp newctime.3 newtzset.3 $(MANDIR)/man3/.
-		cp tzfile.5 $(MANDIR)/man5/.
-		cp tzselect.8 zdump.8 zic.8 $(MANDIR)/man8/.
+			-d $(DESTDIR)$(TZDIR) -l $(LOCALTIME) -p $(POSIXRULES)
+		cp -f iso3166.tab $(TIMETABLES) $(DESTDIR)$(TZDIR)/.
+		cp tzselect zic zdump $(DESTDIR)$(ETCDIR)/.
+		cp libtz.a $(DESTDIR)$(LIBDIR)/.
+		$(RANLIB) $(DESTDIR)$(LIBDIR)/libtz.a
+		cp -f newctime.3 newtzset.3 $(DESTDIR)$(MANDIR)/man3/.
+		cp -f tzfile.5 $(DESTDIR)$(MANDIR)/man5/.
+		cp -f tzselect.8 zdump.8 zic.8 $(DESTDIR)$(MANDIR)/man8/.
 
 INSTALL:	ALL install date.1
 		-mkdir $(TOPDIR) $(BINDIR)
@@ -403,10 +396,25 @@ tzselect:	tzselect.ksh
 			<$? >$@
 		chmod +x $@
 
-check:		check_tables check_web
+check:		check_character_set check_tables check_web
 
-check_tables:	checktab.awk $(PRIMARY_YDATA)
-		$(AWK) -f checktab.awk $(PRIMARY_YDATA)
+check_character_set: $(ENCHILADA)
+		LC_ALL=en_US.utf8 && export LC_ALL && \
+		sharp='#' && \
+		! grep -Env $(SAFE_LINE) $(MANS) date.1 $(MANTXTS) \
+			$(MISC) $(SOURCES) $(WEB_PAGES) && \
+		! grep -Env $(SAFE_SHARP_LINE) $(YDATA) $(NDATA) iso3166.tab \
+			zone.tab leapseconds $(LEAP_DEPS) yearistype.sh && \
+		test $$(grep -Ecv $(SAFE_SHARP_LINE) Makefile) -eq 1 && \
+		! grep -Env $(NONSYM_LINE) README NEWS Theory $(MANS) date.1 \
+			time.tab && \
+		! grep -Env $(VALID_LINE) $(ENCHILADA)
+
+check_tables:	checktab.awk $(PRIMARY_YDATA) $(TIMETABLES)
+		for tab in $(TIMETABLES); do \
+		  $(AWK) -f checktab.awk -v zone_table=$$tab $(PRIMARY_YDATA) \
+		    || exit; \
+		done
 
 check_web:	$(WEB_PAGES)
 		$(VALIDATE_ENV) $(VALIDATE) $(VALIDATE_FLAGS) $(WEB_PAGES)
@@ -468,7 +476,35 @@ public:		$(ENCHILADA) set-timestamps
 		  $(zic) -v -d tzpublic $$i 2>&1 || exit; \
 		done
 		$(zic) -v -d tzpublic $(TDATA)
-		rm -f -r tzpublic
+		rm -fr tzpublic
+
+# Check that the code works under various alternative
+# implementations of time_t.
+check_time_t_alternatives:
+		zones=`$(AWK) '/^[^#]/ { print $$3 }' <time.tab` && \
+		for type in $(TIME_T_ALTERNATIVES); do \
+		  mkdir -p tzpublic/$$type && \
+		  make clean_misc && \
+		  make TOPDIR=`pwd`/tzpublic/$$type \
+		    CFLAGS='$(CFLAGS) -Dtime_tz='"'$$type'" \
+		    install && \
+		  diff -qr tzpublic/int64_t/etc/zoneinfo tzpublic/$$type/etc/zoneinfo && \
+		  case $$type in \
+		  int32_t) range=-2147483648,2147483647;; \
+		  uint32_t) range=0,4294967296;; \
+		  int64_t) continue;; \
+		  *u*) range=0,10000000000;; \
+		  *) range=-10000000000,10000000000;; \
+		  esac && \
+		  echo checking $$type zones ... && \
+		  tzpublic/int64_t/etc/zdump -V -t $$range $$zones \
+		      >tzpublic/int64_t.out && \
+		  tzpublic/$$type/etc/zdump -V -t $$range $$zones \
+		      >tzpublic/$$type.out && \
+		  diff -u tzpublic/int64_t.out tzpublic/$$type.out \
+		    || exit; \
+		done
+		rm -fr tzpublic
 
 tarballs:	tzcode$(VERSION).tar.gz tzdata$(VERSION).tar.gz
 
