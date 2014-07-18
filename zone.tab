@@ -129,7 +129,6 @@ CA	+5125-05707	America/Blanc-Sablon	Atlantic Standard Time - Quebec - Lower Nort
 CA	+4339-07923	America/Toronto	Eastern Time - Ontario & Quebec - most locations
 CA	+4901-08816	America/Nipigon	Eastern Time - Ontario & Quebec - places that did not observe DST 1967-1973
 CA	+4823-08915	America/Thunder_Bay	Eastern Time - Thunder Bay, Ontario
-CA	+6344-06828	America/Iqaluit	Eastern Time - Northwest Territories
 CA	+6344-06828	America/Iqaluit	Eastern Time - east Nunavut - most locations
 CA	+6608-06544	America/Pangnirtung	Eastern Time - Pangnirtung, Nunavut
 CA	+744144-0944945	America/Resolute	Central Time - Resolute, Nunavut
@@ -428,6 +427,7 @@ US	+571035-1351807	America/Sitka	Alaska Time - southeast Alaska panhandle
 US	+593249-1394338	America/Yakutat	Alaska Time - Alaska panhandle neck
 US	+643004-1652423	America/Nome	Alaska Time - west Alaska
 US	+515248-1763929	America/Adak	Aleutian Islands
+US	+550737-1313435	America/Metlakatla	Pacific Standard Time - Annette Island, Alaska
 US	+211825-1575130	Pacific/Honolulu	Hawaii
 UY	-3453-05611	America/Montevideo
 UZ	+3940+06648	Asia/Samarkand	west Uzbekistan
