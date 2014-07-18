@@ -1,29 +1,20 @@
-# TZ zone descriptions
+# tz zone descriptions (deprecated version)
 #
 # This file is in the public domain, so clarified as of
 # 2009-05-17 by Arthur David Olson.
 #
-# From Paul Eggert (2013-05-27):
+# From Paul Eggert (2014-07-18):
+# This file is intended as a backward-compatibility aid for older programs.
+# New programs should use time.tab.  This file is like time.tab (see
+# time.tab's comments), but with the following additional restrictions:
 #
-# This file contains a table with the following columns:
-# 1.  ISO 3166 2-character country code.  See the file `iso3166.tab'.
-#     This identifies a country that overlaps the zone.  The country may
-#     overlap other zones and the zone may overlap other countries.
-# 2.  Latitude and longitude of the zone's principal location
-#     in ISO 6709 sign-degrees-minutes-seconds format,
-#     either +-DDMM+-DDDMM or +-DDMMSS+-DDDMMSS,
-#     first latitude (+ is north), then longitude (+ is east).
-#     This location need not lie within the column-1 country.
-# 3.  Zone name used in value of TZ environment variable.
-#     Please see the 'Theory' file for how zone names are chosen.
-# 4.  Comments; present if and only if the country has multiple rows.
-#     
-# Columns are separated by a single tab.
-# The table is sorted first by country, then an order within the country that
-# (1) makes some geographical sense, and
-# (2) puts the most populous zones first, where that does not contradict (1).
+# 1.  This file contains only ASCII characters.
+# 2.  The first data column contains exactly one country code.
 #
-# Lines beginning with `#' are comments.
+# Because of (2), each row stands for an area that is the intersection
+# of a region identified by a country code and of a zone where civil
+# clocks have agreed since 1970; this is a narrower definition than
+# that of time.tab.
 #
 # This table is intended as an aid for users, to help them select time
 # zone data appropriate for their practical needs.  It is not intended
@@ -319,8 +310,7 @@ SY	+3330+03618	Asia/Damascus
 SZ	-2618+03106	Africa/Mbabane
 TC	+2128-07108	America/Grand_Turk
 TD	+1207+01503	Africa/Ndjamena
-TF	-492110+0701303	Indian/Kerguelen	Kerguelen, St Paul I, Amsterdam I
-TF	-462551+0515125	Indian/Alfred_Faure	Crozet Is, Scattered Is
+TF	-492110+0701303	Indian/Kerguelen
 TG	+0608+00113	Africa/Lome
 TH	+1345+10031	Asia/Bangkok
 TJ	+3835+06848	Asia/Dushanbe
