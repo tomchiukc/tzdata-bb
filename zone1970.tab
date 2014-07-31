@@ -28,8 +28,8 @@
 # most populous zones first, where that does not contradict (1).
 #
 # This table is intended as an aid for users, to help them select time
-# zone data entries appropriate for their practical needs.  It is not
-# intended to take or endorse any position on legal or territorial claims.
+# zone data appropriate for their practical needs.  It is not intended
+# to take or endorse any position on legal or territorial claims.
 #
 #country-
 #codes	coordinates	TZ	comments
@@ -44,7 +44,7 @@ AQ	-6736+06253	Antarctica/Mawson	Mawson Station, Holme Bay
 AQ	-6835+07758	Antarctica/Davis	Davis Station, Vestfold Hills
 AQ	-6617+11031	Antarctica/Casey	Casey Station, Bailey Peninsula
 AQ	-7824+10654	Antarctica/Vostok	Vostok Station, Lake Vostok
-AQ	-6640+14001	Antarctica/DumontDUrville	Dumont-d'Urville Station, Adélie Land
+AQ	-6640+14001	Antarctica/DumontDUrville	Dumont-d'Urville Station, Terre Adelie
 AQ	-690022+0393524	Antarctica/Syowa	Syowa Station, E Ongul I
 AQ	-720041+0023206	Antarctica/Troll	Troll Station, Queen Maud Land
 AR	-3436-05827	America/Argentina/Buenos_Aires	Buenos Aires (BA, CF)
@@ -293,14 +293,16 @@ RU	+5502+08255	Asia/Novosibirsk	Moscow+03 - Novosibirsk
 RU	+5345+08707	Asia/Novokuznetsk	Moscow+03 (Moscow+04 after 2014-10-26) - Kemerovo
 RU	+5601+09250	Asia/Krasnoyarsk	Moscow+04 - Yenisei River
 RU	+5216+10420	Asia/Irkutsk	Moscow+05 - Lake Baikal
-RU	+5203+11328	Asia/Chita	Moscow+06 (Moscow+05 after 2014-10-26) - Zabaykalsky
+# Add this once the 2014-10-26 Russian change becomes official:
+#RU	+5203+11328	Asia/Chita	Moscow+06 (Moscow+05 after 2014-10-26) - Zabaykalsky
 RU	+6200+12940	Asia/Yakutsk	Moscow+06 - Lena River
 RU	+623923+1353314	Asia/Khandyga	Moscow+06 - Tomponsky, Ust-Maysky
 RU	+4310+13156	Asia/Vladivostok	Moscow+07 - Amur River
 RU	+4658+14242	Asia/Sakhalin	Moscow+07 - Sakhalin Island
 RU	+643337+1431336	Asia/Ust-Nera	Moscow+07 - Oymyakonsky
 RU	+5934+15048	Asia/Magadan	Moscow+08 (Moscow+07 after 2014-10-26) - Magadan
-RU	+6728+15343	Asia/Srednekolymsk	Moscow+08 - E Sakha, N Kuril Is
+# Add this once the 2014-10-26 Russian change becomes official:
+#RU	+6728+15343	Asia/Srednekolymsk	Moscow+08 - E Sakha, N Kuril Is
 RU	+5301+15839	Asia/Kamchatka	Moscow+08 (Moscow+09 after 2014-10-26) - Kamchatka
 RU	+6445+17729	Asia/Anadyr	Moscow+08 (Moscow+09 after 2014-10-26) - Bering Sea
 SA,KW,YE	+2438+04643	Asia/Riyadh
@@ -323,7 +325,7 @@ TM	+3757+05823	Asia/Ashgabat
 TN	+3648+01011	Africa/Tunis
 TO	-2110-17510	Pacific/Tongatapu
 TR	+4101+02858	Europe/Istanbul
-TT,AG,AI,BL,DM,GD,GP,KN,LC,MF,MS,VC,VG,VI	+1039-06131	America/Port_of_Spain
+TT,AG,AI,BL,DM,GD,GP,MF,LC,KN,MS,VC,VG,VI	+1039-06131	America/Port_of_Spain
 TV	-0831+17913	Pacific/Funafuti
 TW	+2503+12130	Asia/Taipei
 UA	+5026+03031	Europe/Kiev	most locations
