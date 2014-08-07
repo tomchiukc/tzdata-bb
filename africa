@@ -180,7 +180,7 @@ Zone Africa/Lubumbashi	1:49:52 -	LMT	1897 Nov 9
 Zone Africa/Brazzaville	1:01:08 -	LMT	1912
 			1:00	-	WAT
 
-# C?te D'Ivoire / Ivory Coast
+# C?te d'Ivoire / Ivory Coast
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Africa/Abidjan	-0:16:08 -	LMT	1912
 			 0:00	-	GMT
@@ -1011,14 +1011,9 @@ Zone	Africa/Lagos	0:13:36 -	LMT	1919 Sep
 # R?union
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Indian/Reunion	3:41:52 -	LMT	1911 Jun	# Saint-Denis
-<<<<<<< HEAD
 			4:00	-	RET	# R?union Time
-Link Indian/Reunion Indian/Alfred_Faure
-=======
-			4:00	-	RET	# Réunion Time
 #
-# Crozet Islands also observes Réunion time; see the 'antarctica' file.
->>>>>>> New file time.tab, superseding zone.tab
+# Crozet Islands also observes R?union time; see the 'antarctica' file.
 #
 # Scattered Islands (?les ?parses) administered from R?union are as follows.
 # The following information about them is taken from
