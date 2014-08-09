@@ -269,7 +269,7 @@ Zone	Asia/Rangoon	6:24:40 -	LMT	1880		# or Yangon
 # Cambodia
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Asia/Phnom_Penh	6:59:40 -	LMT	1906 Jun  9
-			7:06:20	-	SMT	1911 Mar 11 0:01 # Saigon MT?
+			7:06:20	-	SMT	1911 Mar 11  0:01 # Saigon MT?
 			7:00	-	ICT	1912 May
 			8:00	-	ICT	1931 May
 			7:00	-	ICT
@@ -682,22 +682,13 @@ Zone	Asia/Hong_Kong	7:36:42 -	LMT	1904 Oct 30
 # Central Weather Bureau website was not correct.
 #
 # Original Bulletin:
-<<<<<<< HEAD
 # http://subtpg.tpg.gov.tw/og/image2.asp?f=03502F0AKM1AF
 # http://subtpg.tpg.gov.tw/og/image2.asp?f=0350300AKM1B0 (cont.)
-=======
-# <http://subtpg.tpg.gov.tw/og/image2.asp?f=03502F0AKM1AF>
-# <http://subtpg.tpg.gov.tw/og/image2.asp?f=0350300AKM1B0> (cont.)
->>>>>>> Minor spelling, accent, or English fixes.
 #
 # In 1947, DST in Taiwan was expanded to Oct 31. There is a backup of that
 # telegram announcement from Taiwan Province Government:
 #
-<<<<<<< HEAD
 # http://subtpg.tpg.gov.tw/og/image2.asp?f=0360310AKZ431
-=======
-# <http://subtpg.tpg.gov.tw/og/image2.asp?f=0360310AKZ431>
->>>>>>> Minor spelling, accent, or English fixes.
 #
 # Here is a brief translation:
 #
@@ -1692,7 +1683,7 @@ Zone	Asia/Kuwait	3:11:56 -	LMT	1950
 # Laos
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Asia/Vientiane	6:50:24 -	LMT	1906 Jun  9 # or Viangchan
-			7:06:20	-	SMT	1911 Mar 11 0:01 # Saigon MT?
+			7:06:20	-	SMT	1911 Mar 11  0:01 # Saigon MT?
 			7:00	-	ICT	1912 May
 			8:00	-	ICT	1931 May
 			7:00	-	ICT
@@ -2772,7 +2763,7 @@ Zone	Asia/Tashkent	4:37:11 -	LMT	1924 May  2
 # From Shanks & Pottenger:
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Asia/Ho_Chi_Minh	7:06:40 -	LMT	1906 Jun  9
-			7:06:20	-	SMT	1911 Mar 11 0:01 # Saigon MT?
+			7:06:20	-	SMT	1911 Mar 11  0:01 # Saigon MT?
 			7:00	-	ICT	1912 May
 			8:00	-	ICT	1931 May
 			7:00	-	ICT
