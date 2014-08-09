@@ -124,11 +124,11 @@ Zone Antarctica/Mawson	0	-	zzz	1954 Feb 13
 			5:00	-	MAWT
 # References:
 # Casey Weather (1998-02-26)
-# <http://www.antdiv.gov.au/aad/exop/sfo/casey/casey_aws.html>
+# http://www.antdiv.gov.au/aad/exop/sfo/casey/casey_aws.html
 # Davis Station, Antarctica (1998-02-26)
-# <http://www.antdiv.gov.au/aad/exop/sfo/davis/video.html>
+# http://www.antdiv.gov.au/aad/exop/sfo/davis/video.html
 # Mawson Station, Antarctica (1998-02-25)
-# <http://www.antdiv.gov.au/aad/exop/sfo/mawson/video.html>
+# http://www.antdiv.gov.au/aad/exop/sfo/mawson/video.html
 
 # Belgium - year-round base
 # Princess Elisabeth, Queen Maud Land, -713412+0231200, since 2007
@@ -218,8 +218,6 @@ Zone Antarctica/Syowa	0	-	zzz	1957 Jan 29
 # See:
 # NIPR Antarctic Research Activities (1999-08-17)
 # http://www.nipr.ac.jp/english/ara01.html
-#
-# See Africa/Nairobi.
 
 # S Korea - year-round base
 # Jang Bogo, Terra Nova Bay, -743700+1641205 since 2014
