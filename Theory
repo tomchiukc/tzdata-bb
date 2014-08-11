@@ -228,11 +228,13 @@ applications requiring accurate handling of all past times everywhere,
 as it would take far too much effort and guesswork to record all
 details of pre-1970 civil timekeeping.
 
-As noted in the README file, the tz database is not authoritative
-(particularly not for pre-1970 time stamps), and it surely has errors.
-Corrections are welcome and encouraged.  Users requiring authoritative
-data should consult national standards bodies and the references cited
-in the database's comments.
+
+----- Accuracy of the tz database -----
+
+The tz database is not authoritative, and it surely has errors.
+Corrections are welcome and encouraged; see the file CONTRIBUTING.
+Users requiring authoritative data should consult national standards
+bodies and the references cited in the database's comments.
 
 Errors in the tz database arise from many sources:
 
