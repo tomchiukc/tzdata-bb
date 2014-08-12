@@ -70,9 +70,11 @@ TZLIB=		$(LIBDIR)/libtz.a
 # below.  If you want both sets of data available, with leap seconds counted
 # normally, use
 #	REDO=		right_posix
-# below.
+# below.  If you want just POSIX-compatible time values, but with extra
+# lower-quality data from the file 'backzone', use
+#	REDO=		posix_packrat
 # POSIX mandates that leap seconds not be counted; for compatibility with it,
-# use either "posix_only" or "posix_right".
+# use "posix_only", "posix_right", or "posix_packrat".
 
 REDO=		posix_right
 
@@ -297,8 +299,8 @@ TDATA=		$(YDATA) $(NDATA)
 ZONETABLES=	zone1970.tab zone.tab
 TABDATA=	iso3166.tab leapseconds $(ZONETABLES)
 LEAP_DEPS=	leapseconds.awk leap-seconds.list
-DATA=		$(YDATA) $(NDATA) $(TABDATA) \
-			$(LEAP_DEPS) yearistype.sh
+DATA=		$(YDATA) $(NDATA) backzone $(TABDATA) \
+			leap-seconds.list yearistype.sh
 AWK_SCRIPTS=	checktab.awk leapseconds.awk
 MISC=		$(AWK_SCRIPTS) workman.sh zoneinfo2tdf.pl
 ENCHILADA=	$(COMMON) $(DOCS) $(SOURCES) $(DATA) $(MISC)
@@ -381,6 +383,11 @@ posix_right:	posix_only other_two
 
 right_posix:	right_only other_two
 
+posix_packrat:	posix_only backzone
+		$(AWK) '/^Rule/' $(TDATA) | \
+		  $(ZIC) -y $(YEARISTYPE) -d $(DESTDIR)$(TZDIR) \
+			-L /dev/null - backzone
+
 zones:		$(REDO)
 
 $(TZLIB):	$(LIBOBJS)
@@ -408,8 +415,8 @@ check_character_set: $(ENCHILADA)
 		sharp='#' && \
 		! grep -Env $(SAFE_LINE) $(MANS) date.1 $(MANTXTS) \
 			$(MISC) $(SOURCES) $(WEB_PAGES) && \
-		! grep -Env $(SAFE_SHARP_LINE) $(YDATA) $(NDATA) iso3166.tab \
-			zone.tab leapseconds $(LEAP_DEPS) yearistype.sh && \
+		! grep -Env $(SAFE_SHARP_LINE) $(TDATA) backzone \
+			iso3166.tab leapseconds yearistype.sh zone.tab && \
 		test $$(grep -Ecv $(SAFE_SHARP_LINE) Makefile) -eq 1 && \
 		! grep -Env $(NONSYM_LINE) README NEWS Theory $(MANS) date.1 \
 			zone1970.tab && \
@@ -545,7 +552,7 @@ CLEAN:		clean
 
 .PHONY: ALL INSTALL all
 .PHONY: check check_character_set check_public check_tables
-.PHONY: check_time_t_alternatives check_web clean clean_misc
-.PHONY: install maintainer-clean names posix_only posix_right
+.PHONY: check_time_t_alternatives check_web check_white_space clean clean_misc
+.PHONY: install maintainer-clean names posix_packrat posix_only posix_right
 .PHONY: public right_only right_posix signatures tarballs typecheck
 .PHONY: zonenames zones
