@@ -78,7 +78,7 @@ In the <code>tz</code> database's
 title="File Transfer Protocol">FTP</abbr> releases</a>
 the code is in the file <code>tzcode<var>C</var>.tar.gz</code>,
 where <code><var>C</var></code> is the code's version;
-similarly, the data are in <code>tzdata<var>D</var>.tar.gz</code>,
+similarly, the data entries are in <code>tzdata<var>D</var>.tar.gz</code>,
 where <code><var>D</var></code> is the data's version.
 Each version is a four-digit year followed by lower-case letters
 (a through z, then za through zz, then zza through zzz, and so on).
@@ -108,7 +108,7 @@ machine-readable binary files, one for each location. It also lets
 you read a <code>tz</code> binary file and interpret time stamps for that
 location.</p>
 <p>
-The data are by no means authoritative. If you find errors, please
+The files are by no means authoritative. If you find errors, please
 send changes to the <a href="mailto:tz@iana.org">time zone
 mailing list</a>. You can also <a
 href="http://news.gmane.org/gmane.comp.time.tz">browse recent
@@ -621,6 +621,16 @@ contentious issue.</li>
 </ul>
 <h2>Time notation</h2>
 <ul>
+<li>The <a href="http://unicode.org/cldr/">Unicode Common Locale Data
+Repository (<abbr>CLDR</abbr>) Project</a> has localizations for time
+zone names, abbreviations, identifiers, and formats. For example, it
+contains French translations for "Eastern European Summer Time",
+"<abbr title="Eastern European Summer Time">EEST</abbr>", and
+"Bucharest". Its
+<a href="http://unicode.org/cldr/charts/by_type/index.html">by-type
+charts</a> show these values for many locales. Data values are available in
+both <abbr title="Locale Data Markup Language">LDML</abbr>
+(an <abbr>XML</abbr> format) and <abbr>JSON</abbr>.
 <li>
 <a href="http://www.cl.cam.ac.uk/~mgk25/iso-time.html">A Summary of
 the International Standard Date and Time Notation</a> is a good

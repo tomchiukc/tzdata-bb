@@ -121,8 +121,8 @@ Zone	Africa/Lome	0:04:52 -	LMT	1893
 #
 # Although Shanks says that Malabo switched from UTC to UTC+1 on 1963-12-15,
 # a Google Books search says that London Calling, Issues 432-465 (1948), p 19,
-# says that Spanish Guinea was at GMT+1 back then.  The Shanks data are most
-# likely wrong, but we have nothing better; use them here for now.
+# says that Spanish Guinea was at GMT+1 back then.  The Shanks data entries
+# are most likely wrong, but we have nothing better; use them here for now.
 #
 Zone	Africa/Malabo	0:35:08 -	LMT	1912
 			0:00	-	GMT	1963 Dec 15
