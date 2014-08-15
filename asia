@@ -142,7 +142,7 @@ Zone	Asia/Baku	3:19:24 -	LMT	1924 May  2
 
 # Bahrain
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Asia/Bahrain	3:22:20 -	LMT	1920		# Manamah
+Zone	Asia/Bahrain	3:22:20 -	LMT	1920     # Manamah
 			4:00	-	GST	1972 Jun
 			3:00	-	AST
 
@@ -1682,7 +1682,7 @@ Zone	Asia/Kuwait	3:11:56 -	LMT	1950
 
 # Laos
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone	Asia/Vientiane	6:50:24 -	LMT	1906 Jun  9 # or Viangchan
+Zone	Asia/Vientiane	6:50:24 -	LMT	1906 Jun  9       # or Viangchan
 			7:06:20	-	SMT	1911 Mar 11  0:01 # Saigon MT?
 			7:00	-	ICT	1912 May
 			8:00	-	ICT	1931 May
