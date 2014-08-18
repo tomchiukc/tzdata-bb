@@ -254,6 +254,38 @@ VALIDATE_ENV = \
   SP_CHARSET_FIXED=YES \
   SP_ENCODING=UTF-8
 
+<<<<<<< HEAD
+=======
+# SAFE_CHAR is a regular expression that matches a safe character.
+# Some parts of this distribution are limited to safe characters;
+# others can use any UTF-8 character.
+# For now, the safe characters are a safe subset of ASCII.
+# The caller must set the shell variable 'sharp' to the character '#',
+# since Makefile macros cannot contain '#'.
+# TAB_CHAR is a single tab character, in single quotes.
+TAB_CHAR=	'	'
+SAFE_CHARSET1=	$(TAB_CHAR)' !\"'$$sharp'$$%&'\''()*+,./0123456789:;<=>?@'
+SAFE_CHARSET2=	'ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\^_`'
+SAFE_CHARSET3=	'abcdefghijklmnopqrstuvwxyz{|}~'
+SAFE_CHARSET=	]$(SAFE_CHARSET1)$(SAFE_CHARSET2)$(SAFE_CHARSET3)-
+SAFE_CHAR=	'['$(SAFE_CHARSET)']'
+# NONSYM_CHAR is a regular expression that matches any character
+# except for a small number of symbols, where we prefer to stick with
+# ASCII renderings for the convenience of maintainers whose text editors
+# mishandle UTF-8 by default (e.g., XEmacs 21.4.22).
+NONSYM_CHAR=	'[^????????????????????????????????????????]'
+
+# SAFE_LINE matches a line of safe characters.
+# SAFE_SHARP_LINE is similar, except any character can follow '#';
+# this is so that comments can contain non-ASCII characters.
+# NONSYM_LINE matches a line of non-symbols.
+# VALID_LINE matches a line of any validly-encoded characters.
+SAFE_LINE=	'^'$(SAFE_CHAR)'*$$'
+SAFE_SHARP_LINE='^'$(SAFE_CHAR)'*('$$sharp$(NONSYM_CHAR)'*)?$$'
+NONSYM_LINE=	'^'$(NONSYM_CHAR)'*$$'
+VALID_LINE=	'^.*$$'
+
+>>>>>>> * Makefile (strftime.o): Depend on private.h.
 # Flags to give 'tar' when making a distribution.
 # Try to use flags appropriate for GNU tar.
 GNUTARFLAGS=	--numeric-owner --owner=0 --group=0 --mode=go+u,go-w
@@ -545,8 +577,15 @@ typecheck:
 zonenames:	$(TDATA)
 		@$(AWK) '/^Zone/ { print $$2 } /^Link/ { print $$3 }' $(TDATA)
 
-CLEAN:		clean
-			sccs clean
+asctime.o:	private.h tzfile.h
+date.o:		private.h
+difftime.o:	private.h
+ialloc.o:	private.h
+localtime.o:	private.h tzfile.h
+scheck.o:	private.h
+strftime.o:	private.h tzfile.h
+zdump.o:	version.h
+zic.o:		private.h tzfile.h version.h
 
 .KEEP_STATE:
 
