@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# <pre>
-# %W%
-=======
->>>>>>> Simplify use of URLs in text files.
 # This file is in the public domain, so clarified as of
 # 2009-05-17 by Arthur David Olson.
 
@@ -294,7 +289,7 @@ SAFE_CHAR=	'['$(SAFE_CHARSET)']'
 # except for a small number of symbols, where we prefer to stick with
 # ASCII renderings for the convenience of maintainers whose text editors
 # mishandle UTF-8 by default (e.g., XEmacs 21.4.22).
-NONSYM_CHAR=	'[^–—°′″≈≠≤≥±−×÷∞←→↔·•§¶«»‘’‚‛“”„‟‹›「」『』〝〞〟]'
+NONSYM_CHAR=	'[^????????????????????????????????????????]'
 
 # SAFE_LINE matches a line of safe characters.
 # SAFE_SHARP_LINE is similar, except any character can follow '#';
@@ -631,8 +626,9 @@ difftime.o:	private.h
 ialloc.o:	private.h
 localtime.o:	private.h tzfile.h
 scheck.o:	private.h
-strftime.o:	tzfile.h
-zic.o:		private.h tzfile.h
+strftime.o:	private.h tzfile.h
+zdump.o:	version.h
+zic.o:		private.h tzfile.h version.h
 
 .KEEP_STATE:
 
