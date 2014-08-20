@@ -63,7 +63,7 @@ extern char *		tzname[2];
 
 static int		retval = EXIT_SUCCESS;
 
-static void		checkfinal(const char *, int, time_t, time_t);
+static void		checkfinal(char const *, bool, time_t, time_t);
 static time_t		convert(const char *, int, time_t);
 static void		display(const char *, time_t);
 static void		dogmt(void);
@@ -84,12 +84,12 @@ main(const int argc, char *argv[])
 	register const char *	value;
 	register const char *	cp;
 	register int		ch;
-	register int		dousg;
-	register int		aflag = 0;
-	register int		dflag = 0;
-	register int		nflag = 0;
-	register int		tflag = 0;
-	register int		rflag = 0;
+	register bool		dousg;
+	register bool		aflag = false;
+	register bool		dflag = false;
+	register bool		nflag = false;
+	register bool		tflag = false;
+	register bool		rflag = false;
 	register int		minuteswest;
 	register int		dsttime;
 	register double		adjust;
@@ -124,7 +124,7 @@ main(const int argc, char *argv[])
 					_("date: error: multiple -r's used"));
 				usage();
 			}
-			rflag = 1;
+			rflag = true;
 			errno = 0;
 			secs = strtoimax (optarg, &endarg, 0);
 			if (*endarg || optarg == endarg)
@@ -139,7 +139,7 @@ main(const int argc, char *argv[])
 			t = secs;
 			break;
 		case 'n':		/* don't set network */
-			nflag = 1;
+			nflag = true;
 			break;
 		case 'd':		/* daylight saving time */
 			if (dflag) {
@@ -147,7 +147,7 @@ main(const int argc, char *argv[])
 					_("date: error: multiple -d's used"));
 				usage();
 			}
-			dflag = 1;
+			dflag = true;
 			cp = optarg;
 			dsttime = atoi(cp);
 			if (*cp == '\0' || *nondigit(cp) != '\0')
@@ -160,7 +160,7 @@ main(const int argc, char *argv[])
 					_("date: error: multiple -t's used"));
 				usage();
 			}
-			tflag = 1;
+			tflag = true;
 			cp = optarg;
 			minuteswest = atoi(cp);
 			if (*cp == '+' || *cp == '-')
@@ -175,7 +175,7 @@ main(const int argc, char *argv[])
 					_("date: error: multiple -a's used"));
 				usage();
 			}
-			aflag = 1;
+			aflag = true;
 			cp = optarg;
 			adjust = atof(cp);
 			if (*cp == '+' || *cp == '-')
@@ -217,9 +217,9 @@ _("date: error: multiple values in command line\n"));
 		** even if time_t's range all the way back to the thirteenth
 		** century.  Do not change the order.
 		*/
-		t = convert(value, (dousg = TRUE), now);
+		t = convert(value, (dousg = true), now);
 		if (t == -1)
-			t = convert(value, (dousg = FALSE), now);
+			t = convert(value, (dousg = false), now);
 		if (t == -1) {
 			/*
 			** Out of range values,
@@ -240,9 +240,9 @@ _("date: error: multiple values in command line\n"));
 					    _("out of range seconds given"));
 			}
 			dogmt();
-			t = convert(value, FALSE, now);
+			t = convert(value, false, now);
 			if (t == -1)
-				t = convert(value, TRUE, now);
+				t = convert(value, true, now);
 			wildinput(_("time"), value,
 				(t == -1) ?
 				_("out of range value given") :
@@ -343,7 +343,7 @@ dogmt(void)
 
 /*ARGSUSED*/
 static void
-reset(const time_t newt, const int nflag)
+reset(time_t newt, bool nflag)
 {
 	register int		fid;
 	time_t			oldt;
@@ -442,14 +442,14 @@ extern int		logwtmp();
 #endif /* HAVE_SETTIMEOFDAY == 1 */
 
 #ifdef TSP_SETDATE
-static int netsettime(struct timeval);
+static bool netsettime(struct timeval);
 #endif
 
 #ifndef TSP_SETDATE
 /*ARGSUSED*/
 #endif /* !defined TSP_SETDATE */
 static void
-reset(const time_t newt, const int nflag)
+reset(time_t newt, bool nflag)
 {
 	register const char *	username;
 	static struct timeval	tv;	/* static so tv_usec is 0 */
@@ -587,7 +587,7 @@ timeout(FILE *const fp, const char *const format, const struct tm *tmp)
 	free(cp);
 }
 
-static int
+static bool
 sametm(register const struct tm *const atmp,
        register const struct tm *const btmp)
 {
@@ -607,7 +607,7 @@ sametm(register const struct tm *const atmp,
 #define ATOI2(ar)	(ar[0] - '0') * 10 + (ar[1] - '0'); ar += 2;
 
 static time_t
-convert(register const char * const value, const int dousg, const time_t t)
+convert(char const *value, bool dousg, time_t t)
 {
 	register const char *	cp;
 	register const char *	dotp;
@@ -714,10 +714,7 @@ convert(register const char * const value, const int dousg, const time_t t)
 */
 
 static void
-checkfinal(const char * const	value,
-	   const int		didusg,
-	   const time_t		t,
-	   const time_t		oldnow)
+checkfinal(char const *value, bool didusg, time_t t, time_t oldnow)
 {
 	time_t		othert;
 	struct tm	tm, *tmp;
@@ -785,7 +782,7 @@ iffy(const time_t thist, const time_t thatt,
 	const char * const value, const char * const reason)
 {
 	struct tm *tmp;
-	int dst;
+	bool dst;
 
 	fprintf(stderr, _("date: warning: ambiguous time \"%s\", %s.\n"),
 		value, reason);
@@ -797,7 +794,7 @@ iffy(const time_t thist, const time_t thatt,
 %M\
 %Y.%S\n"), tmp);
 	tmp = localtime(&thist);
-	dst = tmp ? tmp->tm_isdst : 0;
+	dst = tmp && tmp->tm_isdst;
 	timeout(stderr, _("to get %c"), tmp);
 	fprintf(stderr, _(" (%s).  Use\n"),
 		dst ? _("summer time") : _("standard time"));
@@ -806,7 +803,7 @@ iffy(const time_t thist, const time_t thatt,
 %M\
 %Y.%S\n"), tmp);
 	tmp = localtime(&thatt);
-	dst = tmp ? tmp->tm_isdst : 0;
+	dst = tmp && tmp->tm_isdst;
 	timeout(stderr, _("to get %c"), tmp);
 	fprintf(stderr, _(" (%s).\n"),
 		dst ? _("summer time") : _("standard time"));
@@ -824,9 +821,9 @@ iffy(const time_t thist, const time_t thatt,
  * If the timedaemon is in the master state, it performs the
  * correction on all slaves.  If it is in the slave state, it
  * notifies the master that a correction is needed.
- * Returns 1 on success, 0 on failure.
+ * Return true on success.
  */
-static int
+static bool
 netsettime(struct timeval ntv)
 {
 	int s, length, port, timed_ack, found, err, waittime;
@@ -841,7 +838,7 @@ netsettime(struct timeval ntv)
 	if (! sp) {
 		fputs(_("udp/timed: unknown service\n"), stderr);
 		retval = 2;
-		return (0);
+		return false;
 	}
 	dest.sin_port = sp->s_port;
 	dest.sin_family = AF_INET;
@@ -924,7 +921,7 @@ loop:
 
 		case TSP_DATEACK:
 			lose(s);
-			return (1);
+			return true;
 
 		default:
 			fprintf(stderr,
@@ -940,6 +937,6 @@ loop:
 bad:
 	lose(s);
 	retval = 2;
-	return (0);
+	return false;
 }
 #endif /* defined TSP_SETDATE */
