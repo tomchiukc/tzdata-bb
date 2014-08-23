@@ -318,7 +318,7 @@ time_t time(time_t *);
 */
 
 #ifndef asctime_r
-extern char *	asctime_r(struct tm const *, char *);
+extern char *	asctime_r(struct tm const *restrict, char *restrict);
 #endif
 
 /*
