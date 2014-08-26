@@ -183,7 +183,6 @@ static struct state	gmtmem;
 
 static char		lcl_TZname[TZ_STRLEN_MAX + 1];
 static int VOLATILE	lcl_is_set;
-static bool VOLATILE	gmt_is_set;
 
 char *			tzname[2] = {
 	(char *) wildabbr,
@@ -1268,6 +1267,7 @@ tzset(void)
 static void
 gmtcheck(void)
 {
+  static bool VOLATILE gmt_is_set;
   if (gmt_is_set)
     return;
   if (lock() != 0)
@@ -1421,7 +1421,7 @@ localtime(const time_t *const timep)
 struct tm *
 localtime_r(const time_t *const timep, struct tm *tmp)
 {
-  return localtime_tzset(timep, tmp, lcl_is_set);
+  return localtime_tzset(timep, tmp, lcl_is_set != 0);
 }
 
 /*
