@@ -1197,7 +1197,7 @@ zoneinit(struct state *sp, char const *name)
       strcpy(sp->chars, gmt);
     } else if (! (tzload(name, sp, true)
 		  || (name && name[0] != ':' && tzparse(name, sp, false))))
-      gmtload(sp);
+      return NULL;
   }
   return sp;
 }
@@ -1270,7 +1270,10 @@ timezone_t
 tzalloc(char const *name)
 {
   timezone_t sp = malloc(sizeof *sp);
-  return zoneinit(sp, name);
+  timezone_t tp = sp ? zoneinit(sp, name) : sp;
+  if (!tp)
+    free(sp);
+  return tp;
 }
 
 void
