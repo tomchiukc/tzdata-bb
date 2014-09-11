@@ -1339,16 +1339,16 @@ localsub(struct state const *sp, time_t const *timep, int_fast32_t offset,
 				newt > sp->ats[sp->timecnt - 1])
 					return NULL;	/* "cannot happen" */
 			result = localsub(sp, &newt, offset, tmp);
-			if (result == tmp) {
+			if (result) {
 				register int_fast64_t newy;
 
-				newy = tmp->tm_year;
+				newy = result->tm_year;
 				if (t < sp->ats[0])
 					newy -= years;
 				else	newy += years;
 				if (! (INT_MIN <= newy && newy <= INT_MAX))
 					return NULL;
-				tmp->tm_year = newy;
+				result->tm_year = newy;
 			}
 			return result;
 	}
@@ -1375,12 +1375,14 @@ localsub(struct state const *sp, time_t const *timep, int_fast32_t offset,
 	**	timesub(&t, 0L, sp, tmp);
 	*/
 	result = timesub(&t, ttisp->tt_gmtoff, sp, tmp);
-	tmp->tm_isdst = ttisp->tt_isdst;
-	if (result && offset)
-	  tzname[tmp->tm_isdst] = (char *) &sp->chars[ttisp->tt_abbrind];
+	if (result) {
+	  result->tm_isdst = ttisp->tt_isdst;
+	  if (offset)
+	    tzname[result->tm_isdst] = (char *) &sp->chars[ttisp->tt_abbrind];
 #ifdef TM_ZONE
-	tmp->TM_ZONE = (char *) &sp->chars[ttisp->tt_abbrind];
+	  result->TM_ZONE = (char *) &sp->chars[ttisp->tt_abbrind];
 #endif /* defined TM_ZONE */
+	}
 	return result;
 }
 
@@ -1458,8 +1460,7 @@ struct tm *
 gmtime_r(const time_t *const timep, struct tm *tmp)
 {
   gmtcheck();
-  tmp = gmtsub(gmtptr, timep, 0, tmp);
-  return tmp;
+  return gmtsub(gmtptr, timep, 0, tmp);
 }
 
 #ifdef STD_INSPIRED
@@ -1467,10 +1468,8 @@ gmtime_r(const time_t *const timep, struct tm *tmp)
 struct tm *
 offtime(const time_t *const timep, const long offset)
 {
-  struct tm *tmp;
   gmtcheck();
-  tmp = gmtsub(gmtptr, timep, offset, &tm);
-  return tmp;
+  return gmtsub(gmtptr, timep, offset, &tm);
 }
 
 #endif /* defined STD_INSPIRED */
@@ -2087,12 +2086,10 @@ timegm(struct tm *const tmp)
 time_t
 timeoff(struct tm *const tmp, const long offset)
 {
-  time_t t;
   if (tmp)
     tmp->tm_isdst = 0;
   gmtcheck();
-  t = time1(tmp, gmtsub, gmtptr, offset);
-  return t;
+  return time1(tmp, gmtsub, gmtptr, offset);
 }
 
 #endif /* defined STD_INSPIRED */
