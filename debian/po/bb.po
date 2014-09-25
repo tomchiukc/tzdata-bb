@@ -3,10 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+msgstr "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tzdata@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-24 09:56-0400\n"
 "PO-Revision-Date: 2007-12-11 14:45+0100\n"
@@ -25,7 +23,7 @@ msgstr ""
 #. EST5, MST7, etc.
 #: ../templates:1001
 msgid "Africa"
-msgstr "Africa"
+msgstr "Afrika"
 
 #. Type: select
 #. Choices
@@ -36,7 +34,7 @@ msgstr "Africa"
 #. EST5, MST7, etc.
 #: ../templates:1001
 msgid "America"
-msgstr "America"
+msgstr "Amerika"
 
 #. Type: select
 #. Choices
@@ -47,7 +45,7 @@ msgstr "America"
 #. EST5, MST7, etc.
 #: ../templates:1001
 msgid "Antarctica"
-msgstr "Antarctica"
+msgstr "Namgik"
 
 #. Type: select
 #. Choices
@@ -58,7 +56,7 @@ msgstr "Antarctica"
 #. EST5, MST7, etc.
 #: ../templates:1001
 msgid "Australia"
-msgstr "Australia"
+msgstr "Ostreilia"
 
 #. Type: select
 #. Choices
@@ -80,7 +78,7 @@ msgstr "Arctic Ocean"
 #. EST5, MST7, etc.
 #: ../templates:1001
 msgid "Asia"
-msgstr "Asia"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -102,7 +100,7 @@ msgstr "Atlantic Ocean"
 #. EST5, MST7, etc.
 #: ../templates:1001
 msgid "Europe"
-msgstr "Europe"
+msgstr "Yurop"
 
 #. Type: select
 #. Choices
@@ -152,7 +150,7 @@ msgstr "None of the above"
 #. Description
 #: ../templates:1002
 msgid "Geographic area:"
-msgstr "Geographic area:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -162,21 +160,18 @@ msgid ""
 "questions will narrow this down by presenting a list of cities, representing "
 "the time zones in which they are located."
 msgstr ""
-"Please select the geographic area you live in. Subsequent configuration "
-"questions will narrow this down by presenting a list of cities, representing "
-"the time zones in which they are located."
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Abidjan"
-msgstr "Abidjan"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Accra"
-msgstr "Accra"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -188,13 +183,13 @@ msgstr "Addis Ababa"
 #. Choices
 #: ../templates:2001
 msgid "Algiers"
-msgstr "Algiers"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Asmara"
-msgstr "Asmara"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -206,73 +201,73 @@ msgstr "Babycasèny"
 #. Choices
 #: ../templates:2001
 msgid "Bamako"
-msgstr "Bamako"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Bangui"
-msgstr "Bangui"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Banjul"
-msgstr "Banjul"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Bissau"
-msgstr "Bissau"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Blantyre"
-msgstr "Blantyre"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Brazzaville"
-msgstr "Brazzaville"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Bujumbura"
-msgstr "Bujumbura"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Cairo"
-msgstr "Cairo"
+msgstr "Airocay"
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Casablanca"
-msgstr "Casablanca"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Ceuta"
-msgstr "Ceuta"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Conakry"
-msgstr "Conakry"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Dakar"
-msgstr "Dakar"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -284,13 +279,13 @@ msgstr "Dar es Salaam"
 #. Choices
 #: ../templates:2001
 msgid "Djibouti"
-msgstr "Djibouti"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Douala"
-msgstr "Douala"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -302,157 +297,157 @@ msgstr "El-Aaiún"
 #. Choices
 #: ../templates:2001
 msgid "Freetown"
-msgstr "Freetown"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Gaborone"
-msgstr "Gaborone"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Harare"
-msgstr "Harare"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Johannesburg"
-msgstr "Johannesburg"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Kampala"
-msgstr "Kampala"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Khartoum"
-msgstr "Khartoum"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Kigali"
-msgstr "Kigali"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Kinshasa"
-msgstr "Kinshasa"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Lagos"
-msgstr "Lagos"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Libreville"
-msgstr "Libreville"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Lome"
-msgstr "Lome"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Luanda"
-msgstr "Luanda"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Lubumbashi"
-msgstr "Lubumbashi"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Lusaka"
-msgstr "Lusaka"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Malabo"
-msgstr "Malabo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Maputo"
-msgstr "Maputo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Maseru"
-msgstr "Maseru"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Mbabane"
-msgstr "Mbabane"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Mogadishu"
-msgstr "Mogadishu"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Monrovia"
-msgstr "Monrovia"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Nairobi"
-msgstr "Nairobi"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Ndjamena"
-msgstr "Ndjamena"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Niamey"
-msgstr "Niamey"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Nouakchott"
-msgstr "Nouakchott"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Ouagadougou"
-msgstr "Ouagadougou"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Porto-Novo"
-msgstr "Porto-Novo"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -464,25 +459,25 @@ msgstr "Sao Tome"
 #. Choices
 #: ../templates:2001
 msgid "Timbuktu"
-msgstr "Timbuktu"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Tripoli"
-msgstr "Tripoli"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Tunis"
-msgstr "Tunis"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "Windhoek"
-msgstr "Windhoek"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -512,7 +507,7 @@ msgstr "Windhoek"
 #: ../templates:6002 ../templates:7002 ../templates:8002 ../templates:9002
 #: ../templates:10002 ../templates:11002 ../templates:12001 ../templates:13001
 msgid "Time zone:"
-msgstr "Time zone:"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -542,37 +537,37 @@ msgstr "Time zone:"
 #: ../templates:6002 ../templates:7002 ../templates:8002 ../templates:9002
 #: ../templates:10002 ../templates:11002 ../templates:12001 ../templates:13001
 msgid "Please select the time zone corresponding to your location."
-msgstr "Please select the time zone corresponding to your location."
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Adak"
-msgstr "Adak"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Anchorage"
-msgstr "Anchorage"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Anguilla"
-msgstr "Anguilla"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Antigua"
-msgstr "Antigua"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Araguaina"
-msgstr "Araguaina"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -644,55 +639,55 @@ msgstr "Ushuaia (Argentina)"
 #. Choices
 #: ../templates:3001
 msgid "Aruba"
-msgstr "Aruba"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Asuncion"
-msgstr "Asuncion"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Atikokan"
-msgstr "Atikokan"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Atka"
-msgstr "Atka"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Bahia"
-msgstr "Bahia"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Barbados"
-msgstr "Barbados"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Belem"
-msgstr "Belem"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Belize"
-msgstr "Belize"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Blanc-Sablon"
-msgstr "Blanc-Sablon"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -704,13 +699,13 @@ msgstr "Boa Vista"
 #. Choices
 #: ../templates:3001
 msgid "Bogota"
-msgstr "Bogota"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Boise"
-msgstr "Boise"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -728,37 +723,37 @@ msgstr "Campo Grande"
 #. Choices
 #: ../templates:3001
 msgid "Cancun"
-msgstr "Cancun"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Caracas"
-msgstr "Caracas"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Cayenne"
-msgstr "Cayenne"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Cayman"
-msgstr "Cayman"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Chicago"
-msgstr "Chicago"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Chihuahua"
-msgstr "Chihuahua"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -776,7 +771,7 @@ msgstr "Costa Rica"
 #. Choices
 #: ../templates:3001
 msgid "Cuiaba"
-msgstr "Cuiaba"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -788,13 +783,13 @@ msgstr "Curaçao"
 #. Choices
 #: ../templates:3001
 msgid "Danmarkshavn"
-msgstr "Danmarkshavn"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Dawson"
-msgstr "Dawson"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -806,31 +801,31 @@ msgstr "Dawson Creek"
 #. Choices
 #: ../templates:3001
 msgid "Denver"
-msgstr "Denver"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Detroit"
-msgstr "Detroit"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Dominica"
-msgstr "Dominica"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Edmonton"
-msgstr "Edmonton"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Eirunepe"
-msgstr "Eirunepe"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -842,13 +837,13 @@ msgstr "El Salvador"
 #. Choices
 #: ../templates:3001
 msgid "Ensenada"
-msgstr "Ensenada"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Fortaleza"
-msgstr "Fortaleza"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -860,7 +855,7 @@ msgstr "Glace Bay"
 #. Choices
 #: ../templates:3001
 msgid "Godthab"
-msgstr "Godthab"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -878,49 +873,49 @@ msgstr "Grand Turk"
 #. Choices
 #: ../templates:3001
 msgid "Grenada"
-msgstr "Grenada"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Guadeloupe"
-msgstr "Guadeloupe"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Guatemala"
-msgstr "Guatemala"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Guayaquil"
-msgstr "Guayaquil"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Guyana"
-msgstr "Guyana"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Halifax"
-msgstr "Halifax"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Havana"
-msgstr "Havana"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Hermosillo"
-msgstr "Hermosillo"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -974,25 +969,25 @@ msgstr "Winamac (Indiana)"
 #. Choices
 #: ../templates:3001
 msgid "Inuvik"
-msgstr "Inuvik"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Iqaluit"
-msgstr "Iqaluit"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Jamaica"
-msgstr "Jamaica"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Juneau"
-msgstr "Juneau"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1016,7 +1011,7 @@ msgstr "La Paz"
 #. Choices
 #: ../templates:3001
 msgid "Lima"
-msgstr "Lima"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1028,49 +1023,49 @@ msgstr "Los Angeles"
 #. Choices
 #: ../templates:3001
 msgid "Maceio"
-msgstr "Maceio"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Managua"
-msgstr "Managua"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Manaus"
-msgstr "Manaus"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Marigot"
-msgstr "Marigot"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Martinique"
-msgstr "Martinique"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Mazatlan"
-msgstr "Mazatlan"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Menominee"
-msgstr "Menominee"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Merida"
-msgstr "Merida"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1082,43 +1077,43 @@ msgstr "Mexico City"
 #. Choices
 #: ../templates:3001
 msgid "Miquelon"
-msgstr "Miquelon"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Moncton"
-msgstr "Moncton"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Monterrey"
-msgstr "Monterrey"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Montevideo"
-msgstr "Montevideo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Montreal"
-msgstr "Montreal"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Montserrat"
-msgstr "Montserrat"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Nassau"
-msgstr "Nassau"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1130,19 +1125,19 @@ msgstr "New York"
 #. Choices
 #: ../templates:3001
 msgid "Nipigon"
-msgstr "Nipigon"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Nome"
-msgstr "Nome"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Noronha"
-msgstr "Noronha"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1160,31 +1155,31 @@ msgstr "New Salem (North Dakota)"
 #. Choices
 #: ../templates:3001
 msgid "Panama"
-msgstr "Panama"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Pangnirtung"
-msgstr "Pangnirtung"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Paramaribo"
-msgstr "Paramaribo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Phoenix"
-msgstr "Phoenix"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Port-au-Prince"
-msgstr "Port-au-Prince"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1226,19 +1221,19 @@ msgstr "Rankin Inlet"
 #. Choices
 #: ../templates:3001
 msgid "Recife"
-msgstr "Recife"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Regina"
-msgstr "Regina"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Resolute"
-msgstr "Resolute"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1250,7 +1245,7 @@ msgstr "Rio Branco"
 #. Choices
 #: ../templates:3001
 msgid "Santiago"
-msgstr "Santiago"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1268,13 +1263,13 @@ msgstr "São Paulo"
 #. Choices
 #: ../templates:3001
 msgid "Scoresbysund"
-msgstr "Scoresbysund"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Shiprock"
-msgstr "Shiprock"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1322,13 +1317,13 @@ msgstr "Swift Current"
 #. Choices
 #: ../templates:3001
 msgid "Tegucigalpa"
-msgstr "Tegucigalpa"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Thule"
-msgstr "Thule"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1340,67 +1335,67 @@ msgstr "Thunder Bay"
 #. Choices
 #: ../templates:3001
 msgid "Tijuana"
-msgstr "Tijuana"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Toronto"
-msgstr "Toronto"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Tortola"
-msgstr "Tortola"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Vancouver"
-msgstr "Vancouver"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Virgin"
-msgstr "Virgin"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Whitehorse"
-msgstr "Whitehorse"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Winnipeg"
-msgstr "Winnipeg"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Yakutat"
-msgstr "Yakutat"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:3001
 msgid "Yellowknife"
-msgstr "Yellowknife"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Casey"
-msgstr "Casey"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Davis"
-msgstr "Davis"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1412,7 +1407,7 @@ msgstr "Dumont d'Urville"
 #. Choices
 #: ../templates:4001
 msgid "Mawson"
-msgstr "Mawson"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1424,37 +1419,37 @@ msgstr "McMurdo (South Pole)"
 #. Choices
 #: ../templates:4001
 msgid "Palmer"
-msgstr "Palmer"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Rothera"
-msgstr "Rothera"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Syowa"
-msgstr "Syowa"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Vostok"
-msgstr "Vostok"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Adelaide"
-msgstr "Adelaide"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Brisbane"
-msgstr "Brisbane"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1466,37 +1461,37 @@ msgstr "Broken Hill"
 #. Choices
 #: ../templates:5001
 msgid "Canberra"
-msgstr "Canberra"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Currie"
-msgstr "Currie"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Darwin"
-msgstr "Darwin"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Eucla"
-msgstr "Eucla"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Hobart"
-msgstr "Hobart"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Lindeman"
-msgstr "Lindeman"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1508,175 +1503,175 @@ msgstr "Lord Howe"
 #. Choices
 #: ../templates:5001
 msgid "Melbourne"
-msgstr "Melbourne"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Perth"
-msgstr "Perth"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Sydney"
-msgstr "Sydney"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:5001
 msgid "Yancowinna"
-msgstr "Yancowinna"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:6001
 msgid "Longyearbyen"
-msgstr "Longyearbyen"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Aden"
-msgstr "Aden"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Almaty"
-msgstr "Almaty"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Amman"
-msgstr "Amman"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Anadyr"
-msgstr "Anadyr"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Aqtau"
-msgstr "Aqtau"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Aqtobe"
-msgstr "Aqtobe"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Ashgabat"
-msgstr "Ashgabat"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Baghdad"
-msgstr "Baghdad"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Bahrain"
-msgstr "Bahrain"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Baku"
-msgstr "Baku"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Bangkok"
-msgstr "Bangkok"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Beirut"
-msgstr "Beirut"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Bishkek"
-msgstr "Bishkek"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Brunei"
-msgstr "Brunei"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Choibalsan"
-msgstr "Choibalsan"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Chongqing"
-msgstr "Chongqing"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Colombo"
-msgstr "Colombo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Damascus"
-msgstr "Damascus"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Dhaka"
-msgstr "Dhaka"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Dili"
-msgstr "Dili"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Dubai"
-msgstr "Dubai"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Dushanbe"
-msgstr "Dushanbe"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Gaza"
-msgstr "Gaza"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Harbin"
-msgstr "Harbin"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1694,13 +1689,13 @@ msgstr "Hong Kong"
 #. Choices
 #: ../templates:7001
 msgid "Hovd"
-msgstr "Hovd"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Irkutsk"
-msgstr "Irkutsk"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1708,67 +1703,67 @@ msgstr "Irkutsk"
 #. Choices
 #: ../templates:7001 ../templates:9001
 msgid "Istanbul"
-msgstr "Istanbul"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Jakarta"
-msgstr "Jakarta"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Jayapura"
-msgstr "Jayapura"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Jerusalem"
-msgstr "Jerusalem"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Kabul"
-msgstr "Kabul"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Kamchatka"
-msgstr "Kamchatka"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Karachi"
-msgstr "Karachi"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Kashgar"
-msgstr "Kashgar"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Katmandu"
-msgstr "Katmandu"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Kolkata"
-msgstr "Kolkata"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Krasnoyarsk"
-msgstr "Krasnoyarsk"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1780,43 +1775,43 @@ msgstr "Kuala Lumpur"
 #. Choices
 #: ../templates:7001
 msgid "Kuching"
-msgstr "Kuching"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Kuwait"
-msgstr "Kuwait"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Macau"
-msgstr "Macau"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Magadan"
-msgstr "Magadan"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Makassar"
-msgstr "Makassar"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Manila"
-msgstr "Manila"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Muscat"
-msgstr "Muscat"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1824,25 +1819,25 @@ msgstr "Muscat"
 #. Choices
 #: ../templates:7001 ../templates:9001
 msgid "Nicosia"
-msgstr "Nicosia"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Novosibirsk"
-msgstr "Novosibirsk"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Omsk"
-msgstr "Omsk"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Oral"
-msgstr "Oral"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1854,109 +1849,109 @@ msgstr "Phnom Penh"
 #. Choices
 #: ../templates:7001
 msgid "Pontianak"
-msgstr "Pontianak"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Pyongyang"
-msgstr "Pyongyang"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Qatar"
-msgstr "Qatar"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Qyzylorda"
-msgstr "Qyzylorda"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Rangoon"
-msgstr "Rangoon"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Riyadh"
-msgstr "Riyadh"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Riyadh87"
-msgstr "Riyadh87"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Riyadh88"
-msgstr "Riyadh88"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Riyadh89"
-msgstr "Riyadh89"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Sakhalin"
-msgstr "Sakhalin"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Samarkand"
-msgstr "Samarkand"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Seoul"
-msgstr "Seoul"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Shanghai"
-msgstr "Shanghai"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Singapore"
-msgstr "Singapore"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Taipei"
-msgstr "Taipei"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Tashkent"
-msgstr "Tashkent"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Tbilisi"
-msgstr "Tbilisi"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Tehran"
-msgstr "Tehran"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1968,13 +1963,13 @@ msgstr "Tel Aviv"
 #. Choices
 #: ../templates:7001
 msgid "Thimphu"
-msgstr "Thimphu"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Tokyo"
-msgstr "Tokyo"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -1986,61 +1981,61 @@ msgstr "Ujung Pandang"
 #. Choices
 #: ../templates:7001
 msgid "Ulaanbaatar"
-msgstr "Ulaanbaatar"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Urumqi"
-msgstr "Urumqi"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Vientiane"
-msgstr "Vientiane"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Vladivostok"
-msgstr "Vladivostok"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Yakutsk"
-msgstr "Yakutsk"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Yekaterinburg"
-msgstr "Yekaterinburg"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:7001
 msgid "Yerevan"
-msgstr "Yerevan"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:8001
 msgid "Azores"
-msgstr "Azores"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:8001
 msgid "Bermuda"
-msgstr "Bermuda"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:8001
 msgid "Canary"
-msgstr "Canary"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -2052,7 +2047,7 @@ msgstr "Cape Verde"
 #. Choices
 #: ../templates:8001
 msgid "Faroe"
-msgstr "Faroe"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -2064,13 +2059,13 @@ msgstr "Jan Mayen"
 #. Choices
 #: ../templates:8001
 msgid "Madeira"
-msgstr "Madeira"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:8001
 msgid "Reykjavik"
-msgstr "Reykjavik"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -2088,103 +2083,103 @@ msgstr "St. Helena"
 #. Choices
 #: ../templates:8001
 msgid "Stanley"
-msgstr "Stanley"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Amsterdam"
-msgstr "Amsterdam"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Andorra"
-msgstr "Andorra"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Athens"
-msgstr "Athens"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Belfast"
-msgstr "Belfast"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Belgrade"
-msgstr "Belgrade"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Berlin"
-msgstr "Berlin"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Bratislava"
-msgstr "Bratislava"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Brussels"
-msgstr "Brussels"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Bucharest"
-msgstr "Bucharest"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Budapest"
-msgstr "Budapest"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Chisinau"
-msgstr "Chisinau"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Copenhagen"
-msgstr "Copenhagen"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Dublin"
-msgstr "Dublin"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Gibraltar"
-msgstr "Gibraltar"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Guernsey"
-msgstr "Guernsey"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Helsinki"
-msgstr "Helsinki"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -2196,121 +2191,121 @@ msgstr "Isle of Man"
 #. Choices
 #: ../templates:9001
 msgid "Jersey"
-msgstr "Jersey"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Kaliningrad"
-msgstr "Kaliningrad"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Kiev"
-msgstr "Kiev"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Lisbon"
-msgstr "Lisbon"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Ljubljana"
-msgstr "Ljubljana"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "London"
-msgstr "London"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Luxembourg"
-msgstr "Luxembourg"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Madrid"
-msgstr "Madrid"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Malta"
-msgstr "Malta"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Mariehamn"
-msgstr "Mariehamn"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Minsk"
-msgstr "Minsk"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Monaco"
-msgstr "Monaco"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Moscow"
-msgstr "Moscow"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Oslo"
-msgstr "Oslo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Paris"
-msgstr "Paris"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Podgorica"
-msgstr "Podgorica"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Prague"
-msgstr "Prague"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Riga"
-msgstr "Riga"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Rome"
-msgstr "Rome"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Samara"
-msgstr "Samara"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -2322,325 +2317,325 @@ msgstr "San Marino"
 #. Choices
 #: ../templates:9001
 msgid "Sarajevo"
-msgstr "Sarajevo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Simferopol"
-msgstr "Simferopol"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Skopje"
-msgstr "Skopje"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Sofia"
-msgstr "Sofia"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Stockholm"
-msgstr "Stockholm"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Tallinn"
-msgstr "Tallinn"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Tirane"
-msgstr "Tirane"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Tiraspol"
-msgstr "Tiraspol"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Uzhgorod"
-msgstr "Uzhgorod"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Vaduz"
-msgstr "Vaduz"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Vatican"
-msgstr "Vatican"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Vienna"
-msgstr "Vienna"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Vilnius"
-msgstr "Vilnius"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Volgograd"
-msgstr "Volgograd"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Warsaw"
-msgstr "Warsaw"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Zagreb"
-msgstr "Zagreb"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Zaporozhye"
-msgstr "Zaporozhye"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:9001
 msgid "Zurich"
-msgstr "Zurich"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Antananarivo"
-msgstr "Antananarivo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Chagos"
-msgstr "Chagos"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Christmas"
-msgstr "Christmas"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Cocos"
-msgstr "Cocos"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Comoro"
-msgstr "Comoro"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Kerguelen"
-msgstr "Kerguelen"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Mahe"
-msgstr "Mahe"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Maldives"
-msgstr "Maldives"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Mauritius"
-msgstr "Mauritius"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Mayotte"
-msgstr "Mayotte"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:10001
 msgid "Reunion"
-msgstr "Reunion"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Apia"
-msgstr "Apia"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Auckland"
-msgstr "Auckland"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Chatham"
-msgstr "Chatham"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Easter"
-msgstr "Easter"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Efate"
-msgstr "Efate"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Enderbury"
-msgstr "Enderbury"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Fakaofo"
-msgstr "Fakaofo"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Fiji"
-msgstr "Fiji"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Funafuti"
-msgstr "Funafuti"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Galapagos"
-msgstr "Galapagos"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Gambier"
-msgstr "Gambier"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Guadalcanal"
-msgstr "Guadalcanal"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Guam"
-msgstr "Guam"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Honolulu"
-msgstr "Honolulu"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Johnston"
-msgstr "Johnston"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Kiritimati"
-msgstr "Kiritimati"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Kosrae"
-msgstr "Kosrae"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Kwajalein"
-msgstr "Kwajalein"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Majuro"
-msgstr "Majuro"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Marquesas"
-msgstr "Marquesas"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Midway"
-msgstr "Midway"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Nauru"
-msgstr "Nauru"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Niue"
-msgstr "Niue"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Norfolk"
-msgstr "Norfolk"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Noumea"
-msgstr "Noumea"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -2652,19 +2647,19 @@ msgstr "Pago Pago"
 #. Choices
 #: ../templates:11001
 msgid "Palau"
-msgstr "Palau"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Pitcairn"
-msgstr "Pitcairn"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Ponape"
-msgstr "Ponape"
+msgstr ""
 
 #. Type: select
 #. Choices
@@ -2676,58 +2671,58 @@ msgstr "Port Moresby"
 #. Choices
 #: ../templates:11001
 msgid "Rarotonga"
-msgstr "Rarotonga"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Saipan"
-msgstr "Saipan"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Samoa"
-msgstr "Samoa"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Tahiti"
-msgstr "Tahiti"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Tarawa"
-msgstr "Tarawa"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Tongatapu"
-msgstr "Tongatapu"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Truk"
-msgstr "Truk"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Wake"
-msgstr "Wake"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Wallis"
-msgstr "Wallis"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:11001
 msgid "Yap"
-msgstr "Yap"
+msgstr ""

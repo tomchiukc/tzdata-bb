@@ -201,6 +201,12 @@ msgstr "アスマラ"
 #. Type: select
 #. Choices
 #: ../templates:2001
+msgid "Babycaseny"
+msgstr "BB国"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
 msgid "Bamako"
 msgstr "バマコ"
 

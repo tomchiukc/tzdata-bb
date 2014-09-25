@@ -202,6 +202,12 @@ msgstr "Асмэра"
 #. Type: select
 #. Choices
 #: ../templates:2001
+msgid "Babycaseny"
+msgstr "Бабикеисни"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
 msgid "Bamako"
 msgstr "Бамако"
 

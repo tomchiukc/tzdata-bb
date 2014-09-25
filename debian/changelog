@@ -1,3 +1,9 @@
+tzdata-bb (2014a-1) unstable; urgency=low
+
+  forked from tzdata-au
+
+ -- Tom K. C. Chiu <tomchiukc@gmail.com>  Thu, 25 Sep 2014 18:33:00 +0800
+
 tzdata-au (2011c-1) unstable; urgency=low
 
   * Imported Upstream version 2011c
