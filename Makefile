@@ -2,7 +2,7 @@
 # 2009-05-17 by Arthur David Olson.
 
 # Version numbers of the code and data distributions.
-VERSION=	2013f
+VERSION=	2014g
 
 # Email address for bug reports.
 BUGEMAIL=	tz@iana.org
@@ -406,7 +406,7 @@ tzselect:	tzselect.ksh
 			<$? >$@
 		chmod +x $@
 
-check:		check_character_set check_tables check_web
+check:		check_character_set check_white_space check_tables check_web
 
 check_character_set: $(ENCHILADA)
 		LC_ALL=en_US.utf8 && export LC_ALL && \
@@ -419,6 +419,11 @@ check_character_set: $(ENCHILADA)
 		! grep -Env $(NONSYM_LINE) README NEWS Theory $(MANS) date.1 \
 			zone1970.tab && \
 		! grep -Env $(VALID_LINE) $(ENCHILADA)
+
+check_white_space: $(ENCHILADA)
+		! grep -n ' '$(TAB_CHAR) $(ENCHILADA)
+		! grep -n '[[:space:]]$$' $(ENCHILADA)
+		! grep -n "$$(printf '[\f\r\v]\n')" $(ENCHILADA)
 
 check_tables:	checktab.awk $(PRIMARY_YDATA) $(ZONETABLES)
 		for tab in $(ZONETABLES); do \
