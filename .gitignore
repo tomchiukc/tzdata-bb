@@ -5,3 +5,17 @@ debian/tzdata-au/
 debian/tzdata-au.debhelper.log
 debian/tzdata-au.substvars
 tzgen
+*.a
+*.asc
+*.o
+*.tar.gz
+*.txt
+*~
+ChangeLog
+date
+leapseconds
+tzselect
+version.h
+yearistype
+zdump
+zic
