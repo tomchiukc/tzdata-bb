@@ -3008,7 +3008,7 @@ Zone America/Tegucigalpa -5:48:52 -	LMT	1921 Apr
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	America/Jamaica	-5:07:11 -	LMT	1890        # Kingston
 			-5:07:11 -	KMT	1912 Feb    # Kingston Mean Time
-			-5:00	-	EST	1974 Apr 28  2:00
+			-5:00	-	EST	1974
 			-5:00	US	E%sT	1984
 			-5:00	-	EST
 
