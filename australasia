@@ -117,12 +117,12 @@ Rule	AT	2007	only	-	Mar	lastSun	2:00s	0	S
 Rule	AT	2008	max	-	Apr	Sun>=1	2:00s	0	S
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone Australia/Hobart	9:49:16	-	LMT	1895 Sep
-			10:00	-	AEST	1916 Oct 1 2:00
+			10:00	-	AEST	1916 Oct  1  2:00
 			10:00	1:00	AEDT	1917 Feb
 			10:00	Aus	AE%sT	1967
 			10:00	AT	AE%sT
 Zone Australia/Currie	9:35:28	-	LMT	1895 Sep
-			10:00	-	AEST	1916 Oct 1 2:00
+			10:00	-	AEST	1916 Oct  1  2:00
 			10:00	1:00	AEDT	1917 Feb
 			10:00	Aus	AE%sT	1971 Jul
 			10:00	AT	AE%sT
@@ -194,7 +194,7 @@ Rule	LH	2007	only	-	Mar	lastSun	2:00	0	-
 Rule	LH	2008	max	-	Apr	Sun>=1	2:00	0	-
 Rule	LH	2008	max	-	Oct	Sun>=1	2:00	0:30	-
 Zone Australia/Lord_Howe 10:36:20 -	LMT	1895 Feb
-			10:00	-	ACST	1981 Mar
+			10:00	-	AEST	1981 Mar
 			10:30	LH	LH%sT
 
 # Australian miscellany

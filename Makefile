@@ -5,7 +5,7 @@
 PACKAGE=	tzcode
 
 # Version numbers of the code and data distributions.
-VERSION=	2013f
+VERSION=	2014g
 
 # Email address for bug reports.
 BUGEMAIL=	tz@iana.org
@@ -254,8 +254,6 @@ VALIDATE_ENV = \
   SP_CHARSET_FIXED=YES \
   SP_ENCODING=UTF-8
 
-<<<<<<< HEAD
-=======
 # SAFE_CHAR is a regular expression that matches a safe character.
 # Some parts of this distribution are limited to safe characters;
 # others can use any UTF-8 character.
@@ -285,7 +283,6 @@ SAFE_SHARP_LINE='^'$(SAFE_CHAR)'*('$$sharp$(NONSYM_CHAR)'*)?$$'
 NONSYM_LINE=	'^'$(NONSYM_CHAR)'*$$'
 VALID_LINE=	'^.*$$'
 
->>>>>>> * Makefile (strftime.o): Depend on private.h.
 # Flags to give 'tar' when making a distribution.
 # Try to use flags appropriate for GNU tar.
 GNUTARFLAGS=	--numeric-owner --owner=0 --group=0 --mode=go+u,go-w
@@ -440,7 +437,7 @@ tzselect:	tzselect.ksh
 			<$? >$@
 		chmod +x $@
 
-check:		check_character_set check_tables check_web
+check:		check_character_set check_white_space check_tables check_web
 
 check_character_set: $(ENCHILADA)
 		LC_ALL=en_US.utf8 && export LC_ALL && \
@@ -453,6 +450,11 @@ check_character_set: $(ENCHILADA)
 		! grep -Env $(NONSYM_LINE) README NEWS Theory $(MANS) date.1 \
 			zone1970.tab && \
 		! grep -Env $(VALID_LINE) $(ENCHILADA)
+
+check_white_space: $(ENCHILADA)
+		! grep -n ' '$(TAB_CHAR) $(ENCHILADA)
+		! grep -n '[[:space:]]$$' $(ENCHILADA)
+		! grep -n "$$(printf '[\f\r\v]\n')" $(ENCHILADA)
 
 check_tables:	checktab.awk $(PRIMARY_YDATA) $(ZONETABLES)
 		for tab in $(ZONETABLES); do \

@@ -39,6 +39,16 @@
 #	may be sent to Mr. John Milne, Royal Geographical Society,
 #	Savile Row, London."  Nowadays please email them to tz@iana.org.
 #
+#	Byalokoz EL. New Counting of Time in Russia since July 1, 1919.
+#	This Russian-language source was consulted by Vladimir Karpinsky; see
+#	http://mm.icann.org/pipermail/tz/2014-August/021320.html
+#	The full Russian citation is:
+#	???????, ??????? ??????????. ????? ???? ??????? ? ??????? ?????
+#	????????? ???????? ?????? ???????? ?????????? ??? ???? ?????? ? 1-??
+#	???? 1919 ?. / ???. 2-? ?????????????????? ????????. - ?????????:
+#	??????? ???. ???., 1919.
+#	http://resolver.gpntb.ru/purl?docushare/dsweb/Get/Resource-2011/Byalokoz__E.L.__Novyy__schet__vremeni__v__techenie__sutok__izd__2(1).pdf
+#
 #	Brazil's Divisão Serviço da Hora (DSHO),
 #	History of Summer Time
 #	<http://pcdsh01.on.br/HISTHV.htm>
@@ -488,7 +498,7 @@ Rule	C-Eur	1943	only	-	Oct	 4	 2:00s	0	-
 Rule	C-Eur	1944	1945	-	Apr	Mon>=1	 2:00s	1:00	S
 # Whitman gives 1944 Oct 7; go with Shanks & Pottenger.
 Rule	C-Eur	1944	only	-	Oct	 2	 2:00s	0	-
-# From Jesper Nørgaard Welen (2008-07-13):
+# From Jesper N?rgaard Welen (2008-07-13):
 #
 # I found what is probably a typo of 2:00 which should perhaps be 2:00s
 # in the C-Eur rule from tz database version 2008d (this part was
@@ -828,7 +838,7 @@ Zone	Europe/Prague	0:57:44 -	LMT	1850
 
 # Denmark, Faroe Islands, and Greenland
 
-# From Jesper Nørgaard Welen (2005-04-26):
+# From Jesper N?rgaard Welen (2005-04-26):
 # http://www.hum.aau.dk/~poe/tid/tine/DanskTid.htm says that the law
 # [introducing standard time] was in effect from 1894-01-01....
 # The page http://www.retsinfo.dk/_GETDOCI_/ACCN/A18930008330-REGL
@@ -853,7 +863,7 @@ Zone	Europe/Prague	0:57:44 -	LMT	1850
 # was suspended on that night):
 # http://www.retsinfo.dk/_GETDOCI_/ACCN/C19801120554-REGL
 
-# From Jesper Nørgaard Welen (2005-06-11):
+# From Jesper N?rgaard Welen (2005-06-11):
 # The Herning Folkeblad (1980-09-26) reported that the night between
 # Saturday and Sunday the clock is set back from three to two.
 
@@ -881,7 +891,7 @@ Zone Europe/Copenhagen	 0:50:20 -	LMT	1890
 			 1:00	C-Eur	CE%sT	1945 Apr  2  2:00
 			 1:00	Denmark	CE%sT	1980
 			 1:00	EU	CE%sT
-Zone Atlantic/Faroe	-0:27:04 -	LMT	1908 Jan 11 # Tórshavn
+Zone Atlantic/Faroe	-0:27:04 -	LMT	1908 Jan 11 # T?rshavn
 			 0:00	-	WET	1981
 			 0:00	EU	WE%sT
 #
@@ -893,7 +903,7 @@ Zone Atlantic/Faroe	-0:27:04 -	LMT	1908 Jan 11 # Tórshavn
 # From Paul Eggert (2006-03-22):
 # Greenland joined the EU as part of Denmark, obtained home rule on 1979-05-01,
 # and left the EU on 1985-02-01.  It therefore should have been using EU
-# rules at least through 1984.  Shanks & Pottenger say Scoresbysund and Godthåb
+# rules at least through 1984.  Shanks & Pottenger say Scoresbysund and Godth?b
 # used C-Eur rules after 1980, but IATA SSIM (1991/1996) says they use EU
 # rules since at least 1991.  Assume EU rules since 1980.
 
@@ -932,16 +942,16 @@ Zone Atlantic/Faroe	-0:27:04 -	LMT	1908 Jan 11 # Tórshavn
 # DPC research station at Zackenberg.
 #
 # Scoresbysund and two small villages nearby keep time UTC-1 and use
-# the same daylight savings time period as in West Greenland (Godthåb).
+# the same daylight savings time period as in West Greenland (Godth?b).
 #
-# The rest of Greenland, including Godthåb (this area, although it
+# The rest of Greenland, including Godth?b (this area, although it
 # includes central Greenland, is known as west Greenland), keeps time
 # UTC-3, with daylight savings methods according to European rules.
 #
 # It is common procedure to use UTC 0 in the wilderness of East and
 # North Greenland, because it is mainly Icelandic aircraft operators
 # maintaining traffic in these areas.  However, the official status of
-# this area is that it sticks with Godthåb time.  This area might be
+# this area is that it sticks with Godth?b time.  This area might be
 # considered a dual time zone in some respects because of this.
 
 # From Rives McDow (2001-11-19):
@@ -950,8 +960,8 @@ Zone Atlantic/Faroe	-0:27:04 -	LMT	1908 Jan 11 # Tórshavn
 
 # From Paul Eggert (2006-03-22):
 # From 1997 on the CIA map shows Danmarkshavn on GMT;
-# the 1995 map as like Godthåb.
-# For lack of better info, assume they were like Godthåb before 1996.
+# the 1995 map as like Godth?b.
+# For lack of better info, assume they were like Godth?b before 1996.
 # startkart.no says Thule does not observe DST, but this is clearly an error,
 # so go with Shanks & Pottenger for Thule transitions until this year.
 # For 2007 on assume Thule will stay in sync with US DST rules.
@@ -1023,7 +1033,7 @@ Zone America/Thule	-4:35:08 -	LMT	1916 Jul 28 # Pituffik air base
 # The Estonian government has changed once again timezone politics.
 # Now we are using again EU rules.
 #
-# From Urmet Jänes (2002-03-28):
+# From Urmet J?nes (2002-03-28):
 # The legislative reference is Government decree No. 84 on 2002-02-21.
 
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
@@ -1068,7 +1078,7 @@ Zone	Europe/Tallinn	1:39:00	-	LMT	1880
 # The news clip from 1981 says that "the time between 2 and 3 o'clock does not
 # exist tonight."
 
-# From Konstantin Hyppönen (2014-06-13):
+# From Konstantin Hypp?nen (2014-06-13):
 # [Heikki Oja's book Aikakirja 2013]
 # http://almanakka.helsinki.fi/images/aikakirja/Aikakirja2013kokonaan.pdf
 # pages 104-105, including a scan from a newspaper published on Apr 2 1942
@@ -1095,7 +1105,7 @@ Zone	Europe/Helsinki	1:39:49 -	LMT	1878 May 31
 			2:00	Finland	EE%sT	1983
 			2:00	EU	EE%sT
 
-# Åland Is
+# ?land Is
 Link	Europe/Helsinki	Europe/Mariehamn
 
 
@@ -1103,14 +1113,14 @@ Link	Europe/Helsinki	Europe/Mariehamn
 
 # From Ciro Discepolo (2000-12-20):
 #
-# Henri Le Corre, Régimes horaires pour le monde entier, Éditions
+# Henri Le Corre, R?gimes horaires pour le monde entier, ?ditions
 # Traditionnelles - Paris 2 books, 1993
 #
-# Gabriel, Traité de l'heure dans le monde, Guy Trédaniel,
+# Gabriel, Trait? de l'heure dans le monde, Guy Tr?daniel,
 # Paris, 1991
 #
-# Françoise Gauquelin, Problèmes de l'heure résolus en astrologie,
-# Guy Trédaniel, Paris 1987
+# Fran?oise Gauquelin, Probl?mes de l'heure r?solus en astrologie,
+# Guy Tr?daniel, Paris 1987
 
 
 #
@@ -1151,16 +1161,16 @@ Rule	France	1939	only	-	Nov	18	23:00s	0	-
 Rule	France	1940	only	-	Feb	25	 2:00	1:00	S
 # The French rules for 1941-1944 were not used in Paris, but Shanks & Pottenger
 # write that they were used in Monaco and in many French locations.
-# Le Corre writes that the upper limit of the free zone was Arnéguy, Orthez,
-# Mont-de-Marsan, Bazas, Langon, Lamothe-Montravel, Marœuil, La
+# Le Corre writes that the upper limit of the free zone was Arn?guy, Orthez,
+# Mont-de-Marsan, Bazas, Langon, Lamothe-Montravel, Mar?uil, La
 # Rochefoucauld, Champagne-Mouton, La Roche-Posay, La Haye-Descartes,
 # Loches, Montrichard, Vierzon, Bourges, Moulins, Digoin,
-# Paray-le-Monial, Montceau-les-Mines, Chalon-sur-Saône, Arbois,
+# Paray-le-Monial, Montceau-les-Mines, Chalon-sur-Sa?ne, Arbois,
 # Dole, Morez, St-Claude, and Collonges (Haute-Savoie).
 Rule	France	1941	only	-	May	 5	 0:00	2:00	M # Midsummer
 # Shanks & Pottenger say this transition occurred at Oct 6 1:00,
 # but go with Denis Excoffier (1997-12-12),
-# who quotes the Ephémérides astronomiques for 1998 from Bureau des Longitudes
+# who quotes the Eph?m?rides astronomiques for 1998 from Bureau des Longitudes
 # as saying 5/10/41 22hUT.
 Rule	France	1941	only	-	Oct	 6	 0:00	1:00	S
 Rule	France	1942	only	-	Mar	 9	 0:00	2:00	M
@@ -1198,7 +1208,7 @@ Zone	Europe/Paris	0:09:21 -	LMT	1891 Mar 15  0:01
 # Bundesanstalt contains DST information back to 1916.
 # [See tz-link.htm for the URL.]
 
-# From Jörg Schilling (2002-10-23):
+# From J?rg Schilling (2002-10-23):
 # In 1945, Berlin was switched to Moscow Summer time (GMT+4) by
 # http://www.dhm.de/lemo/html/biografien/BersarinNikolai/
 # General [Nikolai] Bersarin.
@@ -1235,17 +1245,17 @@ Zone	Europe/Berlin	0:53:28 -	LMT	1893 Apr
 			1:00	EU	CE%sT
 
 # From Tobias Conradi (2011-09-12):
-# Büsingen <http://www.buesingen.de>, surrounded by the Swiss canton
+# B?singen <http://www.buesingen.de>, surrounded by the Swiss canton
 # Schaffhausen, did not start observing DST in 1980 as the rest of DE
 # (West Germany at that time) and DD (East Germany at that time) did.
 # DD merged into DE, the area is currently covered by code DE in ISO 3166-1,
 # which in turn is covered by the zone Europe/Berlin.
 #
-# Source for the time in Büsingen 1980:
+# Source for the time in B?singen 1980:
 # http://www.srf.ch/player/video?id=c012c029-03b7-4c2b-9164-aa5902cd58d3
 
 # From Arthur David Olson (2012-03-03):
-# Büsingen and Zurich have shared clocks since 1970.
+# B?singen and Zurich have shared clocks since 1970.
 
 Link	Europe/Zurich	Europe/Busingen
 
@@ -1299,7 +1309,7 @@ Zone	Europe/Athens	1:34:52 -	LMT	1895 Sep 14
 # Hungary
 # From Paul Eggert (2014-07-15):
 # Dates for 1916-1945 are taken from:
-# Oross A. Jelen a múlt jövője: a nyári időszámítás Magyarországon 1916-1945.
+# Oross A. Jelen a m?lt j?v?je: a ny?ri id?sz?m?t?s Magyarorsz?gon 1916-1945.
 # National Archives of Hungary (2012-10-29).
 # http://mnl.gov.hu/a_het_dokumentuma/a_nyari_idoszamitas_magyarorszagon_19161945.html
 # This source does not always give times, which are taken from Shanks
@@ -1524,7 +1534,7 @@ Link	Europe/Rome	Europe/San_Marino
 # institute daylight-saving time this spring, LETA reported.
 # Last February the three Baltic states decided not to turn back their
 # clocks one hour in the spring....
-# Minister of Economy Aigars Kalvītis noted that Latvia had too few
+# Minister of Economy Aigars Kalv?tis noted that Latvia had too few
 # daylight hours and thus decided to comply with a draft European
 # Commission directive that provides for instituting daylight-saving
 # time in EU countries between 2002 and 2006. The Latvian government
@@ -1687,7 +1697,7 @@ Zone	Europe/Malta	0:58:04 -	LMT	1893 Nov  2 0:00s # Valletta
 # In early 1992 there was large-scale interethnic violence in the area
 # and it's possible that some Russophones continued to observe Moscow time.
 # But [two people] separately reported via
-# Jesper Nørgaard that as of 2001-01-24 Tiraspol was like Chisinau.
+# Jesper N?rgaard that as of 2001-01-24 Tiraspol was like Chisinau.
 # The Tiraspol entry has therefore been removed for now.
 #
 # From Alexander Krivenyshev (2011-10-17):
@@ -1889,7 +1899,7 @@ Link	Europe/Oslo	Arctic/Longyearbyen
 
 # Poland
 
-# The 1919 dates and times can be found in Tygodnik Urzędowy nr 1 (1919-03-20),
+# The 1919 dates and times can be found in Tygodnik Urz?dowy nr 1 (1919-03-20),
 # <http://www.wbc.poznan.pl/publication/32156> pp 1-2.
 
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
@@ -1902,9 +1912,9 @@ Rule	Poland	1944	only	-	Oct	 4	2:00	0	-
 Rule	Poland	1945	only	-	Apr	29	0:00	1:00	S
 Rule	Poland	1945	only	-	Nov	 1	0:00	0	-
 # For 1946 on the source is Kazimierz Borkowski,
-# Toruń Center for Astronomy, Dept. of Radio Astronomy, Nicolaus Copernicus U.,
+# Toru? Center for Astronomy, Dept. of Radio Astronomy, Nicolaus Copernicus U.,
 # http://www.astro.uni.torun.pl/~kb/Artykuly/U-PA/Czas2.htm#tth_tAb1
-# Thanks to Przemysław Augustyniak (2005-05-28) for this reference.
+# Thanks to Przemys?aw Augustyniak (2005-05-28) for this reference.
 # He also gives these further references:
 # Mon Pol nr 13, poz 162 (1995) <http://www.abc.com.pl/serwis/mp/1995/0162.htm>
 # Druk nr 2180 (2003) <http://www.senat.gov.pl/k5/dok/sejm/053/2180.pdf>
@@ -2248,7 +2258,7 @@ Zone Europe/Kaliningrad	 1:22:00 -	LMT	1893 Apr
 #
 # From Paul Eggert (2017-07-08):
 # Milne does not list Moscow, but suggests that its time might be listed in
-# Résumés mensuels et annuels des observations météorologiques (1895).
+# R?sum?s mensuels et annuels des observations m?t?orologiques (1895).
 # Presumably this is OCLC 85825704, a journal published with parallel text in
 # Russian and French.  This source has not been located; go with Karpinsky.
 
@@ -2738,7 +2748,7 @@ Zone	Europe/Belgrade	1:22:00	-	LMT	1884
 			1:00	1:00	CEST	1945 Sep 16   2:00s
 # Metod Koželj reports that the legal date of
 # transition to EU rules was 1982-11-27, for all of Yugoslavia at the time.
-# Shanks & Pottenger don't give as much detail, so go with Koželj.
+# Shanks & Pottenger don't give as much detail, so go with Ko?elj.
 			1:00	-	CET	1982 Nov 27
 			1:00	EU	CE%sT
 Link Europe/Belgrade Europe/Ljubljana	# Slovenia
@@ -2829,7 +2839,7 @@ Zone	Atlantic/Canary	-1:01:36 -	LMT	1922 Mar # Las Palmas de Gran C.
 
 # From Ivan Nilsson (2001-04-13), superseding Shanks & Pottenger:
 #
-# The law "Svensk författningssamling 1878, no 14" about standard time in 1879:
+# The law "Svensk f?rfattningssamling 1878, no 14" about standard time in 1879:
 # From the beginning of 1879 (that is 01-01 00:00) the time for all
 # places in the country is "the mean solar time for the meridian at
 # three degrees, or twelve minutes of time, to the west of the
@@ -2840,7 +2850,7 @@ Zone	Atlantic/Canary	-1:01:36 -	LMT	1922 Mar # Las Palmas de Gran C.
 # national standard time as 01:00:14 ahead of GMT....
 #
 # About the beginning of CET in Sweden. The lawtext ("Svensk
-# författningssamling 1899, no 44") states, that "from the beginning
+# f?rfattningssamling 1899, no 44") states, that "from the beginning
 # of 1900... ... the same as the mean solar time for the meridian at
 # the distance of one hour of time from the meridian of the English
 # observatory at Greenwich, or at 12 minutes 14 seconds to the west
@@ -2848,7 +2858,7 @@ Zone	Atlantic/Canary	-1:01:36 -	LMT	1922 Mar # Las Palmas de Gran C.
 # 1899-06-16.  In short: At 1900-01-01 00:00:00 the new standard time
 # in Sweden is 01:00:00 ahead of GMT.
 #
-# 1916: The lawtext ("Svensk författningssamling 1916, no 124") states
+# 1916: The lawtext ("Svensk f?rfattningssamling 1916, no 124") states
 # that "1916-05-15 is considered to begin one hour earlier". It is
 # pretty obvious that at 05-14 23:00 the clocks are set to 05-15 00:00....
 # Further the law says, that "1916-09-30 is considered to end one hour later".
@@ -2858,7 +2868,7 @@ Zone	Atlantic/Canary	-1:01:36 -	LMT	1922 Mar # Las Palmas de Gran C.
 # not available on the site (to my knowledge they are only available
 # in Swedish): <http://www.riksdagen.se/english/work/sfst.asp> (type
 # "sommartid" without the quotes in the field "Fritext" and then click
-# the Sök-button).
+# the S?k-button).
 #
 # (2001-05-13):
 #
@@ -2899,7 +2909,7 @@ Zone Europe/Stockholm	1:12:12 -	LMT	1879 Jan  1
 # to be wrong. This is now verified.
 #
 # I have found copies of the original ruling by the Swiss Federal
-# government, in 'Eidgenössische Gesetzessammlung 1941 and 1942' (Swiss
+# government, in 'Eidgen?ssische Gesetzessammlung 1941 and 1942' (Swiss
 # federal law collection)...
 #
 # DST began on Monday 5 May 1941, 1:00 am by shifting the clocks to 2:00 am
@@ -2932,7 +2942,7 @@ Zone Europe/Stockholm	1:12:12 -	LMT	1879 Jan  1
 # One further detail for Switzerland, which is probably out of scope for
 # most users of tzdata: The [Europe/Zurich zone] ...
 # describes all of Switzerland correctly, with the exception of
-# the Canton de Genève (Geneva, Genf). Between 1848 and 1894 Geneva did not
+# the Canton de Gen?ve (Geneva, Genf). Between 1848 and 1894 Geneva did not
 # follow Bern Mean Time but kept its own local mean time.
 # To represent this, an extra zone would be needed.
 #
@@ -2943,7 +2953,7 @@ Zone Europe/Stockholm	1:12:12 -	LMT	1879 Jan  1
 # Expressed in time, it is 0h29m45.5s.
 
 # From Pierre-Yves Berger (2013-09-11):
-# the "Circulaire du conseil fédéral" (December 11 1893)
+# the "Circulaire du conseil f?d?ral" (December 11 1893)
 # http://www.amtsdruckschriften.bar.admin.ch/viewOrigDoc.do?id=10071353
 # clearly states that the [1894-06-01] change should be done at midnight
 # but if no one is present after 11 at night, could be postponed until one
@@ -2955,14 +2965,14 @@ Zone Europe/Stockholm	1:12:12 -	LMT	1879 Jan  1
 # We can find no reliable source for Shanks's assertion that all of Switzerland
 # except Geneva switched to Bern Mean Time at 00:00 on 1848-09-12.  This book:
 #
-#	Jakob Messerli. Gleichmässig, pünktlich, schnell. Zeiteinteilung und
+#	Jakob Messerli. Gleichm?ssig, p?nktlich, schnell. Zeiteinteilung und
 #	Zeitgebrauch in der Schweiz im 19. Jahrhundert. Chronos, Zurich 1995,
 #	ISBN 3-905311-68-2, OCLC 717570797.
 #
 # suggests that the transition was more gradual, and that the Swiss did not
 # agree about civil time during the transition.  The timekeeping it gives the
 # most detail for is postal and telegraph time: here, federal legislation (the
-# "Bundesgesetz über die Erstellung von elektrischen Telegraphen") passed on
+# "Bundesgesetz ?ber die Erstellung von elektrischen Telegraphen") passed on
 # 1851-11-23, and an official implementation notice was published 1853-07-16
 # (Bundesblatt 1853, Bd. II, S. 859).  On p 72 Messerli writes that in
 # practice since July 1853 Bernese time was used in "all postal and telegraph
@@ -3009,7 +3019,7 @@ Zone	Europe/Zurich	0:34:08 -	LMT	1853 Jul 16 # See above comment.
 # (on a non-government server though) describing dates between 2002 and 2006:
 # http://www.alomaliye.com/bkk_2002_3769.htm
 
-# From Gökdeniz Karadağ (2011-03-10):
+# From G?kdeniz Karada? (2011-03-10):
 # According to the articles linked below, Turkey will change into summer
 # time zone (GMT+3) on March 28, 2011 at 3:00 a.m. instead of March 27.
 # This change is due to a nationwide exam on 27th.
