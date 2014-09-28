@@ -1,6 +1,4 @@
-! /usr/bin/perl -w
-
-# %W%
+#! /usr/bin/perl -w
 
 # Courtesy Ken Pizzini.
 

@@ -56,7 +56,7 @@
 #	9:00 WIT	east Indonesia (Waktu Indonesia Timur)
 #	9:00 JST  JDT	Japan
 #	9:00 KST  KDT	Korea
-#	9:30 CST	(Australian) Central Standard Time
+#	9:30 ACST	Australian Central Standard Time
 #
 # See the 'europe' file for Russia and Turkey in Asia.
 
@@ -287,7 +287,7 @@ Zone	Asia/Phnom_Penh	6:59:40 -	LMT	1906 Jun  9
 # No they don't.  See TIME mag, 1986-02-17 p.52.  Even though
 # China is across 4 physical time zones, before Feb 1, 1986 only the
 # Peking (Beijing) time zone was recognized.  Since that date, China
-# has two of 'em - Peking's and ?r?mqi (named after the capital of
+# has two of 'em - Peking's and Ürümqi (named after the capital of
 # the Xinjiang Uyghur Autonomous Region).  I don't know about DST for it.
 #
 # . . .I just deleted the DST table and this editor makes it too
@@ -324,7 +324,7 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # historic timezones from some Taiwan websites.  And yes, there are official
 # Chinese names for these locales (before 1949).
 #
-# From Jesper N?rgaard Welen (2006-07-14):
+# From Jesper Nørgaard Welen (2006-07-14):
 # I have investigated the timezones around 1970 on the
 # http://www.astro.com/atlas site [with provinces and county
 # boundaries summarized below]....  A few other exceptions were two
@@ -342,7 +342,7 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 # Guo Qingsheng (National Time-Service Center, CAS, Xi'an 710600, China)
 # Beijing Time at the Beginning of the PRC
 # China Historical Materials of Science and Technology
-# (Zhongguo ke ji shi liao, ??????), Vol. 24, No. 1 (2003)
+# (Zhongguo ke ji shi liao, 中国科技史料), Vol. 24, No. 1 (2003)
 # It gives evidence that at the beginning of the PRC, Beijing time was
 # officially apparent solar time!  However, Guo also says that the
 # evidence is dubious, as the relevant institute of astronomy had not
@@ -394,26 +394,68 @@ Rule	PRC	1987	1991	-	Apr	Sun>=10	0:00	1:00	D
 #
 # Changbai Time ("Long-white Time", Long-white = Heilongjiang area) UT+8.5
 # Asia/Harbin (currently a link to Asia/Shanghai)
-Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # ?r?mqi or ?r?mchi
-			6:00	-	URUT	1980 May # ?r?mqi Time
-			8:00	PRC	C%sT
-# Kunlun Time
+# Heilongjiang (except Mohe county), Jilin
+#
+# Zhongyuan Time ("Central plain Time") UT+8
+# Asia/Shanghai
+# most of China
+# This currently represents most other zones as well,
+# as apparently these regions have been the same since 1970.
+# Milne gives 8:05:43.2 for Xujiahui Observatory time; round to nearest.
+# Guo says Shanghai switched to UT+8 "from the end of the 19th century".
+#
+# Long-shu Time (probably due to Long and Shu being two names of that area) UT+7
+# Asia/Chongqing (currently a link to Asia/Shanghai)
+# Guangxi, Guizhou, Hainan, Ningxia, Sichuan, Shaanxi, and Yunnan;
+# most of Gansu; west Inner Mongolia; west Qinghai; and the Guangdong
+# counties Deqing, Enping, Kaiping, Luoding, Taishan, Xinxing,
+# Yangchun, Yangjiang, Yu'nan, and Yunfu.
+#
+# Xin-zang Time ("Xinjiang-Tibet Time") UT+6
+# Asia/Urumqi
+# This currently represents Kunlun Time as well,
+# as apparently the two regions have been the same since 1970.
+# The Gansu counties Aksay, Anxi, Dunhuang, Subei; west Qinghai;
+# the Guangdong counties  Xuwen, Haikang, Suixi, Lianjiang,
+# Zhanjiang, Wuchuan, Huazhou, Gaozhou, Maoming, Dianbai, and Xinyi;
+# east Tibet, including Lhasa, Chamdo, Shigaise, Jimsar, Shawan and Hutubi;
+# east Xinjiang, including Ürümqi, Turpan, Karamay, Korla, Minfeng, Jinghe,
+# Wusu, Qiemo, Xinyan, Wulanwusu, Jinghe, Yumin, Tacheng, Tuoli, Emin,
+# Shihezi, Changji, Yanqi, Heshuo, Tuokexun, Tulufan, Shanshan, Hami,
+# Fukang, Kuitun, Kumukuli, Miquan, Qitai, and Turfan.
 #
 # Kunlun Time UT+5.5
 # Asia/Kashgar (currently a link to Asia/Urumqi)
+# West Tibet, including Pulan, Aheqi, Shufu, Shule;
+# West Xinjiang, including Aksu, Atushi, Yining, Hetian, Cele, Luopu, Nileke,
+# Zhaosu, Tekesi, Gongliu, Chabuchaer, Huocheng, Bole, Pishan, Suiding,
+# and Yarkand.
+
+# From Luther Ma (2009-10-17):
+# Almost all (>99.9%) ethnic Chinese (properly ethnic Han) living in
+# Xinjiang use Chinese Standard Time. Some are aware of Xinjiang time,
+# but have no need of it. All planes, trains, and schools function on
+# what is called "Beijing time." When Han make an appointment in Chinese
+# they implicitly use Beijing time.
 #
-# ...an example of an official website using of ?r?mqi time.
+# On the other hand, ethnic Uyghurs, who make up about half the
+# population of Xinjiang, typically use "Xinjiang time" which is two
+# hours behind Beijing time, or UTC +0600. The government of the Xinjiang
+# Uyghur Autonomous Region, (XAUR, or just Xinjiang for short) as well as
+# local governments such as the Ürümqi city government use both times in
+# publications, referring to what is popularly called Xinjiang time as
+# "Ürümqi time." When Uyghurs make an appointment in the Uyghur language
+# they almost invariably use Xinjiang time.
 #
-# The first few lines of the Google translation of
-# http://www.fjysgl.gov.cn/show.aspx?id=2379&cid=39
-# (retrieved 2009-10-13)
-# > ?r?mqi fire seven people are missing the alleged losses of at least
-# > 500 million yuan
-# >
-# > (Reporter Dong Liu) the day before 20:20 or so (?r?mqi Time 18:20),
-# > ?r?mqi City Department of International Plaza Luther Qiantang River
-# > burst fire. As of yesterday, 18:30, ?r?mqi City Fire officers and men
-# > have worked continuously for 22 hours...
+# (Their ethnic Han compatriots would typically have no clue of its
+# widespread use, however, because so extremely few of them are fluent in
+# Uyghur, comparable to the number of Anglo-Americans fluent in Navajo.)
+#
+# (...As with the rest of China there was a brief interval ending in 1990
+# or 1991 when summer time was in use.  The confusion was severe, with
+# the province not having dual times but four times in use at the same
+# time. Some areas remained on standard Xinjiang time or Beijing time and
+# others moving their clocks ahead.)
 
 # From Luther Ma (2009-11-19):
 # With the risk of being redundant to previous answers these are the most common
@@ -424,7 +466,7 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # ?r?mqi or ?r?mchi
 # 3. Urumqi...
 # 4. Kashgar...
 # ...
-# 5. It seems that Uyghurs in ?r?mqi has been using Xinjiang since at least the
+# 5. It seems that Uyghurs in Ürümqi has been using Xinjiang since at least the
 # 1960's. I know of one Han, now over 50, who grew up in the surrounding
 # countryside and used Xinjiang time as a child.
 #
@@ -437,7 +479,7 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # ?r?mqi or ?r?mchi
 # not be using Beijing time, but some local time.)
 
 # From David Cochrane (2014-03-26):
-# Just a confirmation that ?r?mqi time was implemented in ?r?mqi on 1 Feb 1986:
+# Just a confirmation that Ürümqi time was implemented in Ürümqi on 1 Feb 1986:
 # http://content.time.com/time/magazine/article/0,9171,960684,00.html
 
 # From Luther Ma (2014-04-22):
@@ -446,16 +488,16 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # ?r?mqi or ?r?mchi
 # report regarding Xinjiang, as well as the Time article reference by David
 # Cochrane.  Whether officially recognized or not (and both are officially
 # recognized), two separate times have been in use in Xinjiang since at least
-# the Cultural Revolution: Xinjiang Time (XJT), aka ?r?mqi Time or local time;
+# the Cultural Revolution: Xinjiang Time (XJT), aka Ürümqi Time or local time;
 # and Beijing Time.  There is no confusion in Xinjiang as to which name refers
 # to which time. Both are widely used in the province, although in some
 # population groups might be use one to the exclusion of the other.  The only
-# problem is that computers and smart phones list ?r?mqi (or Kashgar) as
+# problem is that computers and smart phones list Ürümqi (or Kashgar) as
 # having the same time as Beijing.
 
 # From Paul Eggert (2014-06-30):
 # In the early days of the PRC, Tibet was given its own time zone (UT+6) but
-# this was withdrawn in 1959 and never reinstated; see Tubten Kh?tsun,
+# this was withdrawn in 1959 and never reinstated; see Tubten Khétsun,
 # Memories of life in Lhasa under Chinese Rule, Columbia U Press, ISBN
 # 978-0231142861 (2008), translator's introduction by Matthew Akester, p x.
 # As this is before our 1970 cutoff, Tibet doesn't need a separate zone.
@@ -481,7 +523,7 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # ?r?mqi or ?r?mchi
 Zone	Asia/Shanghai	8:05:43	-	LMT	1901
 			8:00	Shang	C%sT	1949
 			8:00	PRC	C%sT
-# Xinjiang time, used by many in western China; represented by ?r?mqi / ?r?mchi
+# Xinjiang time, used by many in western China; represented by Ürümqi / Ürümchi
 # / Wulumuqi.  (Please use Asia/Shanghai if you prefer Beijing time.)
 Zone	Asia/Urumqi	5:50:20	-	LMT	1928
 			6:00	-	XJT
@@ -595,7 +637,7 @@ Zone	Asia/Hong_Kong	7:36:42 -	LMT	1904 Oct 30
 # (both in Okinawa) adopt the Western Standard Time which is based on
 # 120E. The adoption began from Jan 1, 1896. The original text can be
 # found on Wikisource:
-# http://ja.wikisource.org/wiki/????????_(???)
+# http://ja.wikisource.org/wiki/標準時ニ關スル件_(公布時)
 # ... This could be the first adoption of time zone in Taiwan, because
 # during the Qing Dynasty, it seems that there was no time zone
 # declared officially.
@@ -608,7 +650,7 @@ Zone	Asia/Hong_Kong	7:36:42 -	LMT	1904 Oct 30
 # territory, including later occupations, adopt Japan Central Time
 # (UTC+9). The adoption began on Oct 1, 1937. The original text can
 # be found on Wikisource:
-# http://ja.wikisource.org/wiki/???????????????????????????
+# http://ja.wikisource.org/wiki/明治二十八年勅令第百六十七號標準時ニ關スル件中改正ノ件
 #
 # That is, the time zone of Taipei switched to UTC+9 on Oct 1, 1937.
 
@@ -808,7 +850,7 @@ Zone	Asia/Tbilisi	2:59:11 -	LMT	1880
 
 # See Indonesia for the 1945 transition.
 
-# From Jo?o Carrascal?o, brother of the former governor of East Timor, in
+# From João Carrascalão, brother of the former governor of East Timor, in
 # East Timor may be late for its millennium
 # <http://etan.org/et99c/december/26-31/30ETMAY.htm> (1999-12-26/31):
 # Portugal tried to change the time forward in 1974 because the sun
@@ -868,7 +910,7 @@ Zone	Asia/Kolkata	5:53:28 -	LMT	1880        # Kolkata
 # other formal surrender ceremonies were September 9, 11, and 13, plus
 # September 12 for the regional surrender to Mountbatten in Singapore.
 # These would be the earliest possible times for a change.
-# R?gimes horaires pour le monde entier, by Henri Le Corre, (?ditions
+# Régimes horaires pour le monde entier, by Henri Le Corre, (Éditions
 # Traditionnelles, 1987, Paris) says that Java and Madura switched
 # from JST to UTC+07:30 on 1945-09-23, and gives 1944-09-01 for Jayapura
 # (Hollandia).  For now, assume all Indonesian locations other than Jayapura
@@ -919,7 +961,7 @@ Zone Asia/Makassar	7:57:36 -	LMT	1920
 # Maluku Islands, West Papua, Papua
 Zone Asia/Jayapura	9:22:48 -	LMT	1932 Nov
 			9:00	-	WIT	1944 Sep  1
-			9:30	-	CST	1964
+			9:30	-	ACST	1964
 			9:00	-	WIT
 
 # Iran
@@ -985,7 +1027,7 @@ Zone Asia/Jayapura	9:22:48 -	LMT	1932 Nov
 # Several of my users have reported that Iran will not observe DST anymore:
 # http://www.irna.ir/en/news/view/line-17/0603193812164948.htm
 #
-# From Reuters (2007-09-16), with a heads-up from Jesper N?rgaard Welen:
+# From Reuters (2007-09-16), with a heads-up from Jesper Nørgaard Welen:
 # ... the Guardian Council ... approved a law on Sunday to re-introduce
 # daylight saving time ...
 # http://uk.reuters.com/article/oilRpt/idUKBLA65048420070916
@@ -1388,12 +1430,12 @@ Rule	Japan	1950	1951	-	May	Sun>=1	2:00	1:00	D
 # From Yu-Cheng Chuang (2013-07-12):
 # ...the Meiji Emperor announced Ordinance No. 167 of Meiji Year 28 "The clause
 # about standard time" ... The adoption began from Jan 1, 1896.
-# http://ja.wikisource.org/wiki/????????_(???)
+# http://ja.wikisource.org/wiki/標準時ニ關スル件_(公布時)
 #
 # ...the Showa Emperor announced Ordinance No. 529 of Showa Year 12 ... which
 # means the whole Japan territory, including later occupations, adopt Japan
 # Central Time (UTC+9). The adoption began on Oct 1, 1937.
-# http://ja.wikisource.org/wiki/???????????????????????????
+# http://ja.wikisource.org/wiki/明治二十八年勅令第百六十七號標準時ニ關スル件中改正ノ件
 
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Asia/Tokyo	9:18:59	-	LMT	1887 Dec 31 15:00u
@@ -1755,7 +1797,7 @@ Zone	Indian/Maldives	4:54:00 -	LMT	1880 # Male
 # General Information Mongolia
 # <http://www.mongoliatourism.gov.mn/general.htm> (1999-09)
 # "Time: Mongolia has two time zones. Three westernmost provinces of
-# Bayan-?lgii, Uvs, and Hovd are one hour earlier than the capital city, and
+# Bayan-Ölgii, Uvs, and Hovd are one hour earlier than the capital city, and
 # the rest of the country follows the Ulaanbaatar time, which is UTC/GMT plus
 # eight hours."
 
@@ -1766,7 +1808,7 @@ Zone	Indian/Maldives	4:54:00 -	LMT	1880 # Male
 # of implementation may have been different....
 # Some maps in the past have indicated that there was an additional time
 # zone in the eastern part of Mongolia, including the provinces of Dornod,
-# S?khbaatar, and possibly Khentii.
+# Sükhbaatar, and possibly Khentii.
 
 # From Paul Eggert (1999-12-15):
 # Naming and spelling is tricky in Mongolia.
@@ -1780,10 +1822,10 @@ Zone	Indian/Maldives	4:54:00 -	LMT	1880 # Male
 # (adopted DST on 2001-04-27 02:00 local time, ending 2001-09-28),
 # there are three time zones.
 #
-# Provinces [at 7:00]: Bayan-?lgii, Uvs, Khovd, Zavkhan, Govi-Altai
-# Provinces [at 8:00]: Kh?vsg?l, Bulgan, Arkhangai, Khentii, T?v,
-#	Bayankhongor, ?v?rkhangai, Dundgovi, Dornogovi, ?mn?govi
-# Provinces [at 9:00]: Dornod, S?khbaatar
+# Provinces [at 7:00]: Bayan-Ölgii, Uvs, Khovd, Zavkhan, Govi-Altai
+# Provinces [at 8:00]: Khövsgöl, Bulgan, Arkhangai, Khentii, Töv,
+#	Bayankhongor, Övörkhangai, Dundgovi, Dornogovi, Ömnögovi
+# Provinces [at 9:00]: Dornod, Sükhbaatar
 #
 # [The province of Selenge is omitted from the above lists.]
 
@@ -1800,7 +1842,7 @@ Zone	Indian/Maldives	4:54:00 -	LMT	1880 # Male
 # We have wildly conflicting information about Mongolia's time zones.
 # Bill Bonnet (2005-05-19) reports that the US Embassy in Ulaanbaatar says
 # there is only one time zone and that DST is observed, citing Microsoft
-# Windows XP as the source.  Risto Nyk?nen (2005-05-16) reports that
+# Windows XP as the source.  Risto Nykänen (2005-05-16) reports that
 # travelmongolia.org says there are two time zones (UTC+7, UTC+8) with no DST.
 # Oscar van Vlijmen (2005-05-20) reports that the Mongolian Embassy in
 # Washington, DC says there are two time zones, with DST observed.
@@ -1809,7 +1851,7 @@ Zone	Indian/Maldives	4:54:00 -	LMT	1880 # Male
 # which also says that there is DST, and which has a comment by "Toddius"
 # (2005-03-31 06:05 +0700) saying "Mongolia actually has 3.5 time zones.
 # The West (OLGII) is +7 GMT, most of the country is ULAT is +8 GMT
-# and some Eastern provinces are +9 GMT but S?khbaatar Aimag is SUHK +8.5 GMT.
+# and some Eastern provinces are +9 GMT but Sükhbaatar Aimag is SUHK +8.5 GMT.
 # The SUKH timezone is new this year, it is one of the few things the
 # parliament passed during the tumultuous winter session."
 # For now, let's ignore this information, until we have more confirmation.
@@ -1857,7 +1899,7 @@ Rule	Mongol	1983	only	-	Oct	1	0:00	0	-
 # (1996-09) says 1996-10-25.  Go with Shanks & Pottenger through 1998.
 #
 # Shanks & Pottenger say that the Sept. 1984 through Sept. 1990 switches
-# in Choibalsan (more precisely, in Dornod and S?khbaatar) took place
+# in Choibalsan (more precisely, in Dornod and Sükhbaatar) took place
 # at 02:00 standard time, not at 00:00 local time as in the rest of
 # the country.  That would be odd, and possibly is a result of their
 # correction of 02:00 (in the previous edition) not being done correctly
@@ -1879,7 +1921,7 @@ Zone	Asia/Hovd	6:06:36 -	LMT	1905 Aug
 Zone	Asia/Ulaanbaatar 7:07:32 -	LMT	1905 Aug
 			7:00	-	ULAT	1978     # Ulaanbaatar Time
 			8:00	Mongol	ULA%sT
-# Choibalsan, a.k.a. Bajan T?men, Bajan Tumen, Chojbalsan,
+# Choibalsan, a.k.a. Bajan Tümen, Bajan Tumen, Chojbalsan,
 # Choybalsan, Sanbejse, Tchoibalsan
 Zone	Asia/Choibalsan	7:38:00 -	LMT	1905 Aug
 			7:00	-	ULAT	1978
@@ -1911,7 +1953,7 @@ Zone	Asia/Muscat	3:54:24 -	LMT	1920
 # 00:01 was to make it clear which day it was on.
 
 # From Paul Eggert (2002-03-15):
-# Jesper N?rgaard found this URL:
+# Jesper Nørgaard found this URL:
 # http://www.pak.gov.pk/public/news/app/app06_dec.htm
 # (dated 2001-12-06) which says that the Cabinet adopted a scheme "to
 # advance the clocks by one hour on the night between the first
@@ -2015,7 +2057,7 @@ Zone	Asia/Muscat	3:54:24 -	LMT	1920
 # Water and Power and the Pakistan Electric Power Company:
 # http://www.timeanddate.com/news/time/pakistan-ends-dst09.html
 
-# From Christoph G?hre (2009-10-01):
+# From Christoph Göhre (2009-10-01):
 # [T]he German Consulate General in Karachi reported me today that Pakistan
 # will go back to standard time on 1st of November.
 
@@ -2149,7 +2191,7 @@ Zone	Asia/Karachi	4:28:12 -	LMT	1907
 # I guess it is likely that next year's date will be moved as well,
 # because of the Ramadan.
 
-# From Jesper N?rgaard Welen (2007-09-18):
+# From Jesper Nørgaard Welen (2007-09-18):
 # According to Steffen Thorsen's web site the Gaza Strip and the rest of the
 # Palestinian territories left DST early on 13.th. of September at 2:00.
 
@@ -2353,14 +2395,14 @@ Zone	Asia/Hebron	2:20:23	-	LMT	1900 Oct
 # no information
 
 # Philippines
-# On 1844-08-16, Narciso Claver?a, governor-general of the
+# On 1844-08-16, Narciso Clavería, governor-general of the
 # Philippines, issued a proclamation announcing that 1844-12-30 was to
 # be immediately followed by 1845-01-01; see R.H. van Gent's
 # History of the International Date Line
 # http://www.staff.science.uu.nl/~gent0113/idl/idl_philippines.htm
 # The rest of the data entries are from Shanks & Pottenger.
 
-# From Jesper N?rgaard Welen (2006-04-26):
+# From Jesper Nørgaard Welen (2006-04-26):
 # ... claims that Philippines had DST last time in 1990:
 # http://story.philippinetimes.com/p.x/ct/9/id/145be20cc6b121c0/cid/3e5bbccc730d258c/
 # [a story dated 2006-04-25 by Cris Larano of Dow Jones Newswires,
@@ -2459,7 +2501,7 @@ Zone	Asia/Singapore	6:55:25 -	LMT	1901 Jan  1
 # With effect from 12.30 a.m. on 26th October 1996
 # Sri Lanka will be six (06) hours ahead of GMT.
 
-# From Jesper N?rgaard Welen (2006-04-14), quoting Sri Lanka News Online
+# From Jesper Nørgaard Welen (2006-04-14), quoting Sri Lanka News Online
 # <http://news.sinhalaya.com/wmview.php?ArtID=11002> (2006-04-13):
 # 0030 hrs on April 15, 2006 (midnight of April 14, 2006 +30 minutes)
 # at present, become 2400 hours of April 14, 2006 (midnight of April 14, 2006).
@@ -2561,7 +2603,7 @@ Rule	Syria	2006	only	-	Sep	22	0:00	0	-
 # Today the AP reported "Syria will switch to summertime at midnight Thursday."
 # http://www.iht.com/articles/ap/2007/03/29/africa/ME-GEN-Syria-Time-Change.php
 Rule	Syria	2007	only	-	Mar	lastFri	0:00	1:00	S
-# From Jesper N?rgaard (2007-10-27):
+# From Jesper Nørgaard (2007-10-27):
 # The sister center ICARDA of my work CIMMYT is confirming that Syria DST will
 # not take place 1st November at 0:00 o'clock but 1st November at 24:00 or
 # rather Midnight between Thursday and Friday. This does make more sense than
@@ -2570,7 +2612,7 @@ Rule	Syria	2007	only	-	Mar	lastFri	0:00	1:00	S
 # it is implemented at midnight of the last workday before weekend...
 #
 # From Steffen Thorsen (2007-10-27):
-# Jesper N?rgaard Welen wrote:
+# Jesper Nørgaard Welen wrote:
 #
 # > "Winter local time in Syria will be observed at midnight of Thursday 1
 # > November 2007, and the clock will be put back 1 hour."

@@ -156,7 +156,7 @@ Zone	Indian/Comoro	2:53:04 -	LMT	1911 Jul # Moroni, Gran Comoro
 # Republic of the Congo
 # See Africa/Lagos.
 
-# C?te d'Ivoire / Ivory Coast
+# Côte d'Ivoire / Ivory Coast
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Africa/Abidjan	-0:16:08 -	LMT	1912
 			 0:00	-	GMT
@@ -168,7 +168,7 @@ Link Africa/Abidjan Africa/Freetown	# Sierra Leone
 Link Africa/Abidjan Africa/Lome		# Togo
 Link Africa/Abidjan Africa/Nouakchott	# Mauritania
 Link Africa/Abidjan Africa/Ouagadougou	# Burkina Faso
-Link Africa/Abidjan Africa/Sao_Tome	# S?o Tom? and Pr?ncipe
+Link Africa/Abidjan Africa/Sao_Tome	# São Tomé and Príncipe
 Link Africa/Abidjan Atlantic/St_Helena	# St Helena
 
 # Djibouti
@@ -228,7 +228,7 @@ Rule	Egypt	2006	only	-	Sep	21	24:00	0	-
 # From Dirk Losch (2007-08-14):
 # I received a mail from an airline which says that the daylight
 # saving time in Egypt will end in the night of 2007-09-06 to 2007-09-07.
-# From Jesper N?rgaard Welen (2007-08-15): [The following agree:]
+# From Jesper Nørgaard Welen (2007-08-15): [The following agree:]
 # http://www.nentjes.info/Bill/bill5.htm
 # http://www.timeanddate.com/worldclock/city.html?n=53
 # From Steffen Thorsen (2007-09-04): The official information...:
@@ -277,14 +277,14 @@ Rule	Egypt	2007	only	-	Sep	Thu>=1	24:00	0	-
 # in September.
 
 # From Steffen Thorsen (2009-08-11):
-# We have been able to confirm the August change with the Egyptian Cabinet 
+# We have been able to confirm the August change with the Egyptian Cabinet
 # Information and Decision Support Center:
 # http://www.timeanddate.com/news/time/egypt-dst-ends-2009.html
 #
 # The Middle East News Agency
 # http://www.mena.org.eg/index.aspx
 # also reports "Egypt starts winter time on August 21"
-# today in article numbered "71, 11/08/2009 12:25 GMT." 
+# today in article numbered "71, 11/08/2009 12:25 GMT."
 # Only the title above is available without a subscription to their service,
 # and can be found by searching for "winter" in their search engine
 # (at least today).
@@ -546,7 +546,7 @@ Zone Indian/Antananarivo 3:10:04 -	LMT	1911 Jul
 # From Steffen Thorsen (2008-06-25):
 # Mauritius plans to observe DST from 2008-11-01 to 2009-03-31 on a trial
 # basis....
-# It seems that Mauritius observed daylight saving time from 1982-10-10 to 
+# It seems that Mauritius observed daylight saving time from 1982-10-10 to
 # 1983-03-20 as well, but that was not successful....
 # http://www.timeanddate.com/news/time/mauritius-daylight-saving-time.html
 
@@ -568,12 +568,12 @@ Zone Indian/Antananarivo 3:10:04 -	LMT	1911 Jul
 # than previously announced (2008-11-01 to 2009-03-31).  The new start
 # date is 2008-10-26 at 02:00 and the new end date is 2009-03-27 (no time
 # given, but it is probably at either 2 or 3 wall clock time).
-# 
-# A little strange though, since the article says that they moved the date 
-# to align itself with Europe and USA which also change time on that date, 
-# but that means they have not paid attention to what happened in 
-# USA/Canada last year (DST ends first Sunday in November). I also wonder 
-# why that they end on a Friday, instead of aligning with Europe which 
+#
+# A little strange though, since the article says that they moved the date
+# to align itself with Europe and USA which also change time on that date,
+# but that means they have not paid attention to what happened in
+# USA/Canada last year (DST ends first Sunday in November). I also wonder
+# why that they end on a Friday, instead of aligning with Europe which
 # changes two days later.
 
 # From Alex Krivenyshev (2008-07-11):
@@ -582,7 +582,7 @@ Zone Indian/Antananarivo 3:10:04 -	LMT	1911 Jul
 # published on Monday, June 30, 2008...
 #
 # I guess that article in French "Le gouvernement avance l'introduction
-# de l'heure d'?t?" stating that DST in Mauritius starting on October 26
+# de l'heure d'été" stating that DST in Mauritius starting on October 26
 # and ending on March 27, 2009 is the most recent one....
 # http://www.worldtimezone.com/dst_news/dst_news_mauritius02.html
 
@@ -619,7 +619,7 @@ Zone Indian/Antananarivo 3:10:04 -	LMT	1911 Jul
 # http://www.timeanddate.com/news/time/mauritius-dst-will-not-repeat.html
 
 # From Arthur David Olson (2009-07-11):
-# The "mauritius-dst-will-not-repeat" wrapup includes this: 
+# The "mauritius-dst-will-not-repeat" wrapup includes this:
 # "The trial ended on March 29, 2009, when the clocks moved back by one hour
 # at 2am (or 02:00) local time..."
 
@@ -688,8 +688,8 @@ Zone	Indian/Mayotte	3:00:56 -	LMT	1911 Jul # Mamoutzou
 # http://www.google.com/search?hl=en&q=Conseil+de+gouvernement+maroc+heure+avance&btnG=Search
 
 # From Steffen Thorsen (2008-08-27):
-# Morocco will change the clocks back on the midnight between August 31 
-# and September 1. They originally planned to observe DST to near the end 
+# Morocco will change the clocks back on the midnight between August 31
+# and September 1. They originally planned to observe DST to near the end
 # of September:
 #
 # One article about it (in French):
@@ -710,7 +710,7 @@ Zone	Indian/Mayotte	3:00:56 -	LMT	1911 Jul # Mamoutzou
 
 # From Alexander Krivenyshev (2009-03-17):
 # Here is a link to official document from Royaume du Maroc Premier Ministre,
-# Minist?re de la Modernisation des Secteurs Publics
+# Ministère de la Modernisation des Secteurs Publics
 #
 # Under Article 1 of Royal Decree No. 455-67 of Act 23 safar 1387 (2 june 1967)
 # concerning the amendment of the legal time, the Ministry of Modernization of
@@ -760,9 +760,9 @@ Zone	Indian/Mayotte	3:00:56 -	LMT	1911 Jul # Mamoutzou
 # also been like that in the past.
 
 # From Alexander Krivenyshev (2012-03-09):
-# According to Infom?diaire web site from Morocco (infomediaire.ma),
-# on March 9, 2012, (in French) Heure l?gale:
-# Le Maroc adopte officiellement l'heure d'?t?
+# According to Infomédiaire web site from Morocco (infomediaire.ma),
+# on March 9, 2012, (in French) Heure légale:
+# Le Maroc adopte officiellement l'heure d'été
 # http://www.infomediaire.ma/news/maroc/heure-l%C3%A9gale-le-maroc-adopte-officiellement-lheure-d%C3%A9t%C3%A9
 # Governing Council adopted draft decree, that Morocco DST starts on
 # the last Sunday of March (March 25, 2012) and ends on
@@ -781,8 +781,8 @@ Zone	Indian/Mayotte	3:00:56 -	LMT	1911 Jul # Mamoutzou
 # From Christophe Tropamer (2012-03-16):
 # Seen Morocco change again:
 # http://www.le2uminutes.com/actualite.php
-# "...? partir du dernier dimanche d'avril et non fins mars,
-# comme annonc? pr?c?demment."
+# "...à partir du dernier dimanche d'avril et non fins mars,
+# comme annoncé précédemment."
 
 # From Milamber Space Network (2012-07-17):
 # The official return to GMT is announced by the Moroccan government:
@@ -931,7 +931,7 @@ Zone Africa/Casablanca	-0:30:20 -	LMT	1913 Oct 26
 # Assume that this has been true since Western Sahara switched to GMT,
 # since most of it was then controlled by Morocco.
 
-Zone Africa/El_Aaiun	-0:52:48 -	LMT	1934 Jan # El Aai?n
+Zone Africa/El_Aaiun	-0:52:48 -	LMT	1934 Jan # El Aaiún
 			-1:00	-	WAT	1976 Apr 14
 			 0:00	Morocco	WE%sT
 
@@ -965,7 +965,7 @@ Link Africa/Maputo Africa/Lusaka	# Zambia
 # Forecasting Riaan van Zyl explained that the far eastern parts of
 # the country are close to 40 minutes earlier in sunrise than the rest
 # of the country.
-# 
+#
 # From Paul Eggert (2007-03-31):
 # Apparently the Caprivi Strip informally observes Botswana time, but
 # we have no details.  In the meantime people there can use Africa/Gaborone.
@@ -999,16 +999,16 @@ Link Africa/Lagos Africa/Malabo	     # Equatorial Guinea
 Link Africa/Lagos Africa/Niamey	     # Niger
 Link Africa/Lagos Africa/Porto-Novo  # Benin
 
-# R?union
+# Réunion
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	Indian/Reunion	3:41:52 -	LMT	1911 Jun # Saint-Denis
-			4:00	-	RET	# R?union Time
+			4:00	-	RET	# Réunion Time
 #
-# Crozet Islands also observes R?union time; see the 'antarctica' file.
+# Crozet Islands also observes Réunion time; see the 'antarctica' file.
 #
-# Scattered Islands (?les ?parses) administered from R?union are as follows.
+# Scattered Islands (Îles Éparses) administered from Réunion are as follows.
 # The following information about them is taken from
-# ?les ?parses (<http://www.outre-mer.gouv.fr/domtom/ile.htm>, 1997-07-22,
+# Îles Éparses (<http://www.outre-mer.gouv.fr/domtom/ile.htm>, 1997-07-22,
 # in French; no longer available as of 1999-08-17).
 # We have no info about their time zone histories.
 #
@@ -1030,7 +1030,7 @@ Zone	Indian/Reunion	3:41:52 -	LMT	1911 Jun # Saint-Denis
 #		on GMT, says the CIA
 #	Inaccessible, Nightingale: uninhabited
 
-# S?o Tom? and Pr?ncipe
+# São Tomé and Príncipe
 # Senegal
 # See Africa/Abidjan.
 
@@ -1074,7 +1074,7 @@ Link Africa/Johannesburg Africa/Mbabane    # Swaziland
 #
 # From <http://www.sunanews.net/sn13jane.html>
 # Sudan News Agency (2000-01-13),
-# also reported by Micha?l De Beukelaer-Dossche via Steffen Thorsen:
+# also reported by Michaël De Beukelaer-Dossche via Steffen Thorsen:
 # Clocks will be moved ahead for 60 minutes all over the Sudan as of noon
 # Saturday....  This was announced Thursday by Caretaker State Minister for
 # Manpower Abdul-Rahman Nur-Eddin.
@@ -1108,7 +1108,7 @@ Zone Africa/Dar_es_Salaam 2:37:08 -	LMT	1931
 # Tunisia
 
 # From Gwillim Law (2005-04-30):
-# My correspondent, Risto Nyk?nen, has alerted me to another adoption of DST,
+# My correspondent, Risto Nykänen, has alerted me to another adoption of DST,
 # this time in Tunisia.  According to Yahoo France News
 # <http://fr.news.yahoo.com/050426/5/4dumk.html>, in a story attributed to AP
 # and dated 2005-04-26, "Tunisia has decided to advance its official time by

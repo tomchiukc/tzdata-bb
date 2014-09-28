@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# <pre>
-# %W%
-=======
->>>>>>> Simplify use of URLs in text files.
 # This file is in the public domain, so clarified as of
 # 2009-05-17 by Arthur David Olson.
 
@@ -1027,7 +1022,7 @@ Zone America/Menominee	-5:50:27 -	LMT	1885 Sep 18 12:00
 
 # Canada
 
-# From Alain LaBont? (1994-11-14):
+# From Alain LaBonté (1994-11-14):
 # I post here the time zone abbreviations standardized in Canada
 # for both English and French in the CAN/CSA-Z234.4-89 standard....
 #
@@ -1044,7 +1039,7 @@ Zone America/Menominee	-5:50:27 -	LMT	1885 Sep 18 12:00
 #	-9	HNY	YST	-	-
 #
 #	HN: Heure Normale	ST: Standard Time
-#	HA: Heure Avanc?e	DT: Daylight saving Time
+#	HA: Heure Avancée	DT: Daylight saving Time
 #
 #	A: de l'Atlantique	Atlantic
 #	C: du Centre		Central
@@ -1349,7 +1344,7 @@ Zone America/Moncton	-4:19:08 -	LMT	1883 Dec  9
 # meridian is supposed to observe AST, but residents as far east as
 # Natashquan use EST/EDT, and residents east of Natashquan use AST.
 # The Quebec department of justice writes in
-# "The situation in Minganie and Basse-C?te-Nord"
+# "The situation in Minganie and Basse-Côte-Nord"
 # http://www.justice.gouv.qc.ca/english/publications/generale/temps-minganie-a.htm
 # that the coastal strip from just east of Natashquan to Blanc-Sablon
 # observes Atlantic standard time all year round.
@@ -1517,16 +1512,16 @@ Zone America/Montreal	-4:54:16 -	LMT	1884
 # Quebec		In the following places:
 #			Montreal	Lachine
 #			Quebec		Mont-Royal
-#			L?vis		Iberville
-#			St. Lambert	Cap de la Madel?ine
+#			Lévis		Iberville
+#			St. Lambert	Cap de la Madelèine
 #			Verdun		Loretteville
 #			Westmount	Richmond
-#			Outremont	St. J?r?me
+#			Outremont	St. Jérôme
 #			Longueuil	Greenfield Park
 #			Arvida		Waterloo
 #			Chambly-Canton	Beaulieu
 #			Melbourne	La Tuque
-#			St. Th?ophile	Buckingham
+#			St. Théophile	Buckingham
 # Ontario		Used generally in the cities and towns along
 #			the southerly part of the province. Not
 #			used in the northwesterly part.
@@ -2193,7 +2188,7 @@ Zone America/Dawson	-9:17:40 -	LMT	1900 Aug 20
 # savings time so as to stay on the same time zone as the southern part of
 # Arizona year round.
 
-# From Jesper N?rgaard, translating
+# From Jesper Nørgaard, translating
 # <http://www.reforma.com/nacional/articulo/064327/> (2001-01-17):
 # In Oaxaca, the 55.000 teachers from the Section 22 of the National
 # Syndicate of Education Workers, refuse to apply daylight saving each
@@ -2214,22 +2209,22 @@ Zone America/Dawson	-9:17:40 -	LMT	1900 Aug 20
 # The 2001-01-24 traditional Washington Post contained the page one
 # story "Timely Issue Divides Mexicans."...
 # http://www.washingtonpost.com/wp-dyn/articles/A37383-2001Jan23.html
-# ... Mexico City Mayor L?pez Obrador "...is threatening to keep
+# ... Mexico City Mayor López Obrador "...is threatening to keep
 # Mexico City and its 20 million residents on a different time than
-# the rest of the country..." In particular, L?pez Obrador would abolish
+# the rest of the country..." In particular, López Obrador would abolish
 # observation of Daylight Saving Time.
 
 # Official statute published by the Energy Department
 # http://www.conae.gob.mx/ahorro/decretohorver2001.html#decre
 # (2001-02-01) shows Baja and Chihauhua as still using US DST rules,
-# and Sonora with no DST.  This was reported by Jesper N?rgaard (2001-02-03).
+# and Sonora with no DST.  This was reported by Jesper Nørgaard (2001-02-03).
 
 # From Paul Eggert (2001-03-03):
 #
 # http://www.latimes.com/news/nation/20010303/t000018766.html
 # James F. Smith writes in today's LA Times
 # * Sonora will continue to observe standard time.
-# * Last week Mexico City's mayor Andr?s Manuel L?pez Obrador decreed that
+# * Last week Mexico City's mayor Andrés Manuel López Obrador decreed that
 #   the Federal District will not adopt DST.
 # * 4 of 16 district leaders announced they'll ignore the decree.
 # * The decree does not affect federal-controlled facilities including
@@ -2237,7 +2232,7 @@ Zone America/Dawson	-9:17:40 -	LMT	1900 Aug 20
 #
 # For now we'll assume that the Federal District will bow to federal rules.
 
-# From Jesper N?rgaard (2001-04-01):
+# From Jesper Nørgaard (2001-04-01):
 # I found some references to the Mexican application of daylight
 # saving, which modifies what I had already sent you, stating earlier
 # that a number of northern Mexican states would go on daylight
@@ -2258,7 +2253,7 @@ Zone America/Dawson	-9:17:40 -	LMT	1900 Aug 20
 # standard time. "This is so residents of the Federal District are not
 # subject to unexpected time changes," a statement from the court said.
 
-# From Jesper N?rgaard Welen (2002-03-12):
+# From Jesper Nørgaard Welen (2002-03-12):
 # ... consulting my local grocery store(!) and my coworkers, they all insisted
 # that a new decision had been made to reinstate US style DST in Mexico....
 # http://www.conae.gob.mx/ahorro/horaver2001_m1_2002.html (2002-02-20)
@@ -2291,17 +2286,17 @@ Zone America/Dawson	-9:17:40 -	LMT	1900 Aug 20
 # http://dof.gob.mx/nota_detalle.php?codigo=5127480&fecha=06/01/2010
 # includes this text:
 # En los municipios fronterizos de Tijuana y Mexicali en Baja California;
-# Ju?rez y Ojinaga en Chihuahua; Acu?a y Piedras Negras en Coahuila;
-# An?huac en Nuevo Le?n; y Nuevo Laredo, Reynosa y Matamoros en
-# Tamaulipas, la aplicaci?n de este horario estacional surtir? efecto
-# desde las dos horas del segundo domingo de marzo y concluir? a las dos
+# Juárez y Ojinaga en Chihuahua; Acuña y Piedras Negras en Coahuila;
+# Anáhuac en Nuevo León; y Nuevo Laredo, Reynosa y Matamoros en
+# Tamaulipas, la aplicación de este horario estacional surtirá efecto
+# desde las dos horas del segundo domingo de marzo y concluirá a las dos
 # horas del primer domingo de noviembre.
 # En los municipios fronterizos que se encuentren ubicados en la franja
-# fronteriza norte en el territorio comprendido entre la l?nea
-# internacional y la l?nea paralela ubicada a una distancia de veinte
-# kil?metros, as? como la Ciudad de Ensenada, Baja California, hacia el
-# interior del pa?s, la aplicaci?n de este horario estacional surtir?
-# efecto desde las dos horas del segundo domingo de marzo y concluir? a
+# fronteriza norte en el territorio comprendido entre la línea
+# internacional y la línea paralela ubicada a una distancia de veinte
+# kilómetros, así como la Ciudad de Ensenada, Baja California, hacia el
+# interior del país, la aplicación de este horario estacional surtirá
+# efecto desde las dos horas del segundo domingo de marzo y concluirá a
 # las dos horas del primer domingo de noviembre.
 
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
@@ -2320,23 +2315,23 @@ Rule	Mexico	2001	only	-	Sep	lastSun	2:00	0	S
 Rule	Mexico	2002	max	-	Apr	Sun>=1	2:00	1:00	D
 Rule	Mexico	2002	max	-	Oct	lastSun	2:00	0	S
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-# Quintana Roo; represented by Canc?n
+# Quintana Roo; represented by Cancún
 Zone America/Cancun	-5:47:04 -	LMT	1922 Jan  1  0:12:56
 			-6:00	-	CST	1981 Dec 23
 			-5:00	Mexico	E%sT	1998 Aug  2  2:00
 			-6:00	Mexico	C%sT
-# Campeche, Yucat?n; represented by M?rida
+# Campeche, Yucatán; represented by Mérida
 Zone America/Merida	-5:58:28 -	LMT	1922 Jan  1  0:01:32
 			-6:00	-	CST	1981 Dec 23
 			-5:00	-	EST	1982 Dec  2
 			-6:00	Mexico	C%sT
-# Coahuila, Durango, Nuevo Le?n, Tamaulipas (near US border)
+# Coahuila, Durango, Nuevo León, Tamaulipas (near US border)
 Zone America/Matamoros	-6:40:00 -	LMT	1921 Dec 31 23:20:00
 			-6:00	-	CST	1988
 			-6:00	US	C%sT	1989
 			-6:00	Mexico	C%sT	2010
 			-6:00	US	C%sT
-# Coahuila, Durango, Nuevo Le?n, Tamaulipas (away from US border)
+# Coahuila, Durango, Nuevo León, Tamaulipas (away from US border)
 Zone America/Monterrey	-6:41:16 -	LMT	1921 Dec 31 23:18:44
 			-6:00	-	CST	1988
 			-6:00	US	C%sT	1989
@@ -2388,33 +2383,33 @@ Zone America/Hermosillo	-7:23:52 -	LMT	1921 Dec 31 23:36:08
 			-7:00	-	MST
 
 # From Alexander Krivenyshev (2010-04-21):
-# According to news, Bah?a de Banderas (Mexican state of Nayarit)
+# According to news, Bahía de Banderas (Mexican state of Nayarit)
 # changed time zone UTC-7 to new time zone UTC-6 on April 4, 2010 (to
 # share the same time zone as nearby city Puerto Vallarta, Jalisco).
 #
 # (Spanish)
-# Bah?a de Banderas homologa su horario al del centro del
-# pa?s, a partir de este domingo
+# Bahía de Banderas homologa su horario al del centro del
+# país, a partir de este domingo
 # http://www.nayarit.gob.mx/notes.asp?id=20748
 #
-# Bah?a de Banderas homologa su horario con el del Centro del
-# Pa?s
+# Bahía de Banderas homologa su horario con el del Centro del
+# País
 # http://www.bahiadebanderas.gob.mx/principal/index.php?option=com_content&view=article&id=261:bahia-de-banderas-homologa-su-horario-con-el-del-centro-del-pais&catid=42:comunicacion-social&Itemid=50
 #
 # (English)
-# Puerto Vallarta and Bah?a de Banderas: One Time Zone
+# Puerto Vallarta and Bahía de Banderas: One Time Zone
 # http://virtualvallarta.com/puertovallarta/puertovallarta/localnews/2009-12-03-Puerto-Vallarta-and-Bahia-de-Banderas-One-Time-Zone.shtml
 # http://www.worldtimezone.com/dst_news/dst_news_mexico08.html
 #
 # "Mexico's Senate approved the amendments to the Mexican Schedule System that
-# will allow Bah?a de Banderas and Puerto Vallarta to share the same time
+# will allow Bahía de Banderas and Puerto Vallarta to share the same time
 # zone ..."
 # Baja California Sur, Nayarit, Sinaloa
 
 # From Arthur David Olson (2010-05-01):
 # Use "Bahia_Banderas" to keep the name to fourteen characters.
 
-# Mazatl?n
+# Mazatlán
 Zone America/Mazatlan	-7:05:40 -	LMT	1921 Dec 31 23:54:20
 			-7:00	-	MST	1927 Jun 10 23:00
 			-6:00	-	CST	1930 Nov 15
@@ -2426,7 +2421,7 @@ Zone America/Mazatlan	-7:05:40 -	LMT	1921 Dec 31 23:54:20
 			-8:00	-	PST	1970
 			-7:00	Mexico	M%sT
 
-# Bah?a de Banderas
+# Bahía de Banderas
 Zone America/Bahia_Banderas	-7:01:00 -	LMT	1921 Dec 31 23:59:00
 			-7:00	-	MST	1927 Jun 10 23:00
 			-6:00	-	CST	1930 Nov 15
@@ -2576,7 +2571,7 @@ Zone	America/Cayman	-5:25:32 -	LMT	1890     # Georgetown
 
 # Costa Rica
 
-# Milne gives -5:36:13.3 as San Jos? mean time; round to nearest.
+# Milne gives -5:36:13.3 as San José mean time; round to nearest.
 
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
 Rule	CR	1979	1980	-	Feb	lastSun	0:00	1:00	D
@@ -2586,10 +2581,10 @@ Rule	CR	1991	1992	-	Jan	Sat>=15	0:00	1:00	D
 # go with Shanks & Pottenger.
 Rule	CR	1991	only	-	Jul	 1	0:00	0	S
 Rule	CR	1992	only	-	Mar	15	0:00	0	S
-# There are too many San Jos?s elsewhere, so we'll use 'Costa Rica'.
+# There are too many San Josés elsewhere, so we'll use 'Costa Rica'.
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
-Zone America/Costa_Rica	-5:36:13 -	LMT	1890        # San Jos?
-			-5:36:13 -	SJMT	1921 Jan 15 # San Jos? Mean Time
+Zone America/Costa_Rica	-5:36:13 -	LMT	1890        # San José
+			-5:36:13 -	SJMT	1921 Jan 15 # San José Mean Time
 			-6:00	CR	C%sT
 # Coco
 # no information; probably like America/Costa_Rica
@@ -2631,7 +2626,7 @@ Zone America/Costa_Rica	-5:36:13 -	LMT	1890        # San Jos?
 # adjustment in Cuba.  We will stay in daylight saving time:
 # http://www.granma.cu/espanol/2005/noviembre/mier9/horario.html
 
-# From Jesper N?rgaard Welen (2006-10-21):
+# From Jesper Nørgaard Welen (2006-10-21):
 # An article in GRANMA INTERNACIONAL claims that Cuba will end
 # the 3 years of permanent DST next weekend, see
 # http://www.granma.cu/ingles/2006/octubre/lun16/43horario.html
@@ -2657,7 +2652,7 @@ Zone America/Costa_Rica	-5:36:13 -	LMT	1890        # San Jos?
 # From Alex Krivenyshev (2007-10-25):
 # Here is also article from Granma (Cuba):
 #
-# Regir? el Horario Normal desde el pr?ximo domingo 28 de octubre
+# Regirá el Horario Normal desde el próximo domingo 28 de octubre
 # http://www.granma.cubaweb.cu/2007/10/24/nacional/artic07.html
 #
 # http://www.worldtimezone.com/dst_news/dst_news_cuba03.html
@@ -2688,7 +2683,7 @@ Zone America/Costa_Rica	-5:36:13 -	LMT	1890        # San Jos?
 # One example:
 # http://www.radiohc.cu/espanol/noticias/mar07/11mar/hor.htm
 
-# From Jesper N?rgaard Welen (2008-03-13):
+# From Jesper Nørgaard Welen (2008-03-13):
 # The Cuban time change has just been confirmed on the most authoritative
 # web site, the Granma.  Please check out
 # http://www.granma.cubaweb.cu/2008/03/13/nacional/artic10.html
@@ -2849,7 +2844,7 @@ Zone America/El_Salvador -5:56:48 -	LMT	1921 # San Salvador
 
 # Grenada
 # Guadeloupe
-# St Barth?lemy
+# St Barthélemy
 # St Martin (French part)
 # See America/Port_of_Spain.
 
@@ -2882,7 +2877,7 @@ Zone America/Guatemala	-6:02:04 -	LMT	1918 Oct 5
 
 # Haiti
 # From Gwillim Law (2005-04-15):
-# Risto O. Nyk?nen wrote me that Haiti is now on DST.
+# Risto O. Nykänen wrote me that Haiti is now on DST.
 # I searched for confirmation, and I found a press release
 # on the Web page of the Haitian Consulate in Chicago (2005-03-31),
 # <http://www.haitianconsulate.org/time.doc>.  Translated from French, it says:
@@ -2962,7 +2957,7 @@ Zone America/Port-au-Prince -4:49:20 -	LMT	1890
 # <http://www.latribuna.hn/99299.html> that Manuel Zelaya, the president
 # of Honduras, refused to back down on this.
 
-# From Jesper N?rgaard Welen (2006-08-08):
+# From Jesper Nørgaard Welen (2006-08-08):
 # It seems that Honduras has returned from DST to standard time this Monday at
 # 00:00 hours (prolonging Sunday to 25 hours duration).
 # http://www.worldtimezone.com/dst_news/dst_news_honduras04.html
@@ -3048,25 +3043,25 @@ Zone America/Martinique	-4:04:20 -      LMT	1890        # Fort-de-France
 # http://www.lapalmainteractivo.com/guias/content/gen/ap/America_Latina/AMC_GEN_NICARAGUA_HORA.html
 # and elsewhere, says (fifth paragraph, translated from Spanish): "The last
 # time that a change of clocks was applied to save energy was in the year 2000
-# during the Arnoldo Alem?n administration."...
+# during the Arnoldo Alemán administration."...
 # The northamerica file says that Nicaragua has been on UTC-6 continuously
 # since December 1998.  I wasn't able to find any details of Nicaraguan time
 # changes in 2000.  Perhaps a note could be added to the northamerica file, to
 # the effect that we have indirect evidence that DST was observed in 2000.
 #
-# From Jesper N?rgaard Welen (2005-11-02):
+# From Jesper Nørgaard Welen (2005-11-02):
 # Nicaragua left DST the 2005-10-02 at 00:00 (local time).
 # http://www.presidencia.gob.ni/presidencia/files_index/secretaria/comunicados/2005/septiembre/26septiembre-cambio-hora.htm
 # (2005-09-26)
 #
-# From Jesper N?rgaard Welen (2006-05-05):
+# From Jesper Nørgaard Welen (2006-05-05):
 # http://www.elnuevodiario.com.ni/2006/05/01/nacionales/18410
 # (my informal translation)
-# By order of the president of the republic, Enrique Bola?os, Nicaragua
+# By order of the president of the republic, Enrique Bolaños, Nicaragua
 # advanced by sixty minutes their official time, yesterday at 2 in the
 # morning, and will stay that way until 30th of September.
 #
-# From Jesper N?rgaard Welen (2006-09-30):
+# From Jesper Nørgaard Welen (2006-09-30):
 # http://www.presidencia.gob.ni/buscador_gaceta/BD/DECRETOS/2006/D-063-2006P-PRN-Cambio-Hora.pdf
 # My informal translation runs:
 # The natural sun time is restored in all the national territory, in that the
@@ -3093,7 +3088,7 @@ Zone	America/Managua	-5:45:08 -	LMT	1890
 # Panama
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone	America/Panama	-5:18:08 -	LMT	1890
-			-5:19:36 -	CMT	1908 Apr 22 # Col?n Mean Time
+			-5:19:36 -	CMT	1908 Apr 22 # Colón Mean Time
 			-5:00	-	EST
 
 # Puerto Rico

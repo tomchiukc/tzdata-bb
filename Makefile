@@ -296,7 +296,7 @@ SAFE_CHAR=	'['$(SAFE_CHARSET)']'
 # except for a small number of symbols, where we prefer to stick with
 # ASCII renderings for the convenience of maintainers whose text editors
 # mishandle UTF-8 by default (e.g., XEmacs 21.4.22).
-NONSYM_CHAR=	'[^????????????????????????????????????????]'
+NONSYM_CHAR=	'[^–—°′″≈≠≤≥±−×÷∞←→↔·•§¶«»‘’‚‛“”„‟‹›「」『』〝〞〟]'
 
 # SAFE_LINE matches a line of safe characters.
 # SAFE_SHARP_LINE is similar, except any character can follow '#';

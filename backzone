@@ -198,7 +198,7 @@ Zone Africa/Porto-Novo	0:10:28	-	LMT	1912 Jan  1
 			0:00	-	GMT	1934 Feb 26
 			1:00	-	WAT
 
-# S?o Tom? and Pr?ncipe
+# São Tomé and Príncipe
 Zone	Africa/Sao_Tome	 0:26:56 -	LMT	1884
 			-0:36:32 -	LMT	1912 # Lisbon Mean Time
 			 0:00	-	GMT
@@ -254,7 +254,7 @@ Zone	America/Grenada	-4:07:00 -	LMT	1911 Jul # St George's
 			-4:00	-	AST
 
 # Guadeloupe
-Zone America/Guadeloupe	-4:06:08 -	LMT	1911 Jun  8 # Pointe-?-Pitre
+Zone America/Guadeloupe	-4:06:08 -	LMT	1911 Jun  8 # Pointe-à-Pitre
 			-4:00	 -	AST
 
 # Montserrat
@@ -267,7 +267,7 @@ Zone America/Montserrat	-4:08:52 -	LMT	1911 Jul  1  0:01 # Cork Hill
 # Argentina
 # This entry was intended for the following areas, but has been superseded by
 # more detailed zones.
-# Santa Fe (SF), Entre R?os (ER), Corrientes (CN), Misiones (MN), Chaco (CC),
+# Santa Fe (SF), Entre Ríos (ER), Corrientes (CN), Misiones (MN), Chaco (CC),
 # Formosa (FM), La Pampa (LP), Chubut (CH)
 Zone America/Rosario	-4:02:40 -	LMT	1894 Nov
 			-4:16:44 -	CMT	1920 May
