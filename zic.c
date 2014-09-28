@@ -3,8 +3,7 @@
 ** 2006-07-17 by Arthur David Olson.
 */
 
-static char	elsieid[] = "%W%";
-
+#include "version.h"
 #include "private.h"
 #include "locale.h"
 #include "tzfile.h"

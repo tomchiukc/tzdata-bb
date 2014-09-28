@@ -3,7 +3,7 @@
 ** 2009-05-17 by Arthur David Olson.
 */
 
-static char	elsieid[] = "%W%";
+#include "version.h"
 
 /*
 ** This code has been made independent of the rest of the time

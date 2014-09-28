@@ -1,12 +1,3 @@
-#ifndef lint
-#ifndef NOID
-static char	elsieid[] = "%W%";
-/*
-** Modified from the UCB version with the SCCS ID appearing below.
-*/
-#endif /* !defined NOID */
-#endif /* !defined lint */
-
 /*
  * Copyright (c) 1985, 1987, 1988 The Regents of the University of California.
  * All rights reserved.
@@ -64,14 +55,14 @@ extern char *		tzname[2];
 static int		retval = EXIT_SUCCESS;
 
 static void		checkfinal(char const *, bool, time_t, time_t);
-static time_t		convert(const char *, int, time_t);
+static time_t		convert(const char *, bool, time_t);
 static void		display(const char *, time_t);
 static void		dogmt(void);
 static void		errensure(void);
 static void		iffy(time_t, time_t, const char *, const char *);
 static const char *	nondigit(const char *);
 static void		oops(const char *);
-static void		reset(time_t, int);
+static void		reset(time_t, bool);
 static void		timeout(FILE *, const char *, const struct tm *);
 static void		usage(void);
 static void		wildinput(const char *, const char *,
