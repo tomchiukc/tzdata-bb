@@ -3,9 +3,6 @@
 /*LINTLIBRARY*/
 
 #include "stdio.h"
-
-/*LINTLIBRARY*/
-
 #include "private.h"
 #include "tzfile.h"
 

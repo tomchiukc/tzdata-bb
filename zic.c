@@ -8,6 +8,8 @@
 #include "locale.h"
 #include "tzfile.h"
 
+#include <stdarg.h>
+
 #include "stdio.h"
 
 #ifdef OBJECTID

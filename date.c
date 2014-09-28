@@ -42,6 +42,12 @@ static char sccsid[] = "@(#)date.c	4.23 (Berkeley) 9/20/88";
 
 #define	ATOI2(ar)	(ar[0] - '0') * 10 + (ar[1] - '0'); ar += 2;
 
+static struct timeval	tv;
+static int	retval;
+
+static int	dmsize[] =
+	{ -1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
 #ifndef TM_YEAR_BASE
 #define TM_YEAR_BASE	1900
 #endif /* !defined TM_YEAR_BASE */

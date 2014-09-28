@@ -9,7 +9,14 @@ Follow the instruction of the website listed below for resetting the timezone:
 
 This tzdata is up-to-date to tzdata-2014h
 
-Original README in tzdata-2014h
+
+Time Zone Database
+==================
+
+For more information on the time zone data, please visit http://www.iana.org/time-zones/
+
+
+Original README in tz-2014h
 -------------------------------
 
 README for the tz distribution
