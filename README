@@ -1,3 +1,17 @@
+tzdata-bb
+=========
+
+Made Babyish Timezone Available for Linux
+
+Follow the instruction of the website listed below for resetting the timezone:
+
+  http://www.christopherirish.com/2012/03/21/how-to-set-the-timezone-on-ubuntu-server/
+
+This tzdata is up-to-date to tzdata-2014h
+
+Original README in tzdata-2014h
+-------------------------------
+
 README for the tz distribution
 
 "What time is it?" -- Richard Deacon as The King

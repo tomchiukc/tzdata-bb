@@ -156,7 +156,7 @@ Release 2014f - 2014-08-05 17:42:36 -0700
     Asia/Novokuznetsk shifts from NOVT to KRAT (remaining on UTC+7)
     effective 2014-10-26 at 02:00 local time.
 
-    The time zone abbreviation for Xinjiang Time (observed in ?r?mqi)
+    The time zone abbreviation for Xinjiang Time (observed in Ürümqi)
     has been changed from URUT to XJT.  (Thanks to Luther Ma.)
 
     Prefer MSK/MSD for Moscow time in Russia, even in other cities.
@@ -208,7 +208,7 @@ Release 2014f - 2014-08-05 17:42:36 -0700
     Asia/Riyadh's transition to standard time is now 1947-03-14, not 1950.
 
     Europe/Helsinki's 1942 fall-back transition was 10-04 at 01:00, not
-    10-03 at 00:00.  (Thanks to Konstantin Hypp?nen.)
+    10-03 at 00:00.  (Thanks to Konstantin Hyppönen.)
 
     Pacific/Pago_Pago has been changed from UTC-11:30 to UTC-11 for the period
     from 1911 to 1950.
@@ -283,7 +283,7 @@ Release 2014f - 2014-08-05 17:42:36 -0700
     Commentary about time in Metlakatla, AK and Resolute, NU has been
     improved, with a new source for the former.
 
-    In zone.tab, Pacific/Easter no longer mentions Salas y G?mez, as it
+    In zone.tab, Pacific/Easter no longer mentions Salas y Gómez, as it
     is uninhabited.
 
     Commentary about permanent Antarctic bases has been updated.
@@ -436,9 +436,9 @@ Release 2014a - 2014-03-07 23:30:29 -0800
     The boundary of the US Pacific time zone is given more accurately.
     (Thanks to Alan Mintz.)
 
-    Chile's 2014 DST will be as predicted.  (Thanks to Jos? Miguel Garrido.)
+    Chile's 2014 DST will be as predicted.  (Thanks to José Miguel Garrido.)
 
-    Paraguay's 2014 DST will be as predicted.  (Thanks to Carlos Ra?l Perasso.)
+    Paraguay's 2014 DST will be as predicted.  (Thanks to Carlos Raúl Perasso.)
 
     Better descriptions of countries with same time zone history as
     Trinidad and Tobago since 1970.  (Thanks to Alan Barrett for suggestion.)
@@ -461,7 +461,7 @@ Release 2014a - 2014-03-07 23:30:29 -0800
 
       Mention the timezone-olson Haskell package.
 
-      Mention zeitverschiebung.net.  (Thanks to Martin J?ger.)
+      Mention zeitverschiebung.net.  (Thanks to Martin Jäger.)
 
       Remove moribund links to daylight-savings-time.info and to
       Simple Timer + Clocks.
@@ -611,7 +611,7 @@ Release 2013e - 2013-09-19 23:50:04 -0700
     Use ART (UTC-3, standard time), rather than WARST (also UTC-3, but
     daylight saving time) for San Luis, Argentina since 2009.
 
-  Changes affecting Godth?b time stamps after 2037 if version mismatch
+  Changes affecting Godthåb time stamps after 2037 if version mismatch
 
     Allow POSIX-like TZ strings where the transition time's hour can
     range from -167 through 167, instead of the POSIX-required 0
@@ -1201,7 +1201,7 @@ Release 2011i - 2011-08-29 05:56:32 -0400
 
 Release data2011h - 2011-06-15 18:41:48 -0400
 
-  Russia and Curacao changes
+  Russia and Curaçao changes
 
 
 Release 2011g - 2011-04-25 09:07:22 -0400
@@ -1266,7 +1266,7 @@ Release 2010k - 2010-07-26 10:42:27 -0400
 
 Release 2010j - 2010-05-10 09:07:48 -0400
 
-  changes for Bahia de Banderas and for version naming
+  changes for Bahía de Banderas and for version naming
 
 
 Release data2010i - 2010-04-16 18:50:45 -0400

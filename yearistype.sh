@@ -9,12 +9,6 @@ case $#-$1 in
 		exit 1 ;;
 esac
 
-case $#-$1 in
-	2-|2-0*|2-*[!0-9]*)
-		echo "$0: wild year: $1" >&2
-		exit 1 ;;
-esac
-
 case $#-$2 in
 	2-odd)	case $1 in
 			*[13579])	exit 0 ;;
