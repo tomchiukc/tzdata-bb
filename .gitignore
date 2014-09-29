@@ -11,9 +11,6 @@ zic
 build-stamp
 debian/files
 debian/preinst
-debian/tzdata-au/
-debian/tzdata-au.debhelper.log
-debian/tzdata-au.substvars
 debian/tzdata-bb/
 debian/tzdata-bb.debhelper.log
 debian/tzdata-bb.substvars

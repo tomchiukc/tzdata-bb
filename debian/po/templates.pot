@@ -207,6 +207,24 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:2001
+msgid "Frendov"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "Steibol"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "Fanling"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:2001
 msgid "Bamako"
 msgstr ""
 

@@ -5,17 +5,17 @@ LC_ALL=C
 LANG=C
 umask 022
 
-ORIGINALSDIR="/usr/share/tzdata-au/original"
+ORIGINALSDIR="/usr/share/tzdata-bb/original"
 SUBDIRS="zoneinfo zoneinfo/posix zoneinfo/right"
 
 mkdir -p -- "$ORIGINALSDIR"
 for subdir in $SUBDIRS; do
-    mkdir -p -- "$ORIGINALSDIR/$subdir/Australia"
+    mkdir -p -- "$ORIGINALSDIR/$subdir/Babycaseny"
     # Only archive files, not symlinks.
     # This ensures only files from the tzdata package are archived, and not
     # our replacement symlinks.
-    find "/usr/share/$subdir/Australia" -type f -print0 | \
-        xargs -0 --no-run-if-empty cp -flt "$ORIGINALSDIR/$subdir/Australia"
+    find "/usr/share/$subdir/Babycaseny" -type f -print0 | \
+        xargs -0 --no-run-if-empty cp -flt "$ORIGINALSDIR/$subdir/Babycaseny"
 done
 
 exit 0

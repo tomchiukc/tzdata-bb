@@ -99,6 +99,17 @@ msgstr "Atlantic Ocean"
 #. - SystemV will give the choice between zone named as per SystemV conventions:
 #. EST5, MST7, etc.
 #: ../templates:1001
+msgid "Babycaseny"
+msgstr "Babycasèny"
+
+#. Type: select
+#. Choices
+#. Note to translators:
+#. - "Etc" will present users with a list
+#. of "GMT+xx" or "GMT-xx" timezones
+#. - SystemV will give the choice between zone named as per SystemV conventions:
+#. EST5, MST7, etc.
+#: ../templates:1001
 msgid "Europe"
 msgstr "Yurop"
 
@@ -150,7 +161,7 @@ msgstr "None of the above"
 #. Description
 #: ../templates:1002
 msgid "Geographic area:"
-msgstr ""
+msgstr "Jiografik äria:"
 
 #. Type: select
 #. Description
@@ -194,8 +205,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:2001
-msgid "Babycaseny"
-msgstr "Babycasèny"
+msgid "Frendov"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "Steibol"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "Fanling"
+msgstr "Fùnlén"
 
 #. Type: select
 #. Choices

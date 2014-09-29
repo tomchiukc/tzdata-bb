@@ -180,7 +180,7 @@ GT	+1438-09031	America/Guatemala
 GU,MP	+1328+14445	Pacific/Guam
 GW	+1151-01535	Africa/Bissau
 GY	+0648-05810	America/Guyana
-HK	+2217+11409	Asia/Hong_Kong
+HK,BK	+2217+11409	Asia/Hong_Kong
 HN	+1406-08713	America/Tegucigalpa
 HT	+1832-07220	America/Port-au-Prince
 HU	+4730+01905	Europe/Budapest
