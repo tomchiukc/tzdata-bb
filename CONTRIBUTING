@@ -23,7 +23,7 @@ Git repository.  If you use Git the following workflow may be helpful:
 
   * Copy the experimental repository.
 
-      git clone git@github.com:eggert/tz.git
+      git clone https://github.com/eggert/tz.git
       cd tz
 
   * Get current with the master branch.
@@ -31,7 +31,8 @@ Git repository.  If you use Git the following workflow may be helpful:
       git checkout master
       git pull
 
-  * Switch to a new branch for the changes.
+  * Switch to a new branch for the changes.  Choose a different
+    branch name for each change set.
 
       git checkout -b mybranch
 
@@ -60,8 +61,9 @@ Git repository.  If you use Git the following workflow may be helpful:
 
       git send-email master
 
-  * Start anew by getting current with the master branch again.
+  * Start anew by getting current with the master branch again
+    (the second step above).
 
-Please do not create issues or pull requests on Github, as the
+Please do not create issues or pull requests on GitHub, as the
 proper procedure for proposing and distributing patches is via
 email as illustrated above.

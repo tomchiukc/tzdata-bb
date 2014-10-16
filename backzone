@@ -37,6 +37,12 @@
 # Zones are sorted by zone name.  Each zone is preceded by the
 # name of the country that the zone is in, along with any other
 # commentary and rules associated with the entry.
+<<<<<<< HEAD
+=======
+#
+# As explained in the zic man page, the zone columns are:
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+>>>>>>> grandpa/master
 
 # Mali (southern)
 Zone	Africa/Bamako	-0:32:00 -	LMT	1912
@@ -86,7 +92,11 @@ Zone	Africa/Douala	0:38:48	-	LMT	1912
 # The following table is from Shanks & Pottenger, but it can't be right.
 # Whitman gives Mar 31 - Aug 31 for 1931 on.
 # The International Hydrographic Bulletin, 1932-33, p 63 says that
+<<<<<<< HEAD
 # Sierra Leone would advance its clocks by 20 monutes on 1933-10-01.
+=======
+# Sierra Leone would advance its clocks by 20 minutes on 1933-10-01.
+>>>>>>> grandpa/master
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
 Rule	SL	1935	1942	-	Jun	 1	0:00	0:40	SLST
 Rule	SL	1935	1942	-	Oct	 1	0:00	0	WAT
@@ -121,7 +131,11 @@ Zone	Africa/Kigali	2:00:16 -	LMT	1935 Jun
 			2:00	-	CAT
 
 # Democratic Republic of the Congo (west)
+<<<<<<< HEAD
 Zone Africa/Kinshasa	1:01:12 -	LMT	1897 Nov 9
+=======
+Zone Africa/Kinshasa	1:01:12 -	LMT	1897 Nov  9
+>>>>>>> grandpa/master
 			1:00	-	WAT
 
 # Gabon
@@ -233,7 +247,11 @@ Zone America/Coral_Harbour -5:32:40 -	LMT	1884
 			-5:00	-	EST
 
 # Dominica
+<<<<<<< HEAD
 Zone America/Dominica	-4:05:36 -	LMT	1911 Jul  1 0:01	# Roseau
+=======
+Zone America/Dominica	-4:05:36 -	LMT	1911 Jul  1  0:01 # Roseau
+>>>>>>> grandpa/master
 			-4:00	-	AST
 
 # Baja California
@@ -258,7 +276,11 @@ Zone America/Guadeloupe	-4:06:08 -	LMT	1911 Jun  8 # Pointe-à-Pitre
 # From Paul Eggert (2006-03-22):
 # In 1995 volcanic eruptions forced evacuation of Plymouth, the capital.
 # world.gazetteer.com says Cork Hill is the most populous location now.
+<<<<<<< HEAD
 Zone America/Montserrat	-4:08:52 -	LMT	1911 Jul 1 0:01   # Cork Hill
+=======
+Zone America/Montserrat	-4:08:52 -	LMT	1911 Jul  1  0:01 # Cork Hill
+>>>>>>> grandpa/master
 			-4:00	-	AST
 
 # Argentina
@@ -271,8 +293,13 @@ Zone America/Rosario	-4:02:40 -	LMT	1894 Nov
 			-4:00	-	ART	1930 Dec
 			-4:00	Arg	AR%sT	1969 Oct  5
 			-3:00	Arg	AR%sT	1991 Jul
+<<<<<<< HEAD
 			-3:00	-	ART	1999 Oct  3 0:00
 			-4:00	Arg	AR%sT	2000 Mar  3 0:00
+=======
+			-3:00	-	ART	1999 Oct  3  0:00
+			-4:00	Arg	AR%sT	2000 Mar  3  0:00
+>>>>>>> grandpa/master
 			-3:00	-	ART
 
 # St Kitts-Nevis
@@ -327,6 +354,23 @@ Zone	Asia/Chongqing	7:06:20	-	LMT	1928     # or Chungking
 			8:00	PRC	C%sT
 Link Asia/Chongqing Asia/Chungking
 
+<<<<<<< HEAD
+=======
+# Vietnam
+# From Paul Eggert (2014-10-13):
+# See Asia/Ho_Chi_Minh for the source for this data.
+# Trần's book is quoting as saying the 1954-55 transition to 07:00
+# in Hanoi was in October 1954, with exact date and time unknown.
+Zone	Asia/Hanoi	7:03:24 -	LMT	1906 Jul  1
+			7:06:30	-	PLMT	1911 May  1
+			7:00	-	ICT	1942 Dec 31 23:00
+			8:00	-	IDT	1945 Mar 14 23:00
+			9:00	-	JST	1945 Sep  2
+			7:00	-	ICT	1947 Apr  1
+			8:00	-	IDT	1954 Oct
+			7:00	-	ICT
+
+>>>>>>> grandpa/master
 # China
 # Changbai Time ("Long-white Time", Long-white = Heilongjiang area)
 # Heilongjiang (except Mohe county), Jilin
@@ -343,11 +387,55 @@ Zone	Asia/Kashgar	5:03:56	-	LMT	1928     # or Kashi or Kaxgar
 			5:00	-	KAST	1980 May
 			8:00	PRC	C%sT
 
+<<<<<<< HEAD
+=======
+# India
+# From Paul Eggert (2014-08-11), after a heads-up from Stephen Colebourne:
+# According to a Portuguese decree (1911-05-26)
+# http://dre.pt/pdf1sdip/1911/05/12500/23132313.pdf
+# Portuguese India switched to GMT+5 on 1912-01-01.
+#Zone	Asia/Panaji	[not enough info to complete]
+
+# Cambodia
+# From Paul Eggert (2014-10-11):
+# See Asia/Ho_Chi_Minh for the source for most of this data.  Also, guess
+# (1) Cambodia reverted to UT+7 on 1945-09-02, when Vietnam did, and
+# (2) they also reverted to UT+7 on 1953-11-09, the date of independence.
+# These guesses are probably wrong but they're better than guessing no
+# transitions there.
+Zone	Asia/Phnom_Penh	6:59:40 -	LMT	1906 Jul  1
+			7:06:30	-	PLMT	1911 May  1
+			7:00	-	ICT	1942 Dec 31 23:00
+			8:00	-	IDT	1945 Mar 14 23:00
+			9:00	-	JST	1945 Sep  2
+			7:00	-	ICT	1947 Apr  1
+			8:00	-	IDT	1953 Nov  9
+			7:00	-	ICT
+
+>>>>>>> grandpa/master
 # Israel
 Zone	Asia/Tel_Aviv	2:19:04 -	LMT	1880
 			2:21	-	JMT	1918
 			2:00	Zion	I%sT
 
+<<<<<<< HEAD
+=======
+# Laos
+# From Paul Eggert (2014-10-11):
+# See Asia/Ho_Chi_Minh for the source for most of this data.
+# Trần's book is quoted as saying that Laos reverted to UT+7 on 1955-04-15.
+# Also, guess that Laos reverted to UT+7 on 1945-09-02, when Vietnam did;
+# this is probably wrong but it's better than guessing no transition.
+Zone	Asia/Vientiane	6:50:24 -	LMT	1906 Jul  1
+			7:06:30	-	PLMT	1911 May  1
+			7:00	-	ICT	1942 Dec 31 23:00
+			8:00	-	IDT	1945 Mar 14 23:00
+			9:00	-	JST	1945 Sep  2
+			7:00	-	ICT	1947 Apr  1
+			8:00	-	IDT	1955 Apr 15
+			7:00	-	ICT
+
+>>>>>>> grandpa/master
 # Jan Mayen
 # From Whitman:
 Zone Atlantic/Jan_Mayen	-1:00	-	EGT
@@ -359,12 +447,21 @@ Zone Atlantic/St_Helena	-0:22:48 -	LMT	1890 # Jamestown
 
 # Northern Ireland
 Zone	Europe/Belfast	-0:23:40 -	LMT	1880 Aug  2
+<<<<<<< HEAD
 			-0:25:21 -	DMT	1916 May 21 2:00
 						# DMT = Dublin/Dunsink MT
 			-0:25:21 1:00	IST	1916 Oct  1 2:00s
 						# IST = Irish Summer Time
 			 0:00	GB-Eire	%s	1968 Oct 27
 			 1:00	-	BST	1971 Oct 31 2:00u
+=======
+			-0:25:21 -	DMT	1916 May 21  2:00
+						# DMT = Dublin/Dunsink MT
+			-0:25:21 1:00	IST	1916 Oct  1  2:00s
+						# IST = Irish Summer Time
+			 0:00	GB-Eire	%s	1968 Oct 27
+			 1:00	-	BST	1971 Oct 31  2:00u
+>>>>>>> grandpa/master
 			 0:00	GB-Eire	%s	1996
 			 0:00	EU	GMT/BST
 
@@ -377,7 +474,11 @@ Zone	Europe/Guernsey	-0:09:19 -	LMT	1913 Jun 18
 			 0:00	GB-Eire	%s	1940 Jul  2
 			 1:00	C-Eur	CE%sT	1945 May  8
 			 0:00	GB-Eire	%s	1968 Oct 27
+<<<<<<< HEAD
 			 1:00	-	BST	1971 Oct 31 2:00u
+=======
+			 1:00	-	BST	1971 Oct 31  2:00u
+>>>>>>> grandpa/master
 			 0:00	GB-Eire	%s	1996
 			 0:00	EU	GMT/BST
 
@@ -388,17 +489,29 @@ Zone	Europe/Guernsey	-0:09:19 -	LMT	1913 Jun 18
 # <http://www.legislation.gov.im>, starting with the original Statutory
 # Time Act in 1883 and including additional confirmation of some of
 # the dates of the 'Summer Time' orders originating at
+<<<<<<< HEAD
 # Westminster.  There is a little uncertinity as to the starting date
 # of the first summer time in 1916 which may have be announced a
 # couple of days late.  There is still a substatial number of
+=======
+# Westminster.  There is a little uncertainty as to the starting date
+# of the first summer time in 1916 which may have be announced a
+# couple of days late.  There is still a substantial number of
+>>>>>>> grandpa/master
 # documents to work through, but it is thought that every GB change
 # was also implemented on the island.
 #
 # AT4 of 1883 - The Statutory Time et cetera Act 1883 -
 # LMT Location - 54.1508N -4.4814E - Tynwald Hill ( Manx parliament )
+<<<<<<< HEAD
 Zone    Europe/Isle_of_Man -0:17:55 -    LMT 1883 March 30 0:00s
 			 0:00	GB-Eire	%s	1968 Oct 27
 			 1:00	-	BST	1971 Oct 31 2:00u
+=======
+Zone    Europe/Isle_of_Man -0:17:55 -    LMT 1883 March 30  0:00s
+			 0:00	GB-Eire	%s	1968 Oct 27
+			 1:00	-	BST	1971 Oct 31  2:00u
+>>>>>>> grandpa/master
 			 0:00	GB-Eire	%s	1996
 			 0:00	EU	GMT/BST
 
@@ -406,12 +519,20 @@ Zone    Europe/Isle_of_Man -0:17:55 -    LMT 1883 March 30 0:00s
 # Data from Joseph S. Myers
 # http://mm.icann.org/pipermail/tz/2013-September/019883.html
 # References to be added
+<<<<<<< HEAD
 # LMT Location - 49.187N -2.107E - St. Hellier
+=======
+# LMT Location - 49.187N -2.107E - St. Helier
+>>>>>>> grandpa/master
 Zone	Europe/Jersey	-0:08:25 -	LMT	1898 Jun 11 16:00u
 			 0:00	GB-Eire	%s	1940 Jul  2
 			 1:00	C-Eur	CE%sT	1945 May  8
 			 0:00	GB-Eire	%s	1968 Oct 27
+<<<<<<< HEAD
 			 1:00	-	BST	1971 Oct 31 2:00u
+=======
+			 1:00	-	BST	1971 Oct 31  2:00u
+>>>>>>> grandpa/master
 			 0:00	GB-Eire	%s	1996
 			 0:00	EU	GMT/BST
 

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+.\" Based on the UCB file whose copyright information appears below.
+>>>>>>> grandpa/master
 .\" Copyright (c) 1989, 1991 The Regents of the University of California.
 .\" All rights reserved.
 .\"
@@ -41,6 +45,7 @@
 strftime \- format date and time
 .SH SYNOPSIS
 .nf
+<<<<<<< HEAD
 .B #include <sys/types.h>
 .B #include <time.h>
 .PP
@@ -49,6 +54,14 @@ strftime \- format date and time
 .B size_t maxsize;
 .B const char *format;
 .B const struct tm *timeptr
+=======
+.ie \n(.g .ds - \f(CW-\fP
+.el ds - \-
+.B #include <time.h>
+.PP
+.B "size_t strftime(char *restrict buf, size_t maxsize,"
+.B "    char const *restrict format, struct tm const *restrict timeptr);"
+>>>>>>> grandpa/master
 .PP
 .B cc ... \-ltz
 .fi
@@ -56,6 +69,7 @@ strftime \- format date and time
 .ie '\(en'' .ds en \-
 .el .ds en \(en
 The
+<<<<<<< HEAD
 .Fn strftime
 function formats the information from
 .Fa timeptr
@@ -66,12 +80,25 @@ according to the string pointed to by
 .Pp
 The
 .Fa format
+=======
+.I strftime
+function formats the information from
+.I timeptr
+into the buffer
+.I buf
+according to the string pointed to by
+.IR format .
+.PP
+The
+.I format
+>>>>>>> grandpa/master
 string consists of zero or more conversion specifications and
 ordinary characters.
 All ordinary characters are copied directly into the buffer.
 A conversion specification consists of a percent sign
 .Ql %
 and one other character.
+<<<<<<< HEAD
 .Pp
 No more than
 .Fa maxsize
@@ -96,6 +123,36 @@ is replaced by the locale's full month name.
 .It Cm \&%b No or Cm \&%h
 is replaced by the locale's abbreviated month name.
 .It Cm \&%C
+=======
+.PP
+No more than
+.I maxsize
+characters are placed into the array.
+If the total number of resulting characters, including the terminating
+null character, is not more than
+.IR maxsize ,
+.I strftime
+returns the number of characters in the array, not counting the
+terminating null.
+Otherwise, zero is returned.
+.PP
+Each conversion specification is replaced by the characters as
+follows which are then copied into the buffer.
+.TP
+%A
+is replaced by the locale's full weekday name.
+.TP
+%a
+is replaced by the locale's abbreviated weekday name.
+.TP
+%B
+is replaced by the locale's full month name.
+.TP
+%b or %h
+is replaced by the locale's abbreviated month name.
+.TP
+%C
+>>>>>>> grandpa/master
 is replaced by the century (a year divided by 100 and truncated to an integer)
 as a decimal number (00\*(en99).
 .TP
@@ -113,7 +170,11 @@ is replaced by the day of month as a decimal number (1\*(en31);
 single digits are preceded by a blank.
 .TP
 %F
+<<<<<<< HEAD
 is replaced by the date in the format %Y-%m-%d.
+=======
+is replaced by the date in the format %Y\*-%m\*-%d.
+>>>>>>> grandpa/master
 .TP
 %G
 is replaced by the ISO 8601 year with century as a decimal number.
@@ -146,6 +207,7 @@ is replaced by the month as a decimal number (01\*(en12).
 .TP
 %n
 is replaced by a newline.
+<<<<<<< HEAD
 .It Cm %p
 is replaced by the locale's equivalent of either 
 .Dq Tn AM
@@ -156,6 +218,17 @@ is replaced by the time in the format
 .Dq Li %H:%M .
 .It Cm \&%r
 is replaced by the locale's representation of 12-hour clock time 
+=======
+.TP
+%p
+is replaced by the locale's equivalent of either AM or PM.
+.TP
+%R
+is replaced by the time in the format %H:%M.
+.TP
+%r
+is replaced by the locale's representation of 12-hour clock time
+>>>>>>> grandpa/master
 using AM/PM notation.
 .TP
 %S
@@ -169,12 +242,17 @@ is replaced by the time in the format %H:%M:%S.
 .TP
 %t
 is replaced by a tab.
+<<<<<<< HEAD
 .It Cm \&%S
 is replaced by the second as a decimal number (00-60).
 .It Cm %s
 is replaced by the number of seconds since the Epoch, UCT (see
 .Xr mktime 3 ) .
 .It Cm \&%U
+=======
+.TP
+%U
+>>>>>>> grandpa/master
 is replaced by the week number of the year (Sunday as the first day of
 the week) as a decimal number (00\*(en53).
 .TP
@@ -187,7 +265,12 @@ is replaced by the week number of the year (Monday as the first day of
 the week) as a decimal number (01\*(en53).  If the week containing January
 1 has four or more days in the new year, then it is week 1; otherwise
 it is week 53 of the previous year, and the next week is week 1.
+<<<<<<< HEAD
 .It Cm \&%W
+=======
+.TP
+%W
+>>>>>>> grandpa/master
 is replaced by the week number of the year (Monday as the first day of
 the week) as a decimal number (00\*(en53).
 .TP
@@ -200,9 +283,14 @@ is replaced by the locale's appropriate time representation.
 .TP
 %x
 is replaced by the locale's appropriate date representation.
+<<<<<<< HEAD
 .It Cm \&%x
 is replaced by the locale's appropriate time representation.
 .It Cm \&%Y
+=======
+.TP
+%Y
+>>>>>>> grandpa/master
 is replaced by the year with century as a decimal number.
 .TP
 %y
@@ -214,7 +302,11 @@ or by the empty string if this is not determinable.
 .TP
 %z
 is replaced by the offset from the Prime Meridian
+<<<<<<< HEAD
 in the format +HHMM or \(miHHMM as appropriate,
+=======
+in the format +HHMM or \*-HHMM as appropriate,
+>>>>>>> grandpa/master
 with positive values representing locations east of Greenwich,
 or by the empty string if this is not determinable.
 .TP

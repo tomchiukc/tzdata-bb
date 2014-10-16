@@ -25,11 +25,16 @@ BEGIN {
 	  tztab["America/Cayman"] = 1
 	  tztab["Asia/Aden"] = 1
 	  tztab["Asia/Bahrain"] = 1
+<<<<<<< HEAD
 	  tztab["Asia/Ho_Chi_Minh"] = 1
 	  tztab["Asia/Kuwait"] = 1
 	  tztab["Asia/Muscat"] = 1
 	  tztab["Asia/Phnom_Penh"] = 1
 	  tztab["Asia/Vientiane"] = 1
+=======
+	  tztab["Asia/Kuwait"] = 1
+	  tztab["Asia/Muscat"] = 1
+>>>>>>> grandpa/master
 	  tztab["Indian/Antananarivo"] = 1
 	  tztab["Indian/Comoro"] = 1
 	  tztab["Indian/Mayotte"] = 1
@@ -41,7 +46,11 @@ BEGIN {
 		iso_NR++
 		if ($0 ~ /^#/) continue
 		if (NF != 2) {
+<<<<<<< HEAD
 			printf "%s:%d: wrong number of columns\n",
+=======
+			printf "%s:%d: wrong number of columns\n", \
+>>>>>>> grandpa/master
 				iso_table, iso_NR >>"/dev/stderr"
 			status = 1
 		}
@@ -82,7 +91,11 @@ BEGIN {
 		zone_NR++
 		if ($0 ~ /^#/) continue
 		if (NF != 3 && NF != 4) {
+<<<<<<< HEAD
 			printf "%s:%d: wrong number of columns\n",
+=======
+			printf "%s:%d: wrong number of columns\n", \
+>>>>>>> grandpa/master
 				zone_table, zone_NR >>"/dev/stderr"
 			status = 1
 		}
@@ -97,13 +110,22 @@ BEGIN {
 			status = 1
 		}
 		cc0 = cc
+<<<<<<< HEAD
+=======
+		tztab[tz] = 1
+		tz2comments[tz] = comments
+		tz2NR[tz] = zone_NR
+>>>>>>> grandpa/master
 		for (i in cca) {
 		    cc = cca[i]
 		    cctz = cc tz
 		    cctztab[cctz] = 1
+<<<<<<< HEAD
 		    tztab[tz] = 1
 		    tz2comments[tz] = comments
 		    tz2NR[tz] = zone_NR
+=======
+>>>>>>> grandpa/master
 		    if (cc2name[cc]) {
 			cc_used[cc]++
 		    } else {
@@ -146,6 +168,11 @@ BEGIN {
 	FS = " "
 }
 
+<<<<<<< HEAD
+=======
+$1 ~ /^#/ { next }
+
+>>>>>>> grandpa/master
 {
 	tz = rules = ""
 	if ($1 == "Zone") {
@@ -159,6 +186,13 @@ BEGIN {
 		while ((i = index(src, "/"))) src = substr(src, i+1)
 		while ((i = index(dst, "/"))) dst = substr(dst, i+1)
 		if (src != dst) tz = $3
+<<<<<<< HEAD
+=======
+	} else if ($1 == "Rule") {
+		ruleDefined[$2] = 1
+	} else {
+		ruleUsed[$2] = 1
+>>>>>>> grandpa/master
 	}
 	if (tz && tz ~ /\//) {
 		if (!tztab[tz]) {
@@ -171,19 +205,37 @@ BEGIN {
 }
 
 END {
+<<<<<<< HEAD
 	for (tz in tz2cc) {
+=======
+	for (tz in ruleDefined) {
+		if (!ruleUsed[tz]) {
+			printf "%s: Rule never used\n", tz
+			status = 1
+		}
+	}
+	for (tz in tztab) {
+>>>>>>> grandpa/master
 		if (!zoneSeen[tz]) {
 			printf "%s:%d: no Zone table for '%s'\n", \
 				zone_table, tz2NR[tz], tz >>"/dev/stderr"
 			status = 1
 		}
 	}
+<<<<<<< HEAD
 
 	if (0 < want_warnings) {
 		for (cc in cc2name) {
 			if (!cc_used[cc]) {
 				printf "%s:%d: warning:" \
 					"no Zone entries for %s (%s)\n",
+=======
+	if (0 < want_warnings) {
+		for (cc in cc2name) {
+			if (!cc_used[cc]) {
+				printf "%s:%d: warning: " \
+					"no Zone entries for %s (%s)\n", \
+>>>>>>> grandpa/master
 					iso_table, cc2NR[cc], cc, cc2name[cc]
 			}
 		}

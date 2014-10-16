@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 #! /bin/ksh
 
 TZVERSION=see_Makefile
+=======
+#!/bin/bash
+
+PKGVERSION='(tzcode) '
+TZVERSION=see_Makefile
+REPORT_BUGS_TO=tz@iana.org
+>>>>>>> grandpa/master
 
 # Ask the user about the time zone, and output the resulting TZ value to stdout.
 # Interact with the user via stderr and stdin.
 
+<<<<<<< HEAD
 # Contributed by Paul Eggert <eggert@twinsun.com>.
 
 # Porting notes:
@@ -31,11 +40,41 @@ TZVERSION=see_Makefile
 #	mawk
 #	<URL:ftp://oxy.edu/public/mawk1.2.2.tar.gz>
 #	(or any later version)
+=======
+# Contributed by Paul Eggert.
+
+# Porting notes:
+#
+# This script requires a Posix-like shell and prefers the extension of a
+# 'select' statement.  The 'select' statement was introduced in the
+# Korn shell and is available in Bash and other shell implementations.
+# If your host lacks both Bash and the Korn shell, you can get their
+# source from one of these locations:
+#
+#	Bash <http://www.gnu.org/software/bash/bash.html>
+#	Korn Shell <http://www.kornshell.com/>
+#	Public Domain Korn Shell <http://www.cs.mun.ca/~michael/pdksh/>
+#
+# For portability to Solaris 9 /bin/sh this script avoids some POSIX
+# features and common extensions, such as $(...) (which works sometimes
+# but not others), $((...)), and $10.
+#
+# This script also uses several features of modern awk programs.
+# If your host lacks awk, or has an old awk that does not conform to Posix,
+# you can use either of the following free programs instead:
+#
+#	Gawk (GNU awk) <http://www.gnu.org/software/gawk/>
+#	mawk <http://invisible-island.net/mawk/>
+>>>>>>> grandpa/master
 
 
 # Specify default values for environment variables if they are unset.
 : ${AWK=awk}
+<<<<<<< HEAD
 : ${TZDIR=$(pwd)}
+=======
+: ${TZDIR=`pwd`}
+>>>>>>> grandpa/master
 
 # Check for awk Posix compliance.
 ($AWK -v x=y 'BEGIN { exit 123 }') </dev/null >/dev/null 2>&1
@@ -51,6 +90,7 @@ zonetabtype=zone1970
 usage="Usage: tzselect [--version] [--help] [-c COORD] [-n LIMIT]
 Select a time zone interactively.
 
+<<<<<<< HEAD
 Report bugs to tz@elsie.nci.nih.gov.
 EOF
     exit 0
@@ -62,6 +102,98 @@ EOF
 fi
 
 while getopts c:n:-: opt
+=======
+Options:
+
+  -c COORD
+    Instead of asking for continent and then country and then city,
+    ask for selection from time zones whose largest cities
+    are closest to the location with geographical coordinates COORD.
+    COORD should use ISO 6709 notation, for example, '-c +4852+00220'
+    for Paris (in degrees and minutes, North and East), or
+    '-c -35-058' for Buenos Aires (in degrees, South and West).
+
+  -n LIMIT
+    Display at most LIMIT locations when -c is used (default $location_limit).
+
+  --version
+    Output version information.
+
+  --help
+    Output this help.
+
+Report bugs to $REPORT_BUGS_TO."
+
+# Ask the user to select from the function's arguments,
+# and assign the selected argument to the variable 'select_result'.
+# Exit on EOF or I/O error.  Use the shell's 'select' builtin if available,
+# falling back on a less-nice but portable substitute otherwise.
+if
+  case $BASH_VERSION in
+  ?*) : ;;
+  '')
+    # '; exit' should be redundant, but Dash doesn't properly fail without it.
+    (eval 'set --; select x; do break; done; exit') </dev/null 2>/dev/null
+  esac
+then
+  # Do this inside 'eval', as otherwise the shell might exit when parsing it
+  # even though it is never executed.
+  eval '
+    doselect() {
+      select select_result
+      do
+	case $select_result in
+	"") echo >&2 "Please enter a number in range." ;;
+	?*) break
+	esac
+      done || exit
+    }
+
+    # Work around a bug in bash 1.14.7 and earlier, where $PS3 is sent to stdout.
+    case $BASH_VERSION in
+    [01].*)
+      case `echo 1 | (select x in x; do break; done) 2>/dev/null` in
+      ?*) PS3=
+      esac
+    esac
+  '
+else
+  doselect() {
+    # Field width of the prompt numbers.
+    select_width=`expr $# : '.*'`
+
+    select_i=
+
+    while :
+    do
+      case $select_i in
+      '')
+	select_i=0
+	for select_word
+	do
+	  select_i=`expr $select_i + 1`
+	  printf >&2 "%${select_width}d) %s\\n" $select_i "$select_word"
+	done ;;
+      *[!0-9]*)
+	echo >&2 'Please enter a number in range.' ;;
+      *)
+	if test 1 -le $select_i && test $select_i -le $#; then
+	  shift `expr $select_i - 1`
+	  select_result=$1
+	  break
+	fi
+	echo >&2 'Please enter a number in range.'
+      esac
+
+      # Prompt and read input.
+      printf >&2 %s "${PS3-#? }"
+      read select_i || exit
+    done
+  }
+fi
+
+while getopts c:n:t:-: opt
+>>>>>>> grandpa/master
 do
     case $opt$OPTARG in
     c*)
@@ -113,7 +245,17 @@ output_distances='
         country[$1] = $2
     country["US"] = "US" # Otherwise the strings get too long.
   }
+<<<<<<< HEAD
   function convert_coord(coord, deg, min, ilen, sign, sec) {
+=======
+  function abs(x) {
+    return x < 0 ? -x : x;
+  }
+  function min(x, y) {
+    return x < y ? x : y;
+  }
+  function convert_coord(coord, deg, minute, ilen, sign, sec) {
+>>>>>>> grandpa/master
     if (coord ~ /^[-+]?[0-9]?[0-9][0-9][0-9][0-9][0-9][0-9]([^0-9]|$)/) {
       degminsec = coord
       intdeg = degminsec < 0 ? -int(-degminsec / 10000) : int(degminsec / 10000)
@@ -124,8 +266,13 @@ output_distances='
     } else if (coord ~ /^[-+]?[0-9]?[0-9][0-9][0-9][0-9]([^0-9]|$)/) {
       degmin = coord
       intdeg = degmin < 0 ? -int(-degmin / 100) : int(degmin / 100)
+<<<<<<< HEAD
       min = degmin - intdeg * 100
       deg = (intdeg * 60 + min) / 60
+=======
+      minute = degmin - intdeg * 100
+      deg = (intdeg * 60 + minute) / 60
+>>>>>>> grandpa/master
     } else
       deg = coord
     return deg * 0.017453292519943296
@@ -141,7 +288,11 @@ output_distances='
   # Great-circle distance between points with given latitude and longitude.
   # Inputs and output are in radians.  This uses the great-circle special
   # case of the Vicenty formula for distances on ellipsoids.
+<<<<<<< HEAD
   function dist(lat1, long1, lat2, long2, dlong, x, y, num, denom) {
+=======
+  function gcdist(lat1, long1, lat2, long2, dlong, x, y, num, denom) {
+>>>>>>> grandpa/master
     dlong = long2 - long1
     x = cos (lat2) * sin (dlong)
     y = cos (lat1) * sin (lat2) - sin (lat1) * cos (lat2) * cos (dlong)
@@ -149,6 +300,22 @@ output_distances='
     denom = sin (lat1) * sin (lat2) + cos (lat1) * cos (lat2) * cos (dlong)
     return atan2(num, denom)
   }
+<<<<<<< HEAD
+=======
+  # Parallel distance between points with given latitude and longitude.
+  # This is the product of the longitude difference and the cosine
+  # of the latitude of the point that is further from the equator.
+  # I.e., it considers longitudes to be further apart if they are
+  # nearer the equator.
+  function pardist(lat1, long1, lat2, long2) {
+    return abs (long1 - long2) * min (cos (lat1), cos (lat2))
+  }
+  # The distance function is the sum of the great-circle distance and
+  # the parallel distance.  It could be weighted.
+  function dist(lat1, long1, lat2, long2) {
+    return gcdist (lat1, long1, lat2, long2) + pardist (lat1, long1, lat2, long2)
+  }
+>>>>>>> grandpa/master
   BEGIN {
     coord_lat = convert_latitude(coord)
     coord_long = convert_longitude(coord)
@@ -179,6 +346,13 @@ while
 	country=
 	region=
 
+<<<<<<< HEAD
+=======
+	case $coord in
+	?*)
+		continent=coord;;
+	'')
+>>>>>>> grandpa/master
 
 	# Ask the user for continent or ocean.
 
@@ -207,6 +381,7 @@ while
 		"TZ - I want to specify the time zone using the Posix TZ format."
 	    continent=$select_result
 	    case $continent in
+<<<<<<< HEAD
 	    '')
 		echo >&2 'Please enter a number in range.';;
 	    ?*)
@@ -221,6 +396,16 @@ while
 	'')
 		exit 1;;
 	none)
+=======
+	    Americas) continent=America;;
+	    *" "*) continent=`expr "$continent" : '\''\([^ ]*\)'\''`
+	    esac
+	'
+	esac
+
+	case $continent in
+	TZ)
+>>>>>>> grandpa/master
 		# Ask the user for a Posix TZ string.  Check that it conforms.
 		while
 			echo >&2 'Please enter the desired value' \
@@ -280,10 +465,18 @@ while
 		    ;;
 		*)
 		# Get list of names of countries in the continent or ocean.
+<<<<<<< HEAD
 		countries=$($AWK -F'\t' \
 			-v continent="$continent" \
 			-v TZ_COUNTRY_TABLE="$TZ_COUNTRY_TABLE" \
 		'
+=======
+		countries=`$AWK \
+			-v continent="$continent" \
+			-v TZ_COUNTRY_TABLE="$TZ_COUNTRY_TABLE" \
+		'
+			BEGIN { FS = "\t" }
+>>>>>>> grandpa/master
 			/^#/ { next }
 			$3 ~ ("^" continent "/") {
 			    ncc = split($1, cc, /,/)
@@ -308,6 +501,7 @@ while
 		# If there's more than one country, ask the user which one.
 		case $countries in
 		*"$newline"*)
+<<<<<<< HEAD
 			echo >&2 'Please select a country.'
 			select country in $countries
 			do
@@ -320,17 +514,31 @@ while
 			case $country in
 			'') exit 1
 			esac;;
+=======
+			echo >&2 'Please select a country' \
+				'whose clocks agree with yours.'
+			doselect $countries
+			country=$select_result;;
+>>>>>>> grandpa/master
 		*)
 			country=$countries
 		esac
 
 
 		# Get list of names of time zone rule regions in the country.
+<<<<<<< HEAD
 		regions=$($AWK -F'\t' \
+=======
+		regions=`$AWK \
+>>>>>>> grandpa/master
 			-v country="$country" \
 			-v TZ_COUNTRY_TABLE="$TZ_COUNTRY_TABLE" \
 		'
 			BEGIN {
+<<<<<<< HEAD
+=======
+				FS = "\t"
+>>>>>>> grandpa/master
 				cc = country
 				while (getline <TZ_COUNTRY_TABLE) {
 					if ($0 !~ /^#/  &&  country == $2) {
@@ -348,6 +556,7 @@ while
 		*"$newline"*)
 			echo >&2 'Please select one of the following' \
 				'time zone regions.'
+<<<<<<< HEAD
 			select region in $regions
 			do
 				case $region in
@@ -358,17 +567,29 @@ while
 			case $region in
 			'') exit 1
 			esac;;
+=======
+			doselect $regions
+			region=$select_result;;
+>>>>>>> grandpa/master
 		*)
 			region=$regions
 		esac
 
 		# Determine TZ from country and region.
+<<<<<<< HEAD
 		TZ=$($AWK -F'\t' \
+=======
+		TZ=`$AWK \
+>>>>>>> grandpa/master
 			-v country="$country" \
 			-v region="$region" \
 			-v TZ_COUNTRY_TABLE="$TZ_COUNTRY_TABLE" \
 		'
 			BEGIN {
+<<<<<<< HEAD
+=======
+				FS = "\t"
+>>>>>>> grandpa/master
 				cc = country
 				while (getline <TZ_COUNTRY_TABLE) {
 					if ($0 !~ /^#/  &&  country == $2) {
@@ -397,10 +618,17 @@ while
 	extra_info=
 	for i in 1 2 3 4 5 6 7 8
 	do
+<<<<<<< HEAD
 		TZdate=$(LANG=C TZ="$TZ_for_date" date)
 		UTdate=$(LANG=C TZ=UTC0 date)
 		TZsec=$(expr "$TZdate" : '.*:\([0-5][0-9]\)')
 		UTsec=$(expr "$UTdate" : '.*:\([0-5][0-9]\)')
+=======
+		TZdate=`LANG=C TZ="$TZ_for_date" date`
+		UTdate=`LANG=C TZ=UTC0 date`
+		TZsec=`expr "$TZdate" : '.*:\([0-5][0-9]\)'`
+		UTsec=`expr "$UTdate" : '.*:\([0-5][0-9]\)'`
+>>>>>>> grandpa/master
 		case $TZsec in
 		$UTsec)
 			extra_info="
@@ -416,15 +644,24 @@ Universal Time is now:	$UTdate."
 	echo >&2 ""
 	echo >&2 "The following information has been given:"
 	echo >&2 ""
+<<<<<<< HEAD
 	case $country+$region in
 	?*+?*)	echo >&2 "	$country$newline	$region";;
 	?*+)	echo >&2 "	$country";;
+=======
+	case $country%$region%$coord in
+	?*%?*%)	echo >&2 "	$country$newline	$region";;
+	?*%%)	echo >&2 "	$country";;
+	%?*%?*) echo >&2 "	coord $coord$newline	$region";;
+	%%?*)	echo >&2 "	coord $coord";;
+>>>>>>> grandpa/master
 	+)	echo >&2 "	TZ='$TZ'"
 	esac
 	echo >&2 ""
 	echo >&2 "Therefore TZ='$TZ' will be used.$extra_info"
 	echo >&2 "Is the above information OK?"
 
+<<<<<<< HEAD
 	ok=
 	select ok in Yes No
 	do
@@ -441,4 +678,27 @@ do :
 done
 
 # Output the answer.
+=======
+	doselect Yes No
+	ok=$select_result
+	case $ok in
+	Yes) break
+	esac
+do coord=
+done
+
+case $SHELL in
+*csh) file=.login line="setenv TZ '$TZ'";;
+*) file=.profile line="TZ='$TZ'; export TZ"
+esac
+
+echo >&2 "
+You can make this change permanent for yourself by appending the line
+	$line
+to the file '$file' in your home directory; then log out and log in again.
+
+Here is that TZ value again, this time on standard output so that you
+can use the $0 command in shell scripts:"
+
+>>>>>>> grandpa/master
 echo "$TZ"

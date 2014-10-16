@@ -3,7 +3,11 @@
 tzfile \- time zone information
 .SH SYNOPSIS
 .B
+<<<<<<< HEAD
 #include "tzfile.h"
+=======
+#include <tzfile.h>
+>>>>>>> grandpa/master
 .SH DESCRIPTION
 The time zone information files used by
 .IR tzset (3)
@@ -60,6 +64,7 @@ these structures are defined as follows:
 .in +.5i
 .sp
 .nf
+<<<<<<< HEAD
 .in +.5i
 .ta .5i +\w'struct dsinfo  'u
 struct dsinfo {
@@ -118,6 +123,73 @@ should be set by
 .I Newlocaltime
 uses the first element of
 .B tz_dsinfo
+=======
+.ta .5i +\w'unsigned char\0\0'u
+struct ttinfo {
+	int32_t	tt_gmtoff;
+	unsigned char	tt_isdst;
+	unsigned char	tt_abbrind;
+};
+.in -.5i
+.fi
+.sp
+Each structure is written as a four-byte signed integer value for
+.IR tt_gmtoff ,
+in a standard byte order, followed by a one-byte value for
+.I tt_isdst
+and a one-byte value for
+.IR tt_abbrind .
+In each structure,
+.I tt_gmtoff
+gives the number of seconds to be added to UT,
+.I tt_isdst
+tells whether
+.I tm_isdst
+should be set by
+.I localtime (3)
+and
+.I tt_abbrind
+serves as an index into the array of time zone abbreviation characters
+that follow the
+.I ttinfo
+structure(s) in the file.
+.PP
+Then there are
+.I tzh_leapcnt
+pairs of four-byte values, written in standard byte order;
+the first value of each pair gives the time
+(as returned by
+.IR time(2))
+at which a leap second occurs;
+the second gives the
+.I total
+number of leap seconds to be applied after the given time.
+The pairs of values are sorted in ascending order by time.
+.PP
+Then there are
+.I tzh_ttisstdcnt
+standard/wall indicators, each stored as a one-byte value;
+they tell whether the transition times associated with local time types
+were specified as standard time or wall clock time,
+and are used when a time zone file is used in handling POSIX-style
+time zone environment variables.
+.PP
+Finally there are
+.I tzh_ttisgmtcnt
+UT/local indicators, each stored as a one-byte value;
+they tell whether the transition times associated with local time types
+were specified as UT or local time,
+and are used when a time zone file is used in handling POSIX-style
+time zone environment variables.
+.PP
+.I Localtime
+uses the first standard-time
+.I ttinfo
+structure in the file
+(or simply the first
+.I ttinfo
+structure in the absence of a standard-time structure)
+>>>>>>> grandpa/master
 if either
 .I tzh_timecnt
 is zero or the time argument is less than the first transition time recorded
@@ -132,11 +204,27 @@ POSIX-TZ-environment-variable-style string for use in handling instants
 after the last transition time stored in the file
 (with nothing between the newlines if there is no POSIX representation for
 such instants).
+<<<<<<< HEAD
 This string may use a minor extension to the POSIX TZ format: the
 hours part of its transition times may be signed and range from
 \(mi167 through 167 instead of the POSIX-required unsigned values
 from 0 through 24.
 .SH SEE ALSO
 newctime(3), newtzset(3)
+=======
+.PP
+For version-3-format time zone files, the POSIX-TZ-style string may
+use two minor extensions to the POSIX TZ format, as described in
+.IR newtzset (3).
+First, the hours part of its transition times may be signed and range from
+\-167 through 167 instead of the POSIX-required unsigned values
+from 0 through 24.  Second, DST is in effect all year if it starts
+January 1 at 00:00 and ends December 31 at 24:00 plus the difference
+between daylight saving and standard time.
+.PP
+Future changes to the format may append more data.
+.SH SEE ALSO
+newctime(3), newtzset(3), zdump(8), zic(8)
+>>>>>>> grandpa/master
 .\" This file is in the public domain, so clarified as of
 .\" 1996-06-05 by Arthur David Olson.

@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> grandpa/master
 # This file is in the public domain, so clarified as of
 # 2009-05-17 by Arthur David Olson.
 
 # also includes Central America and the Caribbean
 
+<<<<<<< HEAD
 # This data is by no means authoritative; if you think you know better,
+=======
+# This file is by no means authoritative; if you think you know better,
+>>>>>>> grandpa/master
 # go ahead and edit the file (and please send any changes to
 # tz@iana.org for general use in the future).  For more, please see
 # the file CONTRIBUTING in the tz distribution.
@@ -278,6 +285,15 @@ Zone	PST8PDT		 -8:00	US	P%sT
 # time zone, but we do go by the Eastern time zone because so many people work
 # in Columbus."
 
+<<<<<<< HEAD
+=======
+# From Paul Eggert (2014-09-06):
+# Monthly Notices of the Royal Astronomical Society 44, 4 (1884-02-08), 208
+# says that New York City Hall time was 3 minutes 58.4 seconds fast of
+# Eastern time (i.e., -4:56:01.6) just before the 1883 switch.  Round to the
+# nearest second.
+
+>>>>>>> grandpa/master
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER
 Rule	NYC	1920	only	-	Mar	lastSun	2:00	1:00	D
 Rule	NYC	1920	only	-	Oct	lastSun	2:00	0	S
@@ -342,7 +358,11 @@ Zone America/North_Dakota/Center -6:45:12 - LMT	1883 Nov 18 12:14:48
 # Jones, Mellette, and Todd Counties in South Dakota;
 # but in practice these other counties were already observing central time.
 # See <http://www.epa.gov/fedrgstr/EPA-IMPACT/2003/October/Day-28/i27056.htm>.
+<<<<<<< HEAD
 Zone America/North_Dakota/New_Salem -6:45:39 - LMT 1883 Nov 18 12:14:21
+=======
+Zone America/North_Dakota/New_Salem -6:45:39 - LMT	1883 Nov 18 12:14:21
+>>>>>>> grandpa/master
 			-7:00	US	M%sT	2003 Oct 26  2:00
 			-6:00	US	C%sT
 
@@ -360,7 +380,11 @@ Zone America/North_Dakota/New_Salem -6:45:39 - LMT 1883 Nov 18 12:14:21
 # at 47 degrees 15' 51" N, 101 degrees 46' 40" W, which yields an offset
 # of 6h47'07".
 
+<<<<<<< HEAD
 Zone America/North_Dakota/Beulah -6:47:07 - LMT 1883 Nov 18 12:12:53
+=======
+Zone America/North_Dakota/Beulah -6:47:07 - LMT	1883 Nov 18 12:12:53
+>>>>>>> grandpa/master
 			-7:00	US	M%sT	2010 Nov  7  2:00
 			-6:00	US	C%sT
 
@@ -590,8 +614,19 @@ Zone America/Adak	 12:13:21 -	LMT	1867 Oct 18
 # Note that 1933-05-21 was a Sunday.
 # We're left to guess the time of day when Act 163 was approved; guess noon.
 
+<<<<<<< HEAD
 			-10:00	-	HST
 
+=======
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone Pacific/Honolulu	-10:31:26 -	LMT	1896 Jan 13 12:00
+			-10:30	-	HST	1933 Apr 30  2:00
+			-10:30	1:00	HDT	1933 May 21 12:00
+			-10:30	-	HST	1942 Feb  9  2:00
+			-10:30	1:00	HDT	1945 Sep 30  2:00
+			-10:30	-	HST	1947 Jun  8  2:00
+			-10:00	-	HST
+>>>>>>> grandpa/master
 Link Pacific/Honolulu Pacific/Johnston
 
 # Now we turn to US areas that have diverged from the consensus since 1970.
@@ -617,6 +652,10 @@ Link Pacific/Honolulu Pacific/Johnston
 # Shanks says the 1944 experiment came to an end on 1944-03-17.
 # Go with the Arizona State Library instead.
 
+<<<<<<< HEAD
+=======
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+>>>>>>> grandpa/master
 Zone America/Phoenix	-7:28:18 -	LMT	1883 Nov 18 11:31:42
 			-7:00	US	M%sT	1944 Jan  1  0:01
 			-7:00	-	MST	1944 Apr  1  0:01
@@ -652,8 +691,12 @@ Zone America/Boise	-7:44:49 -	LMT	1883 Nov 18 12:15:11
 # Indiana
 #
 # For a map of Indiana's time zone regions, see:
+<<<<<<< HEAD
 # What time is it in Indiana? (2006-03-01)
 # http://www.mccsc.edu/time.html
+=======
+# http://en.wikipedia.org/wiki/Time_in_Indiana
+>>>>>>> grandpa/master
 #
 # From Paul Eggert (2007-08-17):
 # Since 1970, most of Indiana has been like America/Indiana/Indianapolis,
@@ -679,6 +722,7 @@ Zone America/Boise	-7:44:49 -	LMT	1883 Nov 18 12:15:11
 # that they would be ambiguous if we left them at the 'America' level.
 # So we reluctantly put them all in a subdirectory 'America/Indiana'.
 
+<<<<<<< HEAD
 # From Paul Eggert (2005-08-16):
 # http://www.mccsc.edu/time.html says that Indiana will use DST starting 2006.
 
@@ -695,6 +739,18 @@ Zone America/Boise	-7:44:49 -	LMT	1883 Nov 18 12:15:11
 # Strictly speaking, this means the affected counties will change their
 # clocks twice that night, but this obviously is in error.  The intent
 # is that 01:59:59 EST be followed by 02:00:00 CDT.
+=======
+# From Paul Eggert (2014-06-26):
+# https://www.federalregister.gov/articles/2006/01/20/06-563/standard-time-zone-boundary-in-the-state-of-indiana
+# says "DOT is relocating the time zone boundary in Indiana to move Starke,
+# Pulaski, Knox, Daviess, Martin, Pike, Dubois, and Perry Counties from the
+# Eastern Time Zone to the Central Time Zone.... The effective date of
+# this rule is 2 a.m. EST Sunday, April 2, 2006, which is the
+# changeover date from standard time to Daylight Saving Time."
+# Strictly speaking, this meant the affected counties changed their
+# clocks twice that night, but this obviously was in error.  The intent
+# was that 01:59:59 EST be followed by 02:00:00 CDT.
+>>>>>>> grandpa/master
 
 # From Gwillim Law (2007-02-10):
 # The Associated Press has been reporting that Pulaski County, Indiana is
@@ -706,7 +762,11 @@ Rule Indianapolis 1941	only	-	Jun	22	2:00	1:00	D
 Rule Indianapolis 1941	1954	-	Sep	lastSun	2:00	0	S
 Rule Indianapolis 1946	1954	-	Apr	lastSun	2:00	1:00	D
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+<<<<<<< HEAD
 Zone America/Indiana/Indianapolis -5:44:38 - LMT 1883 Nov 18 12:15:22
+=======
+Zone America/Indiana/Indianapolis -5:44:38 - LMT	1883 Nov 18 12:15:22
+>>>>>>> grandpa/master
 			-6:00	US	C%sT	1920
 			-6:00 Indianapolis C%sT	1942
 			-6:00	US	C%sT	1946
@@ -1021,7 +1081,11 @@ Zone America/Menominee	-5:50:27 -	LMT	1885 Sep 18 12:00
 # I post here the time zone abbreviations standardized in Canada
 # for both English and French in the CAN/CSA-Z234.4-89 standard....
 #
+<<<<<<< HEAD
 #	UTC	Standard time	Daylight savings time
+=======
+#	UTC	Standard time	Daylight saving time
+>>>>>>> grandpa/master
 #	offset	French	English	French	English
 #	-2:30	-	-	HAT	NDT
 #	-3	-	-	HAA	ADT
@@ -1360,6 +1424,7 @@ Rule	Mont	1922	only	-	Apr	30	2:00	1:00	D
 Rule	Mont	1924	only	-	May	17	2:00	1:00	D
 Rule	Mont	1924	1926	-	Sep	lastSun	2:30	0	S
 Rule	Mont	1925	1926	-	May	Sun>=1	2:00	1:00	D
+<<<<<<< HEAD
 # The 1927-to-1937 rules can be expressed more simply as
 # Rule	Mont	1927	1937	-	Apr	lastSat	24:00	1:00	D
 # Rule	Mont	1927	1937	-	Sep	lastSat	24:00	0	S
@@ -1372,6 +1437,12 @@ Rule	Mont	1932	only	-	May	1	0:00	1:00	D
 Rule	Mont	1933	1940	-	Apr	lastSun	0:00	1:00	D
 Rule	Mont	1933	only	-	Oct	1	0:00	0	S
 Rule	Mont	1934	1939	-	Sep	lastSun	0:00	0	S
+=======
+Rule	Mont	1927	1937	-	Apr	lastSat	24:00	1:00	D
+Rule	Mont	1927	1937	-	Sep	lastSat	24:00	0	S
+Rule	Mont	1938	1940	-	Apr	lastSun	0:00	1:00	D
+Rule	Mont	1938	1939	-	Sep	lastSun	0:00	0	S
+>>>>>>> grandpa/master
 Rule	Mont	1946	1973	-	Apr	lastSun	2:00	1:00	D
 Rule	Mont	1945	1948	-	Sep	lastSun	2:00	0	S
 Rule	Mont	1949	1950	-	Oct	lastSun	2:00	0	S
@@ -1486,7 +1557,11 @@ Zone America/Montreal	-4:54:16 -	LMT	1884
 # I only came across this incidentally.  I don't know if Windsor began
 # observing DST when Detroit did, or in 1974, or on some other date.
 #
+<<<<<<< HEAD
 #	#include "time.h"
+=======
+# By the way, the article continues by noting that:
+>>>>>>> grandpa/master
 #
 #     Some cities in the United States have pushed the deadline back
 #     three weeks and will change over from daylight saving in October.
@@ -1508,7 +1583,11 @@ Zone America/Montreal	-4:54:16 -	LMT	1884
 # ing in 1930. The information for the province of Quebec is definite,
 # for the other provinces only approximate:
 #
+<<<<<<< HEAD
 # 	Province	Daylight saving time used
+=======
+#	Province	Daylight saving time used
+>>>>>>> grandpa/master
 # Prince Edward Island	Not used.
 # Nova Scotia		In Halifax only.
 # New Brunswick		In St. John only.
@@ -1526,8 +1605,13 @@ Zone America/Montreal	-4:54:16 -	LMT	1884
 #			Melbourne	La Tuque
 #			St. Théophile	Buckingham
 # Ontario		Used generally in the cities and towns along
+<<<<<<< HEAD
 # 			the southerly part of the province. Not
 # 			used in the northwesterlhy part.
+=======
+#			the southerly part of the province. Not
+#			used in the northwesterly part.
+>>>>>>> grandpa/master
 # Manitoba		Not used.
 # Saskatchewan		In Regina only.
 # Alberta		Not used.
@@ -1817,9 +1901,15 @@ Zone America/Edmonton	-7:33:52 -	LMT	1906 Sep
 # Unfortunately the exact date for the time change in June 1918 remains
 # unknown and will be difficult to ascertain.  I e-mailed Tammy a few months
 # ago to ask if Sunday June 2 was a reasonable guess.  She said it was just
+<<<<<<< HEAD
 # as plausible as any other date (in June).  She also said that after writing the
 # article she had discovered another time change in 1916; this is the subject
 # of another article which she wrote in October 2010.
+=======
+# as plausible as any other date (in June).  She also said that after writing
+# the article she had discovered another time change in 1916; this is the
+# subject of another article which she wrote in October 2010.
+>>>>>>> grandpa/master
 # http://www.creston.museum.bc.ca/index.php?module=comments&uop=view_comment&cm+id=56
 
 # Here is a summary of the three clock change events in Creston's history:
@@ -2244,7 +2334,11 @@ Zone America/Dawson	-9:17:40 -	LMT	1900 Aug 20
 # saving all year) will follow the original decree of president
 # Vicente Fox, starting daylight saving May 6, 2001 and ending
 # September 30, 2001.
+<<<<<<< HEAD
 # References: "Diario de Monterrey" <www.diariodemonterrey.com/index.asp>
+=======
+# References: "Diario de Monterrey" <http://www.diariodemonterrey.com/index.asp>
+>>>>>>> grandpa/master
 # Palabra <http://palabra.infosel.com/010331/primera/ppri3101.pdf> (2001-03-31)
 
 # From Reuters (2001-09-04):
@@ -2340,7 +2434,11 @@ Zone America/Monterrey	-6:41:16 -	LMT	1921 Dec 31 23:18:44
 			-6:00	US	C%sT	1989
 			-6:00	Mexico	C%sT
 # Central Mexico
+<<<<<<< HEAD
 Zone America/Mexico_City -6:36:36 -	LMT	1922 Jan  1 0:23:24
+=======
+Zone America/Mexico_City -6:36:36 -	LMT	1922 Jan  1  0:23:24
+>>>>>>> grandpa/master
 			-7:00	-	MST	1927 Jun 10 23:00
 			-6:00	-	CST	1930 Nov 15
 			-7:00	-	MST	1931 May  1 23:00
@@ -2350,7 +2448,11 @@ Zone America/Mexico_City -6:36:36 -	LMT	1922 Jan  1 0:23:24
 			-6:00	-	CST	2002 Feb 20
 			-6:00	Mexico	C%sT
 # Chihuahua (near US border)
+<<<<<<< HEAD
 Zone America/Ojinaga	-6:57:40 -	LMT	1922 Jan 1 0:02:20
+=======
+Zone America/Ojinaga	-6:57:40 -	LMT	1922 Jan  1  0:02:20
+>>>>>>> grandpa/master
 			-7:00	-	MST	1927 Jun 10 23:00
 			-6:00	-	CST	1930 Nov 15
 			-7:00	-	MST	1931 May  1 23:00
@@ -2638,7 +2740,11 @@ Zone America/Costa_Rica	-5:36:13 -	LMT	1890        # San José
 # to the normal schedule....
 
 # From Paul Eggert (2007-03-02):
+<<<<<<< HEAD
 # http://www.granma.cubaweb.cu/english/news/art89.html, dated yesterday,
+=======
+# <http://www.granma.cubaweb.cu/english/news/art89.html>, dated yesterday,
+>>>>>>> grandpa/master
 # says Cuban clocks will advance at midnight on March 10.
 # For lack of better information, assume Cuba will use US rules,
 # except that it switches at midnight standard time as usual.
@@ -2855,7 +2961,11 @@ Zone America/El_Salvador -5:56:48 -	LMT	1921 # San Salvador
 #
 # From Gwillim Law (2006-04-22), after a heads-up from Oscar van Vlijmen:
 # Diario Co Latino, at
+<<<<<<< HEAD
 # http://www.diariocolatino.com/internacionales/detalles.asp?NewsID=8079,
+=======
+# <http://www.diariocolatino.com/internacionales/detalles.asp?NewsID=8079>,
+>>>>>>> grandpa/master
 # says in an article dated 2006-04-19 that the Guatemalan government had
 # decided on that date to advance official time by 60 minutes, to lessen the
 # impact of the elevated cost of oil....  Daylight saving time will last from
@@ -3062,7 +3172,11 @@ Zone America/Martinique	-4:04:20 -      LMT	1890        # Fort-de-France
 # (my informal translation)
 # By order of the president of the republic, Enrique Bolaños, Nicaragua
 # advanced by sixty minutes their official time, yesterday at 2 in the
+<<<<<<< HEAD
 # morning, and will stay that way until 30.th. of september.
+=======
+# morning, and will stay that way until 30th of September.
+>>>>>>> grandpa/master
 #
 # From Jesper Nørgaard Welen (2006-09-30):
 # http://www.presidencia.gob.ni/buscador_gaceta/BD/DECRETOS/2006/D-063-2006P-PRN-Cambio-Hora.pdf
@@ -3133,6 +3247,7 @@ Zone America/Miquelon	-3:44:40 -	LMT	1911 May 15 # St Pierre
 # Clocks are set back one hour at 2:00 a.m. local Daylight Saving Time"
 # indicating that the normal ET rules are followed.
 #
+<<<<<<< HEAD
 # From Paul Eggert (2006-05-01):
 # Shanks & Pottenger say they use US DST rules, but IATA SSIM (1991/1998)
 # says they switch at midnight.  Go with Shanks & Pottenger.
@@ -3147,6 +3262,19 @@ Rule	TC	2007	max	-	Nov	Sun>=1	2:00	0	S
 Zone America/Grand_Turk	-4:44:32 -	LMT	1890
 			-5:07:11 -	KMT	1912 Feb # Kingston Mean Time
 			-5:00	TC	E%sT
+=======
+# From Paul Eggert (2014-08-19):
+# The 2014-08-13 Cabinet meeting decided to stay on UTC-4 year-round.  See:
+# http://tcweeklynews.com/daylight-savings-time-to-be-maintained-p5353-127.htm
+# Model this as a switch from EST/EDT to AST on 2014-11-02 at 02:00.
+#
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone America/Grand_Turk	-4:44:32 -	LMT	1890
+			-5:07:11 -	KMT	1912 Feb # Kingston Mean Time
+			-5:00	-	EST	1979
+			-5:00	US	E%sT	2014 Nov  2  2:00
+			-4:00	-	AST
+>>>>>>> grandpa/master
 
 # British Virgin Is
 # Virgin Is

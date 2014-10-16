@@ -112,16 +112,17 @@ POSIX has the following properties and limitations.
 These are the extensions that have been made to the POSIX functions:
 
 *	The "TZ" environment variable is used in generating the name of a file
-	from which time zone information is read; "TZ" is no longer constrained
-	to be a three-letter time zone name followed by a number of hours and
-	an optional three-letter daylight time zone name.  The daylight saving
-	time rules to be used for a particular time zone are encoded in the
-	time zone file; the format of the file allows U.S., Australian, and
-	other rules to be encoded, and allows for situations where more than
-	two time zone abbreviations are used.
+	from which time zone information is read (or is interpreted a la
+	POSIX); "TZ" is no longer constrained to be a three-letter time zone
+	name followed by a number of hours and an optional three-letter
+	daylight time zone name.  The daylight saving time rules to be used
+	for a particular time zone are encoded in the time zone file;
+	the format of the file allows U.S., Australian, and other rules to be
+	encoded, and allows for situations where more than two time zone
+	abbreviations are used.
 
-	It was recognized that allowing the "TZ" envirnoment variable to
-	take on values such as "US/Eastern" might cause "old" programs
+	It was recognized that allowing the "TZ" environment variable to
+	take on values such as "America/New_York" might cause "old" programs
 	(that expect "TZ" to have a certain form) to operate incorrectly;
 	consideration was given to using some other environment variable
 	(for example, "TIMEZONE") to hold the string used to generate the
@@ -129,37 +130,37 @@ These are the extensions that have been made to the POSIX functions:
 	to continue using "TZ": it is widely used for time zone purposes;
 	separately maintaining both "TZ" and "TIMEZONE" seemed a nuisance;
 	and systems where "new" forms of "TZ" might cause problems can simply
-	give time zone files names such as "EST5EDT" which can be used both by
-	"new" programs (as file names) and "old" programs (as zone names and
+	use TZ values such as "EST5EDT" which can be used both by
+	"new" programs (a la POSIX) and "old" programs (as zone names and
 	offsets).
 
 *	To handle places where more than two time zone abbreviations are used,
 	the functions "localtime" and "gmtime" set tzname[tmp->tm_isdst]
 	(where "tmp" is the value the function returns) to the time zone
-	abbreviation to be used.  This differs from SVR2, where the elements
+	abbreviation to be used.  This differs from POSIX, where the elements
 	of tzname are only changed as a result of calls to tzset.
 
 *	Since the "TZ" environment variable can now be used to control time
 	conversion, the "daylight" and "timezone" variables are no longer
-	needed or supported.  (You can use a compile-time option to cause
-	these variables to be defined and to be set by "tzset"; however, their
+	needed.  (These variables are defined and set by "tzset"; however, their
 	values will not be used by "localtime.")
 
 *	The "localtime" function has been set up to deliver correct results
-	for near-minimum or near-maximum time_t values.  (You can use a
-	compile-time option to make localtime behave--incorrectly--in the
-	same way SVR2's localtime does.)
+	for near-minimum or near-maximum time_t values.  (A comment in the
+	source code tells how to get compatibly wrong results).
 
 *	A function "tzsetwall" has been added to arrange for the system's
 	best approximation to local wall clock time to be delivered by
 	subsequent calls to "localtime."  Source code for portable
 	applications that "must" run on local wall clock time should call
-	"tzsetwall;" if such code is moved to "old" systems that don't provide
-	tzsetwall, you won't be able to generate an executable program.
+	"tzsetwall();" if such code is moved to "old" systems that don't
+	provide tzsetwall, you won't be able to generate an executable program.
 	(These time zone functions also arrange for local wall clock time to be
 	used if tzset is called - directly or indirectly - and there's no "TZ"
 	environment variable; portable applications should not, however, rely
 	on this behavior since it's not the way SVR2 systems behave.)
+
+*	Negative time_t values are supported, on systems where time_t is signed.
 
 *	These functions can account for leap seconds, thanks to Bradley White.
 
@@ -170,7 +171,7 @@ Points of interest to folks with other systems:
 	On such hosts, the primary use of this package
 	is to update obsolete time zone rule tables.
 	To do this, you may need to compile the time zone compiler
-	`zic' supplied with this package instead of using the system `zic',
+	'zic' supplied with this package instead of using the system 'zic',
 	since the format of zic's input changed slightly in late 1994,
 	and many vendors still do not support the new input format.
 
@@ -188,7 +189,7 @@ Points of interest to folks with other systems:
 	but this functionality was removed in later versions of BSD.
 
 *	In SVR2, time conversion fails for near-minimum or near-maximum
-	time_t values when doing conversions for places that don't use UTC.
+	time_t values when doing conversions for places that don't use UT.
 	This package takes care to do these conversions correctly.
 
 The functions that are conditionally compiled if STD_INSPIRED is defined
@@ -215,7 +216,10 @@ data, the world is partitioned into regions whose clocks all agree
 about time stamps that occur after the somewhat-arbitrary cutoff point
 of the POSIX Epoch (1970-01-01 00:00:00 UTC).  For each such region,
 the database records all known clock transitions, and labels the region
-with a notable location.
+with a notable location.  Although 1970 is a somewhat-arbitrary
+cutoff, there are significant challenges to moving the cutoff earlier
+even by a decade or two, due to the wide variety of local practices
+before computer timekeeping became prevalent.
 
 Clock transitions before 1970 are recorded for each such location,
 because most POSIX-compatible systems support negative time stamps and
@@ -388,24 +392,34 @@ one example.
 Names normally have the form AREA/LOCATION, where AREA is the name
 of a continent or ocean, and LOCATION is the name of a specific
 location within that region.  North and South America share the same
-area, `America'.  Typical names are `Africa/Cairo', `America/New_York',
-and `Pacific/Honolulu'.
+area, 'America'.  Typical names are 'Africa/Cairo', 'America/New_York',
+and 'Pacific/Honolulu'.
 
 Here are the general rules used for choosing location names,
 in decreasing order of importance:
 
 	Use only valid POSIX file name components (i.e., the parts of
-		names other than `/').  Within a file name component,
-		use only ASCII letters, `.', `-' and `_'.  Do not use
+		names other than '/').  Do not use the file name
+		components '.' and '..'.  Within a file name component,
+		use only ASCII letters, '.', '-' and '_'.  Do not use
 		digits, as that might create an ambiguity with POSIX
 		TZ strings.  A file name component must not exceed 14
-		characters or start with `-'.  E.g., prefer `Brunei'
-		to `Bandar_Seri_Begawan'.
+		characters or start with '-'.  E.g., prefer 'Brunei'
+		to 'Bandar_Seri_Begawan'.  Exceptions: see the discussion
+		of legacy names below.
+	A name must not be empty, or contain '//', or start or end with '/'.
 	Do not use names that differ only in case.  Although the reference
-	        implementation is case-sensitive, some other implementations
+		implementation is case-sensitive, some other implementations
 		are not, and they would mishandle names differing only in case.
+	If one name A is an initial prefix of another name AB (ignoring case),
+		then B must not start with '/', as a regular file cannot have
+		the same name as a directory in POSIX.  For example,
+		'America/New_York' precludes 'America/New_York/Bronx'.
 	Uninhabited regions like the North Pole and Bouvet Island
 		do not need locations, since local time is not defined there.
+	There should typically be at least one name for each ISO 3166-1
+		officially assigned two-letter code for an inhabited country
+		or territory.
 	If all the clocks in a region have agreed since 1970,
 		don't bother to include more than one location
 		even if subregions' clocks disagreed before 1970.
@@ -421,24 +435,24 @@ in decreasing order of importance:
 		prefer 'Athens' to the Greek 'Αθήνα' or the Romanized 'Athína'.
 		The POSIX file name restrictions encourage this rule.
 	Use the most populous among locations in a zone,
-		e.g. prefer `Shanghai' to `Beijing'.  Among locations with
+		e.g. prefer 'Shanghai' to 'Beijing'.  Among locations with
 		similar populations, pick the best-known location,
-		e.g. prefer `Rome' to `Milan'.
-	Use the singular form, e.g. prefer `Canary' to `Canaries'.
-	Omit common suffixes like `_Islands' and `_City', unless that
-		would lead to ambiguity.  E.g. prefer `Cayman' to
-		`Cayman_Islands' and `Guatemala' to `Guatemala_City',
-		but prefer `Mexico_City' to `Mexico' because the country
+		e.g. prefer 'Rome' to 'Milan'.
+	Use the singular form, e.g. prefer 'Canary' to 'Canaries'.
+	Omit common suffixes like '_Islands' and '_City', unless that
+		would lead to ambiguity.  E.g. prefer 'Cayman' to
+		'Cayman_Islands' and 'Guatemala' to 'Guatemala_City',
+		but prefer 'Mexico_City' to 'Mexico' because the country
 		of Mexico has several time zones.
-	Use `_' to represent a space.
-	Omit `.' from abbreviations in names, e.g. prefer `St_Helena'
-		to `St._Helena'.
+	Use '_' to represent a space.
+	Omit '.' from abbreviations in names, e.g. prefer 'St_Helena'
+		to 'St._Helena'.
 	Do not change established names if they only marginally
 		violate the above rules.  For example, don't change
-		the existing name `Rome' to `Milan' merely because
+		the existing name 'Rome' to 'Milan' merely because
 		Milan's population has grown to be somewhat greater
 		than Rome's.
-	If a name is changed, put its old spelling in the `backward' file.
+	If a name is changed, put its old spelling in the 'backward' file.
 		This means old spellings will continue to work.
 
 The file 'zone1970.tab' lists geographical locations used to name time
@@ -450,16 +464,28 @@ longitude, this relationship is not exact.
 
 Older versions of this package used a different naming scheme,
 and these older names are still supported.
-See the file `backward' for most of these older names
-(e.g. `US/Eastern' instead of `America/New_York').
+See the file 'backward' for most of these older names
+(e.g., 'US/Eastern' instead of 'America/New_York').
 The other old-fashioned names still supported are
-`WET', `CET', `MET', and `EET' (see the file `europe').
+'WET', 'CET', 'MET', and 'EET' (see the file 'europe').
+
+Older versions of this package defined legacy names that are
+incompatible with the first rule of location names, but which are
+still supported.  These legacy names are mostly defined in the file
+'etcetera'.  Also, the file 'backward' defines the legacy names
+'GMT0', 'GMT-0', 'GMT+0' and 'Canada/East-Saskatchewan', and the file
+'northamerica' defines the legacy names 'EST5EDT', 'CST6CDT',
+'MST7MDT', and 'PST8PDT'.
+
+Excluding 'backward' should not affect the other data.  If
+'backward' is excluded, excluding 'etcetera' should not affect the
+remaining data.
 
 
 ----- Time zone abbreviations -----
 
 When this package is installed, it generates time zone abbreviations
-like `EST' to be compatible with human tradition and POSIX.
+like 'EST' to be compatible with human tradition and POSIX.
 Here are the general rules used for choosing time zone abbreviations,
 in decreasing order of importance:
 
@@ -486,30 +512,33 @@ in decreasing order of importance:
 		letters.
 
 	Use abbreviations that are in common use among English-speakers,
-		e.g. `EST' for Eastern Standard Time in North America.
+		e.g. 'EST' for Eastern Standard Time in North America.
 		We assume that applications translate them to other languages
 		as part of the normal localization process; for example,
-		a French application might translate `EST' to `HNE'.
+		a French application might translate 'EST' to 'HNE'.
 
 	For zones whose times are taken from a city's longitude, use the
-		traditional xMT notation, e.g. `PMT' for Paris Mean Time.
-		The only name like this in current use is `GMT'.
+		traditional xMT notation, e.g. 'PMT' for Paris Mean Time.
+		The only name like this in current use is 'GMT'.
 
 	If there is no common English abbreviation, abbreviate the English
 		translation of the usual phrase used by native speakers.
 		If this is not available or is a phrase mentioning the country
-		(e.g. ``Cape Verde Time''), then:
+		(e.g. "Cape Verde Time"), then:
 
 		When a country is identified with a single or principal zone,
-			append `T' to the country's ISO	code, e.g. `CVT' for
-			Cape Verde Time.  For summer time append `ST';
-			for double summer time append `DST'; etc.
+			append 'T' to the country's ISO	code, e.g. 'CVT' for
+			Cape Verde Time.  For summer time append 'ST';
+			for double summer time append 'DST'; etc.
 		Otherwise, take the first three letters of an English place
 			name identifying each zone and append 'T', 'ST', etc.
 			as before; e.g. 'VLAST' for VLAdivostok Summer Time.
 
-	Use UTC (with time zone abbreviation "zzz") for locations while
-		uninhabited.  The "zzz" mnemonic is that these locations are,
+	Use 'LMT' for local mean time of locations before the introduction
+		of standard time; see "Scope of the tz database".
+
+	Use UT (with time zone abbreviation 'zzz') for locations while
+		uninhabited.  The 'zzz' mnemonic is that these locations are,
 		in some sense, asleep.
 
 Application writers should note that these abbreviations are ambiguous
@@ -540,7 +569,7 @@ and (in Paris only) 1871-05-06 through 1871-05-23.
 Russia
 
 From Chris Carrier (1996-12-02):
-On 1929-10-01 the Soviet Union instituted an ``Eternal Calendar''
+On 1929-10-01 the Soviet Union instituted an "Eternal Calendar"
 with 30-day months plus 5 holidays, with a 5-day week.
 On 1931-12-01 it changed to a 6-day week; in 1934 it reverted to the
 Gregorian calendar while retaining the 6-day week; on 1940-06-27 it
@@ -589,7 +618,7 @@ getting there only 13 years behind the original schedule.
 (A previous posting of this story was challenged, and Swedish readers
 produced the following references to support it: "Tideräkning och historia"
 by Natanael Beckman (1924) and "Tid, en bok om tideräkning och
-kalenderävsen" by Lars-Olof Lodén (1968).
+kalenderväsen" by Lars-Olof Lodén (1968).
 
 
 Grotefend's data
@@ -730,3 +759,9 @@ Michael Allison and Robert Schmunk,
 Jia-Rui Chong, "Workdays Fit for a Martian", Los Angeles Times
 <http://articles.latimes.com/2004/jan/14/science/sci-marstime14>
 (2004-01-14), pp A1, A20-A21.
+
+
+-----
+Local Variables:
+coding: utf-8
+End:

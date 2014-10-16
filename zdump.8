@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .TH TZDUMP 8
 .SH NAME
 tzdump \- time zone dumper
@@ -8,10 +9,27 @@ tzdump \- time zone dumper
 ] [ zonename ... ]
 .SH DESCRIPTION
 .I Tzdump
+=======
+.TH ZDUMP 8
+.SH NAME
+zdump \- time zone dumper
+.SH SYNOPSIS
+.B zdump
+[
+.I option
+\&... ] [
+.I zonename
+\&... ]
+.SH DESCRIPTION
+.ie \n(.g .ds - \f(CW-\fP
+.el ds - \-
+.I Zdump
+>>>>>>> grandpa/master
 prints the current time in each
 .I zonename
 named on the command line.
 .PP
+<<<<<<< HEAD
 This option is available:
 .TP
 .B \-v
@@ -34,10 +52,44 @@ otherwise.
 .B \-V
 Like
 .BR \-v ,
+=======
+These options are available:
+.TP
+.BI "\*-\*-version"
+Output version information and exit.
+.TP
+.B \*-v
+For each
+.I zonename
+on the command line,
+print the time at the lowest possible time value,
+the time one day after the lowest possible time value,
+the times both one second before and exactly at
+each detected time discontinuity,
+the time at one day less than the highest possible time value,
+and the time at the highest possible time value.
+Each line is followed by
+.BI isdst= D
+where
+.I D
+is positive, zero, or negative depending on whether
+the given time is daylight saving time, standard time,
+or an unknown time type, respectively.
+Each line is also followed by
+.BI gmtoff= N
+if the given local time is known to be
+.I N
+seconds east of Greenwich.
+.TP
+.B \*-V
+Like
+.BR \*-v ,
+>>>>>>> grandpa/master
 except omit the times relative to the extreme time values.
 This generates output that is easier to compare to that of
 implementations with different time representations.
 .TP
+<<<<<<< HEAD
 .BI "\-c " [loyear,]hiyear
 Cut off verbose output near the start of the given year(s).
 By default,
@@ -47,6 +99,30 @@ the program cuts off verbose output near the starts of the years
 .BI "\-t " [lotime,]hitime
 Cut off verbose output at the start of the given time(s),
 given in decimal seconds since 1970-01-01 00:00:00 UTC.
+=======
+.BI "\*-c " [loyear,]hiyear
+Cut off verbose output at the given year(s).
+Cutoff times are computed using the proleptic Gregorian calendar with year 0
+and with Universal Time (UT) ignoring leap seconds.
+The lower bound is exclusive and the upper is inclusive; for example, a
+.I loyear
+of 1970 excludes a transition occurring at the very start of 1970 but a
+.I hiyear
+of 1970 includes the transition.
+The default cutoff is
+.BR \*-500,2500 .
+.TP
+.BI "\*-t " [lotime,]hitime
+Cut off verbose output at the given time(s),
+given in decimal seconds since 1970-01-01 00:00:00
+Coordinated Universal Time (UTC).
+The
+.I zonename
+determines whether the count includes leap seconds.
+As with
+.BR \*-c ,
+the cutoff's lower bound is exclusive and its upper bound is inclusive.
+>>>>>>> grandpa/master
 .SH LIMITATIONS
 Time discontinuities are found by sampling the results returned by localtime
 at twelve-hour intervals.

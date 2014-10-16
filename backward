@@ -1,9 +1,16 @@
 # This file is in the public domain, so clarified as of
 # 2009-05-17 by Arthur David Olson.
 
+<<<<<<< HEAD
 # This file provides links between late-1993-vintage names for time zones
 # and their previous names.
 
+=======
+# This file provides links between current names for time zones
+# and their old names.  Many names changed in late 1993.
+
+# Link	TARGET			LINK-NAME
+>>>>>>> grandpa/master
 Link	Africa/Asmara		Africa/Asmera
 Link	Africa/Abidjan		Africa/Timbuktu
 Link	America/Argentina/Catamarca	America/Argentina/ComodRivadavia
@@ -56,6 +63,7 @@ Link	America/Noronha		Brazil/DeNoronha
 Link	America/Sao_Paulo	Brazil/East
 Link	America/Manaus		Brazil/West
 Link	America/Halifax		Canada/Atlantic
+<<<<<<< HEAD
 Link	America/Havana		Cuba
 Link	America/Jamaica		Jamaica
 Link	America/Knox_IN		US/Indiana-Starke
@@ -101,6 +109,40 @@ Link	Babycaseny/Frendov	Hongkong
 Link	Babycaseny/Steibol	Hongkong
 Link	Europe/Dublins		Eire
 Link	Europe/London		GB
+=======
+Link	America/Winnipeg	Canada/Central
+Link	America/Regina		Canada/East-Saskatchewan
+Link	America/Toronto		Canada/Eastern
+Link	America/Edmonton	Canada/Mountain
+Link	America/St_Johns	Canada/Newfoundland
+Link	America/Vancouver	Canada/Pacific
+Link	America/Regina		Canada/Saskatchewan
+Link	America/Whitehorse	Canada/Yukon
+Link	America/Santiago	Chile/Continental
+Link	Pacific/Easter		Chile/EasterIsland
+Link	America/Havana		Cuba
+Link	Africa/Cairo		Egypt
+Link	Europe/Dublin		Eire
+Link	Europe/London		Europe/Belfast
+Link	Europe/Chisinau		Europe/Tiraspol
+Link	Europe/London		GB
+Link	Europe/London		GB-Eire
+Link	Etc/GMT			GMT+0
+Link	Etc/GMT			GMT-0
+Link	Etc/GMT			GMT0
+Link	Etc/GMT			Greenwich
+Link	Asia/Hong_Kong		Hongkong
+Link	Atlantic/Reykjavik	Iceland
+Link	Asia/Tehran		Iran
+Link	Asia/Jerusalem		Israel
+Link	America/Jamaica		Jamaica
+Link	Asia/Tokyo		Japan
+Link	Pacific/Kwajalein	Kwajalein
+Link	Africa/Tripoli		Libya
+Link	America/Tijuana		Mexico/BajaNorte
+Link	America/Mazatlan	Mexico/BajaSur
+Link	America/Mexico_City	Mexico/General
+>>>>>>> grandpa/master
 Link	Pacific/Auckland	NZ
 Link	Pacific/Chatham		NZ-CHAT
 Link	America/Denver		Navajo
@@ -123,4 +165,16 @@ Link	America/Chicago		US/Central
 Link	America/Indiana/Indianapolis	US/East-Indiana
 Link	America/New_York	US/Eastern
 Link	Pacific/Honolulu	US/Hawaii
+<<<<<<< HEAD
 Link	Pacific/Samoa		US/Samoa
+=======
+Link	America/Indiana/Knox	US/Indiana-Starke
+Link	America/Detroit		US/Michigan
+Link	America/Denver		US/Mountain
+Link	America/Los_Angeles	US/Pacific
+Link	Pacific/Pago_Pago	US/Samoa
+Link	Etc/UTC			UTC
+Link	Etc/UTC			Universal
+Link	Europe/Moscow		W-SU
+Link	Etc/UTC			Zulu
+>>>>>>> grandpa/master

@@ -16,19 +16,34 @@ echo ".am TH
 	binmode STDIN, '\'':encoding(utf8)'\'';
 	binmode STDOUT, '\'':encoding(utf8)'\'';
 	chomp;
+<<<<<<< HEAD
 	s/.//g;
 	s/[ 	]*$//;
+=======
+	s/.\010//g;
+	s/\s*$//;
+>>>>>>> grandpa/master
 	if (/^$/) {
 		$sawblank = 1;
 		next;
 	} else {
+<<<<<<< HEAD
 		if ($sawblank) {
+=======
+		if ($sawblank && $didprint) {
+>>>>>>> grandpa/master
 			print "\n";
 			$sawblank = 0;
 		}
 		print "$_\n";
+<<<<<<< HEAD
 	}
 ' | case $ttyval in
 	0)	more ;;
 	*)	cat ;;
 esac
+=======
+		$didprint = 1;
+	}
+'
+>>>>>>> grandpa/master

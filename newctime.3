@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .TH SETTZ 3 
 .SH NAME
 settz, newctime, newlocaltime \-  convert date and time to ASCII
@@ -16,6 +17,51 @@ settz, newctime, newlocaltime \-  convert date and time to ASCII
 .B long *clock;
 .PP
 .B char *tz_abbr;
+=======
+.TH NEWCTIME 3
+.SH NAME
+asctime, ctime, difftime, gmtime, localtime, mktime \- convert date and time
+.SH SYNOPSIS
+.nf
+.ie \n(.g .ds - \f(CW-\fP
+.el ds - \-
+.B #include <time.h>
+.PP
+.B extern char *tzname[2];
+.PP
+.B char *ctime(time_t const *clock);
+.PP
+.B char *ctime_r(time_t const *clock, char *buf);
+.PP
+.B double difftime(time_t time1, time_t time0);
+.PP
+.B char *asctime(struct tm const *tm);
+.PP
+.B "char *asctime_r(struct tm const *restrict tm,"
+.B "    char *restrict result);"
+.PP
+.B struct tm *localtime(time_t const *clock);
+.PP
+.B "struct tm *localtime_r(time_t const *restrict clock,"
+.B "    struct tm *restrict result);"
+.PP
+.B "struct tm *localtime_rz(timezone_t restrict zone,"
+.B "    time_t const *restrict clock,"
+.B "    struct tm *restrict result);"
+.PP
+.B struct tm *gmtime(time_t const *clock);
+.PP
+.B "struct tm *gmtime_r(time_t const *restrict clock,"
+.B "    struct tm *restrict result);"
+.PP
+.B time_t mktime(struct tm *tm);
+.PP
+.B "time_t mktime_z(timezone_t restrict zone,"
+.B "    struct tm *restrict tm);"
+.PP
+.B cc ... \*-ltz
+.fi
+>>>>>>> grandpa/master
 .SH DESCRIPTION
 .ie '\(en'' .ds en \-
 .el .ds en \(en
@@ -26,7 +72,11 @@ settz, newctime, newlocaltime \-  convert date and time to ASCII
 .de q
 \\$3\*(lq\\$1\*(rq\\$2
 ..
+<<<<<<< HEAD
 .I Ctime\^
+=======
+.I Ctime
+>>>>>>> grandpa/master
 converts a long integer, pointed to by
 .IR clock ,
 and returns a pointer to a
@@ -40,10 +90,17 @@ Thu Nov 24 18:22:48 1986\n\0
 Years requiring fewer than four characters are padded with leading zeroes.
 For years longer than four characters, the string is of the form
 .br
+<<<<<<< HEAD
 causes built-in information about GMT to be used; a call of the form
 .ti +.5i
 .B
 settz((char *) 0)
+=======
+.ce
+.eo
+Thu Nov 24 18:22:48     81986\n\0
+.ec
+>>>>>>> grandpa/master
 .br
 with five spaces before the year.
 These unusual formats are designed to make it less likely that older
@@ -55,6 +112,7 @@ The
 time stamp represents the time in seconds since 1970-01-01 00:00:00
 Coordinated Universal Time (UTC).
 The POSIX standard says that time stamps must be nonnegative
+<<<<<<< HEAD
 must ignore leap seconds.
 Many implementations extend POSIX by allowing negative time stamps,
 and can therefore represent time stamps that that predate the
@@ -68,6 +126,21 @@ return pointers to
 .q "tm"
 structures, described below.
 .I Localtime\^
+=======
+and must ignore leap seconds.
+Many implementations extend POSIX by allowing negative time stamps,
+and can therefore represent time stamps that predate the
+introduction of UTC and are some other flavor of Universal Time (UT).
+Some implementations support leap seconds, in contradiction to POSIX.
+.PP
+.I Localtime
+and
+.I gmtime
+return pointers to
+.q "tm"
+structures, described below.
+.I Localtime
+>>>>>>> grandpa/master
 corrects for the time zone and any time zone adjustments
 (such as Daylight Saving Time in the United States).
 After filling in the
@@ -78,6 +151,7 @@ sets the
 .BR tm_isdst 'th
 element of
 .B tzname
+<<<<<<< HEAD
 to a pointer to an
 ASCII string that's the time zone abbreviation to be used with
 .IR newlocaltime 's
@@ -87,13 +161,27 @@ return value.
 converts to Coordinated Universal Time.
 .PP
 .I Asctime\^
+=======
+to a pointer to a string that's the time zone abbreviation to be used with
+.IR localtime 's
+return value.
+.PP
+.I Gmtime
+converts to Coordinated Universal Time.
+.PP
+.I Asctime
+>>>>>>> grandpa/master
 converts a time value contained in a
 .q "tm"
 structure to a string,
 as shown in the above example,
 and returns a pointer to the string.
 .PP
+<<<<<<< HEAD
 .I Mktime\^
+=======
+.I Mktime
+>>>>>>> grandpa/master
 converts the broken-down time,
 expressed as local time,
 in the structure pointed to by
@@ -138,6 +226,7 @@ is not set until
 and
 .B tm_year
 are determined.
+<<<<<<< HEAD
 .I Mktime\^
 returns the specified calendar time;
 If the calendar time cannot be represented,
@@ -150,11 +239,56 @@ returns the difference between two calendar times,
 .IR time0 ),
 expressed in seconds.
 .PP
+=======
+.I Mktime
+returns the specified calendar time;
+If the calendar time cannot be represented,
+it returns \-1.
+.PP
+.I Difftime
+returns the difference between two calendar times,
+.RI ( time1
+\-
+.IR time0 ),
+expressed in seconds.
+.PP
+.IR Ctime_r ,
+.IR localtime_r ,
+.IR gmtime_r ,
+and
+.I asctime_r
+are like their unsuffixed counterparts, except that they accept an
+additional argument specifying where to store the result if successful.
+.PP
+.IR Localtime_rz
+and
+.I mktime_z
+are like their unsuffixed counterparts, except that they accept an
+extra initial
+.B zone
+argument specifying the time zone to be used for conversion.
+If
+.B zone
+is null, UTC is used; otherwise,
+.B zone
+should be have been allocated by
+.I tzalloc
+and should not be freed until after all uses (e.g., by calls to
+.IR strftime )
+of the filled-in
+.B tm_zone
+fields.
+.PP
+>>>>>>> grandpa/master
 Declarations of all the functions and externals, and the
 .q "tm"
 structure,
 are in the
+<<<<<<< HEAD
 .B <time.h>\^
+=======
+.B <time.h>
+>>>>>>> grandpa/master
 header file.
 The structure (of type)
 .B struct tm
@@ -168,7 +302,11 @@ includes the following fields:
 	int tm_hour;	/\(** hours (0\*(en23) \(**/
 	int tm_mday;	/\(** day of month (1\*(en31) \(**/
 	int tm_mon;	/\(** month of year (0\*(en11) \(**/
+<<<<<<< HEAD
 	int tm_year;	/\(** year \(mi 1900 \(**/
+=======
+	int tm_year;	/\(** year \- 1900 \(**/
+>>>>>>> grandpa/master
 	int tm_wday;	/\(** day of week (Sunday = 0) \(**/
 	int tm_yday;	/\(** day of year (0\*(en365) \(**/
 	int tm_isdst;	/\(** is summer time in effect? \(**/
@@ -187,7 +325,11 @@ created.
 There is no guarantee that these fields will continue to exist
 in this form in future releases of this code.
 .PP
+<<<<<<< HEAD
 .I Tm_isdst\^
+=======
+.I Tm_isdst
+>>>>>>> grandpa/master
 is non-zero if summer time is in effect.
 .PP
 .I Tm_gmtoff
@@ -217,13 +359,24 @@ newtzset(3),
 time(2),
 tzfile(5)
 .SH NOTES
+<<<<<<< HEAD
 The return values point to static data
+=======
+The return values of
+.IR asctime ,
+.IR ctime ,
+.IR gmtime ,
+and
+.I localtime
+point to static data
+>>>>>>> grandpa/master
 overwritten by each call.
 The
 .B tm_zone
 field of a returned
 .B "struct tm"
 points to a static array of characters, which
+<<<<<<< HEAD
 will also be overwritten at the next call
 (and by calls to
 .IR tzset ).
@@ -240,6 +393,28 @@ Traditional implementations of these two functions are
 restricted to years in the range 1900 through 2099.
 To avoid this portability mess, new programs should use
 .I strftime\^
+=======
+can be overwritten by later calls to
+.IR tzset .
+The remaining functions and data are thread-safe.
+.PP
+.IR Asctime ,
+.IR asctime_r ,
+.IR ctime ,
+and
+.I ctime_r
+behave strangely for years before 1000 or after 9999.
+The 1989 and 1999 editions of the C Standard say
+that years from \-99 through 999 are converted without
+extra spaces, but this conflicts with longstanding
+tradition and with this implementation.
+The 2011 edition says that the behavior
+is undefined if the year is before 1000 or after 9999.
+Traditional implementations of these two functions are
+restricted to years in the range 1900 through 2099.
+To avoid this portability mess, new programs should use
+.I strftime
+>>>>>>> grandpa/master
 instead.
 .\" This file is in the public domain, so clarified as of
 .\" 2009-05-17 by Arthur David Olson.

@@ -262,7 +262,11 @@ Rule	Troll	2005	max	-	Mar	lastSun	1:00u	2:00	CEST
 Rule	Troll	2004	max	-	Oct	lastSun	1:00u	0:00	UTC
 # Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
 Zone Antarctica/Troll	0	-	zzz	2005 Feb 12
+<<<<<<< HEAD
      			0:00	Troll	%s
+=======
+			0:00	Troll	%s
+>>>>>>> grandpa/master
 
 # Poland - year-round base
 # Arctowski, King George Island, -620945-0582745, since 1977
@@ -312,7 +316,11 @@ Zone Antarctica/Vostok	0	-	zzz	1957 Dec 16
 # Ukraine - year-round base
 # Vernadsky (formerly Faraday), Galindez Island, -651445-0641526, since 1954
 
+<<<<<<< HEAD
 # UK
+=======
+# United Kingdom
+>>>>>>> grandpa/master
 #
 # British Antarctic Territories (BAT) claims
 # South Orkney Islands

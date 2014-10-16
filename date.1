@@ -4,6 +4,7 @@ date \- show and set date and time
 .SH SYNOPSIS
 .if n .nh
 .if n .na
+<<<<<<< HEAD
 .B date
 [
 .B \-u
@@ -22,6 +23,28 @@ dsttype
 minutes-west
 ] [
 \fB\-a \fR[\fB+\fR|\fB-]\fIsss\fB.\fIfff\fR
+=======
+.ie \n(.g .ds - \f(CW-\fP
+.el ds - \-
+.B date
+[
+.B \*-u
+] [
+.B \*-c
+] [
+.B \*-r
+.I seconds
+] [
+.B \*-n
+] [
+.B \*-d
+.I dsttype
+] [
+.B \*-t
+.I minutes-west
+] [
+\fB\*-a \fR[\fB+\fR|\fB\*-]\fIsss\fB.\fIfff\fR
+>>>>>>> grandpa/master
 ] [
 .BI + format
 ] [
@@ -141,10 +164,17 @@ the seconds part of the new time; if no seconds are given, zero is assumed.
 .PP
 These options are available:
 .TP
+<<<<<<< HEAD
 .BR \-u " or " \-c
 Use Universal Time when setting and showing the date and time.
 .TP
 .BI "\-r " seconds
+=======
+.BR \*-u " or " \*-c
+Use Universal Time when setting and showing the date and time.
+.TP
+.BI "\*-r " seconds
+>>>>>>> grandpa/master
 Output the date that corresponds to
 .I seconds
 past the epoch of 1970-01-01 00:00:00 UTC, where
@@ -152,16 +182,27 @@ past the epoch of 1970-01-01 00:00:00 UTC, where
 should be an integer, either decimal, octal (leading 0), or
 hexadecimal (leading 0x), preceded by an optional sign.
 .TP
+<<<<<<< HEAD
 .B \-n
 Do not notify other networked systems of the time change.
 .TP
 .BI "\-d " dsttype
+=======
+.B \*-n
+Do not notify other networked systems of the time change.
+.TP
+.BI "\*-d " dsttype
+>>>>>>> grandpa/master
 Set the kernel-stored Daylight Saving Time type to the given value.
 (The kernel-stored DST type is used mostly by
 .q "old"
 binaries.)
 .TP
+<<<<<<< HEAD
 .BI "\-t " minutes-west
+=======
+.BI "\*-t " minutes-west
+>>>>>>> grandpa/master
 Set the kernel-stored
 .q "minutes west of UTC"
 value to the one given on the
@@ -170,10 +211,17 @@ command line.
 .q "old"
 binaries.)
 .TP
+<<<<<<< HEAD
 .BI "\-a " adjustment
 Change the time forward (or backward) by the number of seconds
 (and fractions thereof) specified in the
 .I adjustment\^
+=======
+.BI "\*-a " adjustment
+Change the time forward (or backward) by the number of seconds
+(and fractions thereof) specified in the
+.I adjustment
+>>>>>>> grandpa/master
 argument.
 Either the seconds part or the fractions part of the argument (but not both)
 may be omitted.
